@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data structure on syx的日志</title>
+    <link>cartershi.github.io/tags/data-structure/</link>
+    <description>Recent content in data structure on syx的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 22 Jun 2019 19:23:11 +0800</lastBuildDate>
+    
+	<atom:link href="cartershi.github.io/tags/data-structure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chapter12</title>
+      <link>cartershi.github.io/post/chapter12/</link>
+      <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
+      
+      <guid>cartershi.github.io/post/chapter12/</guid>
+      <description>Finger Search Tree Finger Search指从finger $x$出发寻找$y$。比如有序数组，从$x$开始倍增，这里不能acm里的那种倍减trick，因为那样是$O(\log n)$的，而倍增是$O(\log d)$的。$d$是$x$和$y$在有序数组中的排名差。如下图所示，意识流一下就是那样了。
+Dynamic Finger Search Trees 上面的倍增已经解决了这个问题，但是有序数组不能高效插入删除，所以需要Dynamic Finger Search Tree。
+Level Linked (2,4)-Trees B树它leile，2-4个孩子的B树，基于finger的插入删除均摊复杂度为$O(1)$，期望倒是会，均摊不会分析。它与B树的不同在于所有的边都是双向的，并且同层相邻节点之间边相连。
+不妨令$x&amp;lt;y$，走到父亲$v$，同时判断$v$的右邻居$v&amp;rsquo;$是否是$y$的父亲。当停止时：
+若因为停在共同的祖先$c$，则$c$至少有一个子树隔开$x,y$，这颗子树里的点都在$x,y$之间，它的点数就bound住了高度。
+若是因为$v$的右邻居$u&amp;rsquo;$是$y$的父亲，此时$x$在$v$的右子树，$y$在$v$的父亲的右邻居$u&amp;rsquo;$的左子树，只需要考虑$v$和$u&amp;rsquo;$的子树的末端相邻点，则变成第一种情况。Q.E.D.
+综上，用(2,4)-Tree的时间复杂度是$O(\log d)$的。
+Randomized Finger Search Trees 这节写的比较玄，背景知识参考这里。
+treap treap的思路就是一个二叉搜索树，但是它不像平衡树那样根据树高左旋右旋，而是根据随机产生的第二优先值维护一个堆（下面只考虑小根堆）。比如当前子树根为A，左子树根为B，右子树为C，不妨B的第二优先值最小，则B右旋成根，它的右子树变成A的左子树。单旋谁不会啊
+下图字母是键值，数字是第二优先值。
+1.插入 首先按二叉搜索树将其真实值插入到叶子，然后就堆插入元素那样按第二优先值从最底层往上调，调整就是用的左旋右旋。
+2.删除 先找到这个节点，然后将其旋转到叶子，最后删除掉，逆着插入的操作
+3.分裂 即分裂成比某个值$\pi$大的和小的两个treap。插入$\pi$，令它的第二优先值为无穷小，那么插入完它为根，且由二叉搜索树得，它的两个子树是要求的treap。
+4.合并 用$\pi$作为根合并两棵treap，然后将根用删除的操作删除。
+以上4个操作的复杂度均由treap的高度决定，可证明随机情况下高度为$O(\log n)$。
+引理：将元素按键值递增为数组A，在treap中第i小的元素为第k小元素的祖先等价于i的第二优先值是A[i..k]中最小的(i&amp;lt;k)。在treap中第i小的元素为第j小元素的祖先等价于i的第二优先值是A[j..i]中最小的(j&amp;lt;i)
+证：
+⇒：考虑当前treap的根是谁。若是i，则得证；若是k，则矛盾；若在区间(i,k)，则i和k不在同一子树，矛盾；若不在区间[i,k]，则是更小的treap，递归得证。
+⇐：依然分类讨论根。Q.E.D.
+这个引理在下面的证明中会被直接使用，就不明说了。
+定理1：以上四个操作期望复杂度都是$O(\log n)$的。
+证：考虑每个元素深度的期望，即祖先个数的期望，即每个点是其祖先的概率，等价于每个区间中它是最小的，将区间拆成以它结尾的和以它开头的分开计算，两个都是$\sum\frac{1}{i}=O(\log n)$级别。所以以上操作都是$O(\log n)$的。
+定理2：证明树高$O(\log d)$是W.H.P.的。
+证：W.H.P.通常很多是用chernoff bound来证明的，类似树高的期望证明，将区间拆成两个，每个补充到n个随机变量，每个直接用chernoff bound即可。Q.E.D.
+接下来分析基本来自96年Raimund Seidel的那篇Randomized Search Trees。或者算法导论红黑树那章最后一道作业题。
+定理3：给定finger下，插入删除复杂度为$O(1)$。
+证：定义点v的left spine为从v开始只走左边的最长路径，right spine为从v开始只走右边的最长路径。
+对于待删除的点x，定义$SL(x)$为x的左孩子的right spine，$SR(x)$为x的右孩子的left spine。虽然很别扭，但是这个定义很符合单旋的性质：若x左旋，即x变成左孩子，x的右孩子的左子树变为x的右子树，则$SL(x)$不变，$SR(x)-1$。若右旋，即x变为右孩子，x的左孩子的右子树变为x的左子树，则$SL(x)-1$，$SR(x)$不变，所以每次旋转$SL(x)+SR(L)$减少一。左、右两个字我已经不认识了。</description>
+    </item>
+    
+    <item>
+      <title>数据结构手册</title>
+      <link>cartershi.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</link>
+      <pubDate>Sat, 22 Jun 2019 17:07:02 +0800</pubDate>
+      
+      <guid>cartershi.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</guid>
+      <description>打算学一些数据结构上的分析，参考书Handbook of Data Structures and Applications，在这里，由于书写的比较简略，有些地方不容易理解，所以做一些读书笔记。
+另外附一个18年出版的第二版，不过排版没有第一版舒服。网上不太好找，放个压缩包，密码是nju。
+还是按18年的目录记录吧。
+如有侵权，请联系删除。</description>
+    </item>
+    
+  </channel>
+</rss>
