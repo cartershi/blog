@@ -2,39 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on syx的日志</title>
-    <link>cartershi.github.io/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Jun 2019 19:23:11 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2019 12:06:55 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>data structure</title>
-      <link>cartershi.github.io/tags/data-structure/</link>
-      <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
+      <link>/tags/data-structure/</link>
+      <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/tags/data-structure/</guid>
+      <guid>/tags/data-structure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>skip list</title>
-      <link>cartershi.github.io/tags/skip-list/</link>
-      <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
+      <link>/tags/skip-list/</link>
+      <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/tags/skip-list/</guid>
+      <guid>/tags/skip-list/</guid>
       <description></description>
     </item>
     
     <item>
       <title>treap</title>
-      <link>cartershi.github.io/tags/treap/</link>
-      <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
+      <link>/tags/treap/</link>
+      <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/tags/treap/</guid>
+      <guid>/tags/treap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LCT</title>
+      <link>/tags/lct/</link>
+      <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
+      
+      <guid>/tags/lct/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>splay</title>
+      <link>/tags/splay/</link>
+      <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
+      
+      <guid>/tags/splay/</guid>
       <description></description>
     </item>
     

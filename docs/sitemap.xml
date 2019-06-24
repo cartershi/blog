@@ -3,58 +3,80 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>cartershi.github.io/post/chapter12/</loc>
-    <lastmod>2019-06-22T19:23:11+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/</loc>
-    <lastmod>2019-06-22T19:23:11+08:00</lastmod>
+    <loc>/post/</loc>
+    <lastmod>2019-06-24T12:06:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>cartershi.github.io/tags/</loc>
-    <lastmod>2019-06-22T19:23:11+08:00</lastmod>
+    <loc>/tags/</loc>
+    <lastmod>2019-06-24T12:06:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>cartershi.github.io/tags/data-structure/</loc>
-    <lastmod>2019-06-22T19:23:11+08:00</lastmod>
+    <loc>/post/chapter14/</loc>
+    <lastmod>2019-06-24T12:06:55+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/data-structure/</loc>
+    <lastmod>2019-06-24T12:06:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>cartershi.github.io/tags/skip-list/</loc>
-    <lastmod>2019-06-22T19:23:11+08:00</lastmod>
+    <loc>/tags/skip-list/</loc>
+    <lastmod>2019-06-24T12:06:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>cartershi.github.io/</loc>
-    <lastmod>2019-06-22T19:23:11+08:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2019-06-24T12:06:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>cartershi.github.io/tags/treap/</loc>
-    <lastmod>2019-06-22T19:23:11+08:00</lastmod>
+    <loc>/tags/treap/</loc>
+    <lastmod>2019-06-24T12:06:55+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>cartershi.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</loc>
+    <loc>/post/chapter13/</loc>
+    <lastmod>2019-06-24T00:15:52+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/lct/</loc>
+    <lastmod>2019-06-24T00:15:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/splay/</loc>
+    <lastmod>2019-06-24T00:15:52+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/chapter12/</loc>
+    <lastmod>2019-06-22T19:23:11+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</loc>
     <lastmod>2019-06-22T17:07:02+08:00</lastmod>
   </url>
   
   <url>
-    <loc>cartershi.github.io/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2019-06-22T15:34:51+08:00</lastmod>
   </url>
   
   <url>
-    <loc>cartershi.github.io/topics/</loc>
+    <loc>/topics/</loc>
     <priority>0</priority>
   </url>
   
