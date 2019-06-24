@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>syx的日志</title>
-    <link>cartershi.github.io/blog/</link>
+    <link>github.com/cartershi/blog/</link>
     <description>Recent content on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Jun 2019 22:21:33 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="github.com/cartershi/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Chapter16</title>
-      <link>cartershi.github.io/blog/post/chapter16/</link>
+      <link>github.com/cartershi/blog/post/chapter16/</link>
       <pubDate>Mon, 24 Jun 2019 22:21:33 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/chapter16/</guid>
+      <guid>github.com/cartershi/blog/post/chapter16/</guid>
       <description></description>
     </item>
     
     <item>
       <title>chapter14</title>
-      <link>cartershi.github.io/blog/post/chapter14/</link>
+      <link>github.com/cartershi/blog/post/chapter14/</link>
       <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/chapter14/</guid>
+      <guid>github.com/cartershi/blog/post/chapter14/</guid>
       <description>Randomized Dictionary Structures 引言 worst-case高效的数据结构太复杂并且写起来很麻烦，所以人们试图优化一串操作的总代价，而非单次操作的代价，这就是所谓的均摊复杂度。从随机的角度，目的是限制操作的期望并是的超出阈值的概率不大。
 为了简化分析，本章仅考虑支持插入、删除、搜索操作的字典，字典集为有限整数，并且元素之间两两不相同。
 本章讨论的随机算法是Las Vegas algorithm，即只要返回结果，结果就是对的。另外一种是Monte Carlo algorithm，运行时间固定，但是结果不一定对。
@@ -51,19 +51,19 @@ RBST和treap不同，它不随机产生第二有限值，而是保存当前节�
     
     <item>
       <title>Chapter13</title>
-      <link>cartershi.github.io/blog/post/chapter13/</link>
+      <link>github.com/cartershi/blog/post/chapter13/</link>
       <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/chapter13/</guid>
+      <guid>github.com/cartershi/blog/post/chapter13/</guid>
       <description> Splay trees </description>
     </item>
     
     <item>
       <title>Chapter12</title>
-      <link>cartershi.github.io/blog/post/chapter12/</link>
+      <link>github.com/cartershi/blog/post/chapter12/</link>
       <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/chapter12/</guid>
+      <guid>github.com/cartershi/blog/post/chapter12/</guid>
       <description>Finger Search Tree Finger Search指从finger $x$出发寻找$y$。比如有序数组，从$x$开始倍增，这里不能acm里的那种倍减trick，因为那样是$O(\log n)$的，而倍增是$O(\log d)$的。$d$是$x$和$y$在有序数组中的排名差。如下图所示，意识流一下就是那样了。
 Dynamic Finger Search Trees 上面的倍增已经解决了这个问题，但是有序数组不能高效插入删除，所以需要Dynamic Finger Search Tree。
 Level Linked (2,4)-Trees B树它leile，2-4个孩子的B树，基于finger的插入删除均摊复杂度为$O(1)$，期望倒是会，均摊不会分析。它与B树的不同在于所有的边都是双向的，并且同层相邻节点之间边相连。
@@ -99,10 +99,10 @@ treap treap的思路就是一个二叉搜索树，但是它不像平衡树那样
     
     <item>
       <title>数据结构手册</title>
-      <link>cartershi.github.io/blog/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</link>
+      <link>github.com/cartershi/blog/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</link>
       <pubDate>Sat, 22 Jun 2019 17:07:02 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</guid>
+      <guid>github.com/cartershi/blog/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</guid>
       <description>打算学一些数据结构上的分析，参考书Handbook of Data Structures and Applications，在这里，由于书写的比较简略，有些地方不容易理解，所以做一些读书笔记。不能作为教程，主要写得是自己的体验。
 另外附一个18年出版的第二版，不过排版没有第一版舒服。网上不太好找，放个压缩包，密码是nju。
 还是按18年的目录记录吧。
@@ -111,10 +111,10 @@ treap treap的思路就是一个二叉搜索树，但是它不像平衡树那样
     
     <item>
       <title>About</title>
-      <link>cartershi.github.io/blog/about/</link>
+      <link>github.com/cartershi/blog/about/</link>
       <pubDate>Sat, 22 Jun 2019 15:34:51 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/about/</guid>
+      <guid>github.com/cartershi/blog/about/</guid>
       <description>研究笔记
 邮箱：wangyisyx@163.com</description>
     </item>

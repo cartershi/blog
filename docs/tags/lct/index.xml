@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LCT on syx的日志</title>
-    <link>cartershi.github.io/blog/tags/lct/</link>
+    <link>github.com/cartershi/blog/tags/lct/</link>
     <description>Recent content in LCT on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Jun 2019 00:15:52 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/tags/lct/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="github.com/cartershi/blog/tags/lct/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Chapter13</title>
-      <link>cartershi.github.io/blog/post/chapter13/</link>
+      <link>github.com/cartershi/blog/post/chapter13/</link>
       <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/chapter13/</guid>
+      <guid>github.com/cartershi/blog/post/chapter13/</guid>
       <description> Splay trees </description>
     </item>
     

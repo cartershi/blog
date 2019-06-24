@@ -1,4 +1,5 @@
-baseURL = "cartershi.github.io/blog/"
+baseURL = "github.com/cartershi/blog/"
+#baseURL = "cartershi.github.io/blog/"
 languageCode = "en-us"
 title = "syx的日志"
 canonifyurls = true

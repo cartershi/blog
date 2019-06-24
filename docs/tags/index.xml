@@ -2,93 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on syx的日志</title>
-    <link>cartershi.github.io/blog/tags/</link>
+    <link>github.com/cartershi/blog/tags/</link>
     <description>Recent content in Tags on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Jun 2019 22:21:33 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="github.com/cartershi/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>cartershi.github.io/blog/tags/</link>
+      <link>github.com/cartershi/blog/tags/</link>
       <pubDate>Mon, 24 Jun 2019 22:21:33 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/</guid>
+      <guid>github.com/cartershi/blog/tags/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RBST</title>
-      <link>cartershi.github.io/blog/tags/rbst/</link>
+      <link>github.com/cartershi/blog/tags/rbst/</link>
       <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/rbst/</guid>
+      <guid>github.com/cartershi/blog/tags/rbst/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data structure</title>
-      <link>cartershi.github.io/blog/tags/data-structure/</link>
+      <link>github.com/cartershi/blog/tags/data-structure/</link>
       <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/data-structure/</guid>
+      <guid>github.com/cartershi/blog/tags/data-structure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gele</title>
-      <link>cartershi.github.io/blog/tags/gele/</link>
+      <link>github.com/cartershi/blog/tags/gele/</link>
       <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/gele/</guid>
+      <guid>github.com/cartershi/blog/tags/gele/</guid>
       <description></description>
     </item>
     
     <item>
       <title>skip list</title>
-      <link>cartershi.github.io/blog/tags/skip-list/</link>
+      <link>github.com/cartershi/blog/tags/skip-list/</link>
       <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/skip-list/</guid>
+      <guid>github.com/cartershi/blog/tags/skip-list/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LCT</title>
-      <link>cartershi.github.io/blog/tags/lct/</link>
+      <link>github.com/cartershi/blog/tags/lct/</link>
       <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/lct/</guid>
+      <guid>github.com/cartershi/blog/tags/lct/</guid>
       <description></description>
     </item>
     
     <item>
       <title>splay</title>
-      <link>cartershi.github.io/blog/tags/splay/</link>
+      <link>github.com/cartershi/blog/tags/splay/</link>
       <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/splay/</guid>
+      <guid>github.com/cartershi/blog/tags/splay/</guid>
       <description></description>
     </item>
     
     <item>
       <title>finger search</title>
-      <link>cartershi.github.io/blog/tags/finger-search/</link>
+      <link>github.com/cartershi/blog/tags/finger-search/</link>
       <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/finger-search/</guid>
+      <guid>github.com/cartershi/blog/tags/finger-search/</guid>
       <description></description>
     </item>
     
     <item>
       <title>treap</title>
-      <link>cartershi.github.io/blog/tags/treap/</link>
+      <link>github.com/cartershi/blog/tags/treap/</link>
       <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/treap/</guid>
+      <guid>github.com/cartershi/blog/tags/treap/</guid>
       <description></description>
     </item>
     
