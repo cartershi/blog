@@ -1,8 +1,8 @@
 ---
 title: "Chapter12"
 date: 2019-06-22T19:23:11+08:00
-draft: true
-tags: ["data structure","treap","skip list"]
+draft: false
+tags: ["data structure","finger search","treap","skip list","gele"]
 ---
 
 # Finger Search Tree
@@ -33,9 +33,7 @@ B树它leile，2-4个孩子的B树，基于finger的插入删除均摊复杂度�
 
 ## Randomized Finger Search Trees
 
-弱智书乱排版，建议先看14章。
-
-这节写的比较玄，背景知识参考[这里](/data structure/treaps.pdf)。
+treap细节完全不介绍的吗？背景知识参考[这里](/data structure/treaps.pdf)。
 
 ### treap
 
@@ -95,12 +93,18 @@ treap的思路就是一个二叉搜索树，但是它不像平衡树那样根据
 
 ### Skip Lists
 
-skip list的思路是当前一层的节点以$\frac{1}{2}$的概率成为上一层的节点，并将这两个节点连接起来，同层的节点也要连接起来。所以每个节点是一个变长的数组，记录每层的内容。
+弱智书乱排版，skip list的细节在14章。
 
-**查找**：从顶层开始，尽可能的往右走，保证当前节点的值不大于目标节点，走到不能走则前往下一层的同列节点。
+与插入的过程类似，也需要保存一个$O(\log n)$的数组保存x最近的左邻居，从x的最底层开始不断的往上倒着退，直到找到第一个比y小的点，从它开始进行普通的查找即可。复杂度是$O(\log d)$。
 
-**插入**：按照查找的过程查找位置，不同在于需要记录每层最后一个不大于目标节点的节点。然后随机生成这个节点的层数，将其连在查找在记录下的节点后。
+证明在原论文里，这里没有。
 
-**删除**：类似查找并记录，接着在每层中删除即可。
+## 应用
 
-直接计算每一数的高度大于l的概率，然后直接算期望得高度为$O(\log n)$，随便union bound一下即可证明W.H.P.高度为$O(\log n)$。所以以上操作的时间复杂度为$O(\log n)$W.H.P.。
+**最优集合操作**：最优集合merge复杂度为$O(n\log\frac{m}{n})$，用finger search tree得将n个元素按序列merge进m个元素的列表的代价为$O(\sum_{i=1}^{n}\log d\_i)$，其中$\sum_{i=1}^{n}d\_i\le m$，由Jensen's inequality得$O(n\log\frac{m}{n})$。
+
+**任意序列树上merge**：对节点数做归纳，得merge一棵n个点的树的复杂度为$\le kn\log n$，因为$\le kn\_1\log n\_1+kn\_2\log n\_2+kn\_1\log n\_2/n\_1=k(n\_1+n\_2)\log n\_2\le kn\log n$。这里$k$是用finger search tree进行merge的常数。
+
+**序列分割**：定义k个元素的序列的势为$k-\log k$，可得每次分割势能至少减少$\log\min\{k1,k2\}-1$，而finger search tree进行一次分割的复杂度为$O(\log\min\{k1,k2\})$，所以最多进行n-1次分割之后总时间为$O(n)$。
+
+**自适应排序**：看不懂啊（留坑）

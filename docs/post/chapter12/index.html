@@ -114,9 +114,7 @@ code.has-jax {
 
 <h2 id="randomized-finger-search-trees">Randomized Finger Search Trees</h2>
 
-<p>弱智书乱排版，建议先看14章。</p>
-
-<p>这节写的比较玄，背景知识参考<a href="cartershi.github.io/blog/data structure/treaps.pdf">这里</a>。</p>
+<p>treap细节完全不介绍的吗？背景知识参考<a href="cartershi.github.io/blog/data structure/treaps.pdf">这里</a>。</p>
 
 <h3 id="treap">treap</h3>
 
@@ -176,15 +174,21 @@ code.has-jax {
 
 <h3 id="skip-lists">Skip Lists</h3>
 
-<p>skip list的思路是当前一层的节点以$\frac{1}{2}$的概率成为上一层的节点，并将这两个节点连接起来，同层的节点也要连接起来。所以每个节点是一个变长的数组，记录每层的内容。</p>
+<p>弱智书乱排版，skip list的细节在14章。</p>
 
-<p><strong>查找</strong>：从顶层开始，尽可能的往右走，保证当前节点的值不大于目标节点，走到不能走则前往下一层的同列节点。</p>
+<p>与插入的过程类似，也需要保存一个$O(\log n)$的数组保存x最近的左邻居，从x的最底层开始不断的往上倒着退，直到找到第一个比y小的点，从它开始进行普通的查找即可。复杂度是$O(\log d)$。</p>
 
-<p><strong>插入</strong>：按照查找的过程查找位置，不同在于需要记录每层最后一个不大于目标节点的节点。然后随机生成这个节点的层数，将其连在查找在记录下的节点后。</p>
+<p>证明在原论文里，这里没有。</p>
 
-<p><strong>删除</strong>：类似查找并记录，接着在每层中删除即可。</p>
+<h2 id="应用">应用</h2>
 
-<p>直接计算每一数的高度大于l的概率，然后直接算期望得高度为$O(\log n)$，随便union bound一下即可证明W.H.P.高度为$O(\log n)$。所以以上操作的时间复杂度为$O(\log n)$W.H.P.。</p>
+<p><strong>最优集合操作</strong>：最优集合merge复杂度为$O(n\log\frac{m}{n})$，用finger search tree得将n个元素按序列merge进m个元素的列表的代价为$O(\sum<em>{i=1}^{n}\log d_i)$，其中$\sum</em>{i=1}^{n}d_i\le m$，由Jensen&rsquo;s inequality得$O(n\log\frac{m}{n})$。</p>
+
+<p><strong>任意序列树上merge</strong>：对节点数做归纳，得merge一棵n个点的树的复杂度为$\le kn\log n$，因为$\le kn_1\log n_1+kn_2\log n_2+kn_1\log n_2/n_1=k(n_1+n_2)\log n_2\le kn\log n$。这里$k$是用finger search tree进行merge的常数。</p>
+
+<p><strong>序列分割</strong>：定义k个元素的序列的势为$k-\log k$，可得每次分割势能至少减少$\log\min{k1,k2}-1$，而finger search tree进行一次分割的复杂度为$O(\log\min{k1,k2})$，所以最多进行n-1次分割之后总时间为$O(n)$。</p>
+
+<p><strong>自适应排序</strong>：看不懂啊（留坑）</p>
 
 </div>
 

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>treap on syx的日志</title>
-    <link>cartershi.github.io/blog/tags/treap/</link>
-    <description>Recent content in treap on syx的日志</description>
+    <title>finger search on syx的日志</title>
+    <link>cartershi.github.io/blog/tags/finger-search/</link>
+    <description>Recent content in finger search on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 22 Jun 2019 19:23:11 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/tags/treap/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="cartershi.github.io/blog/tags/finger-search/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

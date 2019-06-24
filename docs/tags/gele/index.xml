@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on syx的日志</title>
-    <link>cartershi.github.io/blog/post/</link>
-    <description>Recent content in Posts on syx的日志</description>
+    <title>gele on syx的日志</title>
+    <link>cartershi.github.io/blog/tags/gele/</link>
+    <description>Recent content in gele on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Jun 2019 22:21:33 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jun 2019 12:06:55 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="cartershi.github.io/blog/tags/gele/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Chapter16</title>
-      <link>cartershi.github.io/blog/post/chapter16/</link>
-      <pubDate>Mon, 24 Jun 2019 22:21:33 +0800</pubDate>
-      
-      <guid>cartershi.github.io/blog/post/chapter16/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>chapter14</title>
@@ -47,15 +38,6 @@ RBST和treap不同，它不随机产生第二有限值，而是保存当前节�
 插入的复杂度与普通插入一样，用递归证明产生的两个子树也是RBST，同时$T&amp;gt;.R$也是RBST，则证明$T&amp;gt;$是RBST只需要证明根也满足条件，注意这个根是原树的根，所以用条件概率即可的证明。
 现在考虑插入的结果，若未插入在根，则第一次会使概率变为$\frac{1}{n+1}$，递归得到一个RBST，原树剩下的部分也是RBST。否则用上面的结论另外注意x也是$\frac{1}{n+1}$的概率。
 对于join，递归证明join后的子树是RBST，左孩子的左子树是RBST，右子树更小的join结果，也是RBST，互相独立，每个元素为根的概率是$\frac{1}{n+m}$。</description>
-    </item>
-    
-    <item>
-      <title>Chapter13</title>
-      <link>cartershi.github.io/blog/post/chapter13/</link>
-      <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
-      
-      <guid>cartershi.github.io/blog/post/chapter13/</guid>
-      <description> Splay trees </description>
     </item>
     
     <item>
@@ -95,18 +77,6 @@ treap treap的思路就是一个二叉搜索树，但是它不像平衡树那样
 注意到$SL(x)$显然是$x$到$x-1$的路径（这里所有的$x$都是指A数组中第$x$个元素），若$x-1$不在$x$的子树中，则$x$没有左孩子了，否则$x-1$一定在right spine的终点。所以期望意义下$SL(x)$为A[1&amp;hellip;x-1]中所有$x-1$的祖先减去$x$的祖先，即$SL(x)=\sum_{i=1}^{x-1}\frac{1}{(x-i+1)(x-i)}=1-\frac{1}{x}$。同理$SR(x)=1-\frac{1}{n+1-x}$。
 也就是说给定finger的情况下，$O(1)$时间可以删除它，由于插入为删除的逆过程，给定finger时也是$O(1)$时间插入。Q.E.D.
 定理4：接下来证明$x$到$y$的路径长度期望是$O(\log d)$。</description>
-    </item>
-    
-    <item>
-      <title>数据结构手册</title>
-      <link>cartershi.github.io/blog/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</link>
-      <pubDate>Sat, 22 Jun 2019 17:07:02 +0800</pubDate>
-      
-      <guid>cartershi.github.io/blog/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</guid>
-      <description>打算学一些数据结构上的分析，参考书Handbook of Data Structures and Applications，在这里，由于书写的比较简略，有些地方不容易理解，所以做一些读书笔记。不能作为教程，主要写得是自己的体验。
-另外附一个18年出版的第二版，不过排版没有第一版舒服。网上不太好找，放个压缩包，密码是nju。
-还是按18年的目录记录吧。
-如有侵权，请联系删除。</description>
     </item>
     
   </channel>
