@@ -11,16 +11,16 @@
   <title>chapter14 &middot; syx的日志</title>
 
   
-  <link type="text/css" rel="stylesheet" href="github.com/cartershi/blog/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="github.com/cartershi/blog/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="github.com/cartershi/blog/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="github.com/cartershi/blog/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
   
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="github.com/cartershi/blog/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="github.com/cartershi/blog/cai.jpg">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="cartershi.github.io/blog/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="cartershi.github.io/blog/cai.jpg">
 
   
   
@@ -65,7 +65,7 @@ code.has-jax {
   <aside class="sidebar">
   <div class="container">
     <div class="sidebar-about">
-      <a href="github.com/cartershi/blog/"><h1>syx的日志</h1></a>
+      <a href="cartershi.github.io/blog/"><h1>syx的日志</h1></a>
       <p class="lead">
        洗澡王 
       </p>
@@ -73,8 +73,8 @@ code.has-jax {
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="github.com/cartershi/blog/">Home</a> </li>
-        <li><a href="github.com/cartershi/blog/post/"> Posts </a></li><li><a href="github.com/cartershi/blog/about/"> About </a></li><li><a href="github.com/cartershi/blog/tags/"> Tags </a></li>
+        <li><a href="cartershi.github.io/blog/">Home</a> </li>
+        <li><a href="cartershi.github.io/blog/post/"> Posts </a></li><li><a href="cartershi.github.io/blog/about/"> About </a></li><li><a href="cartershi.github.io/blog/tags/"> Tags </a></li>
       </ul>
     </nav>
 
@@ -106,7 +106,7 @@ code.has-jax {
 
 <p>skip list的思路是当将有序链表$S_0$中随机一些节点复制进入$S_1$，接着从$S_1$复制一些节点到$S_2$，直至顶层为空。即前一层的节点以某个概率$p$继续成为上一层的节点，并将这两个节点连接起来，同层的节点也要连接起来。所以每个节点是一个变长的数组，记录每层的内容。如下图所示，32是一个节点，它有6层，每层之间相互连接，这样方便往右下搜索。</p>
 
-<p><img src="github.com/cartershi/blog/pic/data structure/14-1.jpg" alt="fig14-1" /></p>
+<p><img src="cartershi.github.io/blog/pic/data structure/14-1.jpg" alt="fig14-1" /></p>
 
 <p>直接计算每一数的高度大于l的概率，然后直接算期望得高度为$O(\log n)$，随便union bound一下即可证明W.H.P.</p>
 

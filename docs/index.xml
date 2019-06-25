@@ -2,30 +2,49 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>syx的日志</title>
-    <link>github.com/cartershi/blog/</link>
+    <link>cartershi.github.io/blog/</link>
     <description>Recent content on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Jun 2019 22:21:33 +0800</lastBuildDate>
     
-	<atom:link href="github.com/cartershi/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="cartershi.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Chapter16</title>
-      <link>github.com/cartershi/blog/post/chapter16/</link>
+      <link>cartershi.github.io/blog/post/chapter16/</link>
       <pubDate>Mon, 24 Jun 2019 22:21:33 +0800</pubDate>
       
-      <guid>github.com/cartershi/blog/post/chapter16/</guid>
-      <description></description>
+      <guid>cartershi.github.io/blog/post/chapter16/</guid>
+      <description>B Trees B树是一种平衡树，每个节点存放一个磁盘block的内容，有多个孩子，所以是多叉树。它的要求是每个节点至少半满，而B*树要求每个节点至少2/3满。B树的思路导向了SOTA的spatial index结构：R树。
+disk-based环境主要考察的是读写磁盘block的次数。尽管真实系统中有内存作为磁盘的buffer，但是在通常的分析中，这并不在研究的范围中。
+B Tree B树的目的是在disk-based的环境下，给定一组key-value的object，进行高效的查询和更新（插入、删除）。这章依然假定不会有重复的key。B树的每个节点x有一个x.num记录x中保存的object数，第i个object用x.key[i],x.value[i]表示；叶子节点在同一层；非叶子节点x还保存x.num+1个孩子节点的地址，第i个子树是插在(x.key[i-1],x.key[i])之间的元素；非根节点是至少半满的，即若非叶子节点能存2B个孩子，则它至少存B个孩子；根节点至少存两个孩子。比如12章里的linked (2,4) Tree，不加link就是B树。下图是一个B=2的树。
+查询：只需要扫面x.key数组找到待查询元素或者递归查询它所在的子树即可。
+插入：设插入(k,v)，若根x满，这时有x.num=2B-1，取x.key的中间点作为新的根，把剩下的key各分配到新建的左孩子和右孩子，则它们都有B-1个key，即有B个孩子，所以依然是B树。这样就可以保证当前节点不满，递归调用notFull函数：如果是叶子，由于已知它不满，则可以插入，如果不是叶子，那么可以通过key数组找到包含它的一个子树，若子节点已满，将第B个key挪到当前节点（由于已知它不满），右边B-1个key挪到新建的节点，原理和处理根满类似，这样可以进入对应的不满的子节点，递归notFull。
+删除：情况非常的复杂，需要在查询的过程中动态调整：
+对于下面来说，可以保证只要不是根，当前节点就是非半满的。
+1.若是叶子，直接删除。
+2.非叶子且不包含k，若对应的节点半满，若它的邻居不半满，则进行类似rotate的操作，若它的邻居半满，则将合并。这步保证下一个孩子必然非半满。另外若当前节点是根，且根只有两个孩子，则深度减1。
+3.非叶子且包含k，若这个key的左孩子或右孩子非半满，将k换成k‘并递归删除k’（k‘是最接近k的可删值，不妨设左孩子非半满，保证了下一步孩子非半满，则k’必然是从左孩子开始一直往右节点走的叶子的最右的key，所以不需要提前知道k&amp;rsquo;，显然删除过程只会发生1,2两种情况），否则两个孩子都半满，将k和左右孩子合并，在子树中继续删除k（若当前节点是根，且根只有两个孩子，则深度减1）。
+由于B是常数，所以以上过程在每个block上都是$O(1)$的操作，三个操作都最多访问$O(\log_B n)$个block。
+层数增加只会发生在根节点，这样所有的叶子层数都增加1，层数减少只会发生在根上，这样所有的叶子都减少1，所以所有叶子在同一层。因此插入删除都维护了B树的性质。
+B+ Tree B+树与B树主要不同在于只在叶子节点有object，而非叶子节点只存key，且所有的叶子节点都是用递增的双向链表连接。操作的维护比B树容易很多。这样会稍微违反BST的性质，但是可以保证只有右子树有与根相同的元素。
+查询：类似与B树的查询，直接沿着树找到叶子即可。它的一个优势在于支持区间查询，由于区间是顺序双向连接的，所以通过查询找到左值所在的块，接着顺序读取连接的块即可。
+插入：先查找到叶子节点并记录下查找的路径，将(k,v)插入叶子，逆着路径考虑，若当前节点满了，则将其从中间拆成两个（叶子需要维护链表），若不是叶子，则将右孩子的最大值挪进父亲，否则将右孩子的最大值复制进父亲。
+删除：先查找到叶子节点并记录下查找的路径，删除(k,v)，当叶子非根时逆着路径考虑，若当前节点少于半满，若它同父亲的邻居半满，将它们合并，此时父亲节点也被删除了一个（叶子也要维护链表），若不是叶子，则孩子加入被删除的节点，否则不加入；若当前节点多余半满，类似B树的旋转。
+由于插入和删除都只在根上加节点，所以必然保证叶子的深度相同，导致树高为$O(\log_B n)$。插入和删除需要注意的是分裂或者拼接时叶子和非叶子时不同的，因为叶子的值不能被拿走，但是非叶子代表的是区间，不拿走的话会出现无意义的区间，破坏B+树的性质。
+IO次数少：B+树在数据库中被广泛采用，一个4层高的100+树就可以存0.3billion个objects，如果把前两层平均133个block存入内存，这只需要2个block的io就可以找到目标节点。
+快速构建：直接建立需要$O(n\log_B n)$次io。可以更快的进行构建，先将objects排序，需要$O(n/B\log_B n)$次io，然后从底层开始一层层的建树，这样只要$O(n/B)$次io，总的建立需要$O(n/B\log_B n)$次io。
+聚合查询：类似于线段树的思想，区间保存聚合结果，最大、最小、求和、计数都可以保存，用$O(\log_B n)$个block查询。</description>
     </item>
     
     <item>
       <title>chapter14</title>
-      <link>github.com/cartershi/blog/post/chapter14/</link>
+      <link>cartershi.github.io/blog/post/chapter14/</link>
       <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>github.com/cartershi/blog/post/chapter14/</guid>
+      <guid>cartershi.github.io/blog/post/chapter14/</guid>
       <description>Randomized Dictionary Structures 引言 worst-case高效的数据结构太复杂并且写起来很麻烦，所以人们试图优化一串操作的总代价，而非单次操作的代价，这就是所谓的均摊复杂度。从随机的角度，目的是限制操作的期望并是的超出阈值的概率不大。
 为了简化分析，本章仅考虑支持插入、删除、搜索操作的字典，字典集为有限整数，并且元素之间两两不相同。
 本章讨论的随机算法是Las Vegas algorithm，即只要返回结果，结果就是对的。另外一种是Monte Carlo algorithm，运行时间固定，但是结果不一定对。
@@ -51,19 +70,35 @@ RBST和treap不同，它不随机产生第二有限值，而是保存当前节�
     
     <item>
       <title>Chapter13</title>
-      <link>github.com/cartershi/blog/post/chapter13/</link>
+      <link>cartershi.github.io/blog/post/chapter13/</link>
       <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
       
-      <guid>github.com/cartershi/blog/post/chapter13/</guid>
-      <description> Splay trees </description>
+      <guid>cartershi.github.io/blog/post/chapter13/</guid>
+      <description> Splay trees 对于m个操作的序列，splay运行时间为$O(m\log n)$，所以均摊时间为$O(n)$。可以用来处理linking cutting trees，并且rebalance操作比平衡树简单很多。又是tarjan
+复杂度分析 zig、zag是单旋（最多发生一次），zigzig、zagzag是父亲及父亲的父亲在同侧，zigzag、zagzig是父亲及父亲的父亲在异侧，直至将x转到根，这个操作称为splay(x)，这个操作均摊复杂度为$O(log n)$。
+w(x)是x的权重，size(x)是以x为根的子树的点权重和，rank(x)是$\log_2(size(x))$，Potential(T)=$\alpha\sum_{x\in T}rand(x)$。均摊时间=实际时间+新Potential-老Potential。splay的运行时间为$\beta\times$Number of rotations。其中$w(x)\ge 0,\ \alpha\ge\beta&amp;gt;0$为任意给定值。
+将splay的旋转按上面分的三种旋转进行逐个分析，累加得，将对根为t的树进行splay(x)的均摊时间为$3\alpha(rank(t)-rank(x))+\beta=O(\log\frac{size(t)}{size(x)})$。
+令$w(x)=\frac{1}{n}$，$\alpha=\beta=1$，则单次splay的均摊时间为$3\log n+1$，Potential的总变化最多为$O(n\log n)$，则进行m次splay操作的均摊时间是$O(3m\log n + m)$，得实际时间为$O(3m\log n + m)+n\log n=O((m+n)\log n)$。
+以下这几个操作的定义与12章treap中的定义完全一致。
+查找：按照BST查找，若成功找到，则对找到的点进行一次splay，否则对发现失败的点的父亲进行splay。
+插入：用BST的查找找到叶子节点，未找到则对叶子splay，否则插在这个叶子的子树上，然后对其splay（这里与论文中的插入不同）。
+合并：在t1里查找正无穷，则最大的点变成了t1的根，让t2变成t1的右子树。
+分裂：调用查找x的过程，判断根与x的大小关系分开根和它的左或右子树。
+删除：调用查找的过程，若找到，则因为查找最后调用了splay，所以根为待删除的节点，将根的左右子树进行合并即可。
+书中的分析缺少这是势能定义，还是按论文里来。对于m个操作的序列，定义Potential所有树的Potential的和操作前不在树中的数的w和，然后对每种操作都类似splay可以分析出一个均摊的时间（基本上是splay的均摊时间+不同操作导致的势能变化），Potential的总变化最多为$O(n\log n)$，将它们累加得总时间为$O((m+n)\log n)$。
+静态最优 上面的分析只是基于$w(x)=\frac{1}{n}$得出的，若定义$q(i)$为i被查询的次数（直接或间接），定义$w(x)=\frac{q(i)}{\sum q(i)}$，得splay均摊时间$-3rank(x)+1=O(1+\log\frac{\sum q(x)}{q(x)})$，求和得$O(\sum q(x)+\sum q(x)\log\frac{\sum q(x)}{q(x)})$，Potential最大变化为$O(\sum\log\frac{\sum q(x)}{q(x)})$，由于$m=\sum q(x)$，所以总时间为$O(m+\sum q(x)\log\frac{m}{q(x)})$，这是二叉搜索树的最优结果。类似的思路可以处理finger search，可证明它比finger search tree更好。
+working set property：若只有t个元素被查询，查询的时间是$O(\log t)$，若$i$的两次访问之间间隔了$t$个不同的数，则i的第二次查询时间为$O(\log(t+1))$，这里主要用到了一个权重重排的思想，首先给定一个权重，第i个首次出现元素权重设为$\frac{1}{i^2}$，当某个元素被查询时，将它的权重变为1，比他大的权重都相应的向后挪一位（相当于循环调整），这样的重拍只会Potential变小，最终时间=均摊时间+老Potential-新Potential，得类似上面的分析算出的时间只会比真实之间更大。这也太狠了
+附一篇文章Alternatives to splay trees with O(log n) worst-case access times,John Iacono
+splay由于w函数可以具体设定，所以它被推测可能是动态最优的，即对于任意的序列，它都可以和最好的动态二叉搜索树一样。以被证明splay树有类似finger search的性质，搜索接近的目标很快。
+LCT </description>
     </item>
     
     <item>
       <title>Chapter12</title>
-      <link>github.com/cartershi/blog/post/chapter12/</link>
+      <link>cartershi.github.io/blog/post/chapter12/</link>
       <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
       
-      <guid>github.com/cartershi/blog/post/chapter12/</guid>
+      <guid>cartershi.github.io/blog/post/chapter12/</guid>
       <description>Finger Search Tree Finger Search指从finger $x$出发寻找$y$。比如有序数组，从$x$开始倍增，这里不能acm里的那种倍减trick，因为那样是$O(\log n)$的，而倍增是$O(\log d)$的。$d$是$x$和$y$在有序数组中的排名差。如下图所示，意识流一下就是那样了。
 Dynamic Finger Search Trees 上面的倍增已经解决了这个问题，但是有序数组不能高效插入删除，所以需要Dynamic Finger Search Tree。
 Level Linked (2,4)-Trees B树它leile，2-4个孩子的B树，基于finger的插入删除均摊复杂度为$O(1)$，期望倒是会，均摊不会分析。它与B树的不同在于所有的边都是双向的，并且同层相邻节点之间边相连。
@@ -99,10 +134,10 @@ treap treap的思路就是一个二叉搜索树，但是它不像平衡树那样
     
     <item>
       <title>数据结构手册</title>
-      <link>github.com/cartershi/blog/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</link>
+      <link>cartershi.github.io/blog/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</link>
       <pubDate>Sat, 22 Jun 2019 17:07:02 +0800</pubDate>
       
-      <guid>github.com/cartershi/blog/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</guid>
+      <guid>cartershi.github.io/blog/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</guid>
       <description>打算学一些数据结构上的分析，参考书Handbook of Data Structures and Applications，在这里，由于书写的比较简略，有些地方不容易理解，所以做一些读书笔记。不能作为教程，主要写得是自己的体验。
 另外附一个18年出版的第二版，不过排版没有第一版舒服。网上不太好找，放个压缩包，密码是nju。
 还是按18年的目录记录吧。
@@ -111,10 +146,10 @@ treap treap的思路就是一个二叉搜索树，但是它不像平衡树那样
     
     <item>
       <title>About</title>
-      <link>github.com/cartershi/blog/about/</link>
+      <link>cartershi.github.io/blog/about/</link>
       <pubDate>Sat, 22 Jun 2019 15:34:51 +0800</pubDate>
       
-      <guid>github.com/cartershi/blog/about/</guid>
+      <guid>cartershi.github.io/blog/about/</guid>
       <description>研究笔记
 邮箱：wangyisyx@163.com</description>
     </item>

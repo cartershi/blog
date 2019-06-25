@@ -11,16 +11,16 @@
   <title>Chapter16 &middot; syx的日志</title>
 
   
-  <link type="text/css" rel="stylesheet" href="github.com/cartershi/blog/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="github.com/cartershi/blog/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="github.com/cartershi/blog/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="github.com/cartershi/blog/css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
 
   
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="github.com/cartershi/blog/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="github.com/cartershi/blog/cai.jpg">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="cartershi.github.io/blog/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="cartershi.github.io/blog/cai.jpg">
 
   
   
@@ -65,7 +65,7 @@ code.has-jax {
   <aside class="sidebar">
   <div class="container">
     <div class="sidebar-about">
-      <a href="github.com/cartershi/blog/"><h1>syx的日志</h1></a>
+      <a href="cartershi.github.io/blog/"><h1>syx的日志</h1></a>
       <p class="lead">
        洗澡王 
       </p>
@@ -73,8 +73,8 @@ code.has-jax {
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="github.com/cartershi/blog/">Home</a> </li>
-        <li><a href="github.com/cartershi/blog/post/"> Posts </a></li><li><a href="github.com/cartershi/blog/about/"> About </a></li><li><a href="github.com/cartershi/blog/tags/"> Tags </a></li>
+        <li><a href="cartershi.github.io/blog/">Home</a> </li>
+        <li><a href="cartershi.github.io/blog/post/"> Posts </a></li><li><a href="cartershi.github.io/blog/about/"> About </a></li><li><a href="cartershi.github.io/blog/tags/"> Tags </a></li>
       </ul>
     </nav>
 
@@ -87,6 +87,55 @@ code.has-jax {
   <h1>Chapter16</h1>
   <time datetime=2019-06-24T22:21:33&#43;0800 class="post-date">Mon, Jun 24, 2019</time>
   
+
+<h1 id="b-trees">B Trees</h1>
+
+<p>B树是一种平衡树，每个节点存放一个磁盘block的内容，有多个孩子，所以是多叉树。它的要求是每个节点至少半满，而B*树要求每个节点至少2/3满。B树的思路导向了SOTA的spatial index结构：R树。</p>
+
+<p>disk-based环境主要考察的是读写磁盘block的次数。尽管真实系统中有内存作为磁盘的buffer，但是在通常的分析中，这并不在研究的范围中。</p>
+
+<h2 id="b-tree">B Tree</h2>
+
+<p>B树的目的是在disk-based的环境下，给定一组key-value的object，进行高效的查询和更新（插入、删除）。这章依然假定不会有重复的key。B树的每个节点x有一个x.num记录x中保存的object数，第i个object用x.key[i],x.value[i]表示；叶子节点在同一层；非叶子节点x还保存x.num+1个孩子节点的地址，第i个子树是插在(x.key[i-1],x.key[i])之间的元素；非根节点是至少半满的，即若非叶子节点能存2B个孩子，则它至少存B个孩子；根节点至少存两个孩子。比如12章里的linked (2,4) Tree，不加link就是B树。下图是一个B=2的树。</p>
+
+<p><img src="cartershi.github.io/blog/pic/data structure/16-1.jpg" alt="fig16-1" /></p>
+
+<p><strong>查询</strong>：只需要扫面x.key数组找到待查询元素或者递归查询它所在的子树即可。</p>
+
+<p><strong>插入</strong>：设插入(k,v)，若根x满，这时有x.num=2B-1，取x.key的中间点作为新的根，把剩下的key各分配到新建的左孩子和右孩子，则它们都有B-1个key，即有B个孩子，所以依然是B树。这样就可以保证当前节点不满，递归调用notFull函数：如果是叶子，由于已知它不满，则可以插入，如果不是叶子，那么可以通过key数组找到包含它的一个子树，若子节点已满，将第B个key挪到当前节点（由于已知它不满），右边B-1个key挪到新建的节点，原理和处理根满类似，这样可以进入对应的不满的子节点，递归notFull。</p>
+
+<p><strong>删除</strong>：情况非常的复杂，需要在查询的过程中动态调整：</p>
+
+<p>对于下面来说，可以保证只要不是根，当前节点就是非半满的。</p>
+
+<p>1.若是叶子，直接删除。</p>
+
+<p>2.非叶子且不包含k，若对应的节点半满，若它的邻居不半满，则进行类似rotate的操作，若它的邻居半满，则将合并。这步保证下一个孩子必然非半满。另外若当前节点是根，且根只有两个孩子，则深度减1。</p>
+
+<p>3.非叶子且包含k，若这个key的左孩子或右孩子非半满，将k换成k‘并递归删除k’（k‘是最接近k的可删值，不妨设左孩子非半满，保证了下一步孩子非半满，则k’必然是从左孩子开始一直往右节点走的叶子的最右的key，所以不需要提前知道k&rsquo;，显然删除过程只会发生1,2两种情况），否则两个孩子都半满，将k和左右孩子合并，在子树中继续删除k（若当前节点是根，且根只有两个孩子，则深度减1）。</p>
+
+<p>由于B是常数，所以以上过程在每个block上都是$O(1)$的操作，三个操作都最多访问$O(\log_B n)$个block。</p>
+
+<p>层数增加只会发生在根节点，这样所有的叶子层数都增加1，层数减少只会发生在根上，这样所有的叶子都减少1，所以所有叶子在同一层。因此插入删除都维护了B树的性质。</p>
+
+<h2 id="b-tree-1">B+ Tree</h2>
+
+<p>B+树与B树主要不同在于只在叶子节点有object，而非叶子节点只存key，且所有的叶子节点都是用递增的双向链表连接。操作的维护比B树容易很多。这样会稍微违反BST的性质，但是可以保证只有右子树有与根相同的元素。</p>
+
+<p><strong>查询</strong>：类似与B树的查询，直接沿着树找到叶子即可。它的一个优势在于支持区间查询，由于区间是顺序双向连接的，所以通过查询找到左值所在的块，接着顺序读取连接的块即可。</p>
+
+<p><strong>插入</strong>：先查找到叶子节点并记录下查找的路径，将(k,v)插入叶子，逆着路径考虑，若当前节点满了，则将其从中间拆成两个（叶子需要维护链表），若不是叶子，则将右孩子的最大值挪进父亲，否则将右孩子的最大值复制进父亲。</p>
+
+<p><strong>删除</strong>：先查找到叶子节点并记录下查找的路径，删除(k,v)，当叶子非根时逆着路径考虑，若当前节点少于半满，若它同父亲的邻居半满，将它们合并，此时父亲节点也被删除了一个（叶子也要维护链表），若不是叶子，则孩子加入被删除的节点，否则不加入；若当前节点多余半满，类似B树的旋转。</p>
+
+<p>由于插入和删除都只在根上加节点，所以必然保证叶子的深度相同，导致树高为$O(\log_B n)$。插入和删除需要注意的是分裂或者拼接时叶子和非叶子时不同的，因为叶子的值不能被拿走，但是非叶子代表的是区间，不拿走的话会出现无意义的区间，破坏B+树的性质。</p>
+
+<p><strong>IO次数少</strong>：B+树在数据库中被广泛采用，一个4层高的100+树就可以存0.3billion个objects，如果把前两层平均133个block存入内存，这只需要2个block的io就可以找到目标节点。</p>
+
+<p><strong>快速构建</strong>：直接建立需要$O(n\log_B n)$次io。可以更快的进行构建，先将objects排序，需要$O(n/B\log_B n)$次io，然后从底层开始一层层的建树，这样只要$O(n/B)$次io，总的建立需要$O(n/B\log_B n)$次io。</p>
+
+<p><strong>聚合查询</strong>：类似于线段树的思想，区间保存聚合结果，最大、最小、求和、计数都可以保存，用$O(\log_B n)$个block查询。</p>
+
 </div>
 
 
