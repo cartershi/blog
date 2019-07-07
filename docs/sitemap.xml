@@ -3,6 +3,115 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>cartershi.github.io/blog/post/haam_chapter5/</loc>
+    <lastmod>2019-07-07T12:13:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/post/</loc>
+    <lastmod>2019-07-07T12:13:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/</loc>
+    <lastmod>2019-07-07T12:13:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/approximation-algorithm/</loc>
+    <lastmod>2019-07-07T12:13:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/</loc>
+    <lastmod>2019-07-07T12:13:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/post/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E6%89%8B%E5%86%8C/</loc>
+    <lastmod>2019-07-07T12:08:25+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/post/hdsa_chapter20/</loc>
+    <lastmod>2019-07-03T13:24:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/data-structure/</loc>
+    <lastmod>2019-07-03T13:24:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/gele/</loc>
+    <lastmod>2019-07-03T13:24:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/octree/</loc>
+    <lastmod>2019-07-03T13:24:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/quadtree/</loc>
+    <lastmod>2019-07-03T13:24:42+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/post/hdsa_chapter19/</loc>
+    <lastmod>2019-07-02T19:10:04+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/interval-tree/</loc>
+    <lastmod>2019-07-02T19:10:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/priority-search-tree/</loc>
+    <lastmod>2019-07-02T19:10:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/range-tree/</loc>
+    <lastmod>2019-07-02T19:10:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/segment-tree/</loc>
+    <lastmod>2019-07-02T19:10:04+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/avl-tree/</loc>
+    <lastmod>2019-07-02T19:08:12+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/bst/</loc>
+    <lastmod>2019-07-02T19:08:12+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/post/hdsa_chapter11/</loc>
+    <lastmod>2019-07-02T19:08:12+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>cartershi.github.io/blog/tags/b-tree/</loc>
     <lastmod>2019-06-24T22:21:33+08:00</lastmod>
     <priority>0</priority>
@@ -15,32 +124,8 @@
   </url>
   
   <url>
-    <loc>cartershi.github.io/blog/post/chapter16/</loc>
+    <loc>cartershi.github.io/blog/post/hdsa_chapter16/</loc>
     <lastmod>2019-06-24T22:21:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/blog/post/</loc>
-    <lastmod>2019-06-24T22:21:33+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/blog/tags/</loc>
-    <lastmod>2019-06-24T22:21:33+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/blog/tags/data-structure/</loc>
-    <lastmod>2019-06-24T22:21:33+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/blog/</loc>
-    <lastmod>2019-06-24T22:21:33+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -50,14 +135,8 @@
   </url>
   
   <url>
-    <loc>cartershi.github.io/blog/post/chapter14/</loc>
+    <loc>cartershi.github.io/blog/post/hdsa_chapter14/</loc>
     <lastmod>2019-06-24T12:06:55+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/blog/tags/gele/</loc>
-    <lastmod>2019-06-24T12:06:55+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -67,7 +146,7 @@
   </url>
   
   <url>
-    <loc>cartershi.github.io/blog/post/chapter13/</loc>
+    <loc>cartershi.github.io/blog/post/hdsa_chapter13/</loc>
     <lastmod>2019-06-24T00:15:52+08:00</lastmod>
   </url>
   
@@ -90,7 +169,7 @@
   </url>
   
   <url>
-    <loc>cartershi.github.io/blog/post/chapter12/</loc>
+    <loc>cartershi.github.io/blog/post/hdsa_chapter12/</loc>
     <lastmod>2019-06-22T19:23:11+08:00</lastmod>
   </url>
   

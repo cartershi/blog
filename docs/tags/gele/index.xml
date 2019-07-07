@@ -6,17 +6,51 @@
     <description>Recent content in gele on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Jun 2019 12:06:55 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 03 Jul 2019 13:24:42 +0800</lastBuildDate>
     
 	<atom:link href="cartershi.github.io/blog/tags/gele/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Chapter20</title>
+      <link>cartershi.github.io/blog/post/hdsa_chapter20/</link>
+      <pubDate>Wed, 03 Jul 2019 13:24:42 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/hdsa_chapter20/</guid>
+      <description> Quadtrees and Octrees quadtree本意是将一个二维区域用平行于坐标轴的两条线将其分为4个区域作为树的4个孩子，因此称为quad tree。在3维空间，则有$2^3=8$个孩子，这叫做octree。更高维度的被称为hyperoctrees。通常情况下quadtree，octree，hyperoctree都叫quadtree。kd-tree与quadtree的不同在于kd-tree每层只选择某一维作为拆分的标准，所以只有两个孩子。竟然有专门的书介绍quadtree的相关内容，可见它多么复杂。
+Point Data Point Quadtree 多维点是最简单的情况，通常对于它有这样几种查询：1.区间查询，19章range tree处理的问题。2.球型区域查询，给定点和半径，查这个球里面的区域。3.查找每个点的最近邻。当然查找、插入、删除这些基本操作也是要支持的。
+考虑二维情况，point quadtree就是在当前区域选一个点作为根，用它将区域分成四部分，每部分是一颗子树（如果按x轴分成两个区域，就是一颗BST）。
+建立：将n个点直接排序，取中间节点，$O(n)$时间将其分成4个子区间，这样保证每个子区间不会超过n，用数学归纳法得建立时间为$O(n\log n)$。
+查询：类似BST的查找，不过要比较两维。
+插入：先查找到叶子，然后在叶子下面挂1层高树。
+删除：很麻烦，书上没写。
+在d维情况下将会导致每个点有$2^d$个孩子，kd-tree可以处理这个问题，因为它轮流的选取d维作为每一次层的标准，这样就相当于编码了$2^d$个孩子，可以在不平衡的地方进行处理，完全不处理的kd-tree等价于一棵quadtree。接下来只关注 region quadtree，即平分区间长度而非平分所有点。这样不能向point quadtree保证产生一棵平衡树，但是作者喜欢。
+Region Quadtree 定义cell类似于树中node，subcell相当于后代，supersell为祖先，immediate描述父子关系。空间分析非常显然，point quadtree提到四个操作都很容易处理，注意插入时需要不断地细分空间直至两点被分开，删除可以需要不断的往根删直至有至少两个孩子。
+Compressed Quadtrees and Octrees Quadtree 鸽了
+Spatial Queries with Region Quadtrees Range Query </description>
+    </item>
+    
+    <item>
+      <title>Chapter11</title>
+      <link>cartershi.github.io/blog/post/hdsa_chapter11/</link>
+      <pubDate>Tue, 02 Jul 2019 19:08:12 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/hdsa_chapter11/</guid>
+      <description>Balanced binary search trees 直接跳到11.3节了，平衡树平衡策略分为三种：子树高度的限制，子树大小的限制，多路搜索树的二进制化。
+重新平衡的思路基本上都是从叶子开始往根修复平衡，修复的方法是rotation，它将一个子树的高度减1，另一个加1。大多数的算法逆着路径上执行一次单旋或双旋。另外一种重新平衡的思路是重建某一颗子树。
+有一些BST的重平衡时间低于log，这在一些场合比较有效，例如计算几何中有些情况下rotation复杂度不是O(1)。以及并发的重平衡。
+AVL Tree AVL树是1962年发明的远古数据结构，它基于子树的高度进行平衡，采用rotation重平衡。AVL树要求对于任意点，它的子树高度差最多为1。直接对高度做induction，可得高度为h的AVL树至少有$F_{h+2}-1$个点，即深度是$O(\log n)$。重平衡是逆着路径进行单旋，或者双旋，或者调整子树信息。插入时最多进行一次旋转。在AVL树中如果只插入或者只删除，那么均摊时间是$O(1)$，否则是$O(\log n)$。
+Weight-balanced tree Weight-balanced树基于子树的weight进行平衡，weight定义为叶子节点数。它要求每个点的weight与它右孩子的weight的比值在$[\alpha,1-\alpha]$之间。每上升一层，weight至少为原来的$\frac{1}{1-\alpha}$，这样得到深度和weight之间的关系。重平衡也是单旋或双旋，不同的是重平衡完成后再次重平衡至少需要当前weight的常数倍次的更新，这就导致了所谓的均摊时间少于$O(\log n)$。
+Balanced Binary Trees Based on Multi-Way Trees binary B-trees类似trie的二进制实现那样，把一个节点拆成多个节点实现成二叉树。Symmetric Binary Trees或者通常被称为红黑树是2,3,4树的二进制实现。AA trees与红黑树等价，但是实现起来很容易。完全不讲细节的
+看到11.5</description>
+    </item>
+    
+    <item>
       <title>chapter14</title>
-      <link>cartershi.github.io/blog/post/chapter14/</link>
+      <link>cartershi.github.io/blog/post/hdsa_chapter14/</link>
       <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/chapter14/</guid>
+      <guid>cartershi.github.io/blog/post/hdsa_chapter14/</guid>
       <description>Randomized Dictionary Structures 引言 worst-case高效的数据结构太复杂并且写起来很麻烦，所以人们试图优化一串操作的总代价，而非单次操作的代价，这就是所谓的均摊复杂度。从随机的角度，目的是限制操作的期望并是的超出阈值的概率不大。
 为了简化分析，本章仅考虑支持插入、删除、搜索操作的字典，字典集为有限整数，并且元素之间两两不相同。
 本章讨论的随机算法是Las Vegas algorithm，即只要返回结果，结果就是对的。另外一种是Monte Carlo algorithm，运行时间固定，但是结果不一定对。
@@ -42,10 +76,10 @@ RBST和treap不同，它不随机产生第二有限值，而是保存当前节�
     
     <item>
       <title>Chapter12</title>
-      <link>cartershi.github.io/blog/post/chapter12/</link>
+      <link>cartershi.github.io/blog/post/hdsa_chapter12/</link>
       <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/chapter12/</guid>
+      <guid>cartershi.github.io/blog/post/hdsa_chapter12/</guid>
       <description>Finger Search Tree Finger Search指从finger $x$出发寻找$y$。比如有序数组，从$x$开始倍增，这里不能acm里的那种倍减trick，因为那样是$O(\log n)$的，而倍增是$O(\log d)$的。$d$是$x$和$y$在有序数组中的排名差。如下图所示，意识流一下就是那样了。
 Dynamic Finger Search Trees 上面的倍增已经解决了这个问题，但是有序数组不能高效插入删除，所以需要Dynamic Finger Search Tree。
 Level Linked (2,4)-Trees B树它leile，2-4个孩子的B树，基于finger的插入删除均摊复杂度为$O(1)$，期望倒是会，均摊不会分析。它与B树的不同在于所有的边都是双向的，并且同层相邻节点之间边相连。

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chapter11 &middot; syx的日志</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/hyde.css">  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+  <script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="cartershi.github.io/blog/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="cartershi.github.io/blog/cai.jpg">
+
+  
+  
+  
+</head>
+
+  <body class="theme-base-08 ">
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <a href="cartershi.github.io/blog/"><h1>syx的日志</h1></a>
+      <p class="lead">
+       洗澡王 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="cartershi.github.io/blog/">Home</a> </li>
+        <li><a href="cartershi.github.io/blog/post/"> Posts </a></li><li><a href="cartershi.github.io/blog/about/"> About </a></li><li><a href="cartershi.github.io/blog/tags/"> Tags </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Chapter11</h1>
+  <time datetime=2019-07-02T19:08:12&#43;0800 class="post-date">Tue, Jul 2, 2019</time>
+  
+
+<h1 id="balanced-binary-search-trees">Balanced binary search trees</h1>
+
+<p>直接跳到11.3节了，平衡树平衡策略分为三种：子树高度的限制，子树大小的限制，多路搜索树的二进制化。</p>
+
+<p>重新平衡的思路基本上都是从叶子开始往根修复平衡，修复的方法是rotation，它将一个子树的高度减1，另一个加1。大多数的算法逆着路径上执行一次单旋或双旋。另外一种重新平衡的思路是重建某一颗子树。</p>
+
+<p>有一些BST的重平衡时间低于log，这在一些场合比较有效，例如计算几何中有些情况下rotation复杂度不是O(1)。以及并发的重平衡。</p>
+
+<h2 id="avl-tree">AVL Tree</h2>
+
+<p>AVL树是1962年发明的远古数据结构，它基于子树的高度进行平衡，采用rotation重平衡。AVL树要求对于任意点，它的子树高度差最多为1。直接对高度做induction，可得高度为h的AVL树至少有$F_{h+2}-1$个点，即深度是$O(\log n)$。重平衡是逆着路径进行单旋，或者双旋，或者调整子树信息。插入时最多进行一次旋转。在AVL树中如果只插入或者只删除，那么均摊时间是$O(1)$，否则是$O(\log n)$。</p>
+
+<h2 id="weight-balanced-tree">Weight-balanced tree</h2>
+
+<p>Weight-balanced树基于子树的weight进行平衡，weight定义为叶子节点数。它要求每个点的weight与它右孩子的weight的比值在$[\alpha,1-\alpha]$之间。每上升一层，weight至少为原来的$\frac{1}{1-\alpha}$，这样得到深度和weight之间的关系。重平衡也是单旋或双旋，不同的是重平衡完成后再次重平衡至少需要当前weight的常数倍次的更新，这就导致了所谓的均摊时间少于$O(\log n)$。</p>
+
+<h2 id="balanced-binary-trees-based-on-multi-way-trees">Balanced Binary Trees Based on Multi-Way Trees</h2>
+
+<p>binary B-trees类似trie的二进制实现那样，把一个节点拆成多个节点实现成二叉树。Symmetric Binary Trees或者通常被称为红黑树是2,3,4树的二进制实现。AA trees与红黑树等价，但是实现起来很容易。<del>完全不讲细节的</del></p>
+
+<p>看到11.5</p>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

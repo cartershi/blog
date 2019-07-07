@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chapter12 &middot; syx的日志</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/hyde.css">  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+  <script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="cartershi.github.io/blog/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="cartershi.github.io/blog/cai.jpg">
+
+  
+  
+  
+</head>
+
+  <body class="theme-base-08 ">
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      <a href="cartershi.github.io/blog/"><h1>syx的日志</h1></a>
+      <p class="lead">
+       洗澡王 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="cartershi.github.io/blog/">Home</a> </li>
+        <li><a href="cartershi.github.io/blog/post/"> Posts </a></li><li><a href="cartershi.github.io/blog/about/"> About </a></li><li><a href="cartershi.github.io/blog/tags/"> Tags </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Chapter12</h1>
+  <time datetime=2019-06-22T19:23:11&#43;0800 class="post-date">Sat, Jun 22, 2019</time>
+  
+
+<h1 id="finger-search-tree">Finger Search Tree</h1>
+
+<p>Finger Search指从finger $x$出发寻找$y$。比如有序数组，从$x$开始倍增，这里不能acm里的那种倍减trick，因为那样是$O(\log n)$的，而倍增是$O(\log d)$的。$d$是$x$和$y$在有序数组中的排名差。如下图所示，意识流一下就是那样了。</p>
+
+<p><img src="cartershi.github.io/blog/pic/data structure/12-1.jpg" alt="fig12-1" /></p>
+
+<h2 id="dynamic-finger-search-trees">Dynamic Finger Search Trees</h2>
+
+<p>上面的倍增已经解决了这个问题，但是有序数组不能高效插入删除，所以需要Dynamic Finger Search Tree。</p>
+
+<h2 id="level-linked-2-4-trees">Level Linked (2,4)-Trees</h2>
+
+<p>B树它leile，2-4个孩子的B树，基于finger的插入删除均摊复杂度为$O(1)$，<del>期望倒是会，均摊不会分析</del>。它与B树的不同在于所有的边都是双向的，并且同层相邻节点之间边相连。</p>
+
+<p><img src="cartershi.github.io/blog/pic/data structure/12-2.jpg" alt="fig12-2" /></p>
+
+<p>不妨令$x&lt;y$，走到父亲$v$，同时判断$v$的右邻居$v&rsquo;$是否是$y$的父亲。当停止时：</p>
+
+<p>若因为停在共同的祖先$c$，则$c$至少有一个子树隔开$x,y$，这颗子树里的点都在$x,y$之间，它的点数就bound住了高度。</p>
+
+<p>若是因为$v$的右邻居$u&rsquo;$是$y$的父亲，此时$x$在$v$的右子树，$y$在$v$的父亲的右邻居$u&rsquo;$的左子树，只需要考虑$v$和$u&rsquo;$的子树的末端相邻点，则变成第一种情况。Q.E.D.</p>
+
+<p>综上，用(2,4)-Tree的时间复杂度是$O(\log d)$的。</p>
+
+<h2 id="randomized-finger-search-trees">Randomized Finger Search Trees</h2>
+
+<p>treap细节完全不介绍的吗？背景知识参考<a href="cartershi.github.io/blog/data structure/treaps.pdf">这里</a>。</p>
+
+<h3 id="treap">treap</h3>
+
+<p>treap的思路就是一个二叉搜索树，但是它不像平衡树那样根据树高左旋右旋，而是根据随机产生的第二优先值维护一个堆（下面只考虑小根堆）。比如当前子树根为A，左子树根为B，右子树为C，不妨B的第二优先值最小，则B右旋成根，它的右子树变成A的左子树。<del>单旋谁不会啊</del></p>
+
+<p>下图字母是键值，数字是第二优先值。</p>
+
+<p><img src="cartershi.github.io/blog/pic/data structure/12-3.jpg" alt="fig12-3" /></p>
+
+<p><strong>插入</strong>：首先按二叉搜索树将其真实值插入到叶子，然后就堆插入元素那样按第二优先值从最底层往上调，调整就是用的左旋右旋。</p>
+
+<p><strong>删除</strong>：先找到这个节点，然后将其旋转到叶子，最后删除掉，逆着插入的操作</p>
+
+<p><strong>分裂</strong>：即分裂成比某个值$\pi$大的和小的两个treap。插入$\pi$，令它的第二优先值为无穷小，那么插入完它为根，且由二叉搜索树得，它的两个子树是要求的treap。</p>
+
+<p><strong>合并</strong>：用$\pi$作为根合并两棵treap，然后将根用删除的操作删除。</p>
+
+<p>以上4个操作的复杂度均由treap的高度决定，可证明随机情况下高度为$O(\log n)$。</p>
+
+<p><strong>引理</strong>：将元素按键值递增为数组A，在treap中第i小的元素为第k小元素的祖先等价于i的第二优先值是A[i..k]中最小的(i&lt;k)。在treap中第i小的元素为第j小元素的祖先等价于i的第二优先值是A[j..i]中最小的(j&lt;i)</p>
+
+<p><strong>证</strong>：</p>
+
+<p>⇒：考虑当前treap的根是谁。若是i，则得证；若是k，则矛盾；若在区间(i,k)，则i和k不在同一子树，矛盾；若不在区间[i,k]，则是更小的treap，递归得证。</p>
+
+<p>⇐：依然分类讨论根。Q.E.D.</p>
+
+<p>这个引理在下面的证明中会被直接使用，就不明说了。</p>
+
+<p><strong>定理1</strong>：以上四个操作期望复杂度都是$O(\log n)$的。</p>
+
+<p><strong>证</strong>：考虑每个元素深度的期望，即祖先个数的期望，即每个点是其祖先的概率，等价于每个区间中它是最小的，将区间拆成以它结尾的和以它开头的分开计算，两个都是$\sum\frac{1}{i}=O(\log n)$级别。所以以上操作都是$O(\log n)$的。</p>
+
+<p><strong>定理2</strong>：证明树高$O(\log d)$是W.H.P.的。</p>
+
+<p><strong>证</strong>：W.H.P.通常很多是用chernoff bound来证明的，类似树高的期望证明，将区间拆成两个，每个补充到n个随机变量，每个直接用chernoff bound即可。Q.E.D.</p>
+
+<p>接下来分析基本来自96年Raimund Seidel的那篇Randomized Search Trees。<del>或者算法导论红黑树那章最后一道作业题。</del></p>
+
+<p><strong>定理3</strong>：给定finger下，插入删除复杂度为$O(1)$。</p>
+
+<p><strong>证</strong>：定义点v的left spine为从v开始只走左边的最长路径，right spine为从v开始只走右边的最长路径。</p>
+
+<p>对于待删除的点x，定义$SL(x)$为x的左孩子的right spine，$SR(x)$为x的右孩子的left spine。虽然很别扭，但是这个定义很符合单旋的性质：若x左旋，即x变成左孩子，x的右孩子的左子树变为x的右子树，则$SL(x)$不变，$SR(x)-1$。若右旋，即x变为右孩子，x的左孩子的右子树变为x的左子树，则$SL(x)-1$，$SR(x)$不变，所以每次旋转$SL(x)+SR(L)$减少一。<del>左、右两个字我已经不认识了</del>。</p>
+
+<p>注意到$SL(x)$显然是$x$到$x-1$的路径（这里所有的$x$都是指A数组中第$x$个元素），若$x-1$不在$x$的子树中，则$x$没有左孩子了，否则$x-1$一定在right spine的终点。所以期望意义下$SL(x)$为A[1&hellip;x-1]中所有$x-1$的祖先减去$x$的祖先，即$SL(x)=\sum_{i=1}^{x-1}\frac{1}{(x-i+1)(x-i)}=1-\frac{1}{x}$。同理$SR(x)=1-\frac{1}{n+1-x}$。</p>
+
+<p>也就是说给定finger的情况下，$O(1)$时间可以删除它，由于插入为删除的逆过程，给定finger时也是$O(1)$时间插入。Q.E.D.</p>
+
+<p><strong>定理4</strong>：接下来证明$x$到$y$的路径长度期望是$O(\log d)$。</p>
+
+<p><strong>证</strong>：考虑$LCA(x,y)=v$，则路径长度的期望是$x$到$v$的路径中点数的期望+$y$到$v$的路径中点数的期望，类似上面的思路求和即可，自己算去。Q.E.D.</p>
+
+<p>个人觉得定理2的证明可以套过来证明定理3和4W.H.P.，作者为什么不证啊？</p>
+
+<p>背景知识介绍完了，可以开始介绍书上的内容了。书上讲了$O(\log d)$期望时间finger search的算法，定理4无法被使用的主要原因是$LCA$无法求，因为$y$的位置并不知道。算法是$x$不断的沿着treap往上走，当走到$v$，若$x&lt;v\le y$，则$v$可能是$LCA$，但是只有当$x&lt;y&lt;v$时才能保证LCA已经找到，这个期望不太好算，。为了解决这个问题，论文里的方法时添加额外信息，比如每个点添加它的子树中最大和最小的元素是多少，这样旋转容易维护，但是插入删除沿着树往上更新，显然也是沿着spine更新，所以期望是$O(1)$。书上的方法很妙，以$v$为潜在的根往下探，注意这里$x$上探一步同时$v$下探一步，当上探$O(\log d)$找到真正的$LCA$时，再下探$O(\log d)$次就能找到。</p>
+
+<h3 id="skip-lists">Skip Lists</h3>
+
+<p>弱智书乱排版，skip list的细节在14章。</p>
+
+<p>与插入的过程类似，也需要保存一个$O(\log n)$的数组保存x最近的左邻居，从x的最底层开始不断的往上倒着退，直到找到第一个比y小的点，从它开始进行普通的查找即可。复杂度是$O(\log d)$。</p>
+
+<p>证明在原论文里，这里没有。</p>
+
+<h2 id="应用">应用</h2>
+
+<p><strong>最优集合操作</strong>：最优集合merge复杂度为$O(n\log\frac{m}{n})$，用finger search tree得将n个元素按序列merge进m个元素的列表的代价为$O(\sum<em>{i=1}^{n}\log d_i)$，其中$\sum</em>{i=1}^{n}d_i\le m$，由Jensen&rsquo;s inequality得$O(n\log\frac{m}{n})$。</p>
+
+<p><strong>任意序列树上merge</strong>：对节点数做归纳，得merge一棵n个点的树的复杂度为$\le kn\log n$，因为$\le kn_1\log n_1+kn_2\log n_2+kn_1\log n_2/n_1=k(n_1+n_2)\log n_2\le kn\log n$。这里$k$是用finger search tree进行merge的常数。</p>
+
+<p><strong>序列分割</strong>：定义k个元素的序列的势为$k-\log k$，可得每次分割势能至少减少$\log\min{k1,k2}-1$，而finger search tree进行一次分割的复杂度为$O(\log\min{k1,k2})$，所以最多进行n-1次分割之后总时间为$O(n)$。</p>
+
+<p><strong>自适应排序</strong>：看不懂啊（留坑）</p>
+
+</div>
+
+
+    </main>
+
+    
+  </body>
+</html>

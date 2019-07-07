@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>priority search tree on syx的日志</title>
+    <link>cartershi.github.io/blog/tags/priority-search-tree/</link>
+    <description>Recent content in priority search tree on syx的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 02 Jul 2019 19:10:04 +0800</lastBuildDate>
+    
+	<atom:link href="cartershi.github.io/blog/tags/priority-search-tree/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chapter19</title>
+      <link>cartershi.github.io/blog/post/hdsa_chapter19/</link>
+      <pubDate>Tue, 02 Jul 2019 19:10:04 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/hdsa_chapter19/</guid>
+      <description>Interval, Segment, Range, and Priority Search Trees 本章数据结构一般要求数据是静态的，主要关注各种区间搜索问题。
+Interval Trees 对于问题：找出给定的S个区间中与给定区间Q相交的区间集合F。
+可以建立一颗Interval Tree，当前树的根，它的根v保存左右两个孩子，左子树包含小于v.key的区间，右子树包含大于v.key的区间。v还包含v.key，为S个区间的2S个端点的中位数，v.aux保存包含v.key的所有区间的左右端点，左端点递增，右端点递减。
+Interval Tree每次查询的复杂度为$O(\log S+|F|)$：对于当前的根v，若v.key在Q里，则v.aux都放入F，查询两个子树；若v.key&amp;lt;Q.L里，则考察v.aux里的右端点，查询右子树，否则反过来。
+Segment Trees Maximum Clique Size of a set of Intervals 问题：对于S个区间的集合，找到最大的一个子集合，使得之中的区间的交非空。
+线段树定义不提了，需要注意的是它这里的叶子节点是S个区间的2S个端点从小到大排序，每次插入一个区间，从根开始类似线段树的查询，在每个停止的节点标记的#加1，并用它尝试，并在递归结束时更新clq=max{left.#+left.clq,right.#+right.clq}，clq代表当前节点的子区间目前已知的最大被覆盖数，答案为root.#+root.clq。正确性直接考虑最优解的clq的构成路径，它在路径中的每一个点的clq都不可能被另外一个孩子代替，否则会得到更优的解。区间排个序然后扫一遍不就行了，搞这么麻烦干嘛
+Maximum Clique Size of a set of Rectangles问题：与Intervals 不同在于给定是S个二维的矩阵而非S个一维的区间。
+解法是对于每个矩阵的下边线，考虑与其相交的所有矩阵，对这些矩阵的左右边线调用Intervals算法。为了优化复杂度，类似Intervals的算法，建立左右边界的线段树。扫描下边界不断地插入删除左右区间即可。依然区间排序然后扫描时区间修改也行啊
+Range Trees 问题：给定k维的区间R，搜索在R里所有的k维点。在一维情况下就是二分搜索左边界。
+k维range tree的每个节点是一颗k-1维的range tree，建立的过程就是对于当前的根，取所有点最后一维的中位数，分成两个子树继续建立k维range tree，同时对于当前所有点建立前k-1维的range tree，挂在根上。用数学归纳法可得时空复杂度皆为$O(n\log^{k-1}n),\forall k\ge 2$。
+查询的过程是找到一个节点s它的左右区间都包含当前维度的区间，这时s的左孩子可以不断的往右探直至它的左孩子有点在当前维度的区间，此时可知它的右孩子的最后一维都在给定的区间（显然比区间左值大，又s的右孩子有比区间右值小的值），则对右孩子进行k-1维range tree查找，最终到一维情况下二分查找，而对左孩子继续上述过程，直至叶子节点，直接检验。s的右孩子类似的处理。这个查询过程在当前k维range tree上最多查询$O(\log n)$个节点，这些节点都在k-1维的range tree的查询，所以若不考虑最终查找结果数，时间复杂度为$O(\log^k n)$。
+可以进一步减少一个log：在2维时，此时每个点都按第一维排序，根下面挂的所有点都记录它在左右子树中第一个不比它小的点的位置，这样直接在根上查找比不必左端点小的元素，在左右子树中就不需要二分查找而是直接用根记录的信息传递下来即可。但是为了一个log增加一倍空间真的值吗？
+Priority Search Trees 问题：给定n个形如$(x,y)$的二维点，要求查找一个点p，使得他在$x\in[l,r]$的所有点q中$y$最小。
+所谓的Priority Search Tree基本上就是线段树的思想。不同在于它是从上往下建立的。它应用的另外一个Grounded 2D-Range Search Problem也可以直接用线段树解决。</description>
+    </item>
+    
+  </channel>
+</rss>
