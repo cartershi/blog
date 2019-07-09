@@ -3,30 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>cartershi.github.io/blog/post/haam_chapter5/</loc>
-    <lastmod>2019-07-07T12:13:42+08:00</lastmod>
+    <loc>cartershi.github.io/blog/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</loc>
+    <lastmod>2019-07-09T20:57:35+08:00</lastmod>
   </url>
   
   <url>
     <loc>cartershi.github.io/blog/post/</loc>
-    <lastmod>2019-07-07T12:13:42+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/blog/tags/</loc>
-    <lastmod>2019-07-07T12:13:42+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/blog/tags/approximation-algorithm/</loc>
-    <lastmod>2019-07-07T12:13:42+08:00</lastmod>
+    <lastmod>2019-07-09T20:57:35+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>cartershi.github.io/blog/</loc>
+    <lastmod>2019-07-09T20:57:35+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</loc>
+    <lastmod>2019-07-08T09:39:22+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/</loc>
+    <lastmod>2019-07-08T09:39:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2019-07-08T09:39:22+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/post/haam_chapter5/</loc>
+    <lastmod>2019-07-07T12:13:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>cartershi.github.io/blog/tags/approximation-algorithm/</loc>
     <lastmod>2019-07-07T12:13:42+08:00</lastmod>
     <priority>0</priority>
   </url>

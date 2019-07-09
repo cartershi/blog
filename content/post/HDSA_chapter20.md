@@ -1,7 +1,7 @@
 ---
 title: "Chapter20"
 date: 2019-07-03T13:24:42+08:00
-draft: true
+draft: false
 tags: ["data structure","quadtree","octree","gele"]
 ---
 
