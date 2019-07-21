@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>gele &middot; syx的日志</title>
+  <title>HAAM_chapter7 &middot; syx的日志</title>
 
   
   <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/print.css" media="print">
@@ -48,7 +48,6 @@ MathJax.Hub.Queue(function() {
   <link rel="shortcut icon" href="cartershi.github.io/blog/cai.jpg">
 
   
-  <link href="cartershi.github.io/blog/tags/gele/index.xml" rel="alternate" type="application/rss+xml" title="syx的日志" />
   
   
 </head>
@@ -75,27 +74,44 @@ MathJax.Hub.Queue(function() {
 </aside>
 
     <main class="content container">
-    <ul class="posts">
-<li>
-    <span><a href="cartershi.github.io/blog/post/approximation-algorithms-for-geometric-median-problems/">Approximation Algorithms for Geometric Median Problems</a> <time class="pull-right post-list" datetime="2019-07-20T16:32:30&#43;0800">Sat, Jul 20, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/haam_chapter6/">HAAM_chapter6</a> <time class="pull-right post-list" datetime="2019-07-15T20:11:12&#43;0800">Mon, Jul 15, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/haam_chapter4/">HAAM_chapter4</a> <time class="pull-right post-list" datetime="2019-07-11T11:37:54&#43;0800">Thu, Jul 11, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/">A tight bound on approximating arbitrary metrics by tree metrics</a> <time class="pull-right post-list" datetime="2019-07-09T20:57:35&#43;0800">Tue, Jul 9, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/hdsa_chapter20/">Chapter20</a> <time class="pull-right post-list" datetime="2019-07-03T13:24:42&#43;0800">Wed, Jul 3, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/hdsa_chapter11/">Chapter11</a> <time class="pull-right post-list" datetime="2019-07-02T19:08:12&#43;0800">Tue, Jul 2, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/hdsa_chapter14/">chapter14</a> <time class="pull-right post-list" datetime="2019-06-24T12:06:55&#43;0800">Mon, Jun 24, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/hdsa_chapter13/">Chapter13</a> <time class="pull-right post-list" datetime="2019-06-24T00:15:52&#43;0800">Mon, Jun 24, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/hdsa_chapter12/">Chapter12</a> <time class="pull-right post-list" datetime="2019-06-22T19:23:11&#43;0800">Sat, Jun 22, 2019</time></span>
-  </li>
-</ul>
+    <div class="post">
+  <h1>HAAM_chapter7</h1>
+  <time datetime=2019-07-19T21:09:38&#43;0800 class="post-date">Fri, Jul 19, 2019</time>
+  
+
+<h1 id="lp-rounding-and-extensions">LP Rounding and Extensions</h1>
+
+<h2 id="nondeterministic-rounding">Nondeterministic Rounding</h2>
+
+<h3 id="independent-rounding">Independent Rounding</h3>
+
+<p>集合覆盖，用LP的解作为集合被选取的概率，挑选$c\log n$次。这样期望大小有界，并且WHP覆盖所有的元素。</p>
+
+<p>条件满足问题，每个元素$\frac{1}{2}$的概率为正，得到一个结果，另外以LP的解作为元素被选的概率挑选，取两者大的。</p>
+
+<h3 id="dependent-rounding">Dependent Rounding</h3>
+
+<p>simultaneously rounding ：最小割问题（限制为某些点必须被割开），随机选取一个$u\in[\frac{1}{2},1]$，把比u大点与s放在一起。</p>
+
+<p>Rounding against a Hyperplane：最大割问题，高级算法讲过。</p>
+
+<p>Extensions：distributions on level sets、 the pipage rounding method、the level set based method、digital halftoning、cardinality constraints。<del>鸽了</del></p>
+
+<h2 id="deterministic-rounding">Deterministic Rounding</h2>
+
+<p>Scaling：点覆盖选取所有至少$\frac{1}{2}$的点。</p>
+
+<p>Filter and Round：Approximation Algorithms for Geometric Median Problems中介绍。</p>
+
+<p>Iterated Rounding：上一章有。</p>
+
+<p>Pipage Rounding：将小数解round成整数解，过程中保证目标函数不会增加太多。具体做法是设计一个新的目标函数，它是凸函数且与原函数近似。</p>
+
+<p>Decompose and Round：几何问题可用。</p>
+
+</div>
+
+
     </main>
 
     

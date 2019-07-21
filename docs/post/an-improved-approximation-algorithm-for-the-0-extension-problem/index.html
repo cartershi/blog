@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>gele &middot; syx的日志</title>
+  <title>An improved approximation algorithm for the 0-extension problem &middot; syx的日志</title>
 
   
   <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/print.css" media="print">
@@ -48,7 +48,6 @@ MathJax.Hub.Queue(function() {
   <link rel="shortcut icon" href="cartershi.github.io/blog/cai.jpg">
 
   
-  <link href="cartershi.github.io/blog/tags/gele/index.xml" rel="alternate" type="application/rss+xml" title="syx的日志" />
   
   
 </head>
@@ -75,27 +74,30 @@ MathJax.Hub.Queue(function() {
 </aside>
 
     <main class="content container">
-    <ul class="posts">
-<li>
-    <span><a href="cartershi.github.io/blog/post/approximation-algorithms-for-geometric-median-problems/">Approximation Algorithms for Geometric Median Problems</a> <time class="pull-right post-list" datetime="2019-07-20T16:32:30&#43;0800">Sat, Jul 20, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/haam_chapter6/">HAAM_chapter6</a> <time class="pull-right post-list" datetime="2019-07-15T20:11:12&#43;0800">Mon, Jul 15, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/haam_chapter4/">HAAM_chapter4</a> <time class="pull-right post-list" datetime="2019-07-11T11:37:54&#43;0800">Thu, Jul 11, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/">A tight bound on approximating arbitrary metrics by tree metrics</a> <time class="pull-right post-list" datetime="2019-07-09T20:57:35&#43;0800">Tue, Jul 9, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/hdsa_chapter20/">Chapter20</a> <time class="pull-right post-list" datetime="2019-07-03T13:24:42&#43;0800">Wed, Jul 3, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/hdsa_chapter11/">Chapter11</a> <time class="pull-right post-list" datetime="2019-07-02T19:08:12&#43;0800">Tue, Jul 2, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/hdsa_chapter14/">chapter14</a> <time class="pull-right post-list" datetime="2019-06-24T12:06:55&#43;0800">Mon, Jun 24, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/hdsa_chapter13/">Chapter13</a> <time class="pull-right post-list" datetime="2019-06-24T00:15:52&#43;0800">Mon, Jun 24, 2019</time></span>
-  </li><li>
-    <span><a href="cartershi.github.io/blog/post/hdsa_chapter12/">Chapter12</a> <time class="pull-right post-list" datetime="2019-06-22T19:23:11&#43;0800">Sat, Jun 22, 2019</time></span>
-  </li>
-</ul>
+    <div class="post">
+  <h1>An improved approximation algorithm for the 0-extension problem</h1>
+  <time datetime=2019-07-21T14:24:25&#43;0800 class="post-date">Sun, Jul 21, 2019</time>
+  
+
+<p>作者：Jittat Fakcharoenphol, Chris Harrelson, Satish Rao, Kunal Talwar</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>这篇文章有一个漂亮的relaxation，它relax出一个新的semimetric度量，只保证terminal之间的距离不变即可。</p>
+
+<h2 id="notation">Notation</h2>
+
+<p>定义$A_u$为u最近的terminal或者到它的距离。显然每个点挑选$A_u$是不合理的，因为terminal之间的距离可能是$O(A_u)$级别的，若$d(u,v)$很小，则显然无法很好的近似。</p>
+
+<h2 id="the-ckr-algorithm">The CKR algorithm</h2>
+
+<p>随机一个terminal的序列，选择一个$[1,2)$的数$\alpha$，每个点u赋值给序列中第一个距离小于$\alpha A_u$的的点。</p>
+
+<p>对于目标函数的两点距离，$\delta(f(u),f(v))\le\delta(f(u),u)+\delta(u,v)+\delta(f(v),v)$直接可以解决前两种情况。</p>
+
+</div>
+
+
     </main>
 
     

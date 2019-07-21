@@ -6,10 +6,74 @@
     <description>Recent content in gele on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Jul 2019 13:24:42 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jul 2019 16:32:30 +0800</lastBuildDate>
     
 	<atom:link href="cartershi.github.io/blog/tags/gele/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Approximation Algorithms for Geometric Median Problems</title>
+      <link>cartershi.github.io/blog/post/approximation-algorithms-for-geometric-median-problems/</link>
+      <pubDate>Sat, 20 Jul 2019 16:32:30 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/approximation-algorithms-for-geometric-median-problems/</guid>
+      <description>作者：Jyh-Han Lin、Jeffrey Scott Vitter
+个人觉得它的引理6写错了。
+这篇文章的算法容易理解，就是用LP的解算每个点距离的期望$\widehat{C_i}$，定义i的邻居为$\le(1+1/\epsilon)\widehat{C_i}$的所有点，定义i的拓展邻居为两跳之内的邻居。按$\widehat{C_i}$递增排序后不断挑选点并删除x的所有拓展邻居，这些拓展邻居都用x当作中心计算距离。
+可以发现1.拓展邻居是对称的，2.挑选的点的邻居不相交，3.（我感觉不需要它也行啊），4.每个点被拓展邻居覆盖时，此时的期望距离最多为它本身的期望距离，5.每个点j到它对应的中心距离$\le2(1+1/\epsilon)\widehat{C_j}$，6.反证可得每个点邻居的y的和$&amp;gt;\frac{1}{1+\epsilon}$（这步是关键，注意我看的那版论文里应该写反了）。
+5直接说明距离的近似（LP式第一条约束）。接下来考虑中心个数，最优解是y的和，由于挑选的邻居不相交，对于每个挑选的点，由6得它的邻居y的和至少为$&amp;gt;\frac{1}{1+\epsilon}$，得这些邻居y的和$&amp;gt;\frac{1}{1+\epsilon}U$，于是得$s&amp;gt;\frac{1}{1+\epsilon}U$，即可。
+接下来欧式距离那玩意鸽了</description>
+    </item>
+    
+    <item>
+      <title>HAAM_chapter6</title>
+      <link>cartershi.github.io/blog/post/haam_chapter6/</link>
+      <pubDate>Mon, 15 Jul 2019 20:11:12 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/haam_chapter6/</guid>
+      <description>Linear Programming 毒瘤书又开始狂跳步骤了，慢慢写吧
+线性规划有两个常用的方法：rounding和dual，ruonding一般需要将整数规划用线性规划解，然后根据具体情况将分数解转化成整数解。dual是同时优化原问题和对偶问题，不要调用线性规划求解器。本章主要是rounding。
+6.2 Rounding 需要明确的是basic feasible solution的定义，满足真正独立的有用限制的解。其实就是让变量尽可能多为0的合法解，也是simplex跑出来的结果。
+makespan：将每个部分分配的工作匹配到一个具体的机器上即可。匹配工作到机器这件事能成立需要考虑的basic feasible solution的性质，规划中的限制最多n+m个，也就是说数组A的秩最多为n+m，所以解最多n+m个元素非0。若有k个工作被部分分配，最少在结果中占2k个位置，剩下n-k个工作占1个位置，即最少有n+k个元素非0，所有最多m个工作被部分分配。这些部分分配的工作形成pseudoforest（原因看不懂了，坑）。直接用LP比IP小且匹配得到2近似。 METRIC FACILITY LOCATION：这里考虑最简单的直接在client上建facility的情况。思路是对于所有点按它们的平均距离递增排序，然后尽可能的选4/3倍平均距离的不相交的球体。每个球体选择一个最便宜的地点开设facility，每个client选一个最近facility供应。证明第一块好像又跳了很大一部坑，第二部分容易理解，不过觉得8/3写成4/3了。
+GENERALIZED STEINER NETWORK：将relax后的式子迭代的计算选取$\ge\frac{1}{2}$的边坑。这里有个非常复杂的证明。
+6.3 Randomized Rounding MAXIMUM COVERAGE：将LP解得的x看成选取这个集合的概率，然后以这样的概率随机取k个。对每个元素，可以得到它被覆盖的概率的下界（注意下界证明的不等式不是恒成立，而是题中范围恒成立），从而得到被覆盖的期望的下界。
+CONGESTION MINIMIZATION：每条路径被选择的概率等于它LP的结果。得到每条边被覆盖次数的期望。还可用chernoff bound得到每条边覆盖次数的概率结果（书上又跳了一步union bound）。
+6.4 Metric Spaces</description>
+    </item>
+    
+    <item>
+      <title>HAAM_chapter4</title>
+      <link>cartershi.github.io/blog/post/haam_chapter4/</link>
+      <pubDate>Thu, 11 Jul 2019 11:37:54 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/haam_chapter4/</guid>
+      <description>Greedy Methods
+贪心方法大全
+Set Cover：常用分析，charge scheme。
+Shortest Superstring Problem：包含所有字符串的超串，这个问题可以常数近似。
+Steiner Trees：边权版不提了，点权版每次贪心的挑选一个spider，直至全覆盖。
+K-Centers：找k个中心，使得每个点到中心的最短距离都小。每次挑选一个距离当前中心最远的点加入中心。证明思路就是OPT的k个点的最优半径必然覆盖所有点，而贪心中第K+1次挑选的距离就是贪心的答案，这K+1个点必然有两个比OPT中某个点覆盖，这两点的距离两次放缩得不小于贪心的答案，再由三角不等式。
+Connected Dominating Sets：
+Scheduling：对于一种特殊的情况：一台机器且所有工作价值相同，一个贪心方法是挑选最早完成的工作。
+Minimum-Degree Spanning Trees：在度数不超过d的情况下的最小生成树，这个问题在度的限制不放宽的情况下不可近似，但在度$O(\log n)$近似下可以得到$O(\log n)$的树。算法是不断用匹配选择度不超过d的森林拼接成树。
+Maximum-Weight b-Matchings：最大权匹配，但每个点可被用b次。多项式可解但是可极快近似，对边排序，然后不断的加边。
+Primal-Dual Methods：点覆盖著名应用。
+Greedy Algorithms via the Probabilistic Method：组合数学利器，maxcut著名应用，独立集比较著名，接下来gele</description>
+    </item>
+    
+    <item>
+      <title>A tight bound on approximating arbitrary metrics by tree metrics</title>
+      <link>cartershi.github.io/blog/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</link>
+      <pubDate>Tue, 09 Jul 2019 20:57:35 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</guid>
+      <description>作者：Jittat Fakcharoenphol, Satish Rao and Kunal Talwar
+The algorithm 定义：首先将最短距离扩大到至少为1，定义$\Delta=2^\delta$为直径的上界，度量d&amp;rsquo;支配d表示任两点d&amp;rsquo;&amp;gt;d，本文的目标即寻找树上的度量d‘，它支配真正的距离d，并且d’的期望距离$\le\alpha d(u,v)$，这称为$\alpha$概率近似。r-cut定义为以某个点为中心的半径为r的cluster，$Di$为$D{i+1}$的$2^i$-cut。
+算法：首先随机产生n个点的排列，以$p(x)=\frac{1}{x\ln2}$的概率挑选$\beta\in[1,2]$，若当前集合中元素不止一个，将每个元素分配给排列中第一个距离小于$2^{i-1}\beta$的点。这显然是形成了树中节点的孩子，边权为$2^i\ge 2^{i-1}\beta$，大于等于当前点的半径。
+支配：两点u,v的距离就是两点在树中对应的叶子节点之间的距离。考虑它们的LCA x，注意在树上u到x的距离至少是x的半径（这里有两次放缩），x在图上这个半径包含u，所以$d(u,x)\le d^T(u,x)$，三角不等式可得以树作为度量支配图的距离。
+$\alpha$概率近似：Observation1通过简单的变量替换即可得到，若$LCA(u,v)=x$在第i层，则$d^T(u,x)&amp;lt;2^{i+1}$，所以$d^T(u,v)&amp;lt;2^{i+2}\le8\beta_i$。将随机排列的n个点按照$\min(d(u,w),d(v,w))$从小到大排序，得$E[d^T(u,v)]\le \sumi E[d^T{wi}(u,v)]$，$d^T{w_i}(u,v)$表示为$w_i$将它们分割的情况下的距离。注意到$w_i$将它们分割时$w_i$必然在前$i-1$个点的前面，否则这些点会将u,v直接分开或者带入更小的集合，由于随机排列，这样的概率为$\frac{1}{i}$。对所有可能的$\betai$做积分求期望（这边也有点绕，并不是直接对$\beta$积分），外面再乘一个$\frac{1}{i}$即可求出$E[d^T{w_i}(u,v)]$，最后直接累加。天才般的证明
+Derandomization 鸽了</description>
+    </item>
     
     <item>
       <title>Chapter20</title>

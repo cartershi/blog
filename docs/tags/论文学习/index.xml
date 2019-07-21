@@ -6,10 +6,51 @@
     <description>Recent content in 论文学习 on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jul 2019 09:39:22 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jul 2019 14:24:25 +0800</lastBuildDate>
     
 	<atom:link href="cartershi.github.io/blog/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An improved approximation algorithm for the 0-extension problem</title>
+      <link>cartershi.github.io/blog/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</link>
+      <pubDate>Sun, 21 Jul 2019 14:24:25 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</guid>
+      <description>作者：Jittat Fakcharoenphol, Chris Harrelson, Satish Rao, Kunal Talwar
+Introduction 这篇文章有一个漂亮的relaxation，它relax出一个新的semimetric度量，只保证terminal之间的距离不变即可。
+Notation 定义$A_u$为u最近的terminal或者到它的距离。显然每个点挑选$A_u$是不合理的，因为terminal之间的距离可能是$O(A_u)$级别的，若$d(u,v)$很小，则显然无法很好的近似。
+The CKR algorithm 随机一个terminal的序列，选择一个$[1,2)$的数$\alpha$，每个点u赋值给序列中第一个距离小于$\alpha A_u$的的点。
+对于目标函数的两点距离，$\delta(f(u),f(v))\le\delta(f(u),u)+\delta(u,v)+\delta(f(v),v)$直接可以解决前两种情况。</description>
+    </item>
+    
+    <item>
+      <title>Approximation Algorithms for Geometric Median Problems</title>
+      <link>cartershi.github.io/blog/post/approximation-algorithms-for-geometric-median-problems/</link>
+      <pubDate>Sat, 20 Jul 2019 16:32:30 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/approximation-algorithms-for-geometric-median-problems/</guid>
+      <description>作者：Jyh-Han Lin、Jeffrey Scott Vitter
+个人觉得它的引理6写错了。
+这篇文章的算法容易理解，就是用LP的解算每个点距离的期望$\widehat{C_i}$，定义i的邻居为$\le(1+1/\epsilon)\widehat{C_i}$的所有点，定义i的拓展邻居为两跳之内的邻居。按$\widehat{C_i}$递增排序后不断挑选点并删除x的所有拓展邻居，这些拓展邻居都用x当作中心计算距离。
+可以发现1.拓展邻居是对称的，2.挑选的点的邻居不相交，3.（我感觉不需要它也行啊），4.每个点被拓展邻居覆盖时，此时的期望距离最多为它本身的期望距离，5.每个点j到它对应的中心距离$\le2(1+1/\epsilon)\widehat{C_j}$，6.反证可得每个点邻居的y的和$&amp;gt;\frac{1}{1+\epsilon}$（这步是关键，注意我看的那版论文里应该写反了）。
+5直接说明距离的近似（LP式第一条约束）。接下来考虑中心个数，最优解是y的和，由于挑选的邻居不相交，对于每个挑选的点，由6得它的邻居y的和至少为$&amp;gt;\frac{1}{1+\epsilon}$，得这些邻居y的和$&amp;gt;\frac{1}{1+\epsilon}U$，于是得$s&amp;gt;\frac{1}{1+\epsilon}U$，即可。
+接下来欧式距离那玩意鸽了</description>
+    </item>
+    
+    <item>
+      <title>A tight bound on approximating arbitrary metrics by tree metrics</title>
+      <link>cartershi.github.io/blog/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</link>
+      <pubDate>Tue, 09 Jul 2019 20:57:35 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</guid>
+      <description>作者：Jittat Fakcharoenphol, Satish Rao and Kunal Talwar
+The algorithm 定义：首先将最短距离扩大到至少为1，定义$\Delta=2^\delta$为直径的上界，度量d&amp;rsquo;支配d表示任两点d&amp;rsquo;&amp;gt;d，本文的目标即寻找树上的度量d‘，它支配真正的距离d，并且d’的期望距离$\le\alpha d(u,v)$，这称为$\alpha$概率近似。r-cut定义为以某个点为中心的半径为r的cluster，$Di$为$D{i+1}$的$2^i$-cut。
+算法：首先随机产生n个点的排列，以$p(x)=\frac{1}{x\ln2}$的概率挑选$\beta\in[1,2]$，若当前集合中元素不止一个，将每个元素分配给排列中第一个距离小于$2^{i-1}\beta$的点。这显然是形成了树中节点的孩子，边权为$2^i\ge 2^{i-1}\beta$，大于等于当前点的半径。
+支配：两点u,v的距离就是两点在树中对应的叶子节点之间的距离。考虑它们的LCA x，注意在树上u到x的距离至少是x的半径（这里有两次放缩），x在图上这个半径包含u，所以$d(u,x)\le d^T(u,x)$，三角不等式可得以树作为度量支配图的距离。
+$\alpha$概率近似：Observation1通过简单的变量替换即可得到，若$LCA(u,v)=x$在第i层，则$d^T(u,x)&amp;lt;2^{i+1}$，所以$d^T(u,v)&amp;lt;2^{i+2}\le8\beta_i$。将随机排列的n个点按照$\min(d(u,w),d(v,w))$从小到大排序，得$E[d^T(u,v)]\le \sumi E[d^T{wi}(u,v)]$，$d^T{w_i}(u,v)$表示为$w_i$将它们分割的情况下的距离。注意到$w_i$将它们分割时$w_i$必然在前$i-1$个点的前面，否则这些点会将u,v直接分开或者带入更小的集合，由于随机排列，这样的概率为$\frac{1}{i}$。对所有可能的$\betai$做积分求期望（这边也有点绕，并不是直接对$\beta$积分），外面再乘一个$\frac{1}{i}$即可求出$E[d^T{w_i}(u,v)]$，最后直接累加。天才般的证明
+Derandomization 鸽了</description>
+    </item>
     
     <item>
       <title>A greedy approximation algorithm for the group Steiner problem</title>
