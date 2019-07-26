@@ -6,7 +6,7 @@
     <description>Recent content in Tags on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jul 2019 14:24:25 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jul 2019 21:13:20 +0800</lastBuildDate>
     
 	<atom:link href="cartershi.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>论文学习</title>
       <link>cartershi.github.io/blog/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Sun, 21 Jul 2019 14:24:25 +0800</pubDate>
+      <pubDate>Fri, 26 Jul 2019 21:13:20 +0800</pubDate>
       
       <guid>cartershi.github.io/blog/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>approximation algorithm</title>
+      <link>cartershi.github.io/blog/tags/approximation-algorithm/</link>
+      <pubDate>Wed, 24 Jul 2019 14:53:16 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/tags/approximation-algorithm/</guid>
       <description></description>
     </item>
     
@@ -26,15 +35,6 @@
       <pubDate>Sat, 20 Jul 2019 16:32:30 +0800</pubDate>
       
       <guid>cartershi.github.io/blog/tags/gele/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>approximation algorithm</title>
-      <link>cartershi.github.io/blog/tags/approximation-algorithm/</link>
-      <pubDate>Fri, 19 Jul 2019 21:09:38 +0800</pubDate>
-      
-      <guid>cartershi.github.io/blog/tags/approximation-algorithm/</guid>
       <description></description>
     </item>
     

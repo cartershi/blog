@@ -6,10 +6,27 @@
     <description>Recent content in approximation algorithm on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Jul 2019 21:09:38 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jul 2019 14:53:16 +0800</lastBuildDate>
     
 	<atom:link href="cartershi.github.io/blog/tags/approximation-algorithm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HAAM_chapter7</title>
+      <link>cartershi.github.io/blog/post/haam_chapter59/</link>
+      <pubDate>Wed, 24 Jul 2019 14:53:16 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/haam_chapter59/</guid>
+      <description>本文的目标是找一棵联通树，使得$\sum_{u,v\in V}\lambda(u,v)d_T(u,v)$最小，下面称为cost，树T的cost写为c(T)。
+Minimum Routing Cost Spanning Tree 这里设置为$\lambda(u,v)=1$，所以目标变成了是找一棵联通树，cost为任两点之间的距离和。
+Shortest-Paths Trees and Solution Decomposition 做法一：取图的median r，从r开始找最短路径树。对于任意的树Y的cost小于等于2n倍所有点到根的距离和（三角不等式），这恰好median决定的东西。累加起来是图上面的两点间距离和，优于最优树上的cost。这样得到一个2近似。
+做法二：基于decomposition，考虑最优树T上的centroid为根r，T的cost至少是n倍所有点到r的距离和，又由于任意树的cost小于等于2n倍所有点到根的距离和，所以以r为根的最短路径树是T的2近似。只要穷举所有的根找最小即可。
+Routing Loads, Separators, and General Stars 接下来是一堆定义，又是利用树上的性质。$l(T,e)=2x(n-x)\le2\frac{n}{2}\cdot\frac{n}{2}$，其中x是$T-e$中较小的连通分支的大小。实际上l表示两个连通分支中的点的最短路经过e的次数，所以可以得到$c(T)=\sum_{e\in T} l(T,e)w(e)$。注意所有$l$对树进行一次bfs即可得到，于是$c(T)$线性时间可以计算。
+minimal δ-separator是以centroid为根的树中子树点数多余$\delta n$个的所有点形成的联通树。
+Definition 59.1 Let R be a tree contained in graph G. A spanning tree T is a general star with core R if each vertex is connected to R by a shortest path.
+上面的定义不需要R是最短路径树。
+Lemma 59.3 If T is a general star with core S, $c(T)\le 2n\sum{v\in V}d{G}(v,S)+\frac{n^2}{2}w(S)$</description>
+    </item>
     
     <item>
       <title>HAAM_chapter7</title>

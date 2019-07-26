@@ -6,10 +6,61 @@
     <description>Recent content in Posts on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jul 2019 14:24:25 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jul 2019 21:13:20 +0800</lastBuildDate>
     
 	<atom:link href="cartershi.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A POLYNOMIAL-TIME APPROXIMATION SCHEME FOR MINIMUM ROUTING COST SPANNING TREES</title>
+      <link>cartershi.github.io/blog/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</link>
+      <pubDate>Fri, 26 Jul 2019 21:13:20 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</guid>
+      <description>作者：BANG YE WU, GIUSEPPE LANCIA, VINEET BAFNA, KUN-MAO CHAO, R. RAVI k, AND CHUAN YI TANG</description>
+    </item>
+    
+    <item>
+      <title>Approximation algorithms for the shortest total path length spanning tree problem</title>
+      <link>cartershi.github.io/blog/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</link>
+      <pubDate>Thu, 25 Jul 2019 14:51:38 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</guid>
+      <description>作者：Bang Ye Wu , Kun–Mao Chao , Chuan Yi Tang
+HAAM 59章的相关内容。
+Preliminaries Defnition 4. Let G =(V,E,w) and R be a tree contained in G. T is a general star of G with core R if T is a spanning tree of G and $d _T(i,R)=d_G(i,R)$ ∀i ∈ V. The set of all general stars of G with core is denoted by star(G,R)
+可以用dijkstra直接构造a general star of G with core R（从R跑的最短路）。</description>
+    </item>
+    
+    <item>
+      <title>HAAM_chapter7</title>
+      <link>cartershi.github.io/blog/post/haam_chapter59/</link>
+      <pubDate>Wed, 24 Jul 2019 14:53:16 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/haam_chapter59/</guid>
+      <description>本文的目标是找一棵联通树，使得$\sum_{u,v\in V}\lambda(u,v)d_T(u,v)$最小，下面称为cost，树T的cost写为c(T)。
+Minimum Routing Cost Spanning Tree 这里设置为$\lambda(u,v)=1$，所以目标变成了是找一棵联通树，cost为任两点之间的距离和。
+Shortest-Paths Trees and Solution Decomposition 做法一：取图的median r，从r开始找最短路径树。对于任意的树Y的cost小于等于2n倍所有点到根的距离和（三角不等式），这恰好median决定的东西。累加起来是图上面的两点间距离和，优于最优树上的cost。这样得到一个2近似。
+做法二：基于decomposition，考虑最优树T上的centroid为根r，T的cost至少是n倍所有点到r的距离和，又由于任意树的cost小于等于2n倍所有点到根的距离和，所以以r为根的最短路径树是T的2近似。只要穷举所有的根找最小即可。
+Routing Loads, Separators, and General Stars 接下来是一堆定义，又是利用树上的性质。$l(T,e)=2x(n-x)\le2\frac{n}{2}\cdot\frac{n}{2}$，其中x是$T-e$中较小的连通分支的大小。实际上l表示两个连通分支中的点的最短路经过e的次数，所以可以得到$c(T)=\sum_{e\in T} l(T,e)w(e)$。注意所有$l$对树进行一次bfs即可得到，于是$c(T)$线性时间可以计算。
+minimal δ-separator是以centroid为根的树中子树点数多余$\delta n$个的所有点形成的联通树。
+Definition 59.1 Let R be a tree contained in graph G. A spanning tree T is a general star with core R if each vertex is connected to R by a shortest path.
+上面的定义不需要R是最短路径树。
+Lemma 59.3 If T is a general star with core S, $c(T)\le 2n\sum{v\in V}d{G}(v,S)+\frac{n^2}{2}w(S)$</description>
+    </item>
+    
+    <item>
+      <title>A FACTOR 2 APPROXIMATION ALGORITHM FOR THE GENERALIZED STEINER NETWORK PROBLEM</title>
+      <link>cartershi.github.io/blog/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</link>
+      <pubDate>Mon, 22 Jul 2019 16:45:33 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</guid>
+      <description>作者：Kamal Jain
+Introduction 本文的目标是找到一个子图使得给定目标之间的割满足条件。
+f is weakly supermodular, i.e., it satisfies: 1. f(V)=0 2. For every A,B⊆V , at least one of the following holds 1. $f(A)+f(B)\le f(A-B)+f(B-A)$ 2. $f(A)+f(B)\le f(A\cap B)+f(A\cup B)$
+Preliminaries Definition 2.1 function f : $2^V \rightarrow Z_+$is proper if f(V) = 0 and the following two conditions hold
+ For every subset S of V , f(S)=f(V−S). For all disjoint subsets A and B of V , f(A∪B)≤max{f(A),f(B)}  可证明proper函数是weakly supermodular的。</description>
+    </item>
     
     <item>
       <title>An improved approximation algorithm for the 0-extension problem</title>
@@ -18,10 +69,16 @@
       
       <guid>cartershi.github.io/blog/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</guid>
       <description>作者：Jittat Fakcharoenphol, Chris Harrelson, Satish Rao, Kunal Talwar
-Introduction 这篇文章有一个漂亮的relaxation，它relax出一个新的semimetric度量，只保证terminal之间的距离不变即可。
-Notation 定义$A_u$为u最近的terminal或者到它的距离。显然每个点挑选$A_u$是不合理的，因为terminal之间的距离可能是$O(A_u)$级别的，若$d(u,v)$很小，则显然无法很好的近似。
-The CKR algorithm 随机一个terminal的序列，选择一个$[1,2)$的数$\alpha$，每个点u赋值给序列中第一个距离小于$\alpha A_u$的的点。
-对于目标函数的两点距离，$\delta(f(u),f(v))\le\delta(f(u),u)+\delta(u,v)+\delta(f(v),v)$直接可以解决前两种情况。</description>
+Introduction 本问题是将每个点映射到给定的terminal上，使得原来有边的任两点之间的距离和与现在距离和之间近似比尽可能小。
+这篇文章有一个漂亮的relaxation，它relax出一个新的semimetric度量，只保证terminal之间的距离不变即可。
+Notation 定义$A_u$为u最近的terminal或者到它的距离。显然每个点挑选$A_u$是不合理的，因为terminal之间的距离可能是$O(A_u)$级别的，若$d(u,v)$很小，则无法很好的近似。
+The CKR algorithm 随机一个terminal的排列，选择一个$[1,2)$的数$\alpha$，每个点u赋值给排列中第一个距离小于$\alpha A_u$的的点。
+对于目标函数的两点距离，$\delta(f(u),f(v))\le\delta(f(u),u)+\delta(u,v)+\delta(f(v),v)$直接可以解决前两种情况。否则需要一个概率的证明（参见CKR的证明）：考虑u，v被分开的概率，等价于u被m$(\alpha)$中的点覆盖，而v一定被$s(\alpha)$覆盖，由于排列得随机性，得$P[\epsilon(u,v)|\alpha]\le\frac{m(\alpha)}{m(\alpha)+s(\alpha)}$，对$\alpha$求积分得基本就解决了。为了解决积分的问题，需要对积分式做归纳，也很简单。
+Our algorithm 不同在于随机变量，挑选一个$\gamma\in[1,2]$，设置$A_v&amp;rsquo;=\min{2^s:2^s\ge2A_v/\gamma}$（图中最短距离被扩大到1），随机挑选一个$i\in[1,m]$、$\alpha\in[2^{i-1},2^i)$，点的排列$\sigma$。接下来就是ckr算法。
+Analysis of the algorithms lemma5.1：分析类似于CKR+tree mertic的合体，对于每条边uv，分析它被某个点分割的概率，考虑u被它覆盖而v没有，则$K{i-2}^{u}$里的点必然不是可能的点，所以穷举$K{i}^{u}-K_{i-2}^{u}$中的点即可，这里面的点概率类似tree mertic的分析。
+lemma5.2：很简单的引理，关键在于这个设置的方法，使得两个很接近的点的$A&amp;rsquo;$值大概率相似。
+近似比：用这两个引理就可以容易的分$A&amp;rsquo;$是否相等来计算条件期望。
+去随机化：穷举所有可能的随机变量，然后用条件期望不断的解决当前排列位置上的terminal。</description>
     </item>
     
     <item>
