@@ -1,8 +1,8 @@
 ---
 title: "HAAM_chapter7"
 date: 2019-07-24T14:53:16+08:00
-draft: true
-tags: ["approximation algorithm"]
+draft: false
+tags: ["approximation algorithm","gele"]
 ---
 本文的目标是找一棵联通树，使得$\sum_{u,v\in V}\lambda(u,v)d_T(u,v)$最小，下面称为cost，树T的cost写为c(T)。
 
@@ -52,6 +52,54 @@ trivial的结论。注意当$\delta=\frac{1}{2}$，则$S=\{r\}$，实际上就�
 
 ### A Polynomial-Time Approximation Scheme
 
-gg
+参见A POLYNOMIAL-TIME APPROXIMATION SCHEME FOR MINIMUM ROUTING COST SPANNING TREES。
 
 ## Product-Requirement Communication Spanning Tree
+
+### Approximating by 2-Stars
+
+思路还是与MRCT一样，借助routing cost的定义可以式59.1，每个点往x连第三项的值，往y连第二项的值，两点之间连第一项的值，在这张图上找x、y的最小割即可得到最小值。
+
+### A Polynomial-Time Approximation Scheme
+
+与MRCT不同的是不能在多项式时间内寻找最好的k-star。所以将一部分较大的点权进行缩小成整数，对这些点复制点权次，跑MRCT。小的点直接连接到靠近的点。
+
+## Sum-Requirement Communication Spanning Tree
+
+依然是变换routing cost的定义，定义为$l_s(T,e)=2(r(T_u)|V(T_v)|+r(T_v)|V(T_u)|)$，依然有$c(T)=\sum_{e\in T} l_s(T,e)w(e)$，这个问题和前两个的不同在于不能单纯用metric closure的情况处理，因为有可能导致结果变小。
+
+算法是对每个点找最短路径树，cost最小得就是答案。
+
+由$l_s(T,e)=(|V(T_v)|-\frac{n}{2})(r(T_u)-\frac{R}{2})+(|V(T_u)|-\frac{n}{2})(r(T_v)-\frac{R}{2})+\frac{nR}{2}$得从centroid到r-centroid的路径中的$l_s(T,e)\ge\frac{nR}{2}$，然后分析得lemma59.9。
+
+依然对分类可得2近似。~~坑~~
+
+## Multiple Sources MRCT
+
+p-MRCT是SROCT的特殊情况，所以可以2近似。
+
+### Approximating the 2-MRCT
+
+对于只有两个点算数的情况，考虑最优解：对于每个点到两个目标的树上距离，均$\ge$图上距离，取出一半用三角不等式，得式(59.4)；在考虑算法的近似比：对于每个点到两个目标的树上距离，等于2倍到路径的距离+路径的距离，到路径的距离转化为到两个端点的距离。这就是一个2近似。
+
+PTAS的思路还是一样的，穷举路径中的k个点，证明存在k个点的路径构造出来的树近似比很小。
+
+可以证明非metric graph依适用
+
+### The Weighted 2-MRCT
+
+不同在于每个点要选到s1,s2谁的代价小。最后将s1,s2两棵树连接。metric graph依然穷举k个点。
+
+## Multiple Sources OCT
+
+### The p-OCT on Metric Graphs
+
+对于2-OCT，类似W2MRCT处理
+
+对于p-OCT，穷举所有的reduced skeleton。
+
+### The 2-OCT on General Graphs
+
+2MRCT的算法是3近似。
+
+先记这么多吧，以后用得到再看细节。

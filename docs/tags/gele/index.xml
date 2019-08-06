@@ -6,10 +6,40 @@
     <description>Recent content in gele on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jul 2019 16:32:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jul 2019 14:53:16 +0800</lastBuildDate>
     
 	<atom:link href="cartershi.github.io/blog/tags/gele/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HAAM_chapter7</title>
+      <link>cartershi.github.io/blog/post/haam_chapter59/</link>
+      <pubDate>Wed, 24 Jul 2019 14:53:16 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/haam_chapter59/</guid>
+      <description>本文的目标是找一棵联通树，使得$\sum_{u,v\in V}\lambda(u,v)d_T(u,v)$最小，下面称为cost，树T的cost写为c(T)。
+Minimum Routing Cost Spanning Tree 这里设置为$\lambda(u,v)=1$，所以目标变成了是找一棵联通树，cost为任两点之间的距离和。
+Shortest-Paths Trees and Solution Decomposition 做法一：取图的median r，从r开始找最短路径树。对于任意的树Y的cost小于等于2n倍所有点到根的距离和（三角不等式），这恰好median决定的东西。累加起来是图上面的两点间距离和，优于最优树上的cost。这样得到一个2近似。
+做法二：基于decomposition，考虑最优树T上的centroid为根r，T的cost至少是n倍所有点到r的距离和，又由于任意树的cost小于等于2n倍所有点到根的距离和，所以以r为根的最短路径树是T的2近似。只要穷举所有的根找最小即可。
+Routing Loads, Separators, and General Stars 接下来是一堆定义，又是利用树上的性质。$l(T,e)=2x(n-x)\le2\frac{n}{2}\cdot\frac{n}{2}$，其中x是$T-e$中较小的连通分支的大小。实际上l表示两个连通分支中的点的最短路经过e的次数，所以可以得到$c(T)=\sum_{e\in T} l(T,e)w(e)$。注意所有$l$对树进行一次bfs即可得到，于是$c(T)$线性时间可以计算。
+minimal δ-separator是以centroid为根的树中子树点数多余$\delta n$个的所有点形成的联通树。
+Definition 59.1 Let R be a tree contained in graph G. A spanning tree T is a general star with core R if each vertex is connected to R by a shortest path.
+上面的定义不需要R是最短路径树。
+Lemma 59.3 If T is a general star with core S, $c(T)\le 2n\sum{v\in V}d{G}(v,S)+\frac{n^2}{2}w(S)$</description>
+    </item>
+    
+    <item>
+      <title>A FACTOR 2 APPROXIMATION ALGORITHM FOR THE GENERALIZED STEINER NETWORK PROBLEM</title>
+      <link>cartershi.github.io/blog/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</link>
+      <pubDate>Mon, 22 Jul 2019 16:45:33 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</guid>
+      <description>作者：Kamal Jain
+Introduction 本文的目标是找到一个子图使得给定目标之间的割满足条件。
+f is weakly supermodular, i.e., it satisfies: 1. f(V)=0 2. For every A,B⊆V , at least one of the following holds 1. $f(A)+f(B)\le f(A-B)+f(B-A)$ 2. $f(A)+f(B)\le f(A\cap B)+f(A\cup B)$
+Preliminaries Definition 2.1 function f : $2^V \rightarrow Z_+$is proper if f(V) = 0 and the following two conditions hold
+ For every subset S of V , f(S)=f(V−S). For all disjoint subsets A and B of V , f(A∪B)≤max{f(A),f(B)}  可证明proper函数是weakly supermodular的。</description>
+    </item>
     
     <item>
       <title>Approximation Algorithms for Geometric Median Problems</title>
@@ -35,7 +65,7 @@
 线性规划有两个常用的方法：rounding和dual，ruonding一般需要将整数规划用线性规划解，然后根据具体情况将分数解转化成整数解。dual是同时优化原问题和对偶问题，不要调用线性规划求解器。本章主要是rounding。
 6.2 Rounding 需要明确的是basic feasible solution的定义，满足真正独立的有用限制的解。其实就是让变量尽可能多为0的合法解，也是simplex跑出来的结果。
 makespan：将每个部分分配的工作匹配到一个具体的机器上即可。匹配工作到机器这件事能成立需要考虑的basic feasible solution的性质，规划中的限制最多n+m个，也就是说数组A的秩最多为n+m，所以解最多n+m个元素非0。若有k个工作被部分分配，最少在结果中占2k个位置，剩下n-k个工作占1个位置，即最少有n+k个元素非0，所有最多m个工作被部分分配。这些部分分配的工作形成pseudoforest（原因看不懂了，坑）。直接用LP比IP小且匹配得到2近似。 METRIC FACILITY LOCATION：这里考虑最简单的直接在client上建facility的情况。思路是对于所有点按它们的平均距离递增排序，然后尽可能的选4/3倍平均距离的不相交的球体。每个球体选择一个最便宜的地点开设facility，每个client选一个最近facility供应。证明第一块好像又跳了很大一部坑，第二部分容易理解，不过觉得8/3写成4/3了。
-GENERALIZED STEINER NETWORK：将relax后的式子迭代的计算选取$\ge\frac{1}{2}$的边坑。这里有个非常复杂的证明。
+GENERALIZED STEINER NETWORK：将relax后的式子迭代的计算选取$\ge\frac{1}{2}$的边。这里有个非常复杂的证明。
 6.3 Randomized Rounding MAXIMUM COVERAGE：将LP解得的x看成选取这个集合的概率，然后以这样的概率随机取k个。对每个元素，可以得到它被覆盖的概率的下界（注意下界证明的不等式不是恒成立，而是题中范围恒成立），从而得到被覆盖的期望的下界。
 CONGESTION MINIMIZATION：每条路径被选择的概率等于它LP的结果。得到每条边被覆盖次数的期望。还可用chernoff bound得到每条边覆盖次数的概率结果（书上又跳了一步union bound）。
 6.4 Metric Spaces</description>

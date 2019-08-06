@@ -18,7 +18,7 @@ tags: ["approximation algorithm","gele"]
 **makespan：**将每个部分分配的工作匹配到一个具体的机器上即可。匹配工作到机器这件事能成立需要考虑的basic feasible solution的性质，规划中的限制最多n+m个，也就是说数组A的秩最多为n+m，所以解最多n+m个元素非0。若有k个工作被部分分配，最少在结果中占2k个位置，剩下n-k个工作占1个位置，即最少有n+k个元素非0，所有最多m个工作被部分分配。这些部分分配的工作形成pseudoforest（原因看不懂了，**坑**）。直接用LP比IP小且匹配得到2近似。
 **METRIC FACILITY LOCATION：**这里考虑最简单的直接在client上建facility的情况。思路是对于所有点按它们的平均距离递增排序，然后尽可能的选4/3倍平均距离的不相交的球体。每个球体选择一个最便宜的地点开设facility，每个client选一个最近facility供应。证明第一块好像又跳了很大一部**坑**，第二部分容易理解，不过觉得8/3写成4/3了。
 
-**GENERALIZED STEINER NETWORK：**将relax后的式子迭代的计算选取$\ge\frac{1}{2}$的边**坑**。这里有个非常复杂的证明。
+**GENERALIZED STEINER NETWORK：**将relax后的式子迭代的计算选取$\ge\frac{1}{2}$的边。这里有个非常复杂的证明。
 
 ## 6.3 Randomized Rounding
 
@@ -27,6 +27,4 @@ tags: ["approximation algorithm","gele"]
 **CONGESTION MINIMIZATION：**每条路径被选择的概率等于它LP的结果。得到每条边被覆盖次数的期望。还可用chernoff bound得到每条边覆盖次数的概率结果（书上又跳了一步union bound）。
 
 6.4 Metric Spaces
-
-
 

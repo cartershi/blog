@@ -6,10 +6,26 @@
     <description>Recent content on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jul 2019 21:13:20 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 06 Aug 2019 20:13:04 +0800</lastBuildDate>
     
 	<atom:link href="cartershi.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>On the intercluster distance of a tree metric</title>
+      <link>cartershi.github.io/blog/post/on-the-intercluster-distance-of-a-tree-metric/</link>
+      <pubDate>Tue, 06 Aug 2019 20:13:04 +0800</pubDate>
+      
+      <guid>cartershi.github.io/blog/post/on-the-intercluster-distance-of-a-tree-metric/</guid>
+      <description>作者：Bang Ye Wu
+Introduction 定义$\mu_G(V_1,V_2)=(V_1V2)^{-1}\sum{u\in V1}\sum{v\in V_2}d_G(u,v)$为两个给定点集的平均距离，目标是找到找个一棵树，使得这个值最小。
+Distance between two clusters 定义$WG(f,h)=\sum{u,v\in V(G)}f(u)h(v)d_G(u,v)$，建立一棵树最小化这个目标，为图中任意两点间的加权距离，即Product-Requirement Communication Spanning Tree。
+定理1的证明直接做差，然后证明不断将边变为0导致$\Delta$不会变小，在最后边全为0时$\Delta=0$得证。
+Corollary 4就是常用$min{u,v}\le xu+(1-x)v$，代入Corollary 2即可。
+The minimum average intercluster distance spanning tree 算法就是对于$V_1\cup V_2$里的所有点跑一遍最短路，取平均距离最小的。
+方法就是对于$V_1$里的点算以它为根的距离上界，对于$V_2$里的点算以它为根的距离上界，各取平均距离的平均得2近似。
+Concluding remarks 类似的，若给定k个点集，算任两点的平均距离，依然可用上面的算法2近似。</description>
+    </item>
     
     <item>
       <title>A POLYNOMIAL-TIME APPROXIMATION SCHEME FOR MINIMUM ROUTING COST SPANNING TREES</title>
@@ -17,7 +33,20 @@
       <pubDate>Fri, 26 Jul 2019 21:13:20 +0800</pubDate>
       
       <guid>cartershi.github.io/blog/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</guid>
-      <description>作者：BANG YE WU, GIUSEPPE LANCIA, VINEET BAFNA, KUN-MAO CHAO, R. RAVI k, AND CHUAN YI TANG</description>
+      <description>作者：BANG YE WU, GIUSEPPE LANCIA, VINEET BAFNA, KUN-MAO CHAO, R. RAVI k, AND CHUAN YI TANG
+HAAM 59章的相关内容。
+目标是找一棵联通树，使得$\sum_{u,v\in V}\lambda(u,v)d_T(u,v)$最小，下面称为cost，树T的cost写为c(T)。
+An application to computational biology A reduction from the general to the metric case：思想就是在metric closure上找树T，可以$O(n^3)$在原图上找到一棵树Y，Y的cost不会大于T的cost。算法正确性的证明很容易，难的是算法的设计：不断找T上一条非图边ab（即一条路），将其进行删除，连接b到a-b的最短路的第二个点x，这样还可能变大，可能需要替换T上x的父亲y到x的路为a到x。（值得借鉴的想法）
+A PTAS for the ∆MRCT problem $P^a=|VB(T,P,i)|,P^b=|VB(T,P,j)|$分别定义为i，j的最短路P切开T后与i，j连接的点数，$P^c$是树中剩下的点。
+minimal δ-separator定义不提了。它的直观感受是树中很多点到根的路都需要经过一个连通分支。
+k-star定义为非叶子节点最多k个的生成树，minimum k-star T定义为C(T)最小的k-star。
+$\delta$-path定义为生成树上路径P，满足$P^c\le\delta n/2$。$\delta$-spine定义为树T的minimal δ-separator的边划分，使得每条路径都是$\delta$-path。
+$\delta$-spine的构造是在minimal δ-separator上把所有的分支节点给断开，若叶子为h个，则会得到最多2h-2个端点，接着将这些非$\delta$-path的路径给拆开。考虑总的路径被拆开的次数，总的$P^c\le n-h\delta n$，可得拆开次数的上界，每次拆开点数加一，于是可得Lemma 5.9。
+Lemma 5.12给出了任意树T的cost与它的$\delta$-spine的关系。证明就是将点的距离换成边被计算的次数，然后将边分为separator和非separator的，separator上的边借助$P^a,P^b,P^c$的定义换算即可。
+Lemma 5.13直接给出了近似比的保证，思路是借助lemma 5.9得到一定可以在最优的树上得到$\lceil2/\delta\rceil-3$个点，它们在树上的路形成了$\delta$-spine，将这些路直接连边，其他的点都直接接到原来separator上的端点，$P^c$中的点统一直接连接到path中的某一个点。这样一定是一个$\lceil2/\delta\rceil-3$-star，称它为X，这个X是可以通过穷举star和所有端点得到的。
+计算C(X)：分成spine和非spine的边，spine上的边用spine的定义转化，非spine上的边将它接的点分成原来直接接在separator的端点上和原来接在path上的，接在path上的用三角不等式转化为在separator上的距离和separator到端点的距离，这步很麻烦但是思路很容易，这样得到C(X)的上界。接下来用加权平均数替换min，可得这个X与最优结果的近似比。神一般的证明
+这样就得到了∆MRCT的ptas
+Finding the best k-star A polynomial-time method 一个简单的办法是穷举k个点和它的结构，然后穷举每个点下面挂的点的个数（注意X的定义决定了这些点宫n-k个并且直接挂在k个点下面），这些点具体是什么对X的影响只有自己到其他点的距离，所以这是一个匹配问题，$O(n^3)$​可解。</description>
     </item>
     
     <item>
@@ -123,7 +152,7 @@ Decompose and Round：几何问题可用。</description>
 线性规划有两个常用的方法：rounding和dual，ruonding一般需要将整数规划用线性规划解，然后根据具体情况将分数解转化成整数解。dual是同时优化原问题和对偶问题，不要调用线性规划求解器。本章主要是rounding。
 6.2 Rounding 需要明确的是basic feasible solution的定义，满足真正独立的有用限制的解。其实就是让变量尽可能多为0的合法解，也是simplex跑出来的结果。
 makespan：将每个部分分配的工作匹配到一个具体的机器上即可。匹配工作到机器这件事能成立需要考虑的basic feasible solution的性质，规划中的限制最多n+m个，也就是说数组A的秩最多为n+m，所以解最多n+m个元素非0。若有k个工作被部分分配，最少在结果中占2k个位置，剩下n-k个工作占1个位置，即最少有n+k个元素非0，所有最多m个工作被部分分配。这些部分分配的工作形成pseudoforest（原因看不懂了，坑）。直接用LP比IP小且匹配得到2近似。 METRIC FACILITY LOCATION：这里考虑最简单的直接在client上建facility的情况。思路是对于所有点按它们的平均距离递增排序，然后尽可能的选4/3倍平均距离的不相交的球体。每个球体选择一个最便宜的地点开设facility，每个client选一个最近facility供应。证明第一块好像又跳了很大一部坑，第二部分容易理解，不过觉得8/3写成4/3了。
-GENERALIZED STEINER NETWORK：将relax后的式子迭代的计算选取$\ge\frac{1}{2}$的边坑。这里有个非常复杂的证明。
+GENERALIZED STEINER NETWORK：将relax后的式子迭代的计算选取$\ge\frac{1}{2}$的边。这里有个非常复杂的证明。
 6.3 Randomized Rounding MAXIMUM COVERAGE：将LP解得的x看成选取这个集合的概率，然后以这样的概率随机取k个。对每个元素，可以得到它被覆盖的概率的下界（注意下界证明的不等式不是恒成立，而是题中范围恒成立），从而得到被覆盖的期望的下界。
 CONGESTION MINIMIZATION：每条路径被选择的概率等于它LP的结果。得到每条边被覆盖次数的期望。还可用chernoff bound得到每条边覆盖次数的概率结果（书上又跳了一步union bound）。
 6.4 Metric Spaces</description>
