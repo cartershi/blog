@@ -1,13 +1,11 @@
 ---
 title: "HAAM_chapter6"
 date: 2019-07-15T20:11:12+08:00
-draft: true
+draft: false
 tags: ["approximation algorithm","gele"]
 ---
 
 # Linear Programming
-
-毒瘤书又开始狂跳步骤了，慢慢写吧
 
 线性规划有两个常用的方法：rounding和dual，ruonding一般需要将整数规划用线性规划解，然后根据具体情况将分数解转化成整数解。dual是同时优化原问题和对偶问题，不要调用线性规划求解器。本章主要是rounding。
 
@@ -26,5 +24,10 @@ tags: ["approximation algorithm","gele"]
 
 **CONGESTION MINIMIZATION：**每条路径被选择的概率等于它LP的结果。得到每条边被覆盖次数的期望。还可用chernoff bound得到每条边覆盖次数的概率结果（书上又跳了一步union bound）。
 
-6.4 Metric Spaces
+## 6.4 Metric Spaces
 
+**MINIMUM MULTICUT：**这个问题就是把k对点给割开，求最小割。$O(\log k)$的近似算法是对于每个边给一个权重，任一对点之间的任意条路劲都需要权重和$\ge1$，对这个线性规划给出一个解之后，用每条边上的权作为边权建立新图，这是k对点之间的最短路都至少为1。接着对于这2k个点中的每一个点w和一个实数$\rho$，定义$E_{\rho}$为所有的边$e=uv$，使得$d(u,w)\le\rho,d(v,w)>\rho$。构造定义$f'(\rho),f(\rho)$，保证$\exists\rho\in[0,\frac{1}{3}],f'(\rho)\le 3f(\rho)\ln k$。算法就是每个未删除的点对，选一个点，找到它对应的上述$\rho$，将所有与它距离不超过$\rho$的点一起删除，并且这样导致的割边记入cut中，这里的割边其实就是定义中的$E_{\rho}$，这样其实是删除了分支（不一定联通），由于$\rho\le\frac{1}{3}$，所以一个点对不可能被同时删除，当它们某次被分开时，一定被割开了，所以这是一个割。由于每条边最多被1次，所以对这k次割的f值求和可得不会超过规划目标得两倍，然后用f‘和f的不等式得近似比。
+
+**SPARSEST CUT：**~~鸽了~~
+
+**MINIMUM LINEAR ARRANGEMENT：**V个点赋予1..V的排列$\varphi$，最小化$\sum_{\{u,v\}\in E}|\varphi(u)-\varphi(v)|$。关键的发现是所谓的well spread，这个relax到一个距离度量，可以写成一个线性规划。接下来用rounding来把metric变成排列，有点像MINIMUM MULTICUT的分析，但是鸽了。
