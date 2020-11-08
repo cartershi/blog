@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data structure on syx的日志</title>
-    <link>cartershi.github.io/blog/tags/data-structure/</link>
+    <link>cartershi.github.io/tags/data-structure/</link>
     <description>Recent content in data structure on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 03 Jul 2019 13:24:42 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/tags/data-structure/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="cartershi.github.io/tags/data-structure/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Chapter20</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter20/</link>
+      <link>cartershi.github.io/post/hdsa_chapter20/</link>
       <pubDate>Wed, 03 Jul 2019 13:24:42 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter20/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter20/</guid>
       <description> Quadtrees and Octrees quadtree本意是将一个二维区域用平行于坐标轴的两条线将其分为4个区域作为树的4个孩子，因此称为quad tree。在3维空间，则有$2^3=8$个孩子，这叫做octree。更高维度的被称为hyperoctrees。通常情况下quadtree，octree，hyperoctree都叫quadtree。kd-tree与quadtree的不同在于kd-tree每层只选择某一维作为拆分的标准，所以只有两个孩子。竟然有专门的书介绍quadtree的相关内容，可见它多么复杂。
 Point Data Point Quadtree 多维点是最简单的情况，通常对于它有这样几种查询：1.区间查询，19章range tree处理的问题。2.球型区域查询，给定点和半径，查这个球里面的区域。3.查找每个点的最近邻。当然查找、插入、删除这些基本操作也是要支持的。
 考虑二维情况，point quadtree就是在当前区域选一个点作为根，用它将区域分成四部分，每部分是一颗子树（如果按x轴分成两个区域，就是一颗BST）。
@@ -32,10 +32,10 @@ Spatial Queries with Region Quadtrees Range Query </description>
     
     <item>
       <title>Chapter19</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter19/</link>
+      <link>cartershi.github.io/post/hdsa_chapter19/</link>
       <pubDate>Tue, 02 Jul 2019 19:10:04 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter19/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter19/</guid>
       <description>Interval, Segment, Range, and Priority Search Trees 本章数据结构一般要求数据是静态的，主要关注各种区间搜索问题。
 Interval Trees 对于问题：找出给定的S个区间中与给定区间Q相交的区间集合F。
 可以建立一颗Interval Tree，当前树的根，它的根v保存左右两个孩子，左子树包含小于v.key的区间，右子树包含大于v.key的区间。v还包含v.key，为S个区间的2S个端点的中位数，v.aux保存包含v.key的所有区间的左右端点，左端点递增，右端点递减。
@@ -53,26 +53,11 @@ Priority Search Trees 问题：给定n个形如$(x,y)$的二维点，要求查�
     </item>
     
     <item>
-      <title>Chapter11</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter11/</link>
-      <pubDate>Tue, 02 Jul 2019 19:08:12 +0800</pubDate>
-      
-      <guid>cartershi.github.io/blog/post/hdsa_chapter11/</guid>
-      <description>Balanced binary search trees 直接跳到11.3节了，平衡树平衡策略分为三种：子树高度的限制，子树大小的限制，多路搜索树的二进制化。
-重新平衡的思路基本上都是从叶子开始往根修复平衡，修复的方法是rotation，它将一个子树的高度减1，另一个加1。大多数的算法逆着路径上执行一次单旋或双旋。另外一种重新平衡的思路是重建某一颗子树。
-有一些BST的重平衡时间低于log，这在一些场合比较有效，例如计算几何中有些情况下rotation复杂度不是O(1)。以及并发的重平衡。
-AVL Tree AVL树是1962年发明的远古数据结构，它基于子树的高度进行平衡，采用rotation重平衡。AVL树要求对于任意点，它的子树高度差最多为1。直接对高度做induction，可得高度为h的AVL树至少有$F_{h+2}-1$个点，即深度是$O(\log n)$。重平衡是逆着路径进行单旋，或者双旋，或者调整子树信息。插入时最多进行一次旋转。在AVL树中如果只插入或者只删除，那么均摊时间是$O(1)$，否则是$O(\log n)$。
-Weight-balanced tree Weight-balanced树基于子树的weight进行平衡，weight定义为叶子节点数。它要求每个点的weight与它右孩子的weight的比值在$[\alpha,1-\alpha]$之间。每上升一层，weight至少为原来的$\frac{1}{1-\alpha}$，这样得到深度和weight之间的关系。重平衡也是单旋或双旋，不同的是重平衡完成后再次重平衡至少需要当前weight的常数倍次的更新，这就导致了所谓的均摊时间少于$O(\log n)$。
-Balanced Binary Trees Based on Multi-Way Trees binary B-trees类似trie的二进制实现那样，把一个节点拆成多个节点实现成二叉树。Symmetric Binary Trees或者通常被称为红黑树是2,3,4树的二进制实现。AA trees与红黑树等价，但是实现起来很容易。完全不讲细节的
-看到11.5</description>
-    </item>
-    
-    <item>
       <title>Chapter16</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter16/</link>
+      <link>cartershi.github.io/post/hdsa_chapter16/</link>
       <pubDate>Mon, 24 Jun 2019 22:21:33 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter16/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter16/</guid>
       <description>B Trees B树是一种平衡树，每个节点存放一个磁盘block的内容，有多个孩子，所以是多叉树。它的要求是每个节点至少半满，而B*树要求每个节点至少2/3满。B树的思路导向了SOTA的spatial index结构：R树。
 disk-based环境主要考察的是读写磁盘block的次数。尽管真实系统中有内存作为磁盘的buffer，但是在通常的分析中，这并不在研究的范围中。
 B Tree B树的目的是在disk-based的环境下，给定一组key-value的object，进行高效的查询和更新（插入、删除）。这章依然假定不会有重复的key。B树的每个节点x有一个x.num记录x中保存的object数，第i个object用x.key[i],x.value[i]表示；叶子节点在同一层；非叶子节点x还保存x.num+1个孩子节点的地址，第i个子树是插在(x.key[i-1],x.key[i])之间的元素；非根节点是至少半满的，即若非叶子节点能存2B个孩子，则它至少存B个孩子；根节点至少存两个孩子。比如12章里的linked (2,4) Tree，不加link就是B树。下图是一个B=2的树。
@@ -97,10 +82,10 @@ IO次数少：B+树在数据库中被广泛采用，一个4层高的100+树就�
     
     <item>
       <title>chapter14</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter14/</link>
+      <link>cartershi.github.io/post/hdsa_chapter14/</link>
       <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter14/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter14/</guid>
       <description>Randomized Dictionary Structures 引言 worst-case高效的数据结构太复杂并且写起来很麻烦，所以人们试图优化一串操作的总代价，而非单次操作的代价，这就是所谓的均摊复杂度。从随机的角度，目的是限制操作的期望并是的超出阈值的概率不大。
 为了简化分析，本章仅考虑支持插入、删除、搜索操作的字典，字典集为有限整数，并且元素之间两两不相同。
 本章讨论的随机算法是Las Vegas algorithm，即只要返回结果，结果就是对的。另外一种是Monte Carlo algorithm，运行时间固定，但是结果不一定对。
@@ -126,10 +111,10 @@ RBST和treap不同，它不随机产生第二有限值，而是保存当前节�
     
     <item>
       <title>Chapter13</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter13/</link>
+      <link>cartershi.github.io/post/hdsa_chapter13/</link>
       <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter13/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter13/</guid>
       <description> Splay trees 对于m个操作的序列，splay运行时间为$O(m\log n)$，所以均摊时间为$O(n)$。可以用来处理linking cutting trees，并且rebalance操作比平衡树简单很多。又是tarjan
 复杂度分析 zig、zag是单旋（最多发生一次），zigzig、zagzag是父亲及父亲的父亲在同侧，zigzag、zagzig是父亲及父亲的父亲在异侧，直至将x转到根，这个操作称为splay(x)，这个操作均摊复杂度为$O(log n)$。
 w(x)是x的权重，size(x)是以x为根的子树的点权重和，rank(x)是$\log_2(size(x))$，Potential(T)=$\alpha\sum_{x\in T}rand(x)$。均摊时间=实际时间+新Potential-老Potential。splay的运行时间为$\beta\times$Number of rotations。其中$w(x)\ge 0,\ \alpha\ge\beta&amp;gt;0$为任意给定值。
@@ -151,10 +136,10 @@ LCT </description>
     
     <item>
       <title>Chapter12</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter12/</link>
+      <link>cartershi.github.io/post/hdsa_chapter12/</link>
       <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter12/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter12/</guid>
       <description>Finger Search Tree Finger Search指从finger $x$出发寻找$y$。比如有序数组，从$x$开始倍增，这里不能acm里的那种倍减trick，因为那样是$O(\log n)$的，而倍增是$O(\log d)$的。$d$是$x$和$y$在有序数组中的排名差。如下图所示，意识流一下就是那样了。
 Dynamic Finger Search Trees 上面的倍增已经解决了这个问题，但是有序数组不能高效插入删除，所以需要Dynamic Finger Search Tree。
 Level Linked (2,4)-Trees B树它leile，2-4个孩子的B树，基于finger的插入删除均摊复杂度为$O(1)$，期望倒是会，均摊不会分析。它与B树的不同在于所有的边都是双向的，并且同层相邻节点之间边相连。
@@ -186,19 +171,6 @@ treap treap的思路就是一个二叉搜索树，但是它不像平衡树那样
 注意到$SL(x)$显然是$x$到$x-1$的路径（这里所有的$x$都是指A数组中第$x$个元素），若$x-1$不在$x$的子树中，则$x$没有左孩子了，否则$x-1$一定在right spine的终点。所以期望意义下$SL(x)$为A[1&amp;hellip;x-1]中所有$x-1$的祖先减去$x$的祖先，即$SL(x)=\sum_{i=1}^{x-1}\frac{1}{(x-i+1)(x-i)}=1-\frac{1}{x}$。同理$SR(x)=1-\frac{1}{n+1-x}$。
 也就是说给定finger的情况下，$O(1)$时间可以删除它，由于插入为删除的逆过程，给定finger时也是$O(1)$时间插入。Q.E.D.
 定理4：接下来证明$x$到$y$的路径长度期望是$O(\log d)$。</description>
-    </item>
-    
-    <item>
-      <title>数据结构手册</title>
-      <link>cartershi.github.io/blog/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</link>
-      <pubDate>Sat, 22 Jun 2019 17:07:02 +0800</pubDate>
-      
-      <guid>cartershi.github.io/blog/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E6%89%8B%E5%86%8C/</guid>
-      <description>打算学一些数据结构上的分析，参考书Handbook of Data Structures and Applications，简称HSDA吧，在这里，由于书写的比较简略，有些地方不容易理解，所以做一些读书笔记。不能作为教程，主要写得是自己的体验。
-另外附一个18年出版的第二版，不过排版没有第一版舒服。网上不太好找，放个压缩包，密码是nju。
-还是按18年的目录记录吧。
-如有侵权，请联系删除。
-PARTI、PARTII太简单了，不做笔记了。</description>
     </item>
     
   </channel>

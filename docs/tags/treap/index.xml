@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>treap on syx的日志</title>
-    <link>cartershi.github.io/blog/tags/treap/</link>
+    <link>cartershi.github.io/tags/treap/</link>
     <description>Recent content in treap on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 22 Jun 2019 19:23:11 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/tags/treap/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="cartershi.github.io/tags/treap/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Chapter12</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter12/</link>
+      <link>cartershi.github.io/post/hdsa_chapter12/</link>
       <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter12/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter12/</guid>
       <description>Finger Search Tree Finger Search指从finger $x$出发寻找$y$。比如有序数组，从$x$开始倍增，这里不能acm里的那种倍减trick，因为那样是$O(\log n)$的，而倍增是$O(\log d)$的。$d$是$x$和$y$在有序数组中的排名差。如下图所示，意识流一下就是那样了。
 Dynamic Finger Search Trees 上面的倍增已经解决了这个问题，但是有序数组不能高效插入删除，所以需要Dynamic Finger Search Tree。
 Level Linked (2,4)-Trees B树它leile，2-4个孩子的B树，基于finger的插入删除均摊复杂度为$O(1)$，期望倒是会，均摊不会分析。它与B树的不同在于所有的边都是双向的，并且同层相邻节点之间边相连。

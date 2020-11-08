@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>论文学习 on syx的日志</title>
-    <link>cartershi.github.io/blog/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</link>
+    <link>cartershi.github.io/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</link>
     <description>Recent content in 论文学习 on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 07 Aug 2019 14:08:38 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="cartershi.github.io/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Approximation Algorithms for Problems Combining Facility Location and Network Design</title>
-      <link>cartershi.github.io/blog/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</link>
+      <link>cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</link>
       <pubDate>Wed, 07 Aug 2019 14:08:38 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</guid>
+      <guid>cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</guid>
       <description>作者：R. Ravi, Amitabh Sinha
 The Capacitated-Cable Facility Location Problem Problem Definition 这个问题CCFL是给定一个metric图，一个client集合D，一个potential facility集合F，目标是选中一些facility，每个client有一个单位的流通过图流到某个开放的facility。另外有一个整数u，表示每条边上的流不能超过u，否则就需要拷贝这条边支持流。
 Lower Bounds Lemma 1的意思是将每条边的权重除以u作为uncapacitated facility location问题UFL，那么显然CCFL的最优解是可以作为UFL的一个解，且它的权重比CCFL里更小，所以UFL的最优解是CCFL的下界。
@@ -35,10 +35,10 @@ Unrestricted Version of CCpM 这是第二个下界变成了p-Steiner forest，�
     
     <item>
       <title>On the intercluster distance of a tree metric</title>
-      <link>cartershi.github.io/blog/post/on-the-intercluster-distance-of-a-tree-metric/</link>
+      <link>cartershi.github.io/post/on-the-intercluster-distance-of-a-tree-metric/</link>
       <pubDate>Tue, 06 Aug 2019 20:13:04 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/on-the-intercluster-distance-of-a-tree-metric/</guid>
+      <guid>cartershi.github.io/post/on-the-intercluster-distance-of-a-tree-metric/</guid>
       <description>作者：Bang Ye Wu
 Introduction 定义$\mu_G(V_1,V_2)=(V_1V2)^{-1}\sum{u\in V1}\sum{v\in V_2}d_G(u,v)$为两个给定点集的平均距离，目标是找到找个一棵树，使得这个值最小。
 Distance between two clusters 定义$WG(f,h)=\sum{u,v\in V(G)}f(u)h(v)d_G(u,v)$，建立一棵树最小化这个目标，为图中任意两点间的加权距离，即Product-Requirement Communication Spanning Tree。
@@ -51,10 +51,10 @@ Concluding remarks 类似的，若给定k个点集，算任两点的平均距离
     
     <item>
       <title>A POLYNOMIAL-TIME APPROXIMATION SCHEME FOR MINIMUM ROUTING COST SPANNING TREES</title>
-      <link>cartershi.github.io/blog/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</link>
+      <link>cartershi.github.io/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</link>
       <pubDate>Fri, 26 Jul 2019 21:13:20 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</guid>
+      <guid>cartershi.github.io/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</guid>
       <description>作者：BANG YE WU, GIUSEPPE LANCIA, VINEET BAFNA, KUN-MAO CHAO, R. RAVI k, AND CHUAN YI TANG
 HAAM 59章的相关内容。
 目标是找一棵联通树，使得$\sum_{u,v\in V}\lambda(u,v)d_T(u,v)$最小，下面称为cost，树T的cost写为c(T)。
@@ -73,10 +73,10 @@ Finding the best k-star A polynomial-time method 一个简单的办法是穷举k
     
     <item>
       <title>Approximation algorithms for the shortest total path length spanning tree problem</title>
-      <link>cartershi.github.io/blog/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</link>
+      <link>cartershi.github.io/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</link>
       <pubDate>Thu, 25 Jul 2019 14:51:38 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</guid>
+      <guid>cartershi.github.io/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</guid>
       <description>作者：Bang Ye Wu , Kun–Mao Chao , Chuan Yi Tang
 HAAM 59章的相关内容。
 Preliminaries Defnition 4. Let G =(V,E,w) and R be a tree contained in G. T is a general star of G with core R if T is a spanning tree of G and $d _T(i,R)=d_G(i,R)$ ∀i ∈ V. The set of all general stars of G with core is denoted by star(G,R)
@@ -85,10 +85,10 @@ Preliminaries Defnition 4. Let G =(V,E,w) and R be a tree contained in G. T is a
     
     <item>
       <title>A FACTOR 2 APPROXIMATION ALGORITHM FOR THE GENERALIZED STEINER NETWORK PROBLEM</title>
-      <link>cartershi.github.io/blog/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</link>
+      <link>cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</link>
       <pubDate>Mon, 22 Jul 2019 16:45:33 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</guid>
+      <guid>cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</guid>
       <description>作者：Kamal Jain
 Introduction 本文的目标是找到一个子图使得给定目标之间的割满足条件。
 f is weakly supermodular, i.e., it satisfies: 1. f(V)=0 2. For every A,B⊆V , at least one of the following holds 1. $f(A)+f(B)\le f(A-B)+f(B-A)$ 2. $f(A)+f(B)\le f(A\cap B)+f(A\cup B)$
@@ -98,10 +98,10 @@ Preliminaries Definition 2.1 function f : $2^V \rightarrow Z_+$is proper if f(V)
     
     <item>
       <title>An improved approximation algorithm for the 0-extension problem</title>
-      <link>cartershi.github.io/blog/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</link>
+      <link>cartershi.github.io/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</link>
       <pubDate>Sun, 21 Jul 2019 14:24:25 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</guid>
+      <guid>cartershi.github.io/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</guid>
       <description>作者：Jittat Fakcharoenphol, Chris Harrelson, Satish Rao, Kunal Talwar
 Introduction 本问题是将每个点映射到给定的terminal上，使得原来有边的任两点之间的距离和与现在距离和之间近似比尽可能小。
 这篇文章有一个漂亮的relaxation，它relax出一个新的semimetric度量，只保证terminal之间的距离不变即可。
@@ -117,10 +117,10 @@ lemma5.2：很简单的引理，关键在于这个设置的方法，使得两个
     
     <item>
       <title>Approximation Algorithms for Geometric Median Problems</title>
-      <link>cartershi.github.io/blog/post/approximation-algorithms-for-geometric-median-problems/</link>
+      <link>cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</link>
       <pubDate>Sat, 20 Jul 2019 16:32:30 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/approximation-algorithms-for-geometric-median-problems/</guid>
+      <guid>cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</guid>
       <description>作者：Jyh-Han Lin、Jeffrey Scott Vitter
 个人觉得它的引理6写错了。
 这篇文章的算法容易理解，就是用LP的解算每个点距离的期望$\widehat{C_i}$，定义i的邻居为$\le(1+1/\epsilon)\widehat{C_i}$的所有点，定义i的拓展邻居为两跳之内的邻居。按$\widehat{C_i}$递增排序后不断挑选点并删除x的所有拓展邻居，这些拓展邻居都用x当作中心计算距离。
@@ -131,10 +131,10 @@ lemma5.2：很简单的引理，关键在于这个设置的方法，使得两个
     
     <item>
       <title>A tight bound on approximating arbitrary metrics by tree metrics</title>
-      <link>cartershi.github.io/blog/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</link>
+      <link>cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</link>
       <pubDate>Tue, 09 Jul 2019 20:57:35 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</guid>
+      <guid>cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</guid>
       <description>作者：Jittat Fakcharoenphol, Satish Rao and Kunal Talwar
 The algorithm 定义：首先将最短距离扩大到至少为1，定义$\Delta=2^\delta$为直径的上界，度量d&amp;rsquo;支配d表示任两点d&amp;rsquo;&amp;gt;d，本文的目标即寻找树上的度量d‘，它支配真正的距离d，并且d’的期望距离$\le\alpha d(u,v)$，这称为$\alpha$概率近似。r-cut定义为以某个点为中心的半径为r的cluster，$Di$为$D{i+1}$的$2^i$-cut。
 算法：首先随机产生n个点的排列，以$p(x)=\frac{1}{x\ln2}$的概率挑选$\beta\in[1,2]$，若当前集合中元素不止一个，将每个元素分配给排列中第一个距离小于$2^{i-1}\beta$的点。这显然是形成了树中节点的孩子，边权为$2^i\ge 2^{i-1}\beta$，大于等于当前点的半径。
@@ -145,10 +145,10 @@ Derandomization 鸽了</description>
     
     <item>
       <title>A greedy approximation algorithm for the group Steiner problem</title>
-      <link>cartershi.github.io/blog/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</link>
+      <link>cartershi.github.io/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</link>
       <pubDate>Mon, 08 Jul 2019 09:39:22 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</guid>
+      <guid>cartershi.github.io/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</guid>
       <description>作者 Chandra Chekuri, Guy Even, Guy Kortsarz
 2. Preliminaries 本文处理的是group steiner tree problem restricted to trees，输入为一个有根的非负权有向树T以及m个点集$gi$，树T&amp;rsquo;被称为z-cover表示它至少了与z个点集相交，目标是找到一个权重最小的z-cover树。记$n=|\cup{i=1}^{m}gi|,s=\sum{i=1}^{m}|g_i|$，点集$g_i$中的点都称为terminal（终端）。
 虽然这里处理的图是树，但是A tight bound on approximating arbitrary metrics by tree metrics(STOC&amp;rsquo;03)证明了用树可以$O(\log n)$近似图中两点距离，所以可以直接用那个近似图之后用本文对得到的树来近似。

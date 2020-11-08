@@ -11,10 +11,10 @@
   <title>Chapter20 &middot; syx的日志</title>
 
   
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/hyde.css">  
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/hyde.css">  
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
   <script type="text/javascript"
@@ -44,8 +44,8 @@ MathJax.Hub.Queue(function() {
 </script>
 
   
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="cartershi.github.io/blog/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="cartershi.github.io/blog/cai.jpg">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="cartershi.github.io/cai.jpg">
 
   
   
@@ -56,7 +56,7 @@ MathJax.Hub.Queue(function() {
   <aside class="sidebar">
   <div class="container">
     <div class="sidebar-about">
-      <a href="cartershi.github.io/blog/"><h1>syx的日志</h1></a>
+      <a href="cartershi.github.io/"><h1>syx的日志</h1></a>
       <p class="lead">
        洗澡王 
       </p>
@@ -64,12 +64,12 @@ MathJax.Hub.Queue(function() {
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="cartershi.github.io/blog/">Home</a> </li>
-        <li><a href="cartershi.github.io/blog/post/"> Posts </a></li><li><a href="cartershi.github.io/blog/about/"> About </a></li><li><a href="cartershi.github.io/blog/tags/"> Tags </a></li>
+        <li><a href="cartershi.github.io/">Home</a> </li>
+        <li><a href="cartershi.github.io/post/"> Posts </a></li><li><a href="cartershi.github.io/about/"> About </a></li><li><a href="cartershi.github.io/tags/"> Tags </a></li>
       </ul>
     </nav>
 
-    <p>&copy; 2019. All rights reserved. </p>
+    <p>&copy; 2020. All rights reserved. </p>
   </div>
 </aside>
 
@@ -91,7 +91,7 @@ MathJax.Hub.Queue(function() {
 
 <p>考虑二维情况，point quadtree就是在当前区域选一个点作为根，用它将区域分成四部分，每部分是一颗子树（如果按x轴分成两个区域，就是一颗BST）。</p>
 
-<p><img src="cartershi.github.io/blog/pic/data structure/20-1.jpg" alt="fig20-1" /></p>
+<p><img src="cartershi.github.io/pic/data structure/20-1.jpg" alt="fig20-1" /></p>
 
 <p><strong>建立</strong>：将n个点直接排序，取中间节点，$O(n)$时间将其分成4个子区间，这样保证每个子区间不会超过n，用数学归纳法得建立时间为$O(n\log n)$。</p>
 

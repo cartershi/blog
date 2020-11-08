@@ -11,10 +11,10 @@
   <title>Chapter16 &middot; syx的日志</title>
 
   
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/blog/css/hyde.css">  
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/hyde.css">  
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
   <script type="text/javascript"
@@ -44,8 +44,8 @@ MathJax.Hub.Queue(function() {
 </script>
 
   
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="cartershi.github.io/blog/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="cartershi.github.io/blog/cai.jpg">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="cartershi.github.io/cai.jpg">
 
   
   
@@ -56,7 +56,7 @@ MathJax.Hub.Queue(function() {
   <aside class="sidebar">
   <div class="container">
     <div class="sidebar-about">
-      <a href="cartershi.github.io/blog/"><h1>syx的日志</h1></a>
+      <a href="cartershi.github.io/"><h1>syx的日志</h1></a>
       <p class="lead">
        洗澡王 
       </p>
@@ -64,12 +64,12 @@ MathJax.Hub.Queue(function() {
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="cartershi.github.io/blog/">Home</a> </li>
-        <li><a href="cartershi.github.io/blog/post/"> Posts </a></li><li><a href="cartershi.github.io/blog/about/"> About </a></li><li><a href="cartershi.github.io/blog/tags/"> Tags </a></li>
+        <li><a href="cartershi.github.io/">Home</a> </li>
+        <li><a href="cartershi.github.io/post/"> Posts </a></li><li><a href="cartershi.github.io/about/"> About </a></li><li><a href="cartershi.github.io/tags/"> Tags </a></li>
       </ul>
     </nav>
 
-    <p>&copy; 2019. All rights reserved. </p>
+    <p>&copy; 2020. All rights reserved. </p>
   </div>
 </aside>
 
@@ -89,7 +89,7 @@ MathJax.Hub.Queue(function() {
 
 <p>B树的目的是在disk-based的环境下，给定一组key-value的object，进行高效的查询和更新（插入、删除）。这章依然假定不会有重复的key。B树的每个节点x有一个x.num记录x中保存的object数，第i个object用x.key[i],x.value[i]表示；叶子节点在同一层；非叶子节点x还保存x.num+1个孩子节点的地址，第i个子树是插在(x.key[i-1],x.key[i])之间的元素；非根节点是至少半满的，即若非叶子节点能存2B个孩子，则它至少存B个孩子；根节点至少存两个孩子。比如12章里的linked (2,4) Tree，不加link就是B树。下图是一个B=2的树。</p>
 
-<p><img src="cartershi.github.io/blog/pic/data structure/16-1.jpg" alt="fig16-1" /></p>
+<p><img src="cartershi.github.io/pic/data structure/16-1.jpg" alt="fig16-1" /></p>
 
 <p><strong>查询</strong>：只需要扫面x.key数组找到待查询元素或者递归查询它所在的子树即可。</p>
 

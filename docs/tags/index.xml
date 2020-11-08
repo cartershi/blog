@@ -2,210 +2,183 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on syx的日志</title>
-    <link>cartershi.github.io/blog/tags/</link>
+    <link>cartershi.github.io/tags/</link>
     <description>Recent content in Tags on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Aug 2019 22:11:14 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 07 Aug 2019 14:08:38 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="cartershi.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title></title>
-      <link>cartershi.github.io/blog/tags/</link>
-      <pubDate>Thu, 15 Aug 2019 22:11:14 +0800</pubDate>
-      
-      <guid>cartershi.github.io/blog/tags/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>gele</title>
-      <link>cartershi.github.io/blog/tags/gele/</link>
+      <link>cartershi.github.io/tags/gele/</link>
       <pubDate>Wed, 07 Aug 2019 14:08:38 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/gele/</guid>
+      <guid>cartershi.github.io/tags/gele/</guid>
       <description></description>
     </item>
     
     <item>
       <title>论文学习</title>
-      <link>cartershi.github.io/blog/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</link>
+      <link>cartershi.github.io/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 07 Aug 2019 14:08:38 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>cartershi.github.io/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>approximation algorithm</title>
-      <link>cartershi.github.io/blog/tags/approximation-algorithm/</link>
+      <link>cartershi.github.io/tags/approximation-algorithm/</link>
       <pubDate>Wed, 24 Jul 2019 14:53:16 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/approximation-algorithm/</guid>
+      <guid>cartershi.github.io/tags/approximation-algorithm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data structure</title>
-      <link>cartershi.github.io/blog/tags/data-structure/</link>
+      <link>cartershi.github.io/tags/data-structure/</link>
       <pubDate>Wed, 03 Jul 2019 13:24:42 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/data-structure/</guid>
+      <guid>cartershi.github.io/tags/data-structure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>octree</title>
-      <link>cartershi.github.io/blog/tags/octree/</link>
+      <link>cartershi.github.io/tags/octree/</link>
       <pubDate>Wed, 03 Jul 2019 13:24:42 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/octree/</guid>
+      <guid>cartershi.github.io/tags/octree/</guid>
       <description></description>
     </item>
     
     <item>
       <title>quadtree</title>
-      <link>cartershi.github.io/blog/tags/quadtree/</link>
+      <link>cartershi.github.io/tags/quadtree/</link>
       <pubDate>Wed, 03 Jul 2019 13:24:42 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/quadtree/</guid>
+      <guid>cartershi.github.io/tags/quadtree/</guid>
       <description></description>
     </item>
     
     <item>
       <title>interval tree</title>
-      <link>cartershi.github.io/blog/tags/interval-tree/</link>
+      <link>cartershi.github.io/tags/interval-tree/</link>
       <pubDate>Tue, 02 Jul 2019 19:10:04 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/interval-tree/</guid>
+      <guid>cartershi.github.io/tags/interval-tree/</guid>
       <description></description>
     </item>
     
     <item>
       <title>priority search tree</title>
-      <link>cartershi.github.io/blog/tags/priority-search-tree/</link>
+      <link>cartershi.github.io/tags/priority-search-tree/</link>
       <pubDate>Tue, 02 Jul 2019 19:10:04 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/priority-search-tree/</guid>
+      <guid>cartershi.github.io/tags/priority-search-tree/</guid>
       <description></description>
     </item>
     
     <item>
       <title>range tree</title>
-      <link>cartershi.github.io/blog/tags/range-tree/</link>
+      <link>cartershi.github.io/tags/range-tree/</link>
       <pubDate>Tue, 02 Jul 2019 19:10:04 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/range-tree/</guid>
+      <guid>cartershi.github.io/tags/range-tree/</guid>
       <description></description>
     </item>
     
     <item>
       <title>segment tree</title>
-      <link>cartershi.github.io/blog/tags/segment-tree/</link>
+      <link>cartershi.github.io/tags/segment-tree/</link>
       <pubDate>Tue, 02 Jul 2019 19:10:04 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/segment-tree/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AVL tree</title>
-      <link>cartershi.github.io/blog/tags/avl-tree/</link>
-      <pubDate>Tue, 02 Jul 2019 19:08:12 +0800</pubDate>
-      
-      <guid>cartershi.github.io/blog/tags/avl-tree/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>BST</title>
-      <link>cartershi.github.io/blog/tags/bst/</link>
-      <pubDate>Tue, 02 Jul 2019 19:08:12 +0800</pubDate>
-      
-      <guid>cartershi.github.io/blog/tags/bst/</guid>
+      <guid>cartershi.github.io/tags/segment-tree/</guid>
       <description></description>
     </item>
     
     <item>
       <title>B tree</title>
-      <link>cartershi.github.io/blog/tags/b-tree/</link>
+      <link>cartershi.github.io/tags/b-tree/</link>
       <pubDate>Mon, 24 Jun 2019 22:21:33 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/b-tree/</guid>
+      <guid>cartershi.github.io/tags/b-tree/</guid>
       <description></description>
     </item>
     
     <item>
       <title>B&#43; tree</title>
-      <link>cartershi.github.io/blog/tags/b&#43;-tree/</link>
+      <link>cartershi.github.io/tags/b&#43;-tree/</link>
       <pubDate>Mon, 24 Jun 2019 22:21:33 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/b&#43;-tree/</guid>
+      <guid>cartershi.github.io/tags/b&#43;-tree/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RBST</title>
-      <link>cartershi.github.io/blog/tags/rbst/</link>
+      <link>cartershi.github.io/tags/rbst/</link>
       <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/rbst/</guid>
+      <guid>cartershi.github.io/tags/rbst/</guid>
       <description></description>
     </item>
     
     <item>
       <title>skip list</title>
-      <link>cartershi.github.io/blog/tags/skip-list/</link>
+      <link>cartershi.github.io/tags/skip-list/</link>
       <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/skip-list/</guid>
+      <guid>cartershi.github.io/tags/skip-list/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LCT</title>
-      <link>cartershi.github.io/blog/tags/lct/</link>
+      <link>cartershi.github.io/tags/lct/</link>
       <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/lct/</guid>
+      <guid>cartershi.github.io/tags/lct/</guid>
       <description></description>
     </item>
     
     <item>
       <title>splay</title>
-      <link>cartershi.github.io/blog/tags/splay/</link>
+      <link>cartershi.github.io/tags/splay/</link>
       <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/splay/</guid>
+      <guid>cartershi.github.io/tags/splay/</guid>
       <description></description>
     </item>
     
     <item>
       <title>working set</title>
-      <link>cartershi.github.io/blog/tags/working-set/</link>
+      <link>cartershi.github.io/tags/working-set/</link>
       <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/working-set/</guid>
+      <guid>cartershi.github.io/tags/working-set/</guid>
       <description></description>
     </item>
     
     <item>
       <title>finger search</title>
-      <link>cartershi.github.io/blog/tags/finger-search/</link>
+      <link>cartershi.github.io/tags/finger-search/</link>
       <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/finger-search/</guid>
+      <guid>cartershi.github.io/tags/finger-search/</guid>
       <description></description>
     </item>
     
     <item>
       <title>treap</title>
-      <link>cartershi.github.io/blog/tags/treap/</link>
+      <link>cartershi.github.io/tags/treap/</link>
       <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/tags/treap/</guid>
+      <guid>cartershi.github.io/tags/treap/</guid>
       <description></description>
     </item>
     

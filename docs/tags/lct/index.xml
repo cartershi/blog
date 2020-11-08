@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LCT on syx的日志</title>
-    <link>cartershi.github.io/blog/tags/lct/</link>
+    <link>cartershi.github.io/tags/lct/</link>
     <description>Recent content in LCT on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Jun 2019 00:15:52 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/tags/lct/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="cartershi.github.io/tags/lct/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Chapter13</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter13/</link>
+      <link>cartershi.github.io/post/hdsa_chapter13/</link>
       <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter13/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter13/</guid>
       <description> Splay trees 对于m个操作的序列，splay运行时间为$O(m\log n)$，所以均摊时间为$O(n)$。可以用来处理linking cutting trees，并且rebalance操作比平衡树简单很多。又是tarjan
 复杂度分析 zig、zag是单旋（最多发生一次），zigzig、zagzag是父亲及父亲的父亲在同侧，zigzag、zagzig是父亲及父亲的父亲在异侧，直至将x转到根，这个操作称为splay(x)，这个操作均摊复杂度为$O(log n)$。
 w(x)是x的权重，size(x)是以x为根的子树的点权重和，rank(x)是$\log_2(size(x))$，Potential(T)=$\alpha\sum_{x\in T}rand(x)$。均摊时间=实际时间+新Potential-老Potential。splay的运行时间为$\beta\times$Number of rotations。其中$w(x)\ge 0,\ \alpha\ge\beta&amp;gt;0$为任意给定值。

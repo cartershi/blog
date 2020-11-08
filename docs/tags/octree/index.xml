@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>octree on syx的日志</title>
-    <link>cartershi.github.io/blog/tags/octree/</link>
+    <link>cartershi.github.io/tags/octree/</link>
     <description>Recent content in octree on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 03 Jul 2019 13:24:42 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/tags/octree/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="cartershi.github.io/tags/octree/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Chapter20</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter20/</link>
+      <link>cartershi.github.io/post/hdsa_chapter20/</link>
       <pubDate>Wed, 03 Jul 2019 13:24:42 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter20/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter20/</guid>
       <description> Quadtrees and Octrees quadtree本意是将一个二维区域用平行于坐标轴的两条线将其分为4个区域作为树的4个孩子，因此称为quad tree。在3维空间，则有$2^3=8$个孩子，这叫做octree。更高维度的被称为hyperoctrees。通常情况下quadtree，octree，hyperoctree都叫quadtree。kd-tree与quadtree的不同在于kd-tree每层只选择某一维作为拆分的标准，所以只有两个孩子。竟然有专门的书介绍quadtree的相关内容，可见它多么复杂。
 Point Data Point Quadtree 多维点是最简单的情况，通常对于它有这样几种查询：1.区间查询，19章range tree处理的问题。2.球型区域查询，给定点和半径，查这个球里面的区域。3.查找每个点的最近邻。当然查找、插入、删除这些基本操作也是要支持的。
 考虑二维情况，point quadtree就是在当前区域选一个点作为根，用它将区域分成四部分，每部分是一颗子树（如果按x轴分成两个区域，就是一颗BST）。

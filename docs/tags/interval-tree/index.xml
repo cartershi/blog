@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>interval tree on syx的日志</title>
-    <link>cartershi.github.io/blog/tags/interval-tree/</link>
+    <link>cartershi.github.io/tags/interval-tree/</link>
     <description>Recent content in interval tree on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 02 Jul 2019 19:10:04 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/tags/interval-tree/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="cartershi.github.io/tags/interval-tree/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Chapter19</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter19/</link>
+      <link>cartershi.github.io/post/hdsa_chapter19/</link>
       <pubDate>Tue, 02 Jul 2019 19:10:04 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter19/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter19/</guid>
       <description>Interval, Segment, Range, and Priority Search Trees 本章数据结构一般要求数据是静态的，主要关注各种区间搜索问题。
 Interval Trees 对于问题：找出给定的S个区间中与给定区间Q相交的区间集合F。
 可以建立一颗Interval Tree，当前树的根，它的根v保存左右两个孩子，左子树包含小于v.key的区间，右子树包含大于v.key的区间。v还包含v.key，为S个区间的2S个端点的中位数，v.aux保存包含v.key的所有区间的左右端点，左端点递增，右端点递减。

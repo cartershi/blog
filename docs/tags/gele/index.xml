@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>gele on syx的日志</title>
-    <link>cartershi.github.io/blog/tags/gele/</link>
+    <link>cartershi.github.io/tags/gele/</link>
     <description>Recent content in gele on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 07 Aug 2019 14:08:38 +0800</lastBuildDate>
     
-	<atom:link href="cartershi.github.io/blog/tags/gele/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="cartershi.github.io/tags/gele/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Approximation Algorithms for Problems Combining Facility Location and Network Design</title>
-      <link>cartershi.github.io/blog/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</link>
+      <link>cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</link>
       <pubDate>Wed, 07 Aug 2019 14:08:38 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</guid>
+      <guid>cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</guid>
       <description>作者：R. Ravi, Amitabh Sinha
 The Capacitated-Cable Facility Location Problem Problem Definition 这个问题CCFL是给定一个metric图，一个client集合D，一个potential facility集合F，目标是选中一些facility，每个client有一个单位的流通过图流到某个开放的facility。另外有一个整数u，表示每条边上的流不能超过u，否则就需要拷贝这条边支持流。
 Lower Bounds Lemma 1的意思是将每条边的权重除以u作为uncapacitated facility location问题UFL，那么显然CCFL的最优解是可以作为UFL的一个解，且它的权重比CCFL里更小，所以UFL的最优解是CCFL的下界。
@@ -35,10 +35,10 @@ Unrestricted Version of CCpM 这是第二个下界变成了p-Steiner forest，�
     
     <item>
       <title>HAAM_chapter7</title>
-      <link>cartershi.github.io/blog/post/haam_chapter59/</link>
+      <link>cartershi.github.io/post/haam_chapter59/</link>
       <pubDate>Wed, 24 Jul 2019 14:53:16 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/haam_chapter59/</guid>
+      <guid>cartershi.github.io/post/haam_chapter59/</guid>
       <description>本文的目标是找一棵联通树，使得$\sum_{u,v\in V}\lambda(u,v)d_T(u,v)$最小，下面称为cost，树T的cost写为c(T)。
 Minimum Routing Cost Spanning Tree 这里设置为$\lambda(u,v)=1$，所以目标变成了是找一棵联通树，cost为任两点之间的距离和。
 Shortest-Paths Trees and Solution Decomposition 做法一：取图的median r，从r开始找最短路径树。对于任意的树Y的cost小于等于2n倍所有点到根的距离和（三角不等式），这恰好median决定的东西。累加起来是图上面的两点间距离和，优于最优树上的cost。这样得到一个2近似。
@@ -52,10 +52,10 @@ Lemma 59.3 If T is a general star with core S, $c(T)\le 2n\sum{v\in V}d{G}(v,S)+
     
     <item>
       <title>A FACTOR 2 APPROXIMATION ALGORITHM FOR THE GENERALIZED STEINER NETWORK PROBLEM</title>
-      <link>cartershi.github.io/blog/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</link>
+      <link>cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</link>
       <pubDate>Mon, 22 Jul 2019 16:45:33 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</guid>
+      <guid>cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</guid>
       <description>作者：Kamal Jain
 Introduction 本文的目标是找到一个子图使得给定目标之间的割满足条件。
 f is weakly supermodular, i.e., it satisfies: 1. f(V)=0 2. For every A,B⊆V , at least one of the following holds 1. $f(A)+f(B)\le f(A-B)+f(B-A)$ 2. $f(A)+f(B)\le f(A\cap B)+f(A\cup B)$
@@ -65,10 +65,10 @@ Preliminaries Definition 2.1 function f : $2^V \rightarrow Z_+$is proper if f(V)
     
     <item>
       <title>Approximation Algorithms for Geometric Median Problems</title>
-      <link>cartershi.github.io/blog/post/approximation-algorithms-for-geometric-median-problems/</link>
+      <link>cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</link>
       <pubDate>Sat, 20 Jul 2019 16:32:30 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/approximation-algorithms-for-geometric-median-problems/</guid>
+      <guid>cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</guid>
       <description>作者：Jyh-Han Lin、Jeffrey Scott Vitter
 个人觉得它的引理6写错了。
 这篇文章的算法容易理解，就是用LP的解算每个点距离的期望$\widehat{C_i}$，定义i的邻居为$\le(1+1/\epsilon)\widehat{C_i}$的所有点，定义i的拓展邻居为两跳之内的邻居。按$\widehat{C_i}$递增排序后不断挑选点并删除x的所有拓展邻居，这些拓展邻居都用x当作中心计算距离。
@@ -79,10 +79,10 @@ Preliminaries Definition 2.1 function f : $2^V \rightarrow Z_+$is proper if f(V)
     
     <item>
       <title>HAAM_chapter6</title>
-      <link>cartershi.github.io/blog/post/haam_chapter6/</link>
+      <link>cartershi.github.io/post/haam_chapter6/</link>
       <pubDate>Mon, 15 Jul 2019 20:11:12 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/haam_chapter6/</guid>
+      <guid>cartershi.github.io/post/haam_chapter6/</guid>
       <description>Linear Programming 线性规划有两个常用的方法：rounding和dual，ruonding一般需要将整数规划用线性规划解，然后根据具体情况将分数解转化成整数解。dual是同时优化原问题和对偶问题，不要调用线性规划求解器。本章主要是rounding。
 6.2 Rounding 需要明确的是basic feasible solution的定义，满足真正独立的有用限制的解。其实就是让变量尽可能多为0的合法解，也是simplex跑出来的结果。
 makespan：将每个部分分配的工作匹配到一个具体的机器上即可。匹配工作到机器这件事能成立需要考虑的basic feasible solution的性质，规划中的限制最多n+m个，也就是说数组A的秩最多为n+m，所以解最多n+m个元素非0。若有k个工作被部分分配，最少在结果中占2k个位置，剩下n-k个工作占1个位置，即最少有n+k个元素非0，所有最多m个工作被部分分配。这些部分分配的工作形成pseudoforest（原因看不懂了，坑）。直接用LP比IP小且匹配得到2近似。 METRIC FACILITY LOCATION：这里考虑最简单的直接在client上建facility的情况。思路是对于所有点按它们的平均距离递增排序，然后尽可能的选4/3倍平均距离的不相交的球体。每个球体选择一个最便宜的地点开设facility，每个client选一个最近facility供应。证明第一块好像又跳了很大一部坑，第二部分容易理解，不过觉得8/3写成4/3了。
@@ -96,10 +96,10 @@ MINIMUM LINEAR ARRANGEMENT：V个点赋予1..V的排列$\varphi$，最小化$\su
     
     <item>
       <title>HAAM_chapter4</title>
-      <link>cartershi.github.io/blog/post/haam_chapter4/</link>
+      <link>cartershi.github.io/post/haam_chapter4/</link>
       <pubDate>Thu, 11 Jul 2019 11:37:54 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/haam_chapter4/</guid>
+      <guid>cartershi.github.io/post/haam_chapter4/</guid>
       <description>Greedy Methods
 贪心方法大全
 Set Cover：常用分析，charge scheme。
@@ -116,10 +116,10 @@ Greedy Algorithms via the Probabilistic Method：组合数学利器，maxcut著�
     
     <item>
       <title>A tight bound on approximating arbitrary metrics by tree metrics</title>
-      <link>cartershi.github.io/blog/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</link>
+      <link>cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</link>
       <pubDate>Tue, 09 Jul 2019 20:57:35 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</guid>
+      <guid>cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</guid>
       <description>作者：Jittat Fakcharoenphol, Satish Rao and Kunal Talwar
 The algorithm 定义：首先将最短距离扩大到至少为1，定义$\Delta=2^\delta$为直径的上界，度量d&amp;rsquo;支配d表示任两点d&amp;rsquo;&amp;gt;d，本文的目标即寻找树上的度量d‘，它支配真正的距离d，并且d’的期望距离$\le\alpha d(u,v)$，这称为$\alpha$概率近似。r-cut定义为以某个点为中心的半径为r的cluster，$Di$为$D{i+1}$的$2^i$-cut。
 算法：首先随机产生n个点的排列，以$p(x)=\frac{1}{x\ln2}$的概率挑选$\beta\in[1,2]$，若当前集合中元素不止一个，将每个元素分配给排列中第一个距离小于$2^{i-1}\beta$的点。这显然是形成了树中节点的孩子，边权为$2^i\ge 2^{i-1}\beta$，大于等于当前点的半径。
@@ -130,10 +130,10 @@ Derandomization 鸽了</description>
     
     <item>
       <title>Chapter20</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter20/</link>
+      <link>cartershi.github.io/post/hdsa_chapter20/</link>
       <pubDate>Wed, 03 Jul 2019 13:24:42 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter20/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter20/</guid>
       <description> Quadtrees and Octrees quadtree本意是将一个二维区域用平行于坐标轴的两条线将其分为4个区域作为树的4个孩子，因此称为quad tree。在3维空间，则有$2^3=8$个孩子，这叫做octree。更高维度的被称为hyperoctrees。通常情况下quadtree，octree，hyperoctree都叫quadtree。kd-tree与quadtree的不同在于kd-tree每层只选择某一维作为拆分的标准，所以只有两个孩子。竟然有专门的书介绍quadtree的相关内容，可见它多么复杂。
 Point Data Point Quadtree 多维点是最简单的情况，通常对于它有这样几种查询：1.区间查询，19章range tree处理的问题。2.球型区域查询，给定点和半径，查这个球里面的区域。3.查找每个点的最近邻。当然查找、插入、删除这些基本操作也是要支持的。
 考虑二维情况，point quadtree就是在当前区域选一个点作为根，用它将区域分成四部分，每部分是一颗子树（如果按x轴分成两个区域，就是一颗BST）。
@@ -148,26 +148,11 @@ Spatial Queries with Region Quadtrees Range Query </description>
     </item>
     
     <item>
-      <title>Chapter11</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter11/</link>
-      <pubDate>Tue, 02 Jul 2019 19:08:12 +0800</pubDate>
-      
-      <guid>cartershi.github.io/blog/post/hdsa_chapter11/</guid>
-      <description>Balanced binary search trees 直接跳到11.3节了，平衡树平衡策略分为三种：子树高度的限制，子树大小的限制，多路搜索树的二进制化。
-重新平衡的思路基本上都是从叶子开始往根修复平衡，修复的方法是rotation，它将一个子树的高度减1，另一个加1。大多数的算法逆着路径上执行一次单旋或双旋。另外一种重新平衡的思路是重建某一颗子树。
-有一些BST的重平衡时间低于log，这在一些场合比较有效，例如计算几何中有些情况下rotation复杂度不是O(1)。以及并发的重平衡。
-AVL Tree AVL树是1962年发明的远古数据结构，它基于子树的高度进行平衡，采用rotation重平衡。AVL树要求对于任意点，它的子树高度差最多为1。直接对高度做induction，可得高度为h的AVL树至少有$F_{h+2}-1$个点，即深度是$O(\log n)$。重平衡是逆着路径进行单旋，或者双旋，或者调整子树信息。插入时最多进行一次旋转。在AVL树中如果只插入或者只删除，那么均摊时间是$O(1)$，否则是$O(\log n)$。
-Weight-balanced tree Weight-balanced树基于子树的weight进行平衡，weight定义为叶子节点数。它要求每个点的weight与它右孩子的weight的比值在$[\alpha,1-\alpha]$之间。每上升一层，weight至少为原来的$\frac{1}{1-\alpha}$，这样得到深度和weight之间的关系。重平衡也是单旋或双旋，不同的是重平衡完成后再次重平衡至少需要当前weight的常数倍次的更新，这就导致了所谓的均摊时间少于$O(\log n)$。
-Balanced Binary Trees Based on Multi-Way Trees binary B-trees类似trie的二进制实现那样，把一个节点拆成多个节点实现成二叉树。Symmetric Binary Trees或者通常被称为红黑树是2,3,4树的二进制实现。AA trees与红黑树等价，但是实现起来很容易。完全不讲细节的
-看到11.5</description>
-    </item>
-    
-    <item>
       <title>chapter14</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter14/</link>
+      <link>cartershi.github.io/post/hdsa_chapter14/</link>
       <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter14/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter14/</guid>
       <description>Randomized Dictionary Structures 引言 worst-case高效的数据结构太复杂并且写起来很麻烦，所以人们试图优化一串操作的总代价，而非单次操作的代价，这就是所谓的均摊复杂度。从随机的角度，目的是限制操作的期望并是的超出阈值的概率不大。
 为了简化分析，本章仅考虑支持插入、删除、搜索操作的字典，字典集为有限整数，并且元素之间两两不相同。
 本章讨论的随机算法是Las Vegas algorithm，即只要返回结果，结果就是对的。另外一种是Monte Carlo algorithm，运行时间固定，但是结果不一定对。
@@ -193,10 +178,10 @@ RBST和treap不同，它不随机产生第二有限值，而是保存当前节�
     
     <item>
       <title>Chapter13</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter13/</link>
+      <link>cartershi.github.io/post/hdsa_chapter13/</link>
       <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter13/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter13/</guid>
       <description> Splay trees 对于m个操作的序列，splay运行时间为$O(m\log n)$，所以均摊时间为$O(n)$。可以用来处理linking cutting trees，并且rebalance操作比平衡树简单很多。又是tarjan
 复杂度分析 zig、zag是单旋（最多发生一次），zigzig、zagzag是父亲及父亲的父亲在同侧，zigzag、zagzig是父亲及父亲的父亲在异侧，直至将x转到根，这个操作称为splay(x)，这个操作均摊复杂度为$O(log n)$。
 w(x)是x的权重，size(x)是以x为根的子树的点权重和，rank(x)是$\log_2(size(x))$，Potential(T)=$\alpha\sum_{x\in T}rand(x)$。均摊时间=实际时间+新Potential-老Potential。splay的运行时间为$\beta\times$Number of rotations。其中$w(x)\ge 0,\ \alpha\ge\beta&amp;gt;0$为任意给定值。
@@ -218,10 +203,10 @@ LCT </description>
     
     <item>
       <title>Chapter12</title>
-      <link>cartershi.github.io/blog/post/hdsa_chapter12/</link>
+      <link>cartershi.github.io/post/hdsa_chapter12/</link>
       <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
       
-      <guid>cartershi.github.io/blog/post/hdsa_chapter12/</guid>
+      <guid>cartershi.github.io/post/hdsa_chapter12/</guid>
       <description>Finger Search Tree Finger Search指从finger $x$出发寻找$y$。比如有序数组，从$x$开始倍增，这里不能acm里的那种倍减trick，因为那样是$O(\log n)$的，而倍增是$O(\log d)$的。$d$是$x$和$y$在有序数组中的排名差。如下图所示，意识流一下就是那样了。
 Dynamic Finger Search Trees 上面的倍增已经解决了这个问题，但是有序数组不能高效插入删除，所以需要Dynamic Finger Search Tree。
 Level Linked (2,4)-Trees B树它leile，2-4个孩子的B树，基于finger的插入删除均摊复杂度为$O(1)$，期望倒是会，均摊不会分析。它与B树的不同在于所有的边都是双向的，并且同层相邻节点之间边相连。
