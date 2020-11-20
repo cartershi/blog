@@ -2,6 +2,7 @@
 title: "Scalable Large Near-Clique Detection in Large-Scale Networks via Sampling"
 date: 2020-10-07T16:27:23+08:00
 draft: false
+tags: ["Densest Subgraph"]
 ---
 
 本文处理最密clique子图问题。为了方便描述，下文只考虑常规图，不考虑二部图。
@@ -28,15 +29,13 @@ $\sum_{v\in V(G)}f_k(v)=kc_k$
 
 综上，总的割为$\sum_{v\in V(A_2)}f_k(v)+kD|A_1|+\sum_{j=1}^{k-1}jc_k^{(j)}$。
 
-注意到$\sum_{j=1}^{k}jc_k^{(j)}=\sum_{v\in V(A_1)}f_k(v)$，带入上式得$kc_k+kD|A_1|-kc_k^{(k)}$，那么点集|A_1|不为空就能得到一个密度大于D的子图。
+注意到$\sum_{j=1}^{k}jc_k^{(j)}=\sum_{v\in V(A_1)}f_k(v)$，带入上式得$kc_k+kD|A_1|-kc_k^{(k)}$，那么点集$A_1$不为空就能得到一个密度大于D的子图。
 
 由于稀疏图上clique数目较少，列举速度比较快，所以本算法跑的比较快。
 
 ### 方法B
 
-这个方法就比较简单，论文里写的有些问题。这里A为k-clique，B为所有点，s往A的容量设为1，A往B的容量设为无限，B往t的容量设为D。
-
-这样$A_1$中所有的k-clique对应点必然在|B_1|中，并且若在$B_1$中的点不对应$A_1$任何clique，则可以放入$B_2$得到更小的割。割为$c_k-|A_1|+n|B_1|$。
+论文里写的有些不对？
 
 ## Densest Subgraph Sparsifiers
 
