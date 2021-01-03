@@ -1,7 +1,7 @@
 ---
 title: "TPM_chapter1"
 date: 2020-12-23T15:47:08+08:00
-draft: true
+draft: false
 tags: ["TPM"]
 ---
 
@@ -35,3 +35,29 @@ tags: ["TPM"]
 
 # 组合
 
+定义超图为n-uniform如果每条表包含n个点。称图二色可染如果存在一个点的二染色，使得每条边都不是同色的。用m(n)表示最小可能的边数，使得这个超图不是二色可染。
+
+**Proposition 1.3.1** 对于n-uniform超图，$m(n)\ge 2^{n-1}$。
+
+**Proof** 若边数小于$2^{n-1}$， 对于随机的二染色，一条边同色的概率为$2^{1-n}$，则图至少一条边同色的概率$<1$，所以必然有边不同色的染色。
+
+# 组合图论
+
+阿贝尔群G的子集A被称为sum-free若$(A+A)\cap A= \empty$
+
+**Theorem 1.4.1** 每个n个元素非零整数的集合$B=\{b_1,b_2,\cdots,b_n\}$包含一个sum-free的子集A，$|A|>\frac{1}{3}n$
+
+**Proof.** 定义$p=3k+2$为一个素数，且$p>2\max{\{B\}}$，$C=\{k+ 1,k + 2,\cdots,2k + 1\}$，则C是循环群$Z_p$的sum-free子群。随机选取一个$1\le x<p$，定义$d_i(x)\equiv x\cdot b_i~mod~p$，则对于固定的i，$d_i(x)$会形成$Z_p$，即$\frac{1}{3}$的概率在C中，期望是$\frac{1}{3}n$个元素在C中。这些元素在C中则不可能有sum，否则$xb_i+xb_j\equiv x(b_i+b_j)~mod~p$
+
+**Remark.** 任意n个元素的阿贝尔群可以构造出一个$\frac{2}{7}n$大小的sum-free子集，且这个值最优。
+
+# DISJOINT PAIRS问题
+
+定义$\mathcal{F}$为{1,2,...,n}的m个不同子集的集簇。$d(\mathcal{F})=|\{F,F'\}:F,F'\in \mathcal{F},F\cap F'\neq \empty|$
+
+**Theorem 1.5.1** 若$m=2^{(\frac{1}{2}+\delta)n}$，则$d(\mathcal{F})<m^{2-\delta^2/2}$
+
+**Proof.** 反证结论。定义$A_1, A_2,..., A_t$为从$\mathcal{F}$中随机挑选的t个集合，考虑每个大小为$\frac{n}{2}$的子集，它覆盖$A_i$的概率为$\frac{2^{\frac{n}{2}}}{m}$，这样的子集最多$2^n$个，即$Pr[|A_1\cup A_2\cup\cdots\cup A_t|\le\frac{n}{2}]\le 2^n\left(\frac{2^{\frac{n}{2}}}{m}\right)^t=2^{n(1-\delta t)}$。定义$v(B)=|A\in \mathcal{F}:B\cap A=\empty|$，则$\sum v(B)=2d(\mathcal{F})\ge m^{2-\delta^2/2}$。定义Y是B中与所有$A_i$不相交的集合数目，$E[Y]=\sum{\left(\frac{v(B)}{m}\right)^t}\ge\left(\frac{\sum v(B)}{m}\right)^t\ge m^{(1-\delta^2/2)t}\ge m^{1-\delta^2t/2}$，则至少有一个$Y\ge m^{1-\delta^2t/2}$。只要令$Y\ge2^\frac{n}{2}$，又由于$Pr[|A_1\cup A_2\cup\cdots\cup A_t|\le\frac{n}{2}]>0$，则矛盾。
+
+# The Erdós-Ko-Rado Theorem
+idea：随机排序所有点，则每个排列下的连续点集被选中的概率为k/n，排序随机相当于选择的点集随机，即等于从$n\choose k$中挑选到集簇的概率。
