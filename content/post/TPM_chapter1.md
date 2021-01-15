@@ -61,3 +61,5 @@ tags: ["TPM"]
 
 # The Erdós-Ko-Rado Theorem
 idea：随机排序所有点，则每个排列下的连续点集被选中的概率为k/n，排序随机相当于选择的点集随机，即等于从$n\choose k$中挑选到集簇的概率。
+
+ps: 直接double counting排列下连续序列的数目也可。
