@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Densest Subgraph on syx的日志</title>
-    <link>https://cartershi.github.io/tags/densest-subgraph/</link>
+    <link>https://cartershi.github.io/blog/tags/densest-subgraph/</link>
     <description>Recent content in Densest Subgraph on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Dec 2020 21:40:56 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/tags/densest-subgraph/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Dec 2020 21:40:56 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/blog/tags/densest-subgraph/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The K-clique Densest Subgraph Problem</title>
-      <link>https://cartershi.github.io/post/the-k-clique-densest-subgraph-problem/</link>
+      <link>https://cartershi.github.io/blog/post/the-k-clique-densest-subgraph-problem/</link>
       <pubDate>Sat, 12 Dec 2020 21:40:56 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/the-k-clique-densest-subgraph-problem/</guid>
+      <guid>https://cartershi.github.io/blog/post/the-k-clique-densest-subgraph-problem/</guid>
       <description>本文先考虑最密三角形问题，提出它的精确算法、近似算法和mapreduce算法。然后把这些算法拉到k-clique下
 三角形最密子图 精确算法 基于网络流的算法过于套路，略
 基于supermodular function的方法直接证明$t(S)-\alpha|S|$是supermodular function，接着binary search$\alpha$即可。
@@ -25,10 +25,10 @@ k-clique最密子图 trivial</description>
     
     <item>
       <title>Efficient Algorithms for Densest Subgraph Discovery on Large Directed Graphs</title>
-      <link>https://cartershi.github.io/post/efficient-algorithms-for-densest-subgraph-discovery-on-large-directed-graphs/</link>
+      <link>https://cartershi.github.io/blog/post/efficient-algorithms-for-densest-subgraph-discovery-on-large-directed-graphs/</link>
       <pubDate>Wed, 25 Nov 2020 16:53:15 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/efficient-algorithms-for-densest-subgraph-discovery-on-large-directed-graphs/</guid>
+      <guid>https://cartershi.github.io/blog/post/efficient-algorithms-for-densest-subgraph-discovery-on-large-directed-graphs/</guid>
       <description>本文有向图找出两个点集S和T使得密度最大（边只计算S到T的）
 $\rho=\frac{E(S,T)}{\sqrt{S}\cdot\sqrt{T}}$
 现有算法 精确算法来自ICALP09的On Finding Dense Subgraphs。里面的2近似算法不对，精确算法
@@ -44,10 +44,10 @@ DC-Exact 用ICALP的结论，漂亮的分治加速。关键点在于ICALP的结�
     
     <item>
       <title>Efficient Algorithms for Densest Subgraph Discovery</title>
-      <link>https://cartershi.github.io/post/efficient-algorithms-for-densest-subgraph-discovery/</link>
+      <link>https://cartershi.github.io/blog/post/efficient-algorithms-for-densest-subgraph-discovery/</link>
       <pubDate>Sun, 08 Nov 2020 10:37:29 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/efficient-algorithms-for-densest-subgraph-discovery/</guid>
+      <guid>https://cartershi.github.io/blog/post/efficient-algorithms-for-densest-subgraph-discovery/</guid>
       <description>本文处理最密子图问题，它基于$(k,\Psi)-core$，可以处理普通模式，而不局限于clique。
 文章用core的部分还不错。
 问题定义 EDS为最大边密度子图，CDS为最大团密度子图，PDS为最大模式密度子图。这三者是逐渐包含关系，首先看CDS的方法，最后把它拓展到PDS（这里没意思）。
@@ -78,10 +78,10 @@ CORE-BASED APPROACHES 精确算法 二分的上下界：
     
     <item>
       <title>Scalable Large Near-Clique Detection in Large-Scale Networks via Sampling</title>
-      <link>https://cartershi.github.io/post/scalable-large-near-clique-detection-in-large-scale/</link>
+      <link>https://cartershi.github.io/blog/post/scalable-large-near-clique-detection-in-large-scale/</link>
       <pubDate>Wed, 07 Oct 2020 16:27:23 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/scalable-large-near-clique-detection-in-large-scale/</guid>
+      <guid>https://cartershi.github.io/blog/post/scalable-large-near-clique-detection-in-large-scale/</guid>
       <description>本文处理最密clique子图问题。为了方便描述，下文只考虑常规图，不考虑二部图。
 Notation 定义$C_k(G)$为图G中的k-cliques集合，$c_k(G)=c_k=|C_k(G)|$为k-cliques的数目，$f_k(v)$为点v参与的k-cliques的数目，则我们有
 $\sum_{v\in V(G)}f_k(v)=kc_k$

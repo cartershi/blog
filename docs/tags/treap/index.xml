@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>treap on syx的日志</title>
-    <link>https://cartershi.github.io/tags/treap/</link>
+    <link>https://cartershi.github.io/blog/tags/treap/</link>
     <description>Recent content in treap on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Jun 2019 19:23:11 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/tags/treap/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jun 2019 19:23:11 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/blog/tags/treap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chapter12</title>
-      <link>https://cartershi.github.io/post/hdsa_chapter12/</link>
+      <link>https://cartershi.github.io/blog/post/hdsa_chapter12/</link>
       <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/hdsa_chapter12/</guid>
+      <guid>https://cartershi.github.io/blog/post/hdsa_chapter12/</guid>
       <description>Finger Search Tree Finger Search指从finger $x$出发寻找$y$。比如有序数组，从$x$开始倍增，这里不能acm里的那种倍减trick，因为那样是$O(\log n)$的，而倍增是$O(\log d)$的。$d$是$x$和$y$在有序数组中的排名差。如下图所示，意识流一下就是那样了。
 ![fig12-1](/pic/data structure/12-1.jpg)
 Dynamic Finger Search Trees 上面的倍增已经解决了这个问题，但是有序数组不能高效插入删除，所以需要Dynamic Finger Search Tree。

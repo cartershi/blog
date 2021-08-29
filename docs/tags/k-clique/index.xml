@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>k-clique on syx的日志</title>
-    <link>https://cartershi.github.io/tags/k-clique/</link>
+    <link>https://cartershi.github.io/blog/tags/k-clique/</link>
     <description>Recent content in k-clique on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 27 Oct 2020 15:24:56 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/tags/k-clique/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Oct 2020 15:24:56 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/blog/tags/k-clique/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Listing k-cliques in Sparse Real-World Graphs</title>
-      <link>https://cartershi.github.io/post/listing-k-cliques-in-sparse-real-world-graphs/</link>
+      <link>https://cartershi.github.io/blog/post/listing-k-cliques-in-sparse-real-world-graphs/</link>
       <pubDate>Tue, 27 Oct 2020 15:24:56 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/listing-k-cliques-in-sparse-real-world-graphs/</guid>
+      <guid>https://cartershi.github.io/blog/post/listing-k-cliques-in-sparse-real-world-graphs/</guid>
       <description>本文列举真实稀疏图谱中的所有k-clique。这个问题比较常用，比如k-clique最密子图常将其作为一个subroutine。
 DEFINITIONS AND NOTATION arboricity定义为将图中的边分到树，需要的最小的树个数。
 core value定义为最大整数c，使得G中有个子图，它每个点的度都不少于c。 图的core value可以不断删除度数最小的点得到。core ordering定义为这个过程中的点序。

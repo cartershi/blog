@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>approximation algorithm on syx的日志</title>
-    <link>https://cartershi.github.io/tags/approximation-algorithm/</link>
+    <link>https://cartershi.github.io/blog/tags/approximation-algorithm/</link>
     <description>Recent content in approximation algorithm on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jul 2019 14:53:16 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/tags/approximation-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Jul 2019 14:53:16 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/blog/tags/approximation-algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HAAM_chapter7</title>
-      <link>https://cartershi.github.io/post/haam_chapter59/</link>
+      <link>https://cartershi.github.io/blog/post/haam_chapter59/</link>
       <pubDate>Wed, 24 Jul 2019 14:53:16 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/haam_chapter59/</guid>
+      <guid>https://cartershi.github.io/blog/post/haam_chapter59/</guid>
       <description>本文的目标是找一棵联通树，使得$\sum_{u,v\in V}\lambda(u,v)d_T(u,v)$最小，下面称为cost，树T的cost写为c(T)。
 Minimum Routing Cost Spanning Tree 这里设置为$\lambda(u,v)=1$，所以目标变成了是找一棵联通树，cost为任两点之间的距离和。
 Shortest-Paths Trees and Solution Decomposition 做法一：取图的median r，从r开始找最短路径树。对于任意的树Y的cost小于等于2n倍所有点到根的距离和（三角不等式），这恰好median决定的东西。累加起来是图上面的两点间距离和，优于最优树上的cost。这样得到一个2近似。
@@ -26,10 +26,10 @@ Lemma 59.3 If T is a general star with core S, $c(T)\le 2n\sum_{v\in V}d_{G}(v,S
     
     <item>
       <title>HAAM_chapter7</title>
-      <link>https://cartershi.github.io/post/haam_chapter7/</link>
+      <link>https://cartershi.github.io/blog/post/haam_chapter7/</link>
       <pubDate>Fri, 19 Jul 2019 21:09:38 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/haam_chapter7/</guid>
+      <guid>https://cartershi.github.io/blog/post/haam_chapter7/</guid>
       <description>LP Rounding and Extensions Nondeterministic Rounding Independent Rounding 集合覆盖，用LP的解作为集合被选取的概率，挑选$c\log n$次。这样期望大小有界，并且WHP覆盖所有的元素。
 条件满足问题，每个元素$\frac{1}{2}$的概率为正，得到一个结果，另外以LP的解作为元素被选的概率挑选，取两者大的。
 Dependent Rounding simultaneously rounding ：最小割问题（限制为某些点必须被割开），随机选取一个$u\in[\frac{1}{2},1]$，把比u大点与s放在一起。
@@ -44,10 +44,10 @@ Decompose and Round：几何问题可用。</description>
     
     <item>
       <title>HAAM_chapter6</title>
-      <link>https://cartershi.github.io/post/haam_chapter6/</link>
+      <link>https://cartershi.github.io/blog/post/haam_chapter6/</link>
       <pubDate>Mon, 15 Jul 2019 20:11:12 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/haam_chapter6/</guid>
+      <guid>https://cartershi.github.io/blog/post/haam_chapter6/</guid>
       <description>Linear Programming 线性规划有两个常用的方法：rounding和dual，ruonding一般需要将整数规划用线性规划解，然后根据具体情况将分数解转化成整数解。dual是同时优化原问题和对偶问题，不要调用线性规划求解器。本章主要是rounding。
 6.2 Rounding 需要明确的是basic feasible solution的定义，满足真正独立的有用限制的解。其实就是让变量尽可能多为0的合法解，也是simplex跑出来的结果。
 **makespan：**将每个部分分配的工作匹配到一个具体的机器上即可。匹配工作到机器这件事能成立需要考虑的basic feasible solution的性质，规划中的限制最多n+m个，也就是说数组A的秩最多为n+m，所以解最多n+m个元素非0。若有k个工作被部分分配，最少在结果中占2k个位置，剩下n-k个工作占1个位置，即最少有n+k个元素非0，所有最多m个工作被部分分配。这些部分分配的工作形成pseudoforest（原因看不懂了，坑）。直接用LP比IP小且匹配得到2近似。 METRIC FACILITY LOCATION：这里考虑最简单的直接在client上建facility的情况。思路是对于所有点按它们的平均距离递增排序，然后尽可能的选4/3倍平均距离的不相交的球体。每个球体选择一个最便宜的地点开设facility，每个client选一个最近facility供应。证明第一块好像又跳了很大一部坑，第二部分容易理解，不过觉得8/3写成4/3了。
@@ -61,10 +61,10 @@ SPARSEST CUT：鸽了
     
     <item>
       <title>HAAM_chapter4</title>
-      <link>https://cartershi.github.io/post/haam_chapter4/</link>
+      <link>https://cartershi.github.io/blog/post/haam_chapter4/</link>
       <pubDate>Thu, 11 Jul 2019 11:37:54 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/haam_chapter4/</guid>
+      <guid>https://cartershi.github.io/blog/post/haam_chapter4/</guid>
       <description>Greedy Methods
 贪心方法大全
 Set Cover：常用分析，charge scheme。
@@ -81,10 +81,10 @@ Greedy Algorithms via the Probabilistic Method：组合数学利器，maxcut著�
     
     <item>
       <title>HAAM_chapter5</title>
-      <link>https://cartershi.github.io/post/haam_chapter5/</link>
+      <link>https://cartershi.github.io/blog/post/haam_chapter5/</link>
       <pubDate>Sun, 07 Jul 2019 12:13:42 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/haam_chapter5/</guid>
+      <guid>https://cartershi.github.io/blog/post/haam_chapter5/</guid>
       <description>5.2 对于集合覆盖那个著名的贪心，如果每次并不选择密度最小的集合$Si$，而是对于剩下x个未选择的元素，一个oracle可以给出最小密度$\alpha(x)$近似的，那么$\frac{\sum w(Si)}{w(C*)}\le\int_{n-|\cup_{S&#39;\in C_i}S&#39;|}^n{\frac{\alpha(x)}{x}dx}$，这个结论的证明不是很难，需要理解的地方在于递归证明里第一个不等式是需要进行两次放缩的。而(5.2)的递归公式也是隐藏了一个放缩在里面。
 这个结论有意思的地方是只要挑选不超过$1-\frac{1}{e}$倍的元素，贪心得到的集合权重不会超过$w(C*)$。
 5.3 注意这里DST的定义里输入是给定根r的，DST显然是k-DST的一种情况，k-DST规约到n-shallow k-DST，每层都是原图的点，两层之间的边是原图的边，加自己到自己的零边。
@@ -99,10 +99,10 @@ Appendix 引理的证明思路是对最优的k-DST进行height reduction，即�
     
     <item>
       <title>近似算法手册</title>
-      <link>https://cartershi.github.io/post/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E6%89%8B%E5%86%8C/</link>
+      <link>https://cartershi.github.io/blog/post/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E6%89%8B%E5%86%8C/</link>
       <pubDate>Sun, 07 Jul 2019 12:08:25 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E6%89%8B%E5%86%8C/</guid>
+      <guid>https://cartershi.github.io/blog/post/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E6%89%8B%E5%86%8C/</guid>
       <description>再开一个新坑Handbook of Approximation Algorithms and Metaheuristics，简称HAAM，[在这里](/approximation algorithm/6,11,12_Handbook of Approximation Algorithms and Metaheuristics)。这本书的证明实在跳跃，难以看懂，还是记下来好。
 如有侵权，请联系删除。</description>
     </item>

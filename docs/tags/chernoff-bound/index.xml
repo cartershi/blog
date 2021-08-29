@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>chernoff bound on syx的日志</title>
-    <link>https://cartershi.github.io/tags/chernoff-bound/</link>
+    <link>https://cartershi.github.io/blog/tags/chernoff-bound/</link>
     <description>Recent content in chernoff bound on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Nov 2020 16:38:14 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/tags/chernoff-bound/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Nov 2020 16:38:14 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/blog/tags/chernoff-bound/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Fast and Provable Method for Estimating Clique Counts Using Turán’s Theorem</title>
-      <link>https://cartershi.github.io/post/a-fast-and-provable-method-for-estimating-clique-counts-using-tur%C3%A1ns-theorem/</link>
+      <link>https://cartershi.github.io/blog/post/a-fast-and-provable-method-for-estimating-clique-counts-using-tur%C3%A1ns-theorem/</link>
       <pubDate>Fri, 20 Nov 2020 16:38:14 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/a-fast-and-provable-method-for-estimating-clique-counts-using-tur%C3%A1ns-theorem/</guid>
+      <guid>https://cartershi.github.io/blog/post/a-fast-and-provable-method-for-estimating-clique-counts-using-tur%C3%A1ns-theorem/</guid>
       <description>本文用sample的估算图中的clique数目。
 准备 定义$C_i(H)$为图H中i-clique的集合，定义$\rho_i(H)=\frac{|C_i(H)|}{\binom{|V(H)|}{i}}$为图H中i-clique的密度。
 定义$f(k)=\frac{k^{k-2}}{k!}$，则$f(k)\simeq\frac{e^k}{\sqrt{2\pi k^5}}$

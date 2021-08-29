@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>power law on syx的日志</title>
-    <link>https://cartershi.github.io/tags/power-law/</link>
+    <link>https://cartershi.github.io/blog/tags/power-law/</link>
     <description>Recent content in power law on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Nov 2020 22:43:00 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/tags/power-law/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Nov 2020 22:43:00 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/blog/tags/power-law/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Main-memory Triangle Computations for Very Large (Sparse (Power-Law)) Graphs</title>
-      <link>https://cartershi.github.io/post/main-memory-triangle-computations-for-very-large-sparse-power-law-graphs/</link>
+      <link>https://cartershi.github.io/blog/post/main-memory-triangle-computations-for-very-large-sparse-power-law-graphs/</link>
       <pubDate>Sun, 08 Nov 2020 22:43:00 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/main-memory-triangle-computations-for-very-large-sparse-power-law-graphs/</guid>
+      <guid>https://cartershi.github.io/blog/post/main-memory-triangle-computations-for-very-large-sparse-power-law-graphs/</guid>
       <description>本文处理稀疏图上的三角形查找、计数、按点计数问题。
 最快计数算法 ayz-node-counting算法思路就是先计算有度小节点参与的所有三角形，把这些点剔除后剩下的部分进行矩阵乘法。
 Theorem 2的证明比较简单，不过要基于同时有邻接表和邻接矩阵。结论时复杂度为$O(m^{1.41})$，比著名的那个定向算法好一点。它的好处是即使最坏有$O(m^{1.5})$个三角形，算法也不需要$O(m^{1.5})$的时间。坏处在于最坏情况下需要处理n*n的矩阵。

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>TPM on syx的日志</title>
-    <link>https://cartershi.github.io/tags/tpm/</link>
+    <link>https://cartershi.github.io/blog/tags/tpm/</link>
     <description>Recent content in TPM on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Jan 2021 21:24:15 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/tags/tpm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Jan 2021 21:24:15 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/blog/tags/tpm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TPM_chapter2</title>
-      <link>https://cartershi.github.io/post/tpm_chapter2/</link>
+      <link>https://cartershi.github.io/blog/post/tpm_chapter2/</link>
       <pubDate>Sun, 03 Jan 2021 21:24:15 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/tpm_chapter2/</guid>
+      <guid>https://cartershi.github.io/blog/post/tpm_chapter2/</guid>
       <description>定义 期望的线性性：若$X=c_1X_1+\cdots+c_nX_n$，则$E[X]=c_1E[X_1]+\cdots+c_nE[X_n]$，无论这些$X_i$是否独立。
 考虑n元的重排后不动点的期望，每个位置不动的期望为$\frac{1}{n}$，由期望的线性性得总期望为$1$
 考虑竞赛图哈密尔顿回路的期望，每个n元重排是回路的期望为$2^{-(n-1)}$，由期望的线性性得总期望为$n!2^{-(n-1)}$。
@@ -37,10 +37,10 @@ Theorem 2.4.2：类似上一个证明，第$i$个向量加入后，$p_i$的概�
     
     <item>
       <title>TPM_chapter1</title>
-      <link>https://cartershi.github.io/post/tpm_chapter1/</link>
+      <link>https://cartershi.github.io/blog/post/tpm_chapter1/</link>
       <pubDate>Wed, 23 Dec 2020 15:47:08 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/tpm_chapter1/</guid>
+      <guid>https://cartershi.github.io/blog/post/tpm_chapter1/</guid>
       <description>概率化方法 所谓概率化方法，即为了证明某些特征存在，我们定义一个概率空间，使得这些特征存在于这个概率空间且概率为正。
 例子 ramsey数$R(k,k)&amp;gt;\lfloor2^{\frac{k}{2}}\rfloor~\forall k\ge3$。
 证明 定义概率空间为完全图$K_n$的随机染色，则k子图同色的概率为$2^{1-{k \choose2}}$，至少有一个同色的概率至多${n\choose k}2^{1-{k \choose2}}$。令这个值小于1，则可能给出一个无k同色子图的染色。

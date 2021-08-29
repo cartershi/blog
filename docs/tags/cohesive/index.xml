@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>cohesive on syx的日志</title>
-    <link>https://cartershi.github.io/tags/cohesive/</link>
+    <link>https://cartershi.github.io/blog/tags/cohesive/</link>
     <description>Recent content in cohesive on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Dec 2020 18:50:17 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/tags/cohesive/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Dec 2020 18:50:17 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/blog/tags/cohesive/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Influential Community Search in Large Networks</title>
-      <link>https://cartershi.github.io/post/influential-community-search-in-large-networks/</link>
+      <link>https://cartershi.github.io/blog/post/influential-community-search-in-large-networks/</link>
       <pubDate>Sun, 27 Dec 2020 18:50:17 +0800</pubDate>
       
-      <guid>https://cartershi.github.io/post/influential-community-search-in-large-networks/</guid>
+      <guid>https://cartershi.github.io/blog/post/influential-community-search-in-large-networks/</guid>
       <description>没啥意思的论文
 问题定义 f(G)定义为图G中点的最小权值
 k-influential community $H^k$定义为满足以下条件的G的导出子图
