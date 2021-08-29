@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>论文学习 on syx的日志</title>
-    <link>cartershi.github.io/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</link>
+    <link>https://cartershi.github.io/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</link>
     <description>Recent content in 论文学习 on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Aug 2019 14:08:38 +0800</lastBuildDate>
-    
-	<atom:link href="cartershi.github.io/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 07 Aug 2019 14:08:38 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Approximation Algorithms for Problems Combining Facility Location and Network Design</title>
-      <link>cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</link>
+      <link>https://cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</link>
       <pubDate>Wed, 07 Aug 2019 14:08:38 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</guid>
+      <guid>https://cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</guid>
       <description>作者：R. Ravi, Amitabh Sinha
 The Capacitated-Cable Facility Location Problem Problem Definition 这个问题CCFL是给定一个metric图，一个client集合D，一个potential facility集合F，目标是选中一些facility，每个client有一个单位的流通过图流到某个开放的facility。另外有一个整数u，表示每条边上的流不能超过u，否则就需要拷贝这条边支持流。
 Lower Bounds Lemma 1的意思是将每条边的权重除以u作为uncapacitated facility location问题UFL，那么显然CCFL的最优解是可以作为UFL的一个解，且它的权重比CCFL里更小，所以UFL的最优解是CCFL的下界。
@@ -35,13 +31,13 @@ Unrestricted Version of CCpM 这是第二个下界变成了p-Steiner forest，�
     
     <item>
       <title>On the intercluster distance of a tree metric</title>
-      <link>cartershi.github.io/post/on-the-intercluster-distance-of-a-tree-metric/</link>
+      <link>https://cartershi.github.io/post/on-the-intercluster-distance-of-a-tree-metric/</link>
       <pubDate>Tue, 06 Aug 2019 20:13:04 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/on-the-intercluster-distance-of-a-tree-metric/</guid>
+      <guid>https://cartershi.github.io/post/on-the-intercluster-distance-of-a-tree-metric/</guid>
       <description>作者：Bang Ye Wu
-Introduction 定义$\mu_G(V_1,V_2)=(V_1V2)^{-1}\sum{u\in V1}\sum{v\in V_2}d_G(u,v)$为两个给定点集的平均距离，目标是找到找个一棵树，使得这个值最小。
-Distance between two clusters 定义$WG(f,h)=\sum{u,v\in V(G)}f(u)h(v)d_G(u,v)$，建立一棵树最小化这个目标，为图中任意两点间的加权距离，即Product-Requirement Communication Spanning Tree。
+Introduction 定义$\mu_G(V_1,V_2)=(V_1V_2)^{-1}\sum_{u\in V_1}\sum_{v\in V_2}d_G(u,v)$为两个给定点集的平均距离，目标是找到找个一棵树，使得这个值最小。
+Distance between two clusters 定义$W_G(f,h)=\sum_{u,v\in V(G)}f(u)h(v)d_G(u,v)$，建立一棵树最小化这个目标，为图中任意两点间的加权距离，即~~Product-Requirement Communication Spanning Tree~~。
 定理1的证明直接做差，然后证明不断将边变为0导致$\Delta$不会变小，在最后边全为0时$\Delta=0$得证。
 Corollary 4就是常用$min{u,v}\le xu+(1-x)v$，代入Corollary 2即可。
 The minimum average intercluster distance spanning tree 算法就是对于$V_1\cup V_2$里的所有点跑一遍最短路，取平均距离最小的。
@@ -51,10 +47,10 @@ Concluding remarks 类似的，若给定k个点集，算任两点的平均距离
     
     <item>
       <title>A POLYNOMIAL-TIME APPROXIMATION SCHEME FOR MINIMUM ROUTING COST SPANNING TREES</title>
-      <link>cartershi.github.io/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</link>
+      <link>https://cartershi.github.io/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</link>
       <pubDate>Fri, 26 Jul 2019 21:13:20 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</guid>
+      <guid>https://cartershi.github.io/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</guid>
       <description>作者：BANG YE WU, GIUSEPPE LANCIA, VINEET BAFNA, KUN-MAO CHAO, R. RAVI k, AND CHUAN YI TANG
 HAAM 59章的相关内容。
 目标是找一棵联通树，使得$\sum_{u,v\in V}\lambda(u,v)d_T(u,v)$最小，下面称为cost，树T的cost写为c(T)。
@@ -73,10 +69,10 @@ Finding the best k-star A polynomial-time method 一个简单的办法是穷举k
     
     <item>
       <title>Approximation algorithms for the shortest total path length spanning tree problem</title>
-      <link>cartershi.github.io/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</link>
+      <link>https://cartershi.github.io/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</link>
       <pubDate>Thu, 25 Jul 2019 14:51:38 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</guid>
+      <guid>https://cartershi.github.io/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</guid>
       <description>作者：Bang Ye Wu , Kun–Mao Chao , Chuan Yi Tang
 HAAM 59章的相关内容。
 Preliminaries Defnition 4. Let G =(V,E,w) and R be a tree contained in G. T is a general star of G with core R if T is a spanning tree of G and $d _T(i,R)=d_G(i,R)$ ∀i ∈ V. The set of all general stars of G with core is denoted by star(G,R)
@@ -85,42 +81,42 @@ Preliminaries Defnition 4. Let G =(V,E,w) and R be a tree contained in G. T is a
     
     <item>
       <title>A FACTOR 2 APPROXIMATION ALGORITHM FOR THE GENERALIZED STEINER NETWORK PROBLEM</title>
-      <link>cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</link>
+      <link>https://cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</link>
       <pubDate>Mon, 22 Jul 2019 16:45:33 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</guid>
+      <guid>https://cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</guid>
       <description>作者：Kamal Jain
 Introduction 本文的目标是找到一个子图使得给定目标之间的割满足条件。
-f is weakly supermodular, i.e., it satisfies: 1. f(V)=0 2. For every A,B⊆V , at least one of the following holds 1. $f(A)+f(B)\le f(A-B)+f(B-A)$ 2. $f(A)+f(B)\le f(A\cap B)+f(A\cup B)$
-Preliminaries Definition 2.1 function f : $2^V \rightarrow Z_+$is proper if f(V) = 0 and the following two conditions hold
+f is weakly supermodular, i.e., it satisfies:
+ f(V)=0 For every A,B⊆V , at least one of the following holds  $f(A)+f(B)\le f(A-B)+f(B-A)$ $f(A)+f(B)\le f(A\cap B)+f(A\cup B)$    Preliminaries Definition 2.1 function f : $2^V \rightarrow Z_+$is proper if f(V) = 0 and the following two conditions hold
  For every subset S of V , f(S)=f(V−S). For all disjoint subsets A and B of V , f(A∪B)≤max{f(A),f(B)}  可证明proper函数是weakly supermodular的。</description>
     </item>
     
     <item>
       <title>An improved approximation algorithm for the 0-extension problem</title>
-      <link>cartershi.github.io/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</link>
+      <link>https://cartershi.github.io/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</link>
       <pubDate>Sun, 21 Jul 2019 14:24:25 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</guid>
+      <guid>https://cartershi.github.io/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</guid>
       <description>作者：Jittat Fakcharoenphol, Chris Harrelson, Satish Rao, Kunal Talwar
 Introduction 本问题是将每个点映射到给定的terminal上，使得原来有边的任两点之间的距离和与现在距离和之间近似比尽可能小。
 这篇文章有一个漂亮的relaxation，它relax出一个新的semimetric度量，只保证terminal之间的距离不变即可。
 Notation 定义$A_u$为u最近的terminal或者到它的距离。显然每个点挑选$A_u$是不合理的，因为terminal之间的距离可能是$O(A_u)$级别的，若$d(u,v)$很小，则无法很好的近似。
 The CKR algorithm 随机一个terminal的排列，选择一个$[1,2)$的数$\alpha$，每个点u赋值给排列中第一个距离小于$\alpha A_u$的的点。
 对于目标函数的两点距离，$\delta(f(u),f(v))\le\delta(f(u),u)+\delta(u,v)+\delta(f(v),v)$直接可以解决前两种情况。否则需要一个概率的证明（参见CKR的证明）：考虑u，v被分开的概率，等价于u被m$(\alpha)$中的点覆盖，而v一定被$s(\alpha)$覆盖，由于排列得随机性，得$P[\epsilon(u,v)|\alpha]\le\frac{m(\alpha)}{m(\alpha)+s(\alpha)}$，对$\alpha$求积分得基本就解决了。为了解决积分的问题，需要对积分式做归纳，也很简单。
-Our algorithm 不同在于随机变量，挑选一个$\gamma\in[1,2]$，设置$A_v&amp;rsquo;=\min{2^s:2^s\ge2A_v/\gamma}$（图中最短距离被扩大到1），随机挑选一个$i\in[1,m]$、$\alpha\in[2^{i-1},2^i)$，点的排列$\sigma$。接下来就是ckr算法。
-Analysis of the algorithms lemma5.1：分析类似于CKR+tree mertic的合体，对于每条边uv，分析它被某个点分割的概率，考虑u被它覆盖而v没有，则$K{i-2}^{u}$里的点必然不是可能的点，所以穷举$K{i}^{u}-K_{i-2}^{u}$中的点即可，这里面的点概率类似tree mertic的分析。
-lemma5.2：很简单的引理，关键在于这个设置的方法，使得两个很接近的点的$A&amp;rsquo;$值大概率相似。
-近似比：用这两个引理就可以容易的分$A&amp;rsquo;$是否相等来计算条件期望。
+Our algorithm 不同在于随机变量，挑选一个$\gamma\in[1,2]$，设置$A_v&#39;=\min{2^s:2^s\ge2A_v/\gamma}$（图中最短距离被扩大到1），随机挑选一个$i\in[1,m]$、$\alpha\in[2^{i-1},2^i)$，点的排列$\sigma$。接下来就是ckr算法。
+Analysis of the algorithms lemma5.1：分析类似于CKR+tree mertic的合体，对于每条边uv，分析它被某个点分割的概率，考虑u被它覆盖而v没有，则$K_{i-2}^{u}$里的点必然不是可能的点，所以穷举$K_{i}^{u}-K_{i-2}^{u}$中的点即可，这里面的点概率类似tree mertic的分析。
+lemma5.2：很简单的引理，关键在于这个设置的方法，使得两个很接近的点的$A&#39;$值大概率相似。
+近似比：用这两个引理就可以容易的分$A&#39;$是否相等来计算条件期望。
 去随机化：穷举所有可能的随机变量，然后用条件期望不断的解决当前排列位置上的terminal。</description>
     </item>
     
     <item>
       <title>Approximation Algorithms for Geometric Median Problems</title>
-      <link>cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</link>
+      <link>https://cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</link>
       <pubDate>Sat, 20 Jul 2019 16:32:30 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</guid>
+      <guid>https://cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</guid>
       <description>作者：Jyh-Han Lin、Jeffrey Scott Vitter
 个人觉得它的引理6写错了。
 这篇文章的算法容易理解，就是用LP的解算每个点距离的期望$\widehat{C_i}$，定义i的邻居为$\le(1+1/\epsilon)\widehat{C_i}$的所有点，定义i的拓展邻居为两跳之内的邻居。按$\widehat{C_i}$递增排序后不断挑选点并删除x的所有拓展邻居，这些拓展邻居都用x当作中心计算距离。
@@ -131,36 +127,36 @@ lemma5.2：很简单的引理，关键在于这个设置的方法，使得两个
     
     <item>
       <title>A tight bound on approximating arbitrary metrics by tree metrics</title>
-      <link>cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</link>
+      <link>https://cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</link>
       <pubDate>Tue, 09 Jul 2019 20:57:35 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</guid>
+      <guid>https://cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</guid>
       <description>作者：Jittat Fakcharoenphol, Satish Rao and Kunal Talwar
-The algorithm 定义：首先将最短距离扩大到至少为1，定义$\Delta=2^\delta$为直径的上界，度量d&amp;rsquo;支配d表示任两点d&amp;rsquo;&amp;gt;d，本文的目标即寻找树上的度量d‘，它支配真正的距离d，并且d’的期望距离$\le\alpha d(u,v)$，这称为$\alpha$概率近似。r-cut定义为以某个点为中心的半径为r的cluster，$Di$为$D{i+1}$的$2^i$-cut。
+The algorithm 定义：首先将最短距离扩大到至少为1，定义$\Delta=2^\delta$为直径的上界，度量d&amp;rsquo;支配d表示任两点d&#39;&amp;gt;d，本文的目标即寻找树上的度量d‘，它支配真正的距离d，并且d’的期望距离$\le\alpha d(u,v)$，这称为$\alpha$概率近似。r-cut定义为以某个点为中心的半径为r的cluster，$D_i$为$D_{i+1}$的$2^i$-cut。
 算法：首先随机产生n个点的排列，以$p(x)=\frac{1}{x\ln2}$的概率挑选$\beta\in[1,2]$，若当前集合中元素不止一个，将每个元素分配给排列中第一个距离小于$2^{i-1}\beta$的点。这显然是形成了树中节点的孩子，边权为$2^i\ge 2^{i-1}\beta$，大于等于当前点的半径。
 支配：两点u,v的距离就是两点在树中对应的叶子节点之间的距离。考虑它们的LCA x，注意在树上u到x的距离至少是x的半径（这里有两次放缩），x在图上这个半径包含u，所以$d(u,x)\le d^T(u,x)$，三角不等式可得以树作为度量支配图的距离。
-$\alpha$概率近似：Observation1通过简单的变量替换即可得到，若$LCA(u,v)=x$在第i层，则$d^T(u,x)&amp;lt;2^{i+1}$，所以$d^T(u,v)&amp;lt;2^{i+2}\le8\beta_i$。将随机排列的n个点按照$\min(d(u,w),d(v,w))$从小到大排序，得$E[d^T(u,v)]\le \sumi E[d^T{wi}(u,v)]$，$d^T{w_i}(u,v)$表示为$w_i$将它们分割的情况下的距离。注意到$w_i$将它们分割时$w_i$必然在前$i-1$个点的前面，否则这些点会将u,v直接分开或者带入更小的集合，由于随机排列，这样的概率为$\frac{1}{i}$。对所有可能的$\betai$做积分求期望（这边也有点绕，并不是直接对$\beta$积分），外面再乘一个$\frac{1}{i}$即可求出$E[d^T{w_i}(u,v)]$，最后直接累加。天才般的证明
+$\alpha$概率近似：Observation1通过简单的变量替换即可得到，若$LCA(u,v)=x$在第i层，则$d^T(u,x)&amp;lt;2^{i+1}$，所以$d^T(u,v)&amp;lt;2^{i+2}\le8\beta_i$。将随机排列的n个点按照$\min(d(u,w),d(v,w))$从小到大排序，得$E[d^T(u,v)]\le \sum_i E[d^T_{w_i}(u,v)]$，$d^T_{w_i}(u,v)$表示为$w_i$将它们分割的情况下的距离。注意到$w_i$将它们分割时$w_i$必然在前$i-1$个点的前面，否则这些点会将u,v直接分开或者带入更小的集合，由于随机排列，这样的概率为$\frac{1}{i}$。对所有可能的$\beta_i$做积分求期望（这边也有点绕，并不是直接对$\beta$积分），外面再乘一个$\frac{1}{i}$即可求出$E[d^T_{w_i}(u,v)]$，最后直接累加。~~天才般的证明~~
 Derandomization 鸽了</description>
     </item>
     
     <item>
       <title>A greedy approximation algorithm for the group Steiner problem</title>
-      <link>cartershi.github.io/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</link>
+      <link>https://cartershi.github.io/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</link>
       <pubDate>Mon, 08 Jul 2019 09:39:22 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</guid>
+      <guid>https://cartershi.github.io/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</guid>
       <description>作者 Chandra Chekuri, Guy Even, Guy Kortsarz
-2. Preliminaries 本文处理的是group steiner tree problem restricted to trees，输入为一个有根的非负权有向树T以及m个点集$gi$，树T&amp;rsquo;被称为z-cover表示它至少了与z个点集相交，目标是找到一个权重最小的z-cover树。记$n=|\cup{i=1}^{m}gi|,s=\sum{i=1}^{m}|g_i|$，点集$g_i$中的点都称为terminal（终端）。
-虽然这里处理的图是树，但是A tight bound on approximating arbitrary metrics by tree metrics(STOC&amp;rsquo;03)证明了用树可以$O(\log n)$近似图中两点距离，所以可以直接用那个近似图之后用本文对得到的树来近似。
+2. Preliminaries 本文处理的是group steiner tree problem restricted to trees，输入为一个有根的非负权有向树T以及m个点集$g_i$，树T&amp;rsquo;被称为z-cover表示它至少了与z个点集相交，目标是找到一个权重最小的z-cover树。记$n=|\cup_{i=1}^{m}g_i|,s=\sum_{i=1}^{m}|g_i|$，点集$g_i$中的点都称为terminal（终端）。
+虽然这里处理的图是树，但是A tight bound on approximating arbitrary metrics by tree metrics(STOC&#39;03)证明了用树可以$O(\log n)$近似图中两点距离，所以可以直接用那个近似图之后用本文对得到的树来近似。
 预处理：注意到非终端的叶子可以直接删除，树中度为2的非终端节点也可删除，再用一个集合包含树中所有的点，这样新树的点数是$O(n)$，且每个点都是终端，最后scale边权使得所有的正边权都大于等于1。
 $\alpha-faithful$树的定义看起来就是为了claim2.3准备的。
 3. A recursive greedy algorithm with geometric search 引用的算法，思路在HAAM5里面有过介绍（算法不同，证明的思路类似），就是对于一棵树，首先使用height reduction将其高度减少为$O(\frac{\log n}{\log\log n})$，这会导致结果近似，然后用degree reduction将每个点的度减少为$O(\log n)$，这样是精确的。在这棵树上做类似集合覆盖的算法，近似比直接套用那里的引理。
 Geometric search主要的不同在于不穷举所有的子集，而是取幂次，这招height reduction也用了，不过这里不从零开始。
-lemma3.3证明用了geometric之后就可以把时间复杂度减少到n的多项式，与树高无关，它的证明思路也就是bound调用子函数的次数，每一轮的调用次数容易bound，循环的轮数要注意子函数最少返回覆盖z&amp;rdquo;/h个终端的树，z&amp;rdquo;又有下届，所以可以bound。
+lemma3.3证明用了geometric之后就可以把时间复杂度减少到n的多项式，与树高无关，它的证明思路也就是bound调用子函数的次数，每一轮的调用次数容易bound，循环的轮数要注意子函数最少返回覆盖z&#39;&#39;/h个终端的树，z&#39;&amp;lsquo;又有下届，所以可以bound。
 lemma3.4的证明和引用的那个很像，不同在于两点：1.有一些重要的点和不重要的点，不重要的点由于geometric不会被调用，直接近似掉。2.考虑重要的点中密度最小的子树，它对应的参数由于geometric不一定调用，但是调用最靠近它的参数的那次与它之间密度的关系。剩下的证明就一样了。
 4. Height reducing transformation 这玩意不是一个HAAM第5章里面的height reduction的，那里处理的是完全图，这里处理的是树。
 $\alpha-decomposition$就是对$T_r$dfs，遇到轻节点回溯，这样访问到的所有节点。skeleton是$\alpha-decomposition$中的$T_r$的重节点形成的子树。branch定义我看了好久，它误导人的地方在于maximal subpath，其实就是从不止一个孩子的节点往下走，直至碰到一个多孩子的节点，这就是一个branch。（个人觉得它这里的branch包含了skeleton的叶子到分支节点的路径，不然没有$2\alpha-1$个branches吧）搞懂这个定义，算法就很容易理解了，首先得到$\alpha-decomposition$，对它的skeleton进行dfs计算所有的branch，计算所有branch的bunch，用3层高的路近似根到它的路径。
-高度直接递归计算。近似比的证明思路在于原树的$\alpha-decomposition$和reduce完的那个三层的树一一对应，考虑每个$\alpha-decomposition$的每个branch到根的联通树$Q[S_B]$，它与对应的$Q&amp;rsquo;[S_B&amp;rsquo;]$可用bunch证明近似，在由于branch两两不相交且个数为$O(\alpha)$，所以$\sum Q&amp;rsquo;$可用$O(\alpha)Q$bound这其实也可以直接分析每个branch，而不带根，然后bound边被重算的次数，就是HAAM5章那个思路。
+高度直接递归计算。近似比的证明思路在于原树的$\alpha-decomposition$和reduce完的那个三层的树一一对应，考虑每个$\alpha-decomposition$的每个branch到根的联通树$Q[S_B]$，它与对应的$Q&amp;rsquo;[S_B&#39;]$可用bunch证明近似，在由于branch两两不相交且个数为$O(\alpha)$，所以$\sum Q&#39;$可用$O(\alpha)Q$bound这其实也可以直接分析每个branch，而不带根，然后bound边被重算的次数，就是HAAM5章那个思路。
 5. Degree reducing transformation 这个算法就是将树转化成一颗每个点度最多$\beta$的树，使得树的高度不会增加超过$\log_{\beta/2}n$。这个结论感觉挺有用的。
 算法就是将小的节点合并。用一个点拼接它。</description>
     </item>

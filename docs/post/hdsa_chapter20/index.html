@@ -1,62 +1,57 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
 <head>
-  <link href="//gmpg.org/xfn/11" rel="profile">
+  <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.84.2" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Chapter20 &middot; syx的日志</title>
+  <meta name="description" content="" />
 
   
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/hyde.css">  
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
-  <script type="text/javascript"
-        async
-        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[\[','\]\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
 
-MathJax.Hub.Queue(function() {
-    
-    
-    
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://cartershi.github.io/favicon.png">
+
+  
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
 </script>
-
-  
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="cartershi.github.io/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="cartershi.github.io/cai.jpg">
-
-  
-  
-  
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
 </head>
 
   <body class="theme-base-08 ">
   <aside class="sidebar">
-  <div class="container">
+  <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="cartershi.github.io/"><h1>syx的日志</h1></a>
+      <a href="https://cartershi.github.io"><h1>syx的日志</h1></a>
       <p class="lead">
        洗澡王 
       </p>
@@ -64,12 +59,12 @@ MathJax.Hub.Queue(function() {
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="cartershi.github.io/">Home</a> </li>
-        <li><a href="cartershi.github.io/post/"> Posts </a></li><li><a href="cartershi.github.io/about/"> About </a></li><li><a href="cartershi.github.io/tags/"> Tags </a></li>
+        <li><a href="https://cartershi.github.io">Home</a> </li>
+        <li><a href="https://cartershi.github.io/post/"> Posts </a></li><li><a href="https://cartershi.github.io/about/"> About </a></li><li><a href="https://cartershi.github.io/tags/"> Tags </a></li>
       </ul>
     </nav>
 
-    <p>&copy; 2020. All rights reserved. </p>
+    <p>&copy; 2021. All rights reserved. </p>
   </div>
 </aside>
 
@@ -77,42 +72,23 @@ MathJax.Hub.Queue(function() {
     <div class="post">
   <h1>Chapter20</h1>
   <time datetime=2019-07-03T13:24:42&#43;0800 class="post-date">Wed, Jul 3, 2019</time>
-  
-
-<h1 id="quadtrees-and-octrees">Quadtrees and Octrees</h1>
-
+  <h1 id="quadtrees-and-octrees">Quadtrees and Octrees</h1>
 <p>quadtree本意是将一个二维区域用平行于坐标轴的两条线将其分为4个区域作为树的4个孩子，因此称为quad tree。在3维空间，则有$2^3=8$个孩子，这叫做octree。更高维度的被称为hyperoctrees。通常情况下quadtree，octree，hyperoctree都叫quadtree。kd-tree与quadtree的不同在于kd-tree每层只选择某一维作为拆分的标准，所以只有两个孩子。竟然有专门的书介绍quadtree的相关内容，可见它多么复杂。</p>
-
 <h2 id="point-data">Point Data</h2>
-
 <h3 id="point-quadtree">Point Quadtree</h3>
-
 <p>多维点是最简单的情况，通常对于它有这样几种查询：1.区间查询，19章range tree处理的问题。2.球型区域查询，给定点和半径，查这个球里面的区域。3.查找每个点的最近邻。当然查找、插入、删除这些基本操作也是要支持的。</p>
-
 <p>考虑二维情况，point quadtree就是在当前区域选一个点作为根，用它将区域分成四部分，每部分是一颗子树（如果按x轴分成两个区域，就是一颗BST）。</p>
-
-<p><img src="cartershi.github.io/pic/data structure/20-1.jpg" alt="fig20-1" /></p>
-
+<p>![fig20-1](/pic/data structure/20-1.jpg)</p>
 <p><strong>建立</strong>：将n个点直接排序，取中间节点，$O(n)$时间将其分成4个子区间，这样保证每个子区间不会超过n，用数学归纳法得建立时间为$O(n\log n)$。</p>
-
 <p><strong>查询</strong>：类似BST的查找，不过要比较两维。</p>
-
 <p><strong>插入</strong>：先查找到叶子，然后在叶子下面挂1层高树。</p>
-
 <p><strong>删除</strong>：很麻烦，书上没写。</p>
-
 <p>在d维情况下将会导致每个点有$2^d$个孩子，kd-tree可以处理这个问题，因为它轮流的选取d维作为每一次层的标准，这样就相当于编码了$2^d$个孩子，可以在不平衡的地方进行处理，完全不处理的kd-tree等价于一棵quadtree。接下来只关注 region quadtree，即平分区间长度而非平分所有点。这样不能向point quadtree保证产生一棵平衡树，但是作者喜欢。</p>
-
 <h3 id="region-quadtree">Region Quadtree</h3>
-
 <p>定义cell类似于树中node，subcell相当于后代，supersell为祖先，immediate描述父子关系。空间分析非常显然，point quadtree提到四个操作都很容易处理，注意插入时需要不断地细分空间直至两点被分开，删除可以需要不断的往根删直至有至少两个孩子。</p>
-
 <h3 id="compressed-quadtrees-and-octrees">Compressed Quadtrees and Octrees</h3>
-
 <p>Quadtree 鸽了</p>
-
 <h2 id="spatial-queries-with-region-quadtrees">Spatial Queries with Region Quadtrees</h2>
-
 <h3 id="range-query">Range Query</h3>
 
 </div>
@@ -120,6 +96,8 @@ MathJax.Hub.Queue(function() {
 
     </main>
 
+    
+      
     
   </body>
 </html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.84.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Efficient Algorithms for Densest Subgraph Discovery &middot; syx的日志</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://cartershi.github.io/favicon.png">
+
+  
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+</head>
+
+  <body class="theme-base-08 ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://cartershi.github.io"><h1>syx的日志</h1></a>
+      <p class="lead">
+       洗澡王 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://cartershi.github.io">Home</a> </li>
+        <li><a href="https://cartershi.github.io/post/"> Posts </a></li><li><a href="https://cartershi.github.io/about/"> About </a></li><li><a href="https://cartershi.github.io/tags/"> Tags </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2021. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Efficient Algorithms for Densest Subgraph Discovery</h1>
+  <time datetime=2020-11-08T10:37:29&#43;0800 class="post-date">Sun, Nov 8, 2020</time>
+  <p>本文处理最密子图问题，它基于$(k,\Psi)-core$，可以处理普通模式，而不局限于clique。</p>
+<p>文章用core的部分还不错。</p>
+<h2 id="问题定义">问题定义</h2>
+<p>EDS为最大边密度子图，CDS为最大团密度子图，PDS为最大模式密度子图。这三者是逐渐包含关系，首先看CDS的方法，最后把它拓展到PDS（这里没意思）。</p>
+<h2 id="现有方法">现有方法</h2>
+<h3 id="精确算法">精确算法</h3>
+<p>参见Scalable Large Near-Clique Detection in Large-Scale</p>
+<h3 id="近似算法">近似算法</h3>
+<p>每次删除度最大的节点，计算剩余图密度。</p>
+<h2 id="clique-based-cores">CLIQUE-BASED CORES</h2>
+<h3 id="定义">定义</h3>
+<p><strong>k-core</strong></p>
+<p>定义k-core $H_k$为图G中最大的子图，使得每个点的度至少为k。定义$H_k$的order为k。点v的core number定义为包含点v的$H_k$中的最大order。可以发现$H_k$中所有节点的core number至少为k。</p>
+<p><strong>性质</strong>：</p>
+<ol>
+<li>
+<p>k-cores是nested，即order更小的k-core覆盖更大的k-core。</p>
+</li>
+<li>
+<p>k-core可以不连通。</p>
+</li>
+<li>
+<p>可以线性计算所有点的core number。</p>
+</li>
+</ol>
+<p>$(k,\Psi)$-core​</p>
+<p>仿照k-core的定义，我们给出$(k,\Psi)$-core​ $R_k$的定义：图中的最大子图，使得每个点的clique数至少为k。定义$R_k$的order为k。点v的clique-core number $core_G(v,\Psi)$为包含点v的$R_k$中的最大order。定义最大clique-core number为$k_{max}$。</p>
+<p><strong>性质</strong>：</p>
+<ol>
+<li>
+<p>$(k,\Psi)$-core是nested，即order更小的$(k,\Psi)$-core覆盖更大的$(k,\Psi)$-core。</p>
+</li>
+<li>
+<p>k-core可以不连通。</p>
+</li>
+<li>
+<p>$core_G(v,\Psi)\le deg_G(v,\Psi)$</p>
+</li>
+</ol>
+<h3 id="kpsi-core的上下界">$(k,\Psi)$-core的上下界</h3>
+<p>上界为$k_{max}$：每个点删除都会使得密度变小，所以每个点至少参与$\rho$个clique，这是$k$的定义。</p>
+<p>下界为$\frac{k}{|V_{\Psi}|}$：double counting$R_k$中的clique涉及的点数即可。</p>
+<h3 id="kpsi-core分解">$(k,\Psi)$-core分解</h3>
+<p>思想在于迭代的删除图中clique数最小的节点，这个值是当前节点的$core_G(v,\Psi)$，正确性反证一下即可。</p>
+<p>注意删除时需要更新相应节点的clique数，做法是计算有它参与的clique数并更新其他点。</p>
+<h3 id="拓展">拓展</h3>
+<p>模式可以用与$(k,\Psi)$-core分解一样的算法</p>
+<h2 id="core-based-approaches">CORE-BASED APPROACHES</h2>
+<h3 id="精确算法-1">精确算法</h3>
+<p><strong>二分的上下界：</strong></p>
+<p>借助$(k,\Psi)$-core的上下界，我们可以给出二分的上下界</p>
+<p>上界：$(k,\Psi)$-core上界的证明没有用到$(k,\Psi)$-core的定义，可以拿过来用</p>
+<p>下界：$\rho_{opt}\ge \max{\rho(R_k,\Psi)}\ge \frac{k_{max}}{|V_\Psi|}$</p>
+<p><strong>core定位</strong>：</p>
+<p>这里是核心技术。</p>
+<p>lemma7：CDS必然在$(k,\Psi)$-core中，这里$k=\lceil \rho_{opt}\rceil$</p>
+<p>证明一句话，CDS中每个点都至少涉及$\rho_{opt}$个clique。</p>
+<p>lemma7导致只考虑图$(\lceil \frac{k_{max}}{|V_\Psi|} \rceil,\Psi)$-core。</p>
+<p>Pruning1：$\frac{k_{max}}{|V_\Psi|}$依然较大，进一步考虑每个$(k,\Psi)$-core的密度，选择最大密度的</p>
+<p>Pruning2：对于Pruning1找到的core，计算它每个连通分支的密度，找最大密度</p>
+<p>Pruning3：对于每个联通分支，binary search的gap变成连通分支的点数。<del>这也能算剪枝的吗</del></p>
+<p><strong>删点</strong>：</p>
+<p>当二分的下界变大时，可以删除一些节点。</p>
+<p><strong>算法CoreExact</strong>：</p>
+<p>第一步计算二分的上下界，第二步定位到合适的core，第三步对每个连通分支进行计算密度。</p>
+<p>第三步展开说一下，首先接着当前的密度对连通分支进行删点，删完后判断是否有密度更大的可能。最后进行二分算密度，过程中随着下界的变大进行删点。</p>
+<h3 id="近似算法-1">近似算法：</h3>
+<p><strong>算法IncApp</strong>：</p>
+<p>借助二分的上下界直接有一个$\frac{1}{|V_\Psi|}$近似的算法：$(k_{max},\Psi)$-core。直接调用$(k,\Psi)$-core分解即可。</p>
+<p><strong>算法CoreApp</strong>：</p>
+<p>用k-core的core number作为clique-core number的上界，按上界从大到小排序。每次double候选点集，对于每个候选点集，进行$(k,\Psi)$-core分解，计算$k_{max}$。由于$(k,\Psi)$-core分解复杂度与点数是线性的，double技术保证总复杂度是线性的。</p>
+<h3 id="并行化">并行化：</h3>
+<p>并行$(k,\Psi)$-core分解和最小流算法即可。</p>
+<h2 id="pds问题">PDS问题：</h2>
+<p>近似算法都可以直接套用，依然反证。</p>
+<p>PExact算法跟Scalable Large Near-Clique Detection in Large-Scale一样的构造和证明。</p>
+<p>CorePExact将同组的模式合并。</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

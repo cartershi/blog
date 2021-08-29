@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.84.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TPM_chapter2 &middot; syx的日志</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://cartershi.github.io/favicon.png">
+
+  
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+</head>
+
+  <body class="theme-base-08 ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://cartershi.github.io"><h1>syx的日志</h1></a>
+      <p class="lead">
+       洗澡王 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://cartershi.github.io">Home</a> </li>
+        <li><a href="https://cartershi.github.io/post/"> Posts </a></li><li><a href="https://cartershi.github.io/about/"> About </a></li><li><a href="https://cartershi.github.io/tags/"> Tags </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2021. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>TPM_chapter2</h1>
+  <time datetime=2021-01-03T21:24:15&#43;0800 class="post-date">Sun, Jan 3, 2021</time>
+  <h1 id="定义">定义</h1>
+<p>期望的线性性：若$X=c_1X_1+\cdots+c_nX_n$，则$E[X]=c_1E[X_1]+\cdots+c_nE[X_n]$，无论这些$X_i$是否独立。</p>
+<p>考虑n元的重排后不动点的期望，每个位置不动的期望为$\frac{1}{n}$，由期望的线性性得总期望为$1$</p>
+<p>考虑竞赛图哈密尔顿回路的期望，每个n元重排是回路的期望为$2^{-(n-1)}$，由期望的线性性得总期望为$n!2^{-(n-1)}$。</p>
+<h1 id="splitting-graphs">SPLITTING GRAPHS</h1>
+<p><strong>Theorem 2.2.1</strong> n个点m条边的图至少有m/2条边的一个二部子图。</p>
+<p><strong>Proof.</strong>  1/2的概率选点，则每条边被选的期望是1/2，期望线性性得结论。</p>
+<p><strong>Theorem 2.2.2</strong> 2n个点m条边的图至少有mn/(2n-1)条边的一个二部子图，2n+1个点m条边的图至少有m(n+1)/(2n+1)条边的一个二部子图。</p>
+<p><strong>Proof.</strong>  随机挑选n个点，依然算概率。</p>
+<h1 id="两个同色子图的结果">两个同色子图的结果</h1>
+<p>考虑每个$K_n$的每个a正则图，算期望，得存在一个二染色使得最多有${n\choose a }2^{1-{a\choose 2}}$个$K_a$。</p>
+<p>考虑每个$K_{m,n}$的每个a,b正则图，算期望，得存在一个二染色使得最多有${m\choose a}{n\choose b}2^{1-ab}$个$K_{a,b}$。</p>
+<p><strong>remark</strong> 这里说的是边染色</p>
+<h1 id="balancing-vectors">BALANCING VECTORS</h1>
+<p><strong>Theorem 2.4.1</strong> $v_1,\cdots,v_n$为n元实数域的单位向量，则存在一个$\epsilon_1,\cdots,\epsilon_n=\pm1$，使得$|\epsilon_1v_1+\cdots+\epsilon_nv_n|\le\sqrt n$。也存在一个$\epsilon_1,\cdots,\epsilon_n=\pm1$，使得$|\epsilon_1v_1+\cdots+\epsilon_nv_n|\ge\sqrt n$。</p>
+<p><strong>Proof.</strong> 随机挑选$\epsilon_1,\cdots,\epsilon_n$，令$X=|\epsilon_1v_1+\cdots+\epsilon_nv_n|^2$，则$X=\sum_i\sum_j\epsilon_i\epsilon_jv_i\cdot v_j$。$i\ne j,E[\epsilon_i\epsilon_jv_i\cdot v_j]=0$，得$E[X]=n$</p>
+<p><strong>remark</strong> 这里的n元向量是多余条件吧？</p>
+<p><strong>Theorem 2.4.2</strong> $v_1,\cdots,v_n$为n元实数域的向量，至多是单位向量，对于任意的$p_1,\cdots,p_n\in[0,1]$，存在一个$\epsilon_1,\cdots,\epsilon_n\in{0,1}$，使得$|(p_1-\epsilon_1)v_1+\cdots+(p_n-\epsilon_n)v_n|\le\frac{\sqrt n}{2}$。</p>
+<p><strong>Proof.</strong> $p_i$的概率挑选$\epsilon_i=1$，如Theorem2.4.1的证明</p>
+<h1 id="unbalancing-lights">UNBALANCING LIGHTS</h1>
+<p><strong>Theorem 2.5.1</strong> 令$\forall~1\le i,j\le n,a_{ij}=\pm1$，存在一个$x_i,y_j=\pm1$，使得$\sum_i\sum_ja_{ij}x_iy_j\ge\left(\sqrt{\frac{2}{\pi}}+o(1)\right)n^{\frac{3}{2}}$</p>
+<p><strong>Proof.</strong> 随机挑选$y_j$，定义$R_i=\sum_ja_{ij}y_j$，显然$a_{ij}y_j$是等概率$\pm1$，则$E[|R_i|]=\left(\sqrt{\frac{2}{\pi}}+o(1)\right)\sqrt n$（算概率然后斯特林公式即可），$x_i$用来调整$R_i$至绝对值，得结论。</p>
+<h1 id="without-coin-flips">WITHOUT COIN FLIPS</h1>
+<p>Theorem 2.2.1：每次往割边更多的地方放。</p>
+<p>Theorem 2.4.1：用构造法第$i$个向量加入后可控制前$i$个的l2范数$\ge \sqrt i$或$\le \sqrt i$</p>
+<p>Theorem 2.4.2：类似上一个证明，第$i$个向量加入后，$p_i$的概率挑选$\epsilon_i=1$，数学归纳法l2范数的期望$\le\frac{\sqrt i}{2}$，所以每次挑l2范数更小的$\epsilon_i$即可。</p>
+<h1 id="brégman-s-theorem">Brégman &rsquo;s Theorem</h1>
+<p>gele</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

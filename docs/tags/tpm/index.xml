@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TPM on syx的日志</title>
+    <link>https://cartershi.github.io/tags/tpm/</link>
+    <description>Recent content in TPM on syx的日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Jan 2021 21:24:15 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/tags/tpm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TPM_chapter2</title>
+      <link>https://cartershi.github.io/post/tpm_chapter2/</link>
+      <pubDate>Sun, 03 Jan 2021 21:24:15 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/tpm_chapter2/</guid>
+      <description>定义 期望的线性性：若$X=c_1X_1+\cdots+c_nX_n$，则$E[X]=c_1E[X_1]+\cdots+c_nE[X_n]$，无论这些$X_i$是否独立。
+考虑n元的重排后不动点的期望，每个位置不动的期望为$\frac{1}{n}$，由期望的线性性得总期望为$1$
+考虑竞赛图哈密尔顿回路的期望，每个n元重排是回路的期望为$2^{-(n-1)}$，由期望的线性性得总期望为$n!2^{-(n-1)}$。
+SPLITTING GRAPHS Theorem 2.2.1 n个点m条边的图至少有m/2条边的一个二部子图。
+Proof. 1/2的概率选点，则每条边被选的期望是1/2，期望线性性得结论。
+Theorem 2.2.2 2n个点m条边的图至少有mn/(2n-1)条边的一个二部子图，2n+1个点m条边的图至少有m(n+1)/(2n+1)条边的一个二部子图。
+Proof. 随机挑选n个点，依然算概率。
+两个同色子图的结果 考虑每个$K_n$的每个a正则图，算期望，得存在一个二染色使得最多有${n\choose a }2^{1-{a\choose 2}}$个$K_a$。
+考虑每个$K_{m,n}$的每个a,b正则图，算期望，得存在一个二染色使得最多有${m\choose a}{n\choose b}2^{1-ab}$个$K_{a,b}$。
+remark 这里说的是边染色
+BALANCING VECTORS Theorem 2.4.1 $v_1,\cdots,v_n$为n元实数域的单位向量，则存在一个$\epsilon_1,\cdots,\epsilon_n=\pm1$，使得$|\epsilon_1v_1+\cdots+\epsilon_nv_n|\le\sqrt n$。也存在一个$\epsilon_1,\cdots,\epsilon_n=\pm1$，使得$|\epsilon_1v_1+\cdots+\epsilon_nv_n|\ge\sqrt n$。
+Proof. 随机挑选$\epsilon_1,\cdots,\epsilon_n$，令$X=|\epsilon_1v_1+\cdots+\epsilon_nv_n|^2$，则$X=\sum_i\sum_j\epsilon_i\epsilon_jv_i\cdot v_j$。$i\ne j,E[\epsilon_i\epsilon_jv_i\cdot v_j]=0$，得$E[X]=n$
+remark 这里的n元向量是多余条件吧？
+Theorem 2.4.2 $v_1,\cdots,v_n$为n元实数域的向量，至多是单位向量，对于任意的$p_1,\cdots,p_n\in[0,1]$，存在一个$\epsilon_1,\cdots,\epsilon_n\in{0,1}$，使得$|(p_1-\epsilon_1)v_1+\cdots+(p_n-\epsilon_n)v_n|\le\frac{\sqrt n}{2}$。
+Proof. $p_i$的概率挑选$\epsilon_i=1$，如Theorem2.4.1的证明
+UNBALANCING LIGHTS Theorem 2.5.1 令$\forall~1\le i,j\le n,a_{ij}=\pm1$，存在一个$x_i,y_j=\pm1$，使得$\sum_i\sum_ja_{ij}x_iy_j\ge\left(\sqrt{\frac{2}{\pi}}+o(1)\right)n^{\frac{3}{2}}$
+Proof. 随机挑选$y_j$，定义$R_i=\sum_ja_{ij}y_j$，显然$a_{ij}y_j$是等概率$\pm1$，则$E[|R_i|]=\left(\sqrt{\frac{2}{\pi}}+o(1)\right)\sqrt n$（算概率然后斯特林公式即可），$x_i$用来调整$R_i$至绝对值，得结论。
+WITHOUT COIN FLIPS Theorem 2.2.1：每次往割边更多的地方放。
+Theorem 2.4.1：用构造法第$i$个向量加入后可控制前$i$个的l2范数$\ge \sqrt i$或$\le \sqrt i$
+Theorem 2.4.2：类似上一个证明，第$i$个向量加入后，$p_i$的概率挑选$\epsilon_i=1$，数学归纳法l2范数的期望$\le\frac{\sqrt i}{2}$，所以每次挑l2范数更小的$\epsilon_i$即可。</description>
+    </item>
+    
+    <item>
+      <title>TPM_chapter1</title>
+      <link>https://cartershi.github.io/post/tpm_chapter1/</link>
+      <pubDate>Wed, 23 Dec 2020 15:47:08 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/tpm_chapter1/</guid>
+      <description>概率化方法 所谓概率化方法，即为了证明某些特征存在，我们定义一个概率空间，使得这些特征存在于这个概率空间且概率为正。
+例子 ramsey数$R(k,k)&amp;gt;\lfloor2^{\frac{k}{2}}\rfloor~\forall k\ge3$。
+证明 定义概率空间为完全图$K_n$的随机染色，则k子图同色的概率为$2^{1-{k \choose2}}$，至少有一个同色的概率至多${n\choose k}2^{1-{k \choose2}}$。令这个值小于1，则可能给出一个无k同色子图的染色。
+remark 考虑$K_{1024}$下的20同色子图，随机sample染色，同色的概率至多$\frac{2^{11}}{20!}$，所以随机sample很容易得到一个非同色子图。
+图论 定义$S_k$为竞赛图中任意k个玩家都会被某一个玩家击败。
+定理1.2.1 若${n\choose k}{(1-2^{-k})}^{n-k}&amp;lt;1$，则存在一个n个点的竞赛图，有特征$S_k$
+证明 一样的证明，考虑每个k子集被击败的概率，为${(1-2^{-k})}^{n-k}$，再一个union bound即可。
+Theorem1.2.2 若图中有n个点，最小度$\delta&amp;gt;1$，则存在一个至多为$n\frac{1+\ln{(\delta+1)}}{\delta+1}$个点的支配集。
+Proof 随机p的概率选点，则被选中的点的期望为$E[X]=np$，未被这些点支配的点期望为$E[Y]\le n(1-p)^{\delta+1}$，和$E[X]+E[Y]\le np+ne^{-p(\delta+1)}$，求导即可。
+Remark1.2.2 构造性证明：定义$C(v)$为v和v的邻居。考虑未被支配的点集r及其$\sum_{r} C(v)$，这里$C(v)$中的点都是未被挑选的，至多n个点，则至少有个点出现在$\frac{\sum_r C(v)}{n}$个r的$C(v)$中，即这些$\frac{r(\delta+1)}{n}$个点必然被支配，所以一次可以使未被支配的点减少为原本的$1-\frac{r(\delta+1)}{n}$，重复$n\frac{\ln{(\delta+1)}}{\delta+1}$次后最多剩余$\frac{n}{\delta+1}$个未被支配的点，直接全部选中得到结果。这个算法预处理$\sum C(v)$并进行后续更新，复杂度为$O(n^2)$。
+lemma1.2.3 若图G中最小度为$\delta$且有一个小于$\delta$的割，则G的每个支配集在割的两边都有点。
+判断图是否$\frac{n}{2}$联通：首先度数至少$\delta\ge\frac{n}{2}$，利用Remark1.2.2中的构造可得到一个$O(\log n)$的支配集，由lemma1.2.3，这个支配集必然被割拆分，所以穷举支配集并跑网络流即可。
+组合 定义超图为n-uniform如果每条边包含n个点。称图二色可染如果存在一个点的二染色，使得每条边都不是同色的。用m(n)表示最小可能的边数，使得这个超图不是二色可染。
+Proposition 1.3.1 对于n-uniform超图，$m(n)\ge 2^{n-1}$。
+Proof 若边数小于$2^{n-1}$， 对于随机的二染色，一条边同色的概率为$2^{1-n}$，则图至少一条边同色的概率$&amp;lt;1$，所以必然有边不同色的染色。
+组合图论 阿贝尔群G的子集A被称为sum-free若$(A+A)\cap A= \empty$
+Theorem 1.4.1 每个n个元素非零整数的集合$B={b_1,b_2,\cdots,b_n}$包含一个sum-free的子集A，$|A|&amp;gt;\frac{1}{3}n$
+Proof. 定义$p=3k+2$为一个素数，且$p&amp;gt;2\max{{B}}$，$C={k+ 1,k + 2,\cdots,2k + 1}$，则C是循环群$Z_p$的sum-free子群。随机选取一个$1\le x&amp;lt;p$，定义$d_i(x)\equiv x\cdot b_i~mod~p$，则对于固定的i，$d_i(x)$会形成$Z_p$，即$\frac{1}{3}$的概率在C中，期望是$\frac{1}{3}n$个元素在C中。这些元素在C中则不可能有sum，否则$xb_i+xb_j\equiv x(b_i+b_j)~mod~p$
+Remark. 任意n个元素的阿贝尔群可以构造出一个$\frac{2}{7}n$大小的sum-free子集，且这个值最优。
+DISJOINT PAIRS问题 定义$\mathcal{F}$为{1,2,&amp;hellip;,n}的m个不同子集的集簇。$d(\mathcal{F})=|{F,F&#39;}:F,F&#39;\in \mathcal{F},F\cap F&#39;\neq \empty|$</description>
+    </item>
+    
+  </channel>
+</rss>

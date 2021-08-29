@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.84.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Influential Community Search in Large Networks &middot; syx的日志</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://cartershi.github.io/favicon.png">
+
+  
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+</head>
+
+  <body class="theme-base-08 ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://cartershi.github.io"><h1>syx的日志</h1></a>
+      <p class="lead">
+       洗澡王 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://cartershi.github.io">Home</a> </li>
+        <li><a href="https://cartershi.github.io/post/"> Posts </a></li><li><a href="https://cartershi.github.io/about/"> About </a></li><li><a href="https://cartershi.github.io/tags/"> Tags </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2021. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Influential Community Search in Large Networks</h1>
+  <time datetime=2020-12-27T18:50:17&#43;0800 class="post-date">Sun, Dec 27, 2020</time>
+  <p>没啥意思的论文</p>
+<h1 id="问题定义">问题定义</h1>
+<p>f(G)定义为图G中点的最小权值</p>
+<p>k-influential community $H^k$定义为满足以下条件的G的导出子图</p>
+<ol>
+<li>Connectivity: 联通</li>
+<li>Cohesiveness: 每个点的度至少为k</li>
+<li>Maximal structure: 不存在另一个导出子图H使得(1)H connectivity且cohesiveness, (2)H 包含$H^k$, (3) f(H) = f($H^k$)</li>
+</ol>
+<p>问题是找top-r最大f值的k-influential community。</p>
+<p>这个问题的定义会有冗余，定义non-contained k-influential community为满足以下性质的k-influential community</p>
+<ol start="4">
+<li>Non-containment: $H^k$不包含一个子图$\overline{H}^k$，使得$f(\overline{H}^k)&gt;f(H^k)$</li>
+</ol>
+<p>问题是找top-r最大f值的non-contained k-influential community。</p>
+<h1 id="在线做法">在线做法</h1>
+<p>Algorithm2: 对于k-core，删除权值最小的点，然后DFS删点保证Cohesiveness，倒序输出即可。</p>
+<p>对于non-contained k-influential community问题，删除点后需要图为空，否则不是non-contained k-influential community。</p>
+<h1 id="索引">索引</h1>
+<p>注意到在线做法实际上形成了一棵树，所以只需要在每个节点保留它这一轮删除的节点即可。</p>
+<p>注意到每个点出现k树的前提是度数至少为k，所以度数为d的点最多出现在前d棵树中，这就导致树节点的空间复杂度为$O(m)$。</p>
+<p>个人没感觉它的算法5好在哪儿，把算法3的第3行放在外面不就行了&hellip;</p>
+<h1 id="动态图">动态图</h1>
+<p>定义太麻烦，gele</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

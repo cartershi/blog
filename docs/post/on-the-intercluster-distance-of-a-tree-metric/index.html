@@ -1,62 +1,57 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
 <head>
-  <link href="//gmpg.org/xfn/11" rel="profile">
+  <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.84.2" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>On the intercluster distance of a tree metric &middot; syx的日志</title>
+  <meta name="description" content="" />
 
   
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/hyde.css">  
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
-  <script type="text/javascript"
-        async
-        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[\[','\]\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
 
-MathJax.Hub.Queue(function() {
-    
-    
-    
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://cartershi.github.io/favicon.png">
+
+  
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
 </script>
-
-  
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="cartershi.github.io/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="cartershi.github.io/cai.jpg">
-
-  
-  
-  
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
 </head>
 
   <body class="theme-base-08 ">
   <aside class="sidebar">
-  <div class="container">
+  <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="cartershi.github.io/"><h1>syx的日志</h1></a>
+      <a href="https://cartershi.github.io"><h1>syx的日志</h1></a>
       <p class="lead">
        洗澡王 
       </p>
@@ -64,12 +59,12 @@ MathJax.Hub.Queue(function() {
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="cartershi.github.io/">Home</a> </li>
-        <li><a href="cartershi.github.io/post/"> Posts </a></li><li><a href="cartershi.github.io/about/"> About </a></li><li><a href="cartershi.github.io/tags/"> Tags </a></li>
+        <li><a href="https://cartershi.github.io">Home</a> </li>
+        <li><a href="https://cartershi.github.io/post/"> Posts </a></li><li><a href="https://cartershi.github.io/about/"> About </a></li><li><a href="https://cartershi.github.io/tags/"> Tags </a></li>
       </ul>
     </nav>
 
-    <p>&copy; 2020. All rights reserved. </p>
+    <p>&copy; 2021. All rights reserved. </p>
   </div>
 </aside>
 
@@ -77,30 +72,17 @@ MathJax.Hub.Queue(function() {
     <div class="post">
   <h1>On the intercluster distance of a tree metric</h1>
   <time datetime=2019-08-06T20:13:04&#43;0800 class="post-date">Tue, Aug 6, 2019</time>
-  
-
-<p>作者：Bang Ye Wu</p>
-
+  <p>作者：Bang Ye Wu</p>
 <h2 id="introduction">Introduction</h2>
-
-<p>定义$\mu_G(V_1,V_2)=(V_1V<em>2)^{-1}\sum</em>{u\in V<em>1}\sum</em>{v\in V_2}d_G(u,v)$为两个给定点集的平均距离，目标是找到找个一棵树，使得这个值最小。</p>
-
+<p>定义$\mu_G(V_1,V_2)=(V_1V_2)^{-1}\sum_{u\in V_1}\sum_{v\in V_2}d_G(u,v)$为两个给定点集的平均距离，目标是找到找个一棵树，使得这个值最小。</p>
 <h2 id="distance-between-two-clusters">Distance between two clusters</h2>
-
-<p>定义$W<em>G(f,h)=\sum</em>{u,v\in V(G)}f(u)h(v)d_G(u,v)$，建立一棵树最小化这个目标，为图中任意两点间的加权距离，即<del>Product-Requirement Communication Spanning Tree</del>。</p>
-
+<p>定义$W_G(f,h)=\sum_{u,v\in V(G)}f(u)h(v)d_G(u,v)$，建立一棵树最小化这个目标，为图中任意两点间的加权距离，即~~Product-Requirement Communication Spanning Tree~~。</p>
 <p>定理1的证明直接做差，然后证明不断将边变为0导致$\Delta$不会变小，在最后边全为0时$\Delta=0$得证。</p>
-
 <p>Corollary 4就是常用$min{u,v}\le xu+(1-x)v$，代入Corollary 2即可。</p>
-
 <h2 id="the-minimum-average-intercluster-distance-spanning-tree">The minimum average intercluster distance spanning tree</h2>
-
 <p>算法就是对于$V_1\cup V_2$里的所有点跑一遍最短路，取平均距离最小的。</p>
-
 <p>方法就是对于$V_1$里的点算以它为根的距离上界，对于$V_2$里的点算以它为根的距离上界，各取平均距离的平均得2近似。</p>
-
 <h2 id="concluding-remarks">Concluding remarks</h2>
-
 <p>类似的，若给定k个点集，算任两点的平均距离，依然可用上面的算法2近似。</p>
 
 </div>
@@ -108,6 +90,8 @@ MathJax.Hub.Queue(function() {
 
     </main>
 
+    
+      
     
   </body>
 </html>

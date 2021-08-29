@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.84.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Efficient Algorithms for Densest Subgraph Discovery on Large Directed Graphs &middot; syx的日志</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://cartershi.github.io/favicon.png">
+
+  
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+</head>
+
+  <body class="theme-base-08 ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://cartershi.github.io"><h1>syx的日志</h1></a>
+      <p class="lead">
+       洗澡王 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://cartershi.github.io">Home</a> </li>
+        <li><a href="https://cartershi.github.io/post/"> Posts </a></li><li><a href="https://cartershi.github.io/about/"> About </a></li><li><a href="https://cartershi.github.io/tags/"> Tags </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2021. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Efficient Algorithms for Densest Subgraph Discovery on Large Directed Graphs</h1>
+  <time datetime=2020-11-25T16:53:15&#43;0800 class="post-date">Wed, Nov 25, 2020</time>
+  <p>本文有向图找出两个点集S和T使得密度最大（边只计算S到T的）</p>
+<p>$\rho=\frac{E(S,T)}{\sqrt{S}\cdot\sqrt{T}}$</p>
+<h2 id="现有算法">现有算法</h2>
+<p>精确算法来自ICALP09的On Finding Dense Subgraphs。里面的2近似算法不对，精确算法</p>
+<h3 id="精确算法">精确算法</h3>
+<p>点集复制两遍，称为A和B。从s到A中每个点边权为m，从A到t边权为$m+\frac{g}{\sqrt{a}}$，从s到B中每个点边权为m，从B到t边权为$m+\sqrt{a}g-2d_{G}^{+}(u)$，，B到A在图G中的边对应边权为2。这里的a是一定会被穷举到的$|\frac{S}{T}|$。</p>
+<p>证明比较有意思，直接最小割一算完运用被穷举到的$|\frac{S}{T}|$即可得一个更小的割。另外如果有一个密度更小的子图，带入割的公式可得永远不可能变成更小的割。（漂亮的构造和证明）</p>
+<h2 id="近似算法">近似算法</h2>
+<p>依然穷举$|\frac{S}{T}|$，然后线性去计算。</p>
+<h2 id="新精确算法">新精确算法</h2>
+<p>又来定义core了：[x,y]-core为S中点出度至少为x，T中点入度至少为y。那么[x,y]-core是nested的，还有经典的lemma5.5（这个core分解的核心），这里看起来复杂的值不过是$\frac{E}{2S}$与$\frac{E}{2T}$。这个结论导出了Theorem 5.6。</p>
+<h3 id="core-exact">Core-Exact</h3>
+<p>Theorem 5.6导出了Core-Exact：用目前知道的近似比作为下界，二近似结果的2倍作为上界，二分密度即可，注意这里l保证一定是合法的密度。</p>
+<h3 id="dc-exact">DC-Exact</h3>
+<p>用ICALP的结论，漂亮的分治加速。关键点在于ICALP的结论得到的关于g的公式的分母是关于$a^2$的反比例函数，导致[b,c]区间可以直接跳过。</p>
+<p>需要注意的DC-Exact的第6行</p>
+<h2 id="新近似算法">新近似算法</h2>
+<p>经典的最大[x,y]-core有近似比，这里最大的定义是xy最大，易得2近似。关键在于发现[x,y]-core的$xy\le m$，，所以穷举x到$\sqrt{m}$算y，然后穷举y到$\sqrt{m}$算x即可。</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

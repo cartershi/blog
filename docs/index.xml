@@ -1,22 +1,350 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>syx的日志</title>
-    <link>cartershi.github.io/</link>
+    <link>https://cartershi.github.io/</link>
     <description>Recent content on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Aug 2019 14:08:38 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 30 May 2021 16:22:10 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Sketch-Based Distance Oracle for Web-Scale Graphs</title>
+      <link>https://cartershi.github.io/post/a-sketch-based-distance-oracle-for-web-scale-graphs/</link>
+      <pubDate>Sun, 30 May 2021 16:22:10 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/a-sketch-based-distance-oracle-for-web-scale-graphs/</guid>
+      <description>本文发表于WSDM10，处理近似最短路径，结果还不错。
+算法 离线计算：sample $1,2,4,\cdots,2^{\lfloor logn\rfloor}$个点的点集$S_0,S_1,\cdots$，保留每个点到这$\lfloor logn\rfloor$个点集的最近点，称为sketch。重复这个过程k次，将k个sketch融合。
+在线计算：跟hub label一样处理。
+近似比 考虑点ab的最短距离d，定义$A_r$为距离点a不超过$rd$的点集。注意$\frac{|A_r \cap B_r|}{|A_r \cup B_r|}$有关键的性质：$|A_r \cup B_r|\le|A_{r+1} \cap B_{r+1}|$，则若$\frac{|A_r \cap B_r|}{|A_r \cup B_r|}&amp;lt;1/2$恒成立，则$2|A_r \cap B_r|\le|A_{r+1} \cap B_{r+1}|$，所以成立的r不超过$\log n$。
+那么对于一个不成立的r，考虑以$\frac{1}{|A_r \cup B_r|}$的概率sample点的情况，则有$\frac{1}{e}$的概率使得恰好有一个点在$A_r \cup B_r$中，又有1/2的概率在$A_r \cap B_r$中，即有常数的概率使得sample出来一个点是某个$S_i$中（这就是S集合指数递增的效果）到ab都最近且在$A_r \cap B_r$中。
+进行k次sample使得这件事高概率发生。
+$\Box$</description>
+    </item>
     
-	<atom:link href="cartershi.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TPM_chapter5</title>
+      <link>https://cartershi.github.io/post/tpm_chapter5/</link>
+      <pubDate>Thu, 22 Apr 2021 16:06:32 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/tpm_chapter5/</guid>
+      <description>本章是著名的local lemma，处理低概率事件的神器。
+THE LEMMA Lemma 5.1.1 $A_1,\cdots,A_n$是任意概率空间的事件，将任意两个不独立事件连边，构成依赖图。若存在$x_1,\cdots,x_n$，使得$Pr[A_i]\le x_i\prod_{(i,j)\in E}(1-x_j)$，则$Pr[\bigwedge_{i=1}^{n}\overline{A_i}]\ge\prod_{i=1}^{n}(1-x_i)$。即所有事件可以同时**不**发生
+Proof. 用数学归纳法证明$Pr[A_j|\bigwedge_{i=1}^{j-1}\overline{A_i}]\ge x_j$。将事件分为$A_1,\cdots,A_{j-1}$分为$S_1$：与$A_j$不独立，$S_2$：与$A_j$独立，接下来易证。$\Box$
+Remark. $Pr[A_i]\le x_i\prod_{(i,j)\in E}(1-x_j)$可替换为$Pr[A_i|\bigwedge_{j\in S_2}\overline{A_j}]\le x_i\prod_{(i,j)\in E}(1-x_j)$。显然这是个更弱的条件
+Corollary 5.1.2 每个事件最多与d个其他事件相关，每个事件发生概率最多为p，若$ep(d+1)\le1$，则$Pr[\bigwedge_{i=1}^{n}\overline{A_i}]&amp;gt;0$
+Proof. 取$x_i=\frac{1}{d+1}$，则$Pr[A_i]&amp;lt;p\le\frac{1}{e(d+1)}&amp;lt; \frac{1}{d+1}(1-\frac{1}{d+1})^d$，得结论$\Box$
+PROPERTY B AND MULTICOLORED SETS OF REAL NUMBERS 特征B指超图中点2染色使得没有超边同色。
+Theorem 5.2.1 直接用Corollary 5.1.2的结论，略
+定义实数的k染色为每个实数染k种颜色中的一种，定义集合多色为这个集合中的实数包含所有的k中颜色。
+Theorem 5.2.2 正整数$k,m$满足$e(m(m-1)+1)k(1-\frac{1}{k})^m\le1$，则对于m个实数的任意实数集S，存在一种染色，使得每个$x+S\quad x\in R$都是多色集合。
+Proof. 考虑一个有限集合$X\subset R$，对$Y=\cup_{x\in X}(x+S)$进行随机k染色，定义$A_x$为$x+S$不是多色集合，则$Pr[A_x]\le k(1-\frac{1}{k})^m$，每个$s\in S$最多与m-1个集合相关，则相关事件数为$m(m-1)$，又Corollary 5.1.2得这个集合X满足条件。则由**compactness**，实数集满足条件。$\Box$
+LOWER BOUNDS FOR RAMSEY NUMBERS $R(k,k)&amp;gt;(\sqrt{2}/e)(1+o(1))k2^{k/2}$
+这个bound并不好看，因为每个事件相关的事件太多
+$R(k,3)&amp;gt;c_5k^2/\log^2{k}$
+$R(k,4)&amp;gt;k^{5/2+o(1)}$
+这两个结论需要很tedious的函数计算
+A GEOMETRIC RESULT 3维空间的k折覆盖定义为每个点被至少k个开区间单位球覆盖，可分解定义为将k折覆盖划分成两个集合，每个都是1折覆盖。
+Theorem 5.4.1 令$F={B_i}_{i\in I}$是开区间单位球组成的k折覆盖，且每个点不被多于t个球覆盖，若$et^32^{18}/2^{k-1}\le 1$，则$F$可分解</description>
+    </item>
     
+    <item>
+      <title>TPM_chapter4</title>
+      <link>https://cartershi.github.io/post/tpm_chapter4/</link>
+      <pubDate>Tue, 30 Mar 2021 20:24:27 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/tpm_chapter4/</guid>
+      <description>BASICS **Chebyshev&amp;rsquo;s Inequality ** $Pr[|X-\mu|\ge\lambda\sigma]\le\frac{1}{\lambda^2}$ 使用它就称为second moment method
+在指示变量下，$Var[X_i]=p_i(1-p_i)\le E[X_i],~Var[X]\le E[X]+\sum_{i\ne j}Cov[X_i,X_j]]$
+NUMBER THEORY v(n)为能整除n的素数p的个数。
+Theorem 4.2.1 令$\omega(n)\rightarrow \infty$任意缓慢增长，使得$|v(x)-\ln\ln n|&amp;gt;\omega(n)\sqrt{\ln\ln n}$的$x\in{1,&amp;hellip;,n}$为o(n)个。
+Proof. 令$X_p=1$为随机选择的x可被p整除，则$E[X_p]=1/p+O(1/n)$，令$M=n^{1/10},~X=\sum X_p$(其中$p\le M$)，则$E[X]=\ln\ln{n}+O(1)$，注意对于选中的x，$|v(x)-X(x)|&amp;lt;10$，否则这多出来的10个的乘积大于n。分析得$Var[X]=\ln\ln{n}+O(1)$，得$Pr[|X-\ln\ln{n}|\ge\lambda\sqrt{\ln\ln n}]&amp;lt;\frac{1}{\lambda^2}+o(1)$。
+Theorem 4.2.2 令$\lambda$固定，则$\lim_{n\rightarrow\infty}|{x:1\le x\le n,v(x)\ge\ln\ln n+\lambda\sqrt{\ln\ln n}}|=\int_\lambda^\infty \frac{1}{\sqrt{2\pi}}e^{-t^2/2}dt$
+**Proof. ** 令$s(n)=o((\ln\ln n)^{1/2}),~M=n^{1/s(n)}$，同上得$V(x)-X(x)\le s(n)$。考虑理想0-1随机变量$Pr[Y_p=1]=\frac{1}{p}$，令$Y=\sum_{p\le M} Y_p$，则$E[Y]=\ln\ln n + o((\ln\ln n)^{1/2}),Var[Y]\sim \ln\ln n$。则归一化的$E[\widetilde{Y}^k]\sim E[\widetilde{N}^k]$，后面gele
+MORE BASICS 令$\Delta=\sum {Pr_{i\sim j}[A_iA_j]}$，即不独立事件发生概率之和。
+令$\Delta^*=\sum {Pr_{j\sim i}[A_j|A_i]}=\Delta \sum_i Pr[A_i]=\Delta E[X]$。
+Corollary 4.3.3 if $Var[X]=o(E[X]^2)$，$X\sim E[X]$ 几乎一定
+**Proof. ** 直接带入Chebyshev&amp;rsquo;s Inequality，$Pr[|X-E[X]|\ge\frac{\epsilon E[X]}{\sqrt{Var[X]}}\sqrt{Var[X]}]\le\frac{Var[X]}{\epsilon^2 E[X]^2}$。</description>
+    </item>
+    
+    <item>
+      <title>TPM_chapter3</title>
+      <link>https://cartershi.github.io/post/tpm_chapter3/</link>
+      <pubDate>Mon, 29 Mar 2021 20:59:39 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/tpm_chapter3/</guid>
+      <description>Alterations的含义是随机事件之后进行调整
+RAMSEY NUMBERS Theorem 3.1.1 对于任意的整数n，$R(k,k)&amp;gt; n - {n\choose k} 2^{1-{k \choose 2}}$。
+Proof 随机等概率染色，得同色的k子图数目的期望为$m={n\choose k} 2^{1-{k \choose 2}}$，必然有一个染色同色数$x\le m$，对于这个染色，从每个同色k子图中移除一个点即可。
+Theorem 3.1.3 对于任意的整数n和$p\in [0,1]$，$R(k,l)&amp;gt; n - {n\choose k} p^{k \choose 2}-{n\choose l}(1-p)^{l \choose 2}$。
+Proof p概率染蓝色。
+INDEPENDENT SETS Theorem 3.2.1 n个点nd/2条边的图($d\ge1$)，$\alpha(G)\ge n/2d$
+Proof p的概率选点，点集大小期望为np，每条边在点集中的概率是nd/2$p^2$，则点数-边数的期望为$np-\frac{nd}{2}p^2$，令p为1/d，至少存在一个点集的点数-边数$\ge \frac{n}{2d}$，这个点集每条边删一个点即可。
+COMBINATORIAL GEOMETRY S是单位正方形中n个点的集合，T(S)是包含S中三个点的最小三角形。
+Theorem 3.3.1 存在一个S，使得$T(S)\ge \frac{1}{100n^2}$。
+Proof 随机选三个点PQR，令$\mu(PQR)$代表围成的三角形的面积，考虑$Pr[\mu\le\epsilon]$，$Pr[b\le d(PQ)\le b+\Delta b]\le\pi(b+\Delta b)^2-\pi b^2$，点R到PQ的距离不到$2\epsilon/b$的概率至多$4\sqrt{2}\epsilon/b$，积分得$\int_0^{\sqrt{2}}(2\pi b)(4\sqrt{2}\epsilon/b)db=16\pi\epsilon$。令$\epsilon=\frac{1}{100n^2}$，则$Pr[\mu\le\epsilon]&amp;lt;0.6n^2$。随机取2n个点，面积小于$\frac{1}{100n^2}$的三元组期望小于n，这2n个点每个小三元组删除一个点即可。
+PACKING 不懂
+RECOLORING m(n)见第一章的COMBINATORIOS
+做法 1/2的概率点染红色，所有同色边涉及的点进行随机排列，若点涉及的边若依然同色，以p的概率翻转。
+证明 设$m=2^{n-1}k$，边e先红后不变的概率易得$2^{-n}(1-p)^n$。考虑边e先不红后红的概率，不红的边变红必然是因为另一条边f先蓝，e与f只有一个公共点，所以总概率小于任意两条边满足ef的概率之和（这步是关键），对于某个固定的点排列，计算ef发生的概率即可。
+CONTINUOUS TIME **PropertyB.</description>
+    </item>
+    
+    <item>
+      <title>TPM_chapter2</title>
+      <link>https://cartershi.github.io/post/tpm_chapter2/</link>
+      <pubDate>Sun, 03 Jan 2021 21:24:15 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/tpm_chapter2/</guid>
+      <description>定义 期望的线性性：若$X=c_1X_1+\cdots+c_nX_n$，则$E[X]=c_1E[X_1]+\cdots+c_nE[X_n]$，无论这些$X_i$是否独立。
+考虑n元的重排后不动点的期望，每个位置不动的期望为$\frac{1}{n}$，由期望的线性性得总期望为$1$
+考虑竞赛图哈密尔顿回路的期望，每个n元重排是回路的期望为$2^{-(n-1)}$，由期望的线性性得总期望为$n!2^{-(n-1)}$。
+SPLITTING GRAPHS Theorem 2.2.1 n个点m条边的图至少有m/2条边的一个二部子图。
+Proof. 1/2的概率选点，则每条边被选的期望是1/2，期望线性性得结论。
+Theorem 2.2.2 2n个点m条边的图至少有mn/(2n-1)条边的一个二部子图，2n+1个点m条边的图至少有m(n+1)/(2n+1)条边的一个二部子图。
+Proof. 随机挑选n个点，依然算概率。
+两个同色子图的结果 考虑每个$K_n$的每个a正则图，算期望，得存在一个二染色使得最多有${n\choose a }2^{1-{a\choose 2}}$个$K_a$。
+考虑每个$K_{m,n}$的每个a,b正则图，算期望，得存在一个二染色使得最多有${m\choose a}{n\choose b}2^{1-ab}$个$K_{a,b}$。
+remark 这里说的是边染色
+BALANCING VECTORS Theorem 2.4.1 $v_1,\cdots,v_n$为n元实数域的单位向量，则存在一个$\epsilon_1,\cdots,\epsilon_n=\pm1$，使得$|\epsilon_1v_1+\cdots+\epsilon_nv_n|\le\sqrt n$。也存在一个$\epsilon_1,\cdots,\epsilon_n=\pm1$，使得$|\epsilon_1v_1+\cdots+\epsilon_nv_n|\ge\sqrt n$。
+Proof. 随机挑选$\epsilon_1,\cdots,\epsilon_n$，令$X=|\epsilon_1v_1+\cdots+\epsilon_nv_n|^2$，则$X=\sum_i\sum_j\epsilon_i\epsilon_jv_i\cdot v_j$。$i\ne j,E[\epsilon_i\epsilon_jv_i\cdot v_j]=0$，得$E[X]=n$
+remark 这里的n元向量是多余条件吧？
+Theorem 2.4.2 $v_1,\cdots,v_n$为n元实数域的向量，至多是单位向量，对于任意的$p_1,\cdots,p_n\in[0,1]$，存在一个$\epsilon_1,\cdots,\epsilon_n\in{0,1}$，使得$|(p_1-\epsilon_1)v_1+\cdots+(p_n-\epsilon_n)v_n|\le\frac{\sqrt n}{2}$。
+Proof. $p_i$的概率挑选$\epsilon_i=1$，如Theorem2.4.1的证明
+UNBALANCING LIGHTS Theorem 2.5.1 令$\forall~1\le i,j\le n,a_{ij}=\pm1$，存在一个$x_i,y_j=\pm1$，使得$\sum_i\sum_ja_{ij}x_iy_j\ge\left(\sqrt{\frac{2}{\pi}}+o(1)\right)n^{\frac{3}{2}}$
+Proof. 随机挑选$y_j$，定义$R_i=\sum_ja_{ij}y_j$，显然$a_{ij}y_j$是等概率$\pm1$，则$E[|R_i|]=\left(\sqrt{\frac{2}{\pi}}+o(1)\right)\sqrt n$（算概率然后斯特林公式即可），$x_i$用来调整$R_i$至绝对值，得结论。
+WITHOUT COIN FLIPS Theorem 2.2.1：每次往割边更多的地方放。
+Theorem 2.4.1：用构造法第$i$个向量加入后可控制前$i$个的l2范数$\ge \sqrt i$或$\le \sqrt i$
+Theorem 2.4.2：类似上一个证明，第$i$个向量加入后，$p_i$的概率挑选$\epsilon_i=1$，数学归纳法l2范数的期望$\le\frac{\sqrt i}{2}$，所以每次挑l2范数更小的$\epsilon_i$即可。</description>
+    </item>
+    
+    <item>
+      <title>Influential Community Search in Large Networks</title>
+      <link>https://cartershi.github.io/post/influential-community-search-in-large-networks/</link>
+      <pubDate>Sun, 27 Dec 2020 18:50:17 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/influential-community-search-in-large-networks/</guid>
+      <description>没啥意思的论文
+问题定义 f(G)定义为图G中点的最小权值
+k-influential community $H^k$定义为满足以下条件的G的导出子图
+ Connectivity: 联通 Cohesiveness: 每个点的度至少为k Maximal structure: 不存在另一个导出子图H使得(1)H connectivity且cohesiveness, (2)H 包含$H^k$, (3) f(H) = f($H^k$)  问题是找top-r最大f值的k-influential community。
+这个问题的定义会有冗余，定义non-contained k-influential community为满足以下性质的k-influential community
+Non-containment: $H^k$不包含一个子图$\overline{H}^k$，使得$f(\overline{H}^k)&amp;gt;f(H^k)$  问题是找top-r最大f值的non-contained k-influential community。
+在线做法 Algorithm2: 对于k-core，删除权值最小的点，然后DFS删点保证Cohesiveness，倒序输出即可。
+对于non-contained k-influential community问题，删除点后需要图为空，否则不是non-contained k-influential community。
+索引 注意到在线做法实际上形成了一棵树，所以只需要在每个节点保留它这一轮删除的节点即可。
+注意到每个点出现k树的前提是度数至少为k，所以度数为d的点最多出现在前d棵树中，这就导致树节点的空间复杂度为$O(m)$。
+个人没感觉它的算法5好在哪儿，把算法3的第3行放在外面不就行了&amp;hellip;
+动态图 定义太麻烦，gele</description>
+    </item>
+    
+    <item>
+      <title>Efficiently computing k-edge connected components via graph decomposition</title>
+      <link>https://cartershi.github.io/post/efficiently-computing-k-edge-connected-components-via-graph-decomposition/</link>
+      <pubDate>Sun, 27 Dec 2020 17:06:33 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/efficiently-computing-k-edge-connected-components-via-graph-decomposition/</guid>
+      <description>本文处理k联通分支算法。
+论文比较简单，稍微写写
+算法 改造经典的stoer-wagner算法，在一轮mas后处理最后的两个点s与t，若它们是k联通，则合并，否则删边。
+优化 主要有4个优化
+斐波那契堆 mas需要用斐波那契堆，这里是无权图，所以直接每个权值开一个链表数组，用po记录最大权值，extract-max时探查最大值，update时顺序更新po。时间复杂度考虑最大值变化的次数即可。
+早期合并 注意到mas过程中找到的所有不小于k必然是超越的k联通，所以直接缩点。
+早期分离 mas列表中倒序的连续小于k可直接分裂
+提前删点 度不到k的点可直接删除</description>
+    </item>
+    
+    <item>
+      <title>TPM_chapter1</title>
+      <link>https://cartershi.github.io/post/tpm_chapter1/</link>
+      <pubDate>Wed, 23 Dec 2020 15:47:08 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/tpm_chapter1/</guid>
+      <description>概率化方法 所谓概率化方法，即为了证明某些特征存在，我们定义一个概率空间，使得这些特征存在于这个概率空间且概率为正。
+例子 ramsey数$R(k,k)&amp;gt;\lfloor2^{\frac{k}{2}}\rfloor~\forall k\ge3$。
+证明 定义概率空间为完全图$K_n$的随机染色，则k子图同色的概率为$2^{1-{k \choose2}}$，至少有一个同色的概率至多${n\choose k}2^{1-{k \choose2}}$。令这个值小于1，则可能给出一个无k同色子图的染色。
+remark 考虑$K_{1024}$下的20同色子图，随机sample染色，同色的概率至多$\frac{2^{11}}{20!}$，所以随机sample很容易得到一个非同色子图。
+图论 定义$S_k$为竞赛图中任意k个玩家都会被某一个玩家击败。
+定理1.2.1 若${n\choose k}{(1-2^{-k})}^{n-k}&amp;lt;1$，则存在一个n个点的竞赛图，有特征$S_k$
+证明 一样的证明，考虑每个k子集被击败的概率，为${(1-2^{-k})}^{n-k}$，再一个union bound即可。
+Theorem1.2.2 若图中有n个点，最小度$\delta&amp;gt;1$，则存在一个至多为$n\frac{1+\ln{(\delta+1)}}{\delta+1}$个点的支配集。
+Proof 随机p的概率选点，则被选中的点的期望为$E[X]=np$，未被这些点支配的点期望为$E[Y]\le n(1-p)^{\delta+1}$，和$E[X]+E[Y]\le np+ne^{-p(\delta+1)}$，求导即可。
+Remark1.2.2 构造性证明：定义$C(v)$为v和v的邻居。考虑未被支配的点集r及其$\sum_{r} C(v)$，这里$C(v)$中的点都是未被挑选的，至多n个点，则至少有个点出现在$\frac{\sum_r C(v)}{n}$个r的$C(v)$中，即这些$\frac{r(\delta+1)}{n}$个点必然被支配，所以一次可以使未被支配的点减少为原本的$1-\frac{r(\delta+1)}{n}$，重复$n\frac{\ln{(\delta+1)}}{\delta+1}$次后最多剩余$\frac{n}{\delta+1}$个未被支配的点，直接全部选中得到结果。这个算法预处理$\sum C(v)$并进行后续更新，复杂度为$O(n^2)$。
+lemma1.2.3 若图G中最小度为$\delta$且有一个小于$\delta$的割，则G的每个支配集在割的两边都有点。
+判断图是否$\frac{n}{2}$联通：首先度数至少$\delta\ge\frac{n}{2}$，利用Remark1.2.2中的构造可得到一个$O(\log n)$的支配集，由lemma1.2.3，这个支配集必然被割拆分，所以穷举支配集并跑网络流即可。
+组合 定义超图为n-uniform如果每条边包含n个点。称图二色可染如果存在一个点的二染色，使得每条边都不是同色的。用m(n)表示最小可能的边数，使得这个超图不是二色可染。
+Proposition 1.3.1 对于n-uniform超图，$m(n)\ge 2^{n-1}$。
+Proof 若边数小于$2^{n-1}$， 对于随机的二染色，一条边同色的概率为$2^{1-n}$，则图至少一条边同色的概率$&amp;lt;1$，所以必然有边不同色的染色。
+组合图论 阿贝尔群G的子集A被称为sum-free若$(A+A)\cap A= \empty$
+Theorem 1.4.1 每个n个元素非零整数的集合$B={b_1,b_2,\cdots,b_n}$包含一个sum-free的子集A，$|A|&amp;gt;\frac{1}{3}n$
+Proof. 定义$p=3k+2$为一个素数，且$p&amp;gt;2\max{{B}}$，$C={k+ 1,k + 2,\cdots,2k + 1}$，则C是循环群$Z_p$的sum-free子群。随机选取一个$1\le x&amp;lt;p$，定义$d_i(x)\equiv x\cdot b_i~mod~p$，则对于固定的i，$d_i(x)$会形成$Z_p$，即$\frac{1}{3}$的概率在C中，期望是$\frac{1}{3}n$个元素在C中。这些元素在C中则不可能有sum，否则$xb_i+xb_j\equiv x(b_i+b_j)~mod~p$
+Remark. 任意n个元素的阿贝尔群可以构造出一个$\frac{2}{7}n$大小的sum-free子集，且这个值最优。
+DISJOINT PAIRS问题 定义$\mathcal{F}$为{1,2,&amp;hellip;,n}的m个不同子集的集簇。$d(\mathcal{F})=|{F,F&#39;}:F,F&#39;\in \mathcal{F},F\cap F&#39;\neq \empty|$</description>
+    </item>
+    
+    <item>
+      <title>The K-clique Densest Subgraph Problem</title>
+      <link>https://cartershi.github.io/post/the-k-clique-densest-subgraph-problem/</link>
+      <pubDate>Sat, 12 Dec 2020 21:40:56 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/the-k-clique-densest-subgraph-problem/</guid>
+      <description>本文先考虑最密三角形问题，提出它的精确算法、近似算法和mapreduce算法。然后把这些算法拉到k-clique下
+三角形最密子图 精确算法 基于网络流的算法过于套路，略
+基于supermodular function的方法直接证明$t(S)-\alpha|S|$是supermodular function，接着binary search$\alpha$即可。
+$\frac{1}{3}$近似算法 算法：不断的从删除三角形度最小的点。
+近似比：考虑最优结果中第一个节点被删除的时刻即可
+MapReduce版 算法：每次用图中删除三角形度小于等于$3(1+\epsilon)\tau(S)$的点。
+正确性：首先每次必然会删除点，否则double counting三角形个数得到矛盾。接着考虑最优结果中第一个节点被删除的时刻即得近似比。log轮证明依然double counting三角形个数。
+k-clique最密子图 trivial</description>
+    </item>
+    
+    <item>
+      <title>Efficient Algorithms for Densest Subgraph Discovery on Large Directed Graphs</title>
+      <link>https://cartershi.github.io/post/efficient-algorithms-for-densest-subgraph-discovery-on-large-directed-graphs/</link>
+      <pubDate>Wed, 25 Nov 2020 16:53:15 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/efficient-algorithms-for-densest-subgraph-discovery-on-large-directed-graphs/</guid>
+      <description>本文有向图找出两个点集S和T使得密度最大（边只计算S到T的）
+$\rho=\frac{E(S,T)}{\sqrt{S}\cdot\sqrt{T}}$
+现有算法 精确算法来自ICALP09的On Finding Dense Subgraphs。里面的2近似算法不对，精确算法
+精确算法 点集复制两遍，称为A和B。从s到A中每个点边权为m，从A到t边权为$m+\frac{g}{\sqrt{a}}$，从s到B中每个点边权为m，从B到t边权为$m+\sqrt{a}g-2d_{G}^{+}(u)$，，B到A在图G中的边对应边权为2。这里的a是一定会被穷举到的$|\frac{S}{T}|$。
+证明比较有意思，直接最小割一算完运用被穷举到的$|\frac{S}{T}|$即可得一个更小的割。另外如果有一个密度更小的子图，带入割的公式可得永远不可能变成更小的割。（漂亮的构造和证明）
+近似算法 依然穷举$|\frac{S}{T}|$，然后线性去计算。
+新精确算法 又来定义core了：[x,y]-core为S中点出度至少为x，T中点入度至少为y。那么[x,y]-core是nested的，还有经典的lemma5.5（这个core分解的核心），这里看起来复杂的值不过是$\frac{E}{2S}$与$\frac{E}{2T}$。这个结论导出了Theorem 5.6。
+Core-Exact Theorem 5.6导出了Core-Exact：用目前知道的近似比作为下界，二近似结果的2倍作为上界，二分密度即可，注意这里l保证一定是合法的密度。
+DC-Exact 用ICALP的结论，漂亮的分治加速。关键点在于ICALP的结论得到的关于g的公式的分母是关于$a^2$的反比例函数，导致[b,c]区间可以直接跳过。
+需要注意的DC-Exact的第6行
+新近似算法 经典的最大[x,y]-core有近似比，这里最大的定义是xy最大，易得2近似。关键在于发现[x,y]-core的$xy\le m$，，所以穷举x到$\sqrt{m}$算y，然后穷举y到$\sqrt{m}$算x即可。</description>
+    </item>
+    
+    <item>
+      <title>A Fast and Provable Method for Estimating Clique Counts Using Turán’s Theorem</title>
+      <link>https://cartershi.github.io/post/a-fast-and-provable-method-for-estimating-clique-counts-using-tur%C3%A1ns-theorem/</link>
+      <pubDate>Fri, 20 Nov 2020 16:38:14 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/a-fast-and-provable-method-for-estimating-clique-counts-using-tur%C3%A1ns-theorem/</guid>
+      <description>本文用sample的估算图中的clique数目。
+准备 定义$C_i(H)$为图H中i-clique的集合，定义$\rho_i(H)=\frac{|C_i(H)|}{\binom{|V(H)|}{i}}$为图H中i-clique的密度。
+定义$f(k)=\frac{k^{k-2}}{k!}$，则$f(k)\simeq\frac{e^k}{\sqrt{2\pi k^5}}$
+Corollary 3.3 对于任意n个点的图H，若$\rho_2(H)&amp;gt;1-\frac{1}{k-1}$，则$\rho_k(H)\ge \frac{1}{f(K)n^2}$
+直接由edros的定理即得
+clique shadows 定义clique shadows $S$为一个${(S_i,l_i)}$的集合，使得$\cup_{(S,l)\in S}C_l(S)$与$C_k(H)$构成双射。
+为了算法一的bound，还需要保证$\rho_l(S)\ge\gamma$，称为$S~\gamma-$saturated。
+算法一本身idea很容易，sample S中的一个元素，然后sample一个l个点的tuple，$X=1$意味着这个tuple是一个clique，可得$E[X]=\frac{C_k(G)}{\sum_{s\in S}w(s)}$，这个值显然大于$\gamma$。外面套一个多次随机用chernoff bound即可。
+这个算法的关键在于S需要的$\gamma-$saturated，这正是Corollary 3.3解决的东西。
+建立saturated clique shadows 类似那个chiba-nishizeki算法，对于每个子图(S,l)，核分解之后计数不变式为$C_l(S)=\sum_{s\in S}C_{l-1}(N_s(S))$，这就保证了clique shadows。若某个子图密度够Corollary 3.3，不在处理这个子图，这就有了$\gamma-$saturated。
+后面的分析很平凡了。</description>
+    </item>
+    
+    <item>
+      <title>Main-memory Triangle Computations for Very Large (Sparse (Power-Law)) Graphs</title>
+      <link>https://cartershi.github.io/post/main-memory-triangle-computations-for-very-large-sparse-power-law-graphs/</link>
+      <pubDate>Sun, 08 Nov 2020 22:43:00 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/main-memory-triangle-computations-for-very-large-sparse-power-law-graphs/</guid>
+      <description>本文处理稀疏图上的三角形查找、计数、按点计数问题。
+最快计数算法 ayz-node-counting算法思路就是先计算有度小节点参与的所有三角形，把这些点剔除后剩下的部分进行矩阵乘法。
+Theorem 2的证明比较简单，不过要基于同时有邻接表和邻接矩阵。结论时复杂度为$O(m^{1.41})$，比著名的那个定向算法好一点。它的好处是即使最坏有$O(m^{1.5})$个三角形，算法也不需要$O(m^{1.5})$的时间。坏处在于最坏情况下需要处理n*n的矩阵。
+时间最优列举算法 这里由于需要列举，所以最好也只能$O(m^{1.5})$解决。
+ vertex-listing算法，对于某个点，判断它的邻居是否相邻。
+  edge-listing算法，对于某条边，查找他们的公共邻居。
+  tree-listing算法，对于每个联通分支，判断剩余边是否能与覆盖树构成三角形。
+  复杂度分析：考虑覆盖树最多多少个即可。
+ ayz-listing算法先vertex-listing计算有度小节点参与的所有三角形，把这些点剔除后进行edge-listing。
+  forward算法，acm里那个三角形计数算法。
+  评注：本算法的主要优势在于只需要邻接表，空间复杂度低。
+compact-forward算法，这个算法与forward算法的不同在于不再记录定向后的边，而是直接对已有的邻接表排序。  新算法 注意到vertex-listing算法需要复杂度为$O(d^2(v))$，所以对于度大的节点效果不佳。
+new-vertex-listing算法，直接穷举每条边，$O(1)$判断它的端点是否都是v的邻居。复杂度为$O(m)$ new-listing算法，大度点用new-vertex-listing，剩下的三角形用edge-listing。  power law下的复杂度分析 这里是本文的出发点。 定义$p_k=k^{-\alpha+1}-(k+1)^{-\alpha+1}$为度数的分布
+定理16 度数大于等于K的概率为$K^{-\alpha+1}$，则new-listing算法的复杂度为$O(nK^{-\alpha+1}m+mK)$，最小时$K=n^{\frac{1}{\alpha}}$。
+compact-forward算法的核心在于穷举的节点数，注意到这个值同时被当前节点的度以及比当前度更大的节点数限制住。这两个值恰好趋势相反，所以最大值在两个相等时达到，即$K=nK^{-\alpha+1}$，得$K=n^{\frac{1}{\alpha}}$。</description>
+    </item>
+    
+    <item>
+      <title>Efficient Algorithms for Densest Subgraph Discovery</title>
+      <link>https://cartershi.github.io/post/efficient-algorithms-for-densest-subgraph-discovery/</link>
+      <pubDate>Sun, 08 Nov 2020 10:37:29 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/efficient-algorithms-for-densest-subgraph-discovery/</guid>
+      <description>本文处理最密子图问题，它基于$(k,\Psi)-core$，可以处理普通模式，而不局限于clique。
+文章用core的部分还不错。
+问题定义 EDS为最大边密度子图，CDS为最大团密度子图，PDS为最大模式密度子图。这三者是逐渐包含关系，首先看CDS的方法，最后把它拓展到PDS（这里没意思）。
+现有方法 精确算法 参见Scalable Large Near-Clique Detection in Large-Scale
+近似算法 每次删除度最大的节点，计算剩余图密度。
+CLIQUE-BASED CORES 定义 k-core
+定义k-core $H_k$为图G中最大的子图，使得每个点的度至少为k。定义$H_k$的order为k。点v的core number定义为包含点v的$H_k$中的最大order。可以发现$H_k$中所有节点的core number至少为k。
+性质：
+  k-cores是nested，即order更小的k-core覆盖更大的k-core。
+  k-core可以不连通。
+  可以线性计算所有点的core number。
+  $(k,\Psi)$-core​
+仿照k-core的定义，我们给出$(k,\Psi)$-core​ $R_k$的定义：图中的最大子图，使得每个点的clique数至少为k。定义$R_k$的order为k。点v的clique-core number $core_G(v,\Psi)$为包含点v的$R_k$中的最大order。定义最大clique-core number为$k_{max}$。
+性质：
+  $(k,\Psi)$-core是nested，即order更小的$(k,\Psi)$-core覆盖更大的$(k,\Psi)$-core。
+  k-core可以不连通。
+  $core_G(v,\Psi)\le deg_G(v,\Psi)$
+  $(k,\Psi)$-core的上下界 上界为$k_{max}$：每个点删除都会使得密度变小，所以每个点至少参与$\rho$个clique，这是$k$的定义。
+下界为$\frac{k}{|V_{\Psi}|}$：double counting$R_k$中的clique涉及的点数即可。
+$(k,\Psi)$-core分解 思想在于迭代的删除图中clique数最小的节点，这个值是当前节点的$core_G(v,\Psi)$，正确性反证一下即可。
+注意删除时需要更新相应节点的clique数，做法是计算有它参与的clique数并更新其他点。
+拓展 模式可以用与$(k,\Psi)$-core分解一样的算法
+CORE-BASED APPROACHES 精确算法 二分的上下界：
+借助$(k,\Psi)$-core的上下界，我们可以给出二分的上下界
+上界：$(k,\Psi)$-core上界的证明没有用到$(k,\Psi)$-core的定义，可以拿过来用
+下界：$\rho_{opt}\ge \max{\rho(R_k,\Psi)}\ge \frac{k_{max}}{|V_\Psi|}$</description>
+    </item>
+    
+    <item>
+      <title>Listing k-cliques in Sparse Real-World Graphs</title>
+      <link>https://cartershi.github.io/post/listing-k-cliques-in-sparse-real-world-graphs/</link>
+      <pubDate>Tue, 27 Oct 2020 15:24:56 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/listing-k-cliques-in-sparse-real-world-graphs/</guid>
+      <description>本文列举真实稀疏图谱中的所有k-clique。这个问题比较常用，比如k-clique最密子图常将其作为一个subroutine。
+DEFINITIONS AND NOTATION arboricity定义为将图中的边分到树，需要的最小的树个数。
+core value定义为最大整数c，使得G中有个子图，它每个点的度都不少于c。 图的core value可以不断删除度数最小的点得到。core ordering定义为这个过程中的点序。
+定义有向图$\vec{G}$induced by the ordering$\eta$为$\vec{G}$中边$v\rightarrow u$的方向为$\eta(v)&amp;lt;\eta(u)$。这张图最大出度显然是core value，反证一下即可。
+core ordering的优势在于出度比较小。
+ALGORITHMS Algorithm of Chiba and Nishizeki 按照度非递增顺序处理点，每次处理包含这个点的clique。递归处理它的邻居的导出子图中的k-1 clique。
+这个算法的优势在于稀疏图上跑的很快。时间复杂度就算了。
+问题在于
+ 并行 度非递增顺序是否必要 减少操作数  The kClist Algorithm 算法稍微改了一下，$\vec{G}$induced by the ordering$\eta$作为输出图，不再对点排序，而是直接进行递归处理。
+这里给定了全序关系，
+高效实现，用标签标记每个点的版本号，版本号为$l-1$的节点将同样版本号的邻居排在邻接链表的前面。
+Efficient Parallel Algorithm 并行版本的做法是每次考虑一条边，将这两个点在一起作为clique的起点。这对并行，因为每个线程分配的任务数比每个点作为起点更均匀。
+算法分析 比较易懂的数学归纳法，略过。
+结论是Theorem 5.7，一个稍微比Chiba的bound稍微好一点的结果</description>
+    </item>
+    
+    <item>
+      <title>Scalable Large Near-Clique Detection in Large-Scale Networks via Sampling</title>
+      <link>https://cartershi.github.io/post/scalable-large-near-clique-detection-in-large-scale/</link>
+      <pubDate>Wed, 07 Oct 2020 16:27:23 +0800</pubDate>
+      
+      <guid>https://cartershi.github.io/post/scalable-large-near-clique-detection-in-large-scale/</guid>
+      <description>本文处理最密clique子图问题。为了方便描述，下文只考虑常规图，不考虑二部图。
+Notation 定义$C_k(G)$为图G中的k-cliques集合，$c_k(G)=c_k=|C_k(G)|$为k-cliques的数目，$f_k(v)$为点v参与的k-cliques的数目，则我们有
+$\sum_{v\in V(G)}f_k(v)=kc_k$
+Exact Algorithms 方法A 使用网络流定义，定义A为图中的点集， B为$C_{k-1}(G)$。建图方式如下：
+1.s到A中的点v建立容量为$f_k(v)$的有向边。2.A中点若能与B中团构成k-clique，则建立容量为1的有向边。3.B中团到A中对应节点建立容量为无限大的有向边。4.A中的点到t建立容量为kD的有向边。
+考虑上面网络的最小割，s到其他点的割为$kc_k$，这是割的上界。
+定义$A_1=S\cap A,B_1=S\cap B,A_2=T\cap A,B_2=T\cap B$，显然$B_1$对应的点都在$A_1$中，计算124三种割的贡献，第一种为$\sum_{v\in V(A_2)}f_k(v)$，第4种$kD|A_1|$。
+用$c_{k}^{(j)}$定义为k-clique中有j个节点在$A_1$中，对于$j=1,\cdots,k-1$，每个在$A_1$中的节点对应的k-1-clique至少有一个节点不在$A_1$中，所以它不在$B_1$中，所以必然对第二种割有1的贡献。
+综上，总的割为$\sum_{v\in V(A_2)}f_k(v)+kD|A_1|+\sum_{j=1}^{k-1}jc_k^{(j)}$。
+注意到$\sum_{j=1}^{k}jc_k^{(j)}=\sum_{v\in V(A_1)}f_k(v)$，带入上式得$kc_k+kD|A_1|-kc_k^{(k)}$，那么点集$A_1$不为空就能得到一个密度大于D的子图。
+由于稀疏图上clique数目较少，列举速度比较快，所以本算法跑的比较快。
+方法B 论文里写的有些不对？
+Densest Subgraph Sparsifiers 超图的点为原图中的点，边为原图中的k-clique。对这个图上的超边进行sample。
+定理4本身比较难构造，关键在于这里的logn。对于任意密度$\ge D$的点集，sample后的密度高概率$\ge (1-\epsilon)C\log{n}$，任意密度$\ge D$的点集，sample后的密度高概率$&amp;lt; (1-\epsilon)C\log{n}$。
+不过感觉sample需要D很大判断，没有实际意义
+其证明本身比较简单，直接对每个点集的结果进行Chernoff bound求和即可。</description>
+    </item>
     
     <item>
       <title>Approximation Algorithms for Problems Combining Facility Location and Network Design</title>
-      <link>cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</link>
+      <link>https://cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</link>
       <pubDate>Wed, 07 Aug 2019 14:08:38 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</guid>
+      <guid>https://cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</guid>
       <description>作者：R. Ravi, Amitabh Sinha
 The Capacitated-Cable Facility Location Problem Problem Definition 这个问题CCFL是给定一个metric图，一个client集合D，一个potential facility集合F，目标是选中一些facility，每个client有一个单位的流通过图流到某个开放的facility。另外有一个整数u，表示每条边上的流不能超过u，否则就需要拷贝这条边支持流。
 Lower Bounds Lemma 1的意思是将每条边的权重除以u作为uncapacitated facility location问题UFL，那么显然CCFL的最优解是可以作为UFL的一个解，且它的权重比CCFL里更小，所以UFL的最优解是CCFL的下界。
@@ -35,13 +363,13 @@ Unrestricted Version of CCpM 这是第二个下界变成了p-Steiner forest，�
     
     <item>
       <title>On the intercluster distance of a tree metric</title>
-      <link>cartershi.github.io/post/on-the-intercluster-distance-of-a-tree-metric/</link>
+      <link>https://cartershi.github.io/post/on-the-intercluster-distance-of-a-tree-metric/</link>
       <pubDate>Tue, 06 Aug 2019 20:13:04 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/on-the-intercluster-distance-of-a-tree-metric/</guid>
+      <guid>https://cartershi.github.io/post/on-the-intercluster-distance-of-a-tree-metric/</guid>
       <description>作者：Bang Ye Wu
-Introduction 定义$\mu_G(V_1,V_2)=(V_1V2)^{-1}\sum{u\in V1}\sum{v\in V_2}d_G(u,v)$为两个给定点集的平均距离，目标是找到找个一棵树，使得这个值最小。
-Distance between two clusters 定义$WG(f,h)=\sum{u,v\in V(G)}f(u)h(v)d_G(u,v)$，建立一棵树最小化这个目标，为图中任意两点间的加权距离，即Product-Requirement Communication Spanning Tree。
+Introduction 定义$\mu_G(V_1,V_2)=(V_1V_2)^{-1}\sum_{u\in V_1}\sum_{v\in V_2}d_G(u,v)$为两个给定点集的平均距离，目标是找到找个一棵树，使得这个值最小。
+Distance between two clusters 定义$W_G(f,h)=\sum_{u,v\in V(G)}f(u)h(v)d_G(u,v)$，建立一棵树最小化这个目标，为图中任意两点间的加权距离，即~~Product-Requirement Communication Spanning Tree~~。
 定理1的证明直接做差，然后证明不断将边变为0导致$\Delta$不会变小，在最后边全为0时$\Delta=0$得证。
 Corollary 4就是常用$min{u,v}\le xu+(1-x)v$，代入Corollary 2即可。
 The minimum average intercluster distance spanning tree 算法就是对于$V_1\cup V_2$里的所有点跑一遍最短路，取平均距离最小的。
@@ -51,10 +379,10 @@ Concluding remarks 类似的，若给定k个点集，算任两点的平均距离
     
     <item>
       <title>A POLYNOMIAL-TIME APPROXIMATION SCHEME FOR MINIMUM ROUTING COST SPANNING TREES</title>
-      <link>cartershi.github.io/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</link>
+      <link>https://cartershi.github.io/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</link>
       <pubDate>Fri, 26 Jul 2019 21:13:20 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</guid>
+      <guid>https://cartershi.github.io/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</guid>
       <description>作者：BANG YE WU, GIUSEPPE LANCIA, VINEET BAFNA, KUN-MAO CHAO, R. RAVI k, AND CHUAN YI TANG
 HAAM 59章的相关内容。
 目标是找一棵联通树，使得$\sum_{u,v\in V}\lambda(u,v)d_T(u,v)$最小，下面称为cost，树T的cost写为c(T)。
@@ -73,10 +401,10 @@ Finding the best k-star A polynomial-time method 一个简单的办法是穷举k
     
     <item>
       <title>Approximation algorithms for the shortest total path length spanning tree problem</title>
-      <link>cartershi.github.io/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</link>
+      <link>https://cartershi.github.io/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</link>
       <pubDate>Thu, 25 Jul 2019 14:51:38 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</guid>
+      <guid>https://cartershi.github.io/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</guid>
       <description>作者：Bang Ye Wu , Kun–Mao Chao , Chuan Yi Tang
 HAAM 59章的相关内容。
 Preliminaries Defnition 4. Let G =(V,E,w) and R be a tree contained in G. T is a general star of G with core R if T is a spanning tree of G and $d _T(i,R)=d_G(i,R)$ ∀i ∈ V. The set of all general stars of G with core is denoted by star(G,R)
@@ -85,10 +413,10 @@ Preliminaries Defnition 4. Let G =(V,E,w) and R be a tree contained in G. T is a
     
     <item>
       <title>HAAM_chapter7</title>
-      <link>cartershi.github.io/post/haam_chapter59/</link>
+      <link>https://cartershi.github.io/post/haam_chapter59/</link>
       <pubDate>Wed, 24 Jul 2019 14:53:16 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/haam_chapter59/</guid>
+      <guid>https://cartershi.github.io/post/haam_chapter59/</guid>
       <description>本文的目标是找一棵联通树，使得$\sum_{u,v\in V}\lambda(u,v)d_T(u,v)$最小，下面称为cost，树T的cost写为c(T)。
 Minimum Routing Cost Spanning Tree 这里设置为$\lambda(u,v)=1$，所以目标变成了是找一棵联通树，cost为任两点之间的距离和。
 Shortest-Paths Trees and Solution Decomposition 做法一：取图的median r，从r开始找最短路径树。对于任意的树Y的cost小于等于2n倍所有点到根的距离和（三角不等式），这恰好median决定的东西。累加起来是图上面的两点间距离和，优于最优树上的cost。这样得到一个2近似。
@@ -97,47 +425,47 @@ Routing Loads, Separators, and General Stars 接下来是一堆定义，又是�
 minimal δ-separator是以centroid为根的树中子树点数多余$\delta n$个的所有点形成的联通树。
 Definition 59.1 Let R be a tree contained in graph G. A spanning tree T is a general star with core R if each vertex is connected to R by a shortest path.
 上面的定义不需要R是最短路径树。
-Lemma 59.3 If T is a general star with core S, $c(T)\le 2n\sum{v\in V}d{G}(v,S)+\frac{n^2}{2}w(S)$</description>
+Lemma 59.3 If T is a general star with core S, $c(T)\le 2n\sum_{v\in V}d_{G}(v,S)+\frac{n^2}{2}w(S)$</description>
     </item>
     
     <item>
       <title>A FACTOR 2 APPROXIMATION ALGORITHM FOR THE GENERALIZED STEINER NETWORK PROBLEM</title>
-      <link>cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</link>
+      <link>https://cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</link>
       <pubDate>Mon, 22 Jul 2019 16:45:33 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</guid>
+      <guid>https://cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</guid>
       <description>作者：Kamal Jain
 Introduction 本文的目标是找到一个子图使得给定目标之间的割满足条件。
-f is weakly supermodular, i.e., it satisfies: 1. f(V)=0 2. For every A,B⊆V , at least one of the following holds 1. $f(A)+f(B)\le f(A-B)+f(B-A)$ 2. $f(A)+f(B)\le f(A\cap B)+f(A\cup B)$
-Preliminaries Definition 2.1 function f : $2^V \rightarrow Z_+$is proper if f(V) = 0 and the following two conditions hold
+f is weakly supermodular, i.e., it satisfies:
+ f(V)=0 For every A,B⊆V , at least one of the following holds  $f(A)+f(B)\le f(A-B)+f(B-A)$ $f(A)+f(B)\le f(A\cap B)+f(A\cup B)$    Preliminaries Definition 2.1 function f : $2^V \rightarrow Z_+$is proper if f(V) = 0 and the following two conditions hold
  For every subset S of V , f(S)=f(V−S). For all disjoint subsets A and B of V , f(A∪B)≤max{f(A),f(B)}  可证明proper函数是weakly supermodular的。</description>
     </item>
     
     <item>
       <title>An improved approximation algorithm for the 0-extension problem</title>
-      <link>cartershi.github.io/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</link>
+      <link>https://cartershi.github.io/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</link>
       <pubDate>Sun, 21 Jul 2019 14:24:25 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</guid>
+      <guid>https://cartershi.github.io/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</guid>
       <description>作者：Jittat Fakcharoenphol, Chris Harrelson, Satish Rao, Kunal Talwar
 Introduction 本问题是将每个点映射到给定的terminal上，使得原来有边的任两点之间的距离和与现在距离和之间近似比尽可能小。
 这篇文章有一个漂亮的relaxation，它relax出一个新的semimetric度量，只保证terminal之间的距离不变即可。
 Notation 定义$A_u$为u最近的terminal或者到它的距离。显然每个点挑选$A_u$是不合理的，因为terminal之间的距离可能是$O(A_u)$级别的，若$d(u,v)$很小，则无法很好的近似。
 The CKR algorithm 随机一个terminal的排列，选择一个$[1,2)$的数$\alpha$，每个点u赋值给排列中第一个距离小于$\alpha A_u$的的点。
 对于目标函数的两点距离，$\delta(f(u),f(v))\le\delta(f(u),u)+\delta(u,v)+\delta(f(v),v)$直接可以解决前两种情况。否则需要一个概率的证明（参见CKR的证明）：考虑u，v被分开的概率，等价于u被m$(\alpha)$中的点覆盖，而v一定被$s(\alpha)$覆盖，由于排列得随机性，得$P[\epsilon(u,v)|\alpha]\le\frac{m(\alpha)}{m(\alpha)+s(\alpha)}$，对$\alpha$求积分得基本就解决了。为了解决积分的问题，需要对积分式做归纳，也很简单。
-Our algorithm 不同在于随机变量，挑选一个$\gamma\in[1,2]$，设置$A_v&amp;rsquo;=\min{2^s:2^s\ge2A_v/\gamma}$（图中最短距离被扩大到1），随机挑选一个$i\in[1,m]$、$\alpha\in[2^{i-1},2^i)$，点的排列$\sigma$。接下来就是ckr算法。
-Analysis of the algorithms lemma5.1：分析类似于CKR+tree mertic的合体，对于每条边uv，分析它被某个点分割的概率，考虑u被它覆盖而v没有，则$K{i-2}^{u}$里的点必然不是可能的点，所以穷举$K{i}^{u}-K_{i-2}^{u}$中的点即可，这里面的点概率类似tree mertic的分析。
-lemma5.2：很简单的引理，关键在于这个设置的方法，使得两个很接近的点的$A&amp;rsquo;$值大概率相似。
-近似比：用这两个引理就可以容易的分$A&amp;rsquo;$是否相等来计算条件期望。
+Our algorithm 不同在于随机变量，挑选一个$\gamma\in[1,2]$，设置$A_v&#39;=\min{2^s:2^s\ge2A_v/\gamma}$（图中最短距离被扩大到1），随机挑选一个$i\in[1,m]$、$\alpha\in[2^{i-1},2^i)$，点的排列$\sigma$。接下来就是ckr算法。
+Analysis of the algorithms lemma5.1：分析类似于CKR+tree mertic的合体，对于每条边uv，分析它被某个点分割的概率，考虑u被它覆盖而v没有，则$K_{i-2}^{u}$里的点必然不是可能的点，所以穷举$K_{i}^{u}-K_{i-2}^{u}$中的点即可，这里面的点概率类似tree mertic的分析。
+lemma5.2：很简单的引理，关键在于这个设置的方法，使得两个很接近的点的$A&#39;$值大概率相似。
+近似比：用这两个引理就可以容易的分$A&#39;$是否相等来计算条件期望。
 去随机化：穷举所有可能的随机变量，然后用条件期望不断的解决当前排列位置上的terminal。</description>
     </item>
     
     <item>
       <title>Approximation Algorithms for Geometric Median Problems</title>
-      <link>cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</link>
+      <link>https://cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</link>
       <pubDate>Sat, 20 Jul 2019 16:32:30 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</guid>
+      <guid>https://cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</guid>
       <description>作者：Jyh-Han Lin、Jeffrey Scott Vitter
 个人觉得它的引理6写错了。
 这篇文章的算法容易理解，就是用LP的解算每个点距离的期望$\widehat{C_i}$，定义i的邻居为$\le(1+1/\epsilon)\widehat{C_i}$的所有点，定义i的拓展邻居为两跳之内的邻居。按$\widehat{C_i}$递增排序后不断挑选点并删除x的所有拓展邻居，这些拓展邻居都用x当作中心计算距离。
@@ -148,10 +476,10 @@ lemma5.2：很简单的引理，关键在于这个设置的方法，使得两个
     
     <item>
       <title>HAAM_chapter7</title>
-      <link>cartershi.github.io/post/haam_chapter7/</link>
+      <link>https://cartershi.github.io/post/haam_chapter7/</link>
       <pubDate>Fri, 19 Jul 2019 21:09:38 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/haam_chapter7/</guid>
+      <guid>https://cartershi.github.io/post/haam_chapter7/</guid>
       <description>LP Rounding and Extensions Nondeterministic Rounding Independent Rounding 集合覆盖，用LP的解作为集合被选取的概率，挑选$c\log n$次。这样期望大小有界，并且WHP覆盖所有的元素。
 条件满足问题，每个元素$\frac{1}{2}$的概率为正，得到一个结果，另外以LP的解作为元素被选的概率挑选，取两者大的。
 Dependent Rounding simultaneously rounding ：最小割问题（限制为某些点必须被割开），随机选取一个$u\in[\frac{1}{2},1]$，把比u大点与s放在一起。
@@ -166,27 +494,27 @@ Decompose and Round：几何问题可用。</description>
     
     <item>
       <title>HAAM_chapter6</title>
-      <link>cartershi.github.io/post/haam_chapter6/</link>
+      <link>https://cartershi.github.io/post/haam_chapter6/</link>
       <pubDate>Mon, 15 Jul 2019 20:11:12 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/haam_chapter6/</guid>
+      <guid>https://cartershi.github.io/post/haam_chapter6/</guid>
       <description>Linear Programming 线性规划有两个常用的方法：rounding和dual，ruonding一般需要将整数规划用线性规划解，然后根据具体情况将分数解转化成整数解。dual是同时优化原问题和对偶问题，不要调用线性规划求解器。本章主要是rounding。
 6.2 Rounding 需要明确的是basic feasible solution的定义，满足真正独立的有用限制的解。其实就是让变量尽可能多为0的合法解，也是simplex跑出来的结果。
-makespan：将每个部分分配的工作匹配到一个具体的机器上即可。匹配工作到机器这件事能成立需要考虑的basic feasible solution的性质，规划中的限制最多n+m个，也就是说数组A的秩最多为n+m，所以解最多n+m个元素非0。若有k个工作被部分分配，最少在结果中占2k个位置，剩下n-k个工作占1个位置，即最少有n+k个元素非0，所有最多m个工作被部分分配。这些部分分配的工作形成pseudoforest（原因看不懂了，坑）。直接用LP比IP小且匹配得到2近似。 METRIC FACILITY LOCATION：这里考虑最简单的直接在client上建facility的情况。思路是对于所有点按它们的平均距离递增排序，然后尽可能的选4/3倍平均距离的不相交的球体。每个球体选择一个最便宜的地点开设facility，每个client选一个最近facility供应。证明第一块好像又跳了很大一部坑，第二部分容易理解，不过觉得8/3写成4/3了。
-GENERALIZED STEINER NETWORK：将relax后的式子迭代的计算选取$\ge\frac{1}{2}$的边。这里有个非常复杂的证明。
-6.3 Randomized Rounding MAXIMUM COVERAGE：将LP解得的x看成选取这个集合的概率，然后以这样的概率随机取k个。对每个元素，可以得到它被覆盖的概率的下界（注意下界证明的不等式不是恒成立，而是题中范围恒成立），从而得到被覆盖的期望的下界。
-CONGESTION MINIMIZATION：每条路径被选择的概率等于它LP的结果。得到每条边被覆盖次数的期望。还可用chernoff bound得到每条边覆盖次数的概率结果（书上又跳了一步union bound）。
-6.4 Metric Spaces MINIMUM MULTICUT：这个问题就是把k对点给割开，求最小割。$O(\log k)$的近似算法是对于每个边给一个权重，任一对点之间的任意条路劲都需要权重和$\ge1$，对这个线性规划给出一个解之后，用每条边上的权作为边权建立新图，这是k对点之间的最短路都至少为1。接着对于这2k个点中的每一个点w和一个实数$\rho$，定义$E{\rho}$为所有的边$e=uv$，使得$d(u,w)\le\rho,d(v,w)&amp;gt;\rho$。构造定义$f&amp;rsquo;(\rho),f(\rho)$，保证$\exists\rho\in[0,\frac{1}{3}],f&amp;rsquo;(\rho)\le 3f(\rho)\ln k$。算法就是每个未删除的点对，选一个点，找到它对应的上述$\rho$，将所有与它距离不超过$\rho$的点一起删除，并且这样导致的割边记入cut中，这里的割边其实就是定义中的$E{\rho}$，这样其实是删除了分支（不一定联通），由于$\rho\le\frac{1}{3}$，所以一个点对不可能被同时删除，当它们某次被分开时，一定被割开了，所以这是一个割。由于每条边最多被1次，所以对这k次割的f值求和可得不会超过规划目标得两倍，然后用f‘和f的不等式得近似比。
+**makespan：**将每个部分分配的工作匹配到一个具体的机器上即可。匹配工作到机器这件事能成立需要考虑的basic feasible solution的性质，规划中的限制最多n+m个，也就是说数组A的秩最多为n+m，所以解最多n+m个元素非0。若有k个工作被部分分配，最少在结果中占2k个位置，剩下n-k个工作占1个位置，即最少有n+k个元素非0，所有最多m个工作被部分分配。这些部分分配的工作形成pseudoforest（原因看不懂了，坑）。直接用LP比IP小且匹配得到2近似。 METRIC FACILITY LOCATION：这里考虑最简单的直接在client上建facility的情况。思路是对于所有点按它们的平均距离递增排序，然后尽可能的选4/3倍平均距离的不相交的球体。每个球体选择一个最便宜的地点开设facility，每个client选一个最近facility供应。证明第一块好像又跳了很大一部坑，第二部分容易理解，不过觉得8/3写成4/3了。
+**GENERALIZED STEINER NETWORK：**将relax后的式子迭代的计算选取$\ge\frac{1}{2}$的边。这里有个非常复杂的证明。
+6.3 Randomized Rounding **MAXIMUM COVERAGE：**将LP解得的x看成选取这个集合的概率，然后以这样的概率随机取k个。对每个元素，可以得到它被覆盖的概率的下界（注意下界证明的不等式不是恒成立，而是题中范围恒成立），从而得到被覆盖的期望的下界。
+**CONGESTION MINIMIZATION：**每条路径被选择的概率等于它LP的结果。得到每条边被覆盖次数的期望。还可用chernoff bound得到每条边覆盖次数的概率结果（书上又跳了一步union bound）。
+6.4 Metric Spaces **MINIMUM MULTICUT：**这个问题就是把k对点给割开，求最小割。$O(\log k)$的近似算法是对于每个边给一个权重，任一对点之间的任意条路劲都需要权重和$\ge1$，对这个线性规划给出一个解之后，用每条边上的权作为边权建立新图，这是k对点之间的最短路都至少为1。接着对于这2k个点中的每一个点w和一个实数$\rho$，定义$E_{\rho}$为所有的边$e=uv$，使得$d(u,w)\le\rho,d(v,w)&amp;gt;\rho$。构造定义$f&#39;(\rho),f(\rho)$，保证$\exists\rho\in[0,\frac{1}{3}],f&#39;(\rho)\le 3f(\rho)\ln k$。算法就是每个未删除的点对，选一个点，找到它对应的上述$\rho$，将所有与它距离不超过$\rho$的点一起删除，并且这样导致的割边记入cut中，这里的割边其实就是定义中的$E_{\rho}$，这样其实是删除了分支（不一定联通），由于$\rho\le\frac{1}{3}$，所以一个点对不可能被同时删除，当它们某次被分开时，一定被割开了，所以这是一个割。由于每条边最多被1次，所以对这k次割的f值求和可得不会超过规划目标得两倍，然后用f‘和f的不等式得近似比。
 SPARSEST CUT：鸽了
-MINIMUM LINEAR ARRANGEMENT：V个点赋予1..V的排列$\varphi$，最小化$\sum_{{u,v}\in E}|\varphi(u)-\varphi(v)|$。关键的发现是所谓的well spread，这个relax到一个距离度量，可以写成一个线性规划。接下来用rounding来把metric变成排列，有点像MINIMUM MULTICUT的分析，但是鸽了。</description>
+**MINIMUM LINEAR ARRANGEMENT：**V个点赋予1..V的排列$\varphi$，最小化$\sum_{{u,v}\in E}|\varphi(u)-\varphi(v)|$。关键的发现是所谓的well spread，这个relax到一个距离度量，可以写成一个线性规划。接下来用rounding来把metric变成排列，有点像MINIMUM MULTICUT的分析，但是鸽了。</description>
     </item>
     
     <item>
       <title>HAAM_chapter4</title>
-      <link>cartershi.github.io/post/haam_chapter4/</link>
+      <link>https://cartershi.github.io/post/haam_chapter4/</link>
       <pubDate>Thu, 11 Jul 2019 11:37:54 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/haam_chapter4/</guid>
+      <guid>https://cartershi.github.io/post/haam_chapter4/</guid>
       <description>Greedy Methods
 贪心方法大全
 Set Cover：常用分析，charge scheme。
@@ -203,77 +531,78 @@ Greedy Algorithms via the Probabilistic Method：组合数学利器，maxcut著�
     
     <item>
       <title>A tight bound on approximating arbitrary metrics by tree metrics</title>
-      <link>cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</link>
+      <link>https://cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</link>
       <pubDate>Tue, 09 Jul 2019 20:57:35 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</guid>
+      <guid>https://cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</guid>
       <description>作者：Jittat Fakcharoenphol, Satish Rao and Kunal Talwar
-The algorithm 定义：首先将最短距离扩大到至少为1，定义$\Delta=2^\delta$为直径的上界，度量d&amp;rsquo;支配d表示任两点d&amp;rsquo;&amp;gt;d，本文的目标即寻找树上的度量d‘，它支配真正的距离d，并且d’的期望距离$\le\alpha d(u,v)$，这称为$\alpha$概率近似。r-cut定义为以某个点为中心的半径为r的cluster，$Di$为$D{i+1}$的$2^i$-cut。
+The algorithm 定义：首先将最短距离扩大到至少为1，定义$\Delta=2^\delta$为直径的上界，度量d&amp;rsquo;支配d表示任两点d&#39;&amp;gt;d，本文的目标即寻找树上的度量d‘，它支配真正的距离d，并且d’的期望距离$\le\alpha d(u,v)$，这称为$\alpha$概率近似。r-cut定义为以某个点为中心的半径为r的cluster，$D_i$为$D_{i+1}$的$2^i$-cut。
 算法：首先随机产生n个点的排列，以$p(x)=\frac{1}{x\ln2}$的概率挑选$\beta\in[1,2]$，若当前集合中元素不止一个，将每个元素分配给排列中第一个距离小于$2^{i-1}\beta$的点。这显然是形成了树中节点的孩子，边权为$2^i\ge 2^{i-1}\beta$，大于等于当前点的半径。
 支配：两点u,v的距离就是两点在树中对应的叶子节点之间的距离。考虑它们的LCA x，注意在树上u到x的距离至少是x的半径（这里有两次放缩），x在图上这个半径包含u，所以$d(u,x)\le d^T(u,x)$，三角不等式可得以树作为度量支配图的距离。
-$\alpha$概率近似：Observation1通过简单的变量替换即可得到，若$LCA(u,v)=x$在第i层，则$d^T(u,x)&amp;lt;2^{i+1}$，所以$d^T(u,v)&amp;lt;2^{i+2}\le8\beta_i$。将随机排列的n个点按照$\min(d(u,w),d(v,w))$从小到大排序，得$E[d^T(u,v)]\le \sumi E[d^T{wi}(u,v)]$，$d^T{w_i}(u,v)$表示为$w_i$将它们分割的情况下的距离。注意到$w_i$将它们分割时$w_i$必然在前$i-1$个点的前面，否则这些点会将u,v直接分开或者带入更小的集合，由于随机排列，这样的概率为$\frac{1}{i}$。对所有可能的$\betai$做积分求期望（这边也有点绕，并不是直接对$\beta$积分），外面再乘一个$\frac{1}{i}$即可求出$E[d^T{w_i}(u,v)]$，最后直接累加。天才般的证明
+$\alpha$概率近似：Observation1通过简单的变量替换即可得到，若$LCA(u,v)=x$在第i层，则$d^T(u,x)&amp;lt;2^{i+1}$，所以$d^T(u,v)&amp;lt;2^{i+2}\le8\beta_i$。将随机排列的n个点按照$\min(d(u,w),d(v,w))$从小到大排序，得$E[d^T(u,v)]\le \sum_i E[d^T_{w_i}(u,v)]$，$d^T_{w_i}(u,v)$表示为$w_i$将它们分割的情况下的距离。注意到$w_i$将它们分割时$w_i$必然在前$i-1$个点的前面，否则这些点会将u,v直接分开或者带入更小的集合，由于随机排列，这样的概率为$\frac{1}{i}$。对所有可能的$\beta_i$做积分求期望（这边也有点绕，并不是直接对$\beta$积分），外面再乘一个$\frac{1}{i}$即可求出$E[d^T_{w_i}(u,v)]$，最后直接累加。~~天才般的证明~~
 Derandomization 鸽了</description>
     </item>
     
     <item>
       <title>A greedy approximation algorithm for the group Steiner problem</title>
-      <link>cartershi.github.io/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</link>
+      <link>https://cartershi.github.io/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</link>
       <pubDate>Mon, 08 Jul 2019 09:39:22 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</guid>
+      <guid>https://cartershi.github.io/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</guid>
       <description>作者 Chandra Chekuri, Guy Even, Guy Kortsarz
-2. Preliminaries 本文处理的是group steiner tree problem restricted to trees，输入为一个有根的非负权有向树T以及m个点集$gi$，树T&amp;rsquo;被称为z-cover表示它至少了与z个点集相交，目标是找到一个权重最小的z-cover树。记$n=|\cup{i=1}^{m}gi|,s=\sum{i=1}^{m}|g_i|$，点集$g_i$中的点都称为terminal（终端）。
-虽然这里处理的图是树，但是A tight bound on approximating arbitrary metrics by tree metrics(STOC&amp;rsquo;03)证明了用树可以$O(\log n)$近似图中两点距离，所以可以直接用那个近似图之后用本文对得到的树来近似。
+2. Preliminaries 本文处理的是group steiner tree problem restricted to trees，输入为一个有根的非负权有向树T以及m个点集$g_i$，树T&amp;rsquo;被称为z-cover表示它至少了与z个点集相交，目标是找到一个权重最小的z-cover树。记$n=|\cup_{i=1}^{m}g_i|,s=\sum_{i=1}^{m}|g_i|$，点集$g_i$中的点都称为terminal（终端）。
+虽然这里处理的图是树，但是A tight bound on approximating arbitrary metrics by tree metrics(STOC&#39;03)证明了用树可以$O(\log n)$近似图中两点距离，所以可以直接用那个近似图之后用本文对得到的树来近似。
 预处理：注意到非终端的叶子可以直接删除，树中度为2的非终端节点也可删除，再用一个集合包含树中所有的点，这样新树的点数是$O(n)$，且每个点都是终端，最后scale边权使得所有的正边权都大于等于1。
 $\alpha-faithful$树的定义看起来就是为了claim2.3准备的。
 3. A recursive greedy algorithm with geometric search 引用的算法，思路在HAAM5里面有过介绍（算法不同，证明的思路类似），就是对于一棵树，首先使用height reduction将其高度减少为$O(\frac{\log n}{\log\log n})$，这会导致结果近似，然后用degree reduction将每个点的度减少为$O(\log n)$，这样是精确的。在这棵树上做类似集合覆盖的算法，近似比直接套用那里的引理。
 Geometric search主要的不同在于不穷举所有的子集，而是取幂次，这招height reduction也用了，不过这里不从零开始。
-lemma3.3证明用了geometric之后就可以把时间复杂度减少到n的多项式，与树高无关，它的证明思路也就是bound调用子函数的次数，每一轮的调用次数容易bound，循环的轮数要注意子函数最少返回覆盖z&amp;rdquo;/h个终端的树，z&amp;rdquo;又有下届，所以可以bound。
+lemma3.3证明用了geometric之后就可以把时间复杂度减少到n的多项式，与树高无关，它的证明思路也就是bound调用子函数的次数，每一轮的调用次数容易bound，循环的轮数要注意子函数最少返回覆盖z&#39;&#39;/h个终端的树，z&#39;&amp;lsquo;又有下届，所以可以bound。
 lemma3.4的证明和引用的那个很像，不同在于两点：1.有一些重要的点和不重要的点，不重要的点由于geometric不会被调用，直接近似掉。2.考虑重要的点中密度最小的子树，它对应的参数由于geometric不一定调用，但是调用最靠近它的参数的那次与它之间密度的关系。剩下的证明就一样了。
 4. Height reducing transformation 这玩意不是一个HAAM第5章里面的height reduction的，那里处理的是完全图，这里处理的是树。
 $\alpha-decomposition$就是对$T_r$dfs，遇到轻节点回溯，这样访问到的所有节点。skeleton是$\alpha-decomposition$中的$T_r$的重节点形成的子树。branch定义我看了好久，它误导人的地方在于maximal subpath，其实就是从不止一个孩子的节点往下走，直至碰到一个多孩子的节点，这就是一个branch。（个人觉得它这里的branch包含了skeleton的叶子到分支节点的路径，不然没有$2\alpha-1$个branches吧）搞懂这个定义，算法就很容易理解了，首先得到$\alpha-decomposition$，对它的skeleton进行dfs计算所有的branch，计算所有branch的bunch，用3层高的路近似根到它的路径。
-高度直接递归计算。近似比的证明思路在于原树的$\alpha-decomposition$和reduce完的那个三层的树一一对应，考虑每个$\alpha-decomposition$的每个branch到根的联通树$Q[S_B]$，它与对应的$Q&amp;rsquo;[S_B&amp;rsquo;]$可用bunch证明近似，在由于branch两两不相交且个数为$O(\alpha)$，所以$\sum Q&amp;rsquo;$可用$O(\alpha)Q$bound这其实也可以直接分析每个branch，而不带根，然后bound边被重算的次数，就是HAAM5章那个思路。
+高度直接递归计算。近似比的证明思路在于原树的$\alpha-decomposition$和reduce完的那个三层的树一一对应，考虑每个$\alpha-decomposition$的每个branch到根的联通树$Q[S_B]$，它与对应的$Q&amp;rsquo;[S_B&#39;]$可用bunch证明近似，在由于branch两两不相交且个数为$O(\alpha)$，所以$\sum Q&#39;$可用$O(\alpha)Q$bound这其实也可以直接分析每个branch，而不带根，然后bound边被重算的次数，就是HAAM5章那个思路。
 5. Degree reducing transformation 这个算法就是将树转化成一颗每个点度最多$\beta$的树，使得树的高度不会增加超过$\log_{\beta/2}n$。这个结论感觉挺有用的。
 算法就是将小的节点合并。用一个点拼接它。</description>
     </item>
     
     <item>
       <title>HAAM_chapter5</title>
-      <link>cartershi.github.io/post/haam_chapter5/</link>
+      <link>https://cartershi.github.io/post/haam_chapter5/</link>
       <pubDate>Sun, 07 Jul 2019 12:13:42 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/haam_chapter5/</guid>
-      <description>5.2 对于集合覆盖那个著名的贪心，如果每次并不选择密度最小的集合$Si$，而是对于剩下x个未选择的元素，一个oracle可以给出最小密度$\alpha(x)$近似的，那么$\frac{\sum w(Si)}{w(C*)}\le\int{n-|\cup{S&amp;rsquo;\in C_i}S&amp;rsquo;|}^n{\frac{\alpha(x)}{x}dx}$，这个结论的证明不是很难，需要理解的地方在于递归证明里第一个不等式是需要进行两次放缩的。而(5.2)的递归公式也是隐藏了一个放缩在里面。
+      <guid>https://cartershi.github.io/post/haam_chapter5/</guid>
+      <description>5.2 对于集合覆盖那个著名的贪心，如果每次并不选择密度最小的集合$Si$，而是对于剩下x个未选择的元素，一个oracle可以给出最小密度$\alpha(x)$近似的，那么$\frac{\sum w(Si)}{w(C*)}\le\int_{n-|\cup_{S&#39;\in C_i}S&#39;|}^n{\frac{\alpha(x)}{x}dx}$，这个结论的证明不是很难，需要理解的地方在于递归证明里第一个不等式是需要进行两次放缩的。而(5.2)的递归公式也是隐藏了一个放缩在里面。
 这个结论有意思的地方是只要挑选不超过$1-\frac{1}{e}$倍的元素，贪心得到的集合权重不会超过$w(C*)$。
 5.3 注意这里DST的定义里输入是给定根r的，DST显然是k-DST的一种情况，k-DST规约到n-shallow k-DST，每层都是原图的点，两层之间的边是原图的边，加自己到自己的零边。
 对于k-DST问题，整体的思路是：k-DST等价于原图G的传递闭包TC(G)的k-DST；接着在TC(G)上找l-shallow k-DST，由lemma5.2，它的最优解是k-DST的近似；由lemma5.1，TC(G)上的l-shallow k-DST等价于l层有向无环图上的k-DST；5.4节给出了有向无环图上的k-DST的近似算法。最终用两个等价问题的两个近似解决了一般图上k-DST问题。光这样还没完，这个算法最牛叉的地方在于它的近似比直接依赖于有向无环图上的k-DST的近似算法的过程，即那个类似集合覆盖的过程直接这么复杂的过程书上为什么不讲清楚呢
 5.4 这里最难理解的地方是aug树的权重计算了在之前可能已经被加入树中的边，其实这无所谓，我们得到的树的权重不计算重边，所以不会大于aug树的权重和。5.2节的结论说的就是集合权重的和，即得到的树的权重与最优树的权重依然满足这样的结论。（直接思考5.2的证明过程即可）。
-算法其实很简单，但是claim5.2的证明非常妙：最优树的参数k&amp;rsquo;也必然k&amp;rsquo;-DST调用，那次调用中累计aug树的过程其中有一个树满足那个条件，记它包含k&amp;rdquo;的目标，则k&amp;rdquo;-DST调用时必然产生这棵树作为候选（由贪心决定），所以aug树的密度不会超过它。这个树构造还用了一个技巧：在第一次超越时，即$k&amp;rdquo;\ge\frac{k&amp;rsquo;}{l-1}$，这个超越虽然会使得分析变得麻烦，但是保证了$k&amp;rdquo;&amp;gt;0$且存在。分析的思路是考虑发生超越的之前的每个时刻的情况，总的最优解在当前的密度大于等于当前最优密度，用当前最优密度的递归式进行放缩，再对总的最优解在当前的密度进行放缩即可。
+算法其实很简单，但是claim5.2的证明非常妙：最优树的参数k&amp;rsquo;也必然k&#39;-DST调用，那次调用中累计aug树的过程其中有一个树满足那个条件，记它包含k&#39;&amp;lsquo;的目标，则k&amp;rsquo;&#39;-DST调用时必然产生这棵树作为候选（由贪心决定），所以aug树的密度不会超过它。这个树构造还用了一个技巧：在第一次超越时，即$k&#39;&#39;\ge\frac{k&#39;}{l-1}$，这个超越虽然会使得分析变得麻烦，但是保证了$k&#39;&#39;&amp;gt;0$且存在。分析的思路是考虑发生超越的之前的每个时刻的情况，总的最优解在当前的密度大于等于当前最优密度，用当前最优密度的递归式进行放缩，再对总的最优解在当前的密度进行放缩即可。
 在分层图上，运行时间的分析只需要注意每个点在构造的图上有n个孩子，每个孩子调用k次k-DST。近似比的分析直接用集合覆盖。
 对于一般图上k-DST，过程麻烦一点，需要考虑直接在原图上集合覆盖，这样的一棵树包含k*个目标，则它其实是K*-DST的最优解。所以在分层图上有一个近似的最优解，然后用分层图上k-DST的近似算法得到近似最优解的近似解，这就可以直接用5.2节的结论了。实际上就是分层图上k-DST的近似算法的解是原图上的最小剩余密度树的近似，所以可解。
-在GST上，只考虑树上的k-GST，依然是不断的求集合覆盖，不同在于树可以容易的改变高度和度数。接着使用geometric search的思路bound调用子树k-GST的次数，可以得到一个与原树高无关的多项式算法。细节参考写的&amp;rdquo;A greedy approximation algorithm for the group Steiner problem“博客。
+在GST上，只考虑树上的k-GST，依然是不断的求集合覆盖，不同在于树可以容易的改变高度和度数。接着使用geometric search的思路bound调用子树k-GST的次数，可以得到一个与原树高无关的多项式算法。细节参考写的&amp;quot;A greedy approximation algorithm for the group Steiner problem“博客。
 Appendix 引理的证明思路是对最优的k-DST进行height reduction，即将极小的重节点连到根上，对极大的轻节点进行递归reduction。考虑根开始的第一次reduction，被连到根上的节点最多$\alpha$个，所以树最多被重复$\alpha$倍，重点在于被复制的路径必然是重节点的父亲，所以它不会被再次复制，所以每次只有原来树上的路径被复制，而高度可以用直接bound。</description>
     </item>
     
     <item>
       <title>近似算法手册</title>
-      <link>cartershi.github.io/post/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E6%89%8B%E5%86%8C/</link>
+      <link>https://cartershi.github.io/post/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E6%89%8B%E5%86%8C/</link>
       <pubDate>Sun, 07 Jul 2019 12:08:25 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E6%89%8B%E5%86%8C/</guid>
-      <description>再开一个新坑Handbook of Approximation Algorithms and Metaheuristics，简称HAAM，在这里。这本书的证明实在跳跃，难以看懂，还是记下来好。
+      <guid>https://cartershi.github.io/post/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E6%89%8B%E5%86%8C/</guid>
+      <description>再开一个新坑Handbook of Approximation Algorithms and Metaheuristics，简称HAAM，[在这里](/approximation algorithm/6,11,12_Handbook of Approximation Algorithms and Metaheuristics)。这本书的证明实在跳跃，难以看懂，还是记下来好。
 如有侵权，请联系删除。</description>
     </item>
     
     <item>
       <title>Chapter20</title>
-      <link>cartershi.github.io/post/hdsa_chapter20/</link>
+      <link>https://cartershi.github.io/post/hdsa_chapter20/</link>
       <pubDate>Wed, 03 Jul 2019 13:24:42 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/hdsa_chapter20/</guid>
-      <description> Quadtrees and Octrees quadtree本意是将一个二维区域用平行于坐标轴的两条线将其分为4个区域作为树的4个孩子，因此称为quad tree。在3维空间，则有$2^3=8$个孩子，这叫做octree。更高维度的被称为hyperoctrees。通常情况下quadtree，octree，hyperoctree都叫quadtree。kd-tree与quadtree的不同在于kd-tree每层只选择某一维作为拆分的标准，所以只有两个孩子。竟然有专门的书介绍quadtree的相关内容，可见它多么复杂。
+      <guid>https://cartershi.github.io/post/hdsa_chapter20/</guid>
+      <description>Quadtrees and Octrees quadtree本意是将一个二维区域用平行于坐标轴的两条线将其分为4个区域作为树的4个孩子，因此称为quad tree。在3维空间，则有$2^3=8$个孩子，这叫做octree。更高维度的被称为hyperoctrees。通常情况下quadtree，octree，hyperoctree都叫quadtree。kd-tree与quadtree的不同在于kd-tree每层只选择某一维作为拆分的标准，所以只有两个孩子。竟然有专门的书介绍quadtree的相关内容，可见它多么复杂。
 Point Data Point Quadtree 多维点是最简单的情况，通常对于它有这样几种查询：1.区间查询，19章range tree处理的问题。2.球型区域查询，给定点和半径，查这个球里面的区域。3.查找每个点的最近邻。当然查找、插入、删除这些基本操作也是要支持的。
 考虑二维情况，point quadtree就是在当前区域选一个点作为根，用它将区域分成四部分，每部分是一颗子树（如果按x轴分成两个区域，就是一颗BST）。
+![fig20-1](/pic/data structure/20-1.jpg)
 建立：将n个点直接排序，取中间节点，$O(n)$时间将其分成4个子区间，这样保证每个子区间不会超过n，用数学归纳法得建立时间为$O(n\log n)$。
 查询：类似BST的查找，不过要比较两维。
 插入：先查找到叶子，然后在叶子下面挂1层高树。
@@ -286,10 +615,10 @@ Spatial Queries with Region Quadtrees Range Query </description>
     
     <item>
       <title>Chapter19</title>
-      <link>cartershi.github.io/post/hdsa_chapter19/</link>
+      <link>https://cartershi.github.io/post/hdsa_chapter19/</link>
       <pubDate>Tue, 02 Jul 2019 19:10:04 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/hdsa_chapter19/</guid>
+      <guid>https://cartershi.github.io/post/hdsa_chapter19/</guid>
       <description>Interval, Segment, Range, and Priority Search Trees 本章数据结构一般要求数据是静态的，主要关注各种区间搜索问题。
 Interval Trees 对于问题：找出给定的S个区间中与给定区间Q相交的区间集合F。
 可以建立一颗Interval Tree，当前树的根，它的根v保存左右两个孩子，左子树包含小于v.key的区间，右子树包含大于v.key的区间。v还包含v.key，为S个区间的2S个端点的中位数，v.aux保存包含v.key的所有区间的左右端点，左端点递增，右端点递减。
@@ -308,20 +637,21 @@ Priority Search Trees 问题：给定n个形如$(x,y)$的二维点，要求查�
     
     <item>
       <title>Chapter16</title>
-      <link>cartershi.github.io/post/hdsa_chapter16/</link>
+      <link>https://cartershi.github.io/post/hdsa_chapter16/</link>
       <pubDate>Mon, 24 Jun 2019 22:21:33 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/hdsa_chapter16/</guid>
+      <guid>https://cartershi.github.io/post/hdsa_chapter16/</guid>
       <description>B Trees B树是一种平衡树，每个节点存放一个磁盘block的内容，有多个孩子，所以是多叉树。它的要求是每个节点至少半满，而B*树要求每个节点至少2/3满。B树的思路导向了SOTA的spatial index结构：R树。
 disk-based环境主要考察的是读写磁盘block的次数。尽管真实系统中有内存作为磁盘的buffer，但是在通常的分析中，这并不在研究的范围中。
 B Tree B树的目的是在disk-based的环境下，给定一组key-value的object，进行高效的查询和更新（插入、删除）。这章依然假定不会有重复的key。B树的每个节点x有一个x.num记录x中保存的object数，第i个object用x.key[i],x.value[i]表示；叶子节点在同一层；非叶子节点x还保存x.num+1个孩子节点的地址，第i个子树是插在(x.key[i-1],x.key[i])之间的元素；非根节点是至少半满的，即若非叶子节点能存2B个孩子，则它至少存B个孩子；根节点至少存两个孩子。比如12章里的linked (2,4) Tree，不加link就是B树。下图是一个B=2的树。
+![fig16-1](/pic/data structure/16-1.jpg)
 查询：只需要扫面x.key数组找到待查询元素或者递归查询它所在的子树即可。
 插入：设插入(k,v)，若根x满，这时有x.num=2B-1，取x.key的中间点作为新的根，把剩下的key各分配到新建的左孩子和右孩子，则它们都有B-1个key，即有B个孩子，所以依然是B树。这样就可以保证当前节点不满，递归调用notFull函数：如果是叶子，由于已知它不满，则可以插入，如果不是叶子，那么可以通过key数组找到包含它的一个子树，若子节点已满，将第B个key挪到当前节点（由于已知它不满），右边B-1个key挪到新建的节点，原理和处理根满类似，这样可以进入对应的不满的子节点，递归notFull。
 删除：情况非常的复杂，需要在查询的过程中动态调整：
 对于下面来说，可以保证只要不是根，当前节点就是非半满的。
 1.若是叶子，直接删除。
 2.非叶子且不包含k，若对应的节点半满，若它的邻居不半满，则进行类似rotate的操作，若它的邻居半满，则将合并。这步保证下一个孩子必然非半满。另外若当前节点是根，且根只有两个孩子，则深度减1。
-3.非叶子且包含k，若这个key的左孩子或右孩子非半满，将k换成k‘并递归删除k’（k‘是最接近k的可删值，不妨设左孩子非半满，保证了下一步孩子非半满，则k’必然是从左孩子开始一直往右节点走的叶子的最右的key，所以不需要提前知道k&amp;rsquo;，显然删除过程只会发生1,2两种情况），否则两个孩子都半满，将k和左右孩子合并，在子树中继续删除k（若当前节点是根，且根只有两个孩子，则深度减1）。
+3.非叶子且包含k，若这个key的左孩子或右孩子非半满，将k换成k‘并递归删除k’（k‘是最接近k的可删值，不妨设左孩子非半满，保证了下一步孩子非半满，则k’必然是从左孩子开始一直往右节点走的叶子的最右的key，所以不需要提前知道k&#39;，显然删除过程只会发生1,2两种情况），否则两个孩子都半满，将k和左右孩子合并，在子树中继续删除k（若当前节点是根，且根只有两个孩子，则深度减1）。
 由于B是常数，所以以上过程在每个block上都是$O(1)$的操作，三个操作都最多访问$O(\log_B n)$个block。
 层数增加只会发生在根节点，这样所有的叶子层数都增加1，层数减少只会发生在根上，这样所有的叶子都减少1，所以所有叶子在同一层。因此插入删除都维护了B树的性质。
 B+ Tree B+树与B树主要不同在于只在叶子节点有object，而非叶子节点只存key，且所有的叶子节点都是用递增的双向链表连接。操作的维护比B树容易很多。这样会稍微违反BST的性质，但是可以保证只有右子树有与根相同的元素。
@@ -336,22 +666,23 @@ IO次数少：B+树在数据库中被广泛采用，一个4层高的100+树就�
     
     <item>
       <title>chapter14</title>
-      <link>cartershi.github.io/post/hdsa_chapter14/</link>
+      <link>https://cartershi.github.io/post/hdsa_chapter14/</link>
       <pubDate>Mon, 24 Jun 2019 12:06:55 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/hdsa_chapter14/</guid>
+      <guid>https://cartershi.github.io/post/hdsa_chapter14/</guid>
       <description>Randomized Dictionary Structures 引言 worst-case高效的数据结构太复杂并且写起来很麻烦，所以人们试图优化一串操作的总代价，而非单次操作的代价，这就是所谓的均摊复杂度。从随机的角度，目的是限制操作的期望并是的超出阈值的概率不大。
 为了简化分析，本章仅考虑支持插入、删除、搜索操作的字典，字典集为有限整数，并且元素之间两两不相同。
 本章讨论的随机算法是Las Vegas algorithm，即只要返回结果，结果就是对的。另外一种是Monte Carlo algorithm，运行时间固定，但是结果不一定对。
 $1-O(\beta^{-n}),1-O(n^{-c})$都是high confidence bound，$1-O((\log n)^c)$是very good confidence bound，$1-O(\beta^{-\alpha})$是constant probability bound。对于本章，通常考虑运行时间与期望时间的bound。
 然后是一堆概率论的基础知识。
 Skip Lists skip list的思路是当将有序链表$S_0$中随机一些节点复制进入$S_1$，接着从$S_1$复制一些节点到$S_2$，直至顶层为空。即前一层的节点以某个概率$p$继续成为上一层的节点，并将这两个节点连接起来，同层的节点也要连接起来。所以每个节点是一个变长的数组，记录每层的内容。如下图所示，32是一个节点，它有6层，每层之间相互连接，这样方便往右下搜索。
+![fig14-1](/pic/data structure/14-1.jpg)
 直接计算每一数的高度大于l的概率，然后直接算期望得高度为$O(\log n)$，随便union bound一下即可证明W.H.P.
 空间复杂度期望$O(n)$，W.H.P.就Chernoff bound一下n个随机变量层高得空间复杂度$O(n)$。
 查找：从顶层开始，尽可能的往右走，保证当前节点的值不大于目标节点，走到不能走则前往下一层的同列节点。
 插入：按照查找的过程查找位置，不同在于需要记录每层最后一个不大于目标节点的节点。然后随机生成这个节点的层数，将其连在查找在记录下的节点后。
 删除：类似查找并尝试在每层中删除即可。注意可能产生的空行。
-以上三个操作运行时间都是由查找时间决定的。我们逆向考虑查找的过程，从底层0到顶层r的过程中每次进入上层时这个值都是上层中最接近x的值，即每次都是以$p$的概率往上走，以$1-p$的概率往左走，这等价于r个几何随机变量$Y_i$，每个表示第$i$层往左走的步数。注意到第$r$层为空，所以总的搜索步数为$Y=r+\sum_{i=0}^{r-1}Y_i$。这个转化也太帅了！
+以上三个操作运行时间都是由查找时间决定的。我们逆向考虑查找的过程，从底层0到顶层r的过程中每次进入上层时这个值都是上层中最接近x的值，即每次都是以$p$的概率往上走，以$1-p$的概率往左走，这等价于r个几何随机变量$Y_i$，每个表示第$i$层往左走的步数。注意到第$r$层为空，所以总的搜索步数为$Y=r+\sum_{i=0}^{r-1}Y_i$。~~这个转化也太帅了！~~
 令$H_r=\sum_{i=0}^{r-1}Y_i$，由$P[r &amp;gt; 4\log n]&amp;lt;\frac{1}{n^3}$，$P[H_r&amp;gt;16\log n]&amp;lt;\frac{1}{n^2}\ for\ n\ge 32$是先全概率公式展开，再用Chernoff bound，则$P[H_r&amp;gt;16\log n\cup r &amp;gt; 4\log n]&amp;lt;\frac{1}{n^2}+\frac{1}{n^3}=O(\frac{1}{n^2})$，即$P[Y=O(\log n)]&amp;gt;1-O(\frac{1}{n^2})$。对于每一个x，$P[Y\in O(\log n)]&amp;gt;1-O(\frac{1}{n^2})$，所以n+1种的路径均为$O(\log n)$的概率至少为$1-O(\frac{1}{n})$，这就证明了三个操作W.H.P都是$O(\log n)$。
 Randomized Binary Search Trees Randomly Built Binary Tree(RBBT)指只有随机插入，即给定序列的树，插入在不同间隙里的概率是相等的。这个假定完全不符合实际，并且删除操作会使得RBBT退化严重，高度达到$\sqrt n$。
 RBST和treap不同，它不随机产生第二有限值，而是保存当前节点的子树点数，并维护这样的性质$P[size(L)=i|size(T)=n]=\frac{1}{n}$，即不同大小左子树的概率相等，相当于有序列表里每个元素等概率为根。
@@ -359,17 +690,16 @@ RBST和treap不同，它不随机产生第二有限值，而是保存当前节�
 插入：当插入一个n个点树时，随机一个0..n的数，若不是n，进入相对于的子树继续插入，否则x应当为根，递归的产生$T&amp;lt;,T&amp;gt;$，不妨设x小于根，根r及其右孩子因设为$T&amp;gt;$，递归调用$r.L,x,T&amp;lt;,T&amp;gt;.L$，这是指$T&amp;lt;$需要继续添加，$T&amp;gt;$已经填好了根和右子树，只需要填左子树。
 删除：先正常的搜索到这个节点，然后将这个节点的左子树和右子树join起来，join是判断随机产生的数[1,size(T)-1]是在左子树还是右子树，若在左子树，则将左孩子的右子树与右子树join，否则将右孩子的左子树与左子树join。
 插入的复杂度与普通插入一样，用递归证明产生的两个子树也是RBST，同时$T&amp;gt;.R$也是RBST，则证明$T&amp;gt;$是RBST只需要证明根也满足条件，注意这个根是原树的根，所以用条件概率即可的证明。
-现在考虑插入的结果，若未插入在根，则第一次会使概率变为$\frac{1}{n+1}$，递归得到一个RBST，原树剩下的部分也是RBST。否则用上面的结论另外注意x也是$\frac{1}{n+1}$的概率。
-对于join，递归证明join后的子树是RBST，左孩子的左子树是RBST，右子树更小的join结果，也是RBST，互相独立，每个元素为根的概率是$\frac{1}{n+m}$。</description>
+现在考虑插入的结果，若未插入在根，则第一次会使概率变为$\frac{1}{n+1}$，递归得到一个RBST，原树剩下的部分也是RBST。否则用上面的结论另外注意x也是$\frac{1}{n+1}$的概率。</description>
     </item>
     
     <item>
       <title>Chapter13</title>
-      <link>cartershi.github.io/post/hdsa_chapter13/</link>
+      <link>https://cartershi.github.io/post/hdsa_chapter13/</link>
       <pubDate>Mon, 24 Jun 2019 00:15:52 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/hdsa_chapter13/</guid>
-      <description> Splay trees 对于m个操作的序列，splay运行时间为$O(m\log n)$，所以均摊时间为$O(n)$。可以用来处理linking cutting trees，并且rebalance操作比平衡树简单很多。又是tarjan
+      <guid>https://cartershi.github.io/post/hdsa_chapter13/</guid>
+      <description>Splay trees 对于m个操作的序列，splay运行时间为$O(m\log n)$，所以均摊时间为$O(n)$。可以用来处理linking cutting trees，并且rebalance操作比平衡树简单很多。又是tarjan
 复杂度分析 zig、zag是单旋（最多发生一次），zigzig、zagzag是父亲及父亲的父亲在同侧，zigzag、zagzig是父亲及父亲的父亲在异侧，直至将x转到根，这个操作称为splay(x)，这个操作均摊复杂度为$O(log n)$。
 w(x)是x的权重，size(x)是以x为根的子树的点权重和，rank(x)是$\log_2(size(x))$，Potential(T)=$\alpha\sum_{x\in T}rand(x)$。均摊时间=实际时间+新Potential-老Potential。splay的运行时间为$\beta\times$Number of rotations。其中$w(x)\ge 0,\ \alpha\ge\beta&amp;gt;0$为任意给定值。
 将splay的旋转按上面分的三种旋转进行逐个分析，累加得，将对根为t的树进行splay(x)的均摊时间为$3\alpha(rank(t)-rank(x))+\beta=O(\log\frac{size(t)}{size(x)})$。
@@ -390,20 +720,23 @@ LCT </description>
     
     <item>
       <title>Chapter12</title>
-      <link>cartershi.github.io/post/hdsa_chapter12/</link>
+      <link>https://cartershi.github.io/post/hdsa_chapter12/</link>
       <pubDate>Sat, 22 Jun 2019 19:23:11 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/hdsa_chapter12/</guid>
+      <guid>https://cartershi.github.io/post/hdsa_chapter12/</guid>
       <description>Finger Search Tree Finger Search指从finger $x$出发寻找$y$。比如有序数组，从$x$开始倍增，这里不能acm里的那种倍减trick，因为那样是$O(\log n)$的，而倍增是$O(\log d)$的。$d$是$x$和$y$在有序数组中的排名差。如下图所示，意识流一下就是那样了。
+![fig12-1](/pic/data structure/12-1.jpg)
 Dynamic Finger Search Trees 上面的倍增已经解决了这个问题，但是有序数组不能高效插入删除，所以需要Dynamic Finger Search Tree。
 Level Linked (2,4)-Trees B树它leile，2-4个孩子的B树，基于finger的插入删除均摊复杂度为$O(1)$，期望倒是会，均摊不会分析。它与B树的不同在于所有的边都是双向的，并且同层相邻节点之间边相连。
-不妨令$x&amp;lt;y$，走到父亲$v$，同时判断$v$的右邻居$v&amp;rsquo;$是否是$y$的父亲。当停止时：
+![fig12-2](/pic/data structure/12-2.jpg)
+不妨令$x&amp;lt;y$，走到父亲$v$，同时判断$v$的右邻居$v&#39;$是否是$y$的父亲。当停止时：
 若因为停在共同的祖先$c$，则$c$至少有一个子树隔开$x,y$，这颗子树里的点都在$x,y$之间，它的点数就bound住了高度。
-若是因为$v$的右邻居$u&amp;rsquo;$是$y$的父亲，此时$x$在$v$的右子树，$y$在$v$的父亲的右邻居$u&amp;rsquo;$的左子树，只需要考虑$v$和$u&amp;rsquo;$的子树的末端相邻点，则变成第一种情况。Q.E.D.
+若是因为$v$的右邻居$u&#39;$是$y$的父亲，此时$x$在$v$的右子树，$y$在$v$的父亲的右邻居$u&#39;$的左子树，只需要考虑$v$和$u&#39;$的子树的末端相邻点，则变成第一种情况。Q.E.D.
 综上，用(2,4)-Tree的时间复杂度是$O(\log d)$的。
-Randomized Finger Search Trees treap细节完全不介绍的吗？背景知识参考这里。
+Randomized Finger Search Trees treap细节完全不介绍的吗？背景知识参考[这里](/data structure/treaps.pdf)。
 treap treap的思路就是一个二叉搜索树，但是它不像平衡树那样根据树高左旋右旋，而是根据随机产生的第二优先值维护一个堆（下面只考虑小根堆）。比如当前子树根为A，左子树根为B，右子树为C，不妨B的第二优先值最小，则B右旋成根，它的右子树变成A的左子树。单旋谁不会啊
 下图字母是键值，数字是第二优先值。
+![fig12-3](/pic/data structure/12-3.jpg)
 插入：首先按二叉搜索树将其真实值插入到叶子，然后就堆插入元素那样按第二优先值从最底层往上调，调整就是用的左旋右旋。
 删除：先找到这个节点，然后将其旋转到叶子，最后删除掉，逆着插入的操作
 分裂：即分裂成比某个值$\pi$大的和小的两个treap。插入$\pi$，令它的第二优先值为无穷小，那么插入完它为根，且由二叉搜索树得，它的两个子树是要求的treap。
@@ -421,18 +754,15 @@ treap treap的思路就是一个二叉搜索树，但是它不像平衡树那样
 接下来分析基本来自96年Raimund Seidel的那篇Randomized Search Trees。或者算法导论红黑树那章最后一道作业题。
 定理3：给定finger下，插入删除复杂度为$O(1)$。
 证：定义点v的left spine为从v开始只走左边的最长路径，right spine为从v开始只走右边的最长路径。
-对于待删除的点x，定义$SL(x)$为x的左孩子的right spine，$SR(x)$为x的右孩子的left spine。虽然很别扭，但是这个定义很符合单旋的性质：若x左旋，即x变成左孩子，x的右孩子的左子树变为x的右子树，则$SL(x)$不变，$SR(x)-1$。若右旋，即x变为右孩子，x的左孩子的右子树变为x的左子树，则$SL(x)-1$，$SR(x)$不变，所以每次旋转$SL(x)+SR(L)$减少一。左、右两个字我已经不认识了。
-注意到$SL(x)$显然是$x$到$x-1$的路径（这里所有的$x$都是指A数组中第$x$个元素），若$x-1$不在$x$的子树中，则$x$没有左孩子了，否则$x-1$一定在right spine的终点。所以期望意义下$SL(x)$为A[1&amp;hellip;x-1]中所有$x-1$的祖先减去$x$的祖先，即$SL(x)=\sum_{i=1}^{x-1}\frac{1}{(x-i+1)(x-i)}=1-\frac{1}{x}$。同理$SR(x)=1-\frac{1}{n+1-x}$。
-也就是说给定finger的情况下，$O(1)$时间可以删除它，由于插入为删除的逆过程，给定finger时也是$O(1)$时间插入。Q.E.D.
-定理4：接下来证明$x$到$y$的路径长度期望是$O(\log d)$。</description>
+对于待删除的点x，定义$SL(x)$为x的左孩子的right spine，$SR(x)$为x的右孩子的left spine。虽然很别扭，但是这个定义很符合单旋的性质：若x左旋，即x变成左孩子，x的右孩子的左子树变为x的右子树，则$SL(x)$不变，$SR(x)-1$。若右旋，即x变为右孩子，x的左孩子的右子树变为x的左子树，则$SL(x)-1$，$SR(x)$不变，所以每次旋转$SL(x)+SR(L)$减少一。左、右两个字我已经不认识了。</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>cartershi.github.io/about/</link>
+      <link>https://cartershi.github.io/about/</link>
       <pubDate>Sat, 22 Jun 2019 15:34:51 +0800</pubDate>
       
-      <guid>cartershi.github.io/about/</guid>
+      <guid>https://cartershi.github.io/about/</guid>
       <description>研究笔记
 邮箱：wangyisyx@163.com</description>
     </item>

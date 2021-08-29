@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.84.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A Sketch-Based Distance Oracle for Web-Scale Graphs &middot; syx的日志</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://cartershi.github.io/favicon.png">
+
+  
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+</head>
+
+  <body class="theme-base-08 ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://cartershi.github.io"><h1>syx的日志</h1></a>
+      <p class="lead">
+       洗澡王 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://cartershi.github.io">Home</a> </li>
+        <li><a href="https://cartershi.github.io/post/"> Posts </a></li><li><a href="https://cartershi.github.io/about/"> About </a></li><li><a href="https://cartershi.github.io/tags/"> Tags </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2021. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>A Sketch-Based Distance Oracle for Web-Scale Graphs</h1>
+  <time datetime=2021-05-30T16:22:10&#43;0800 class="post-date">Sun, May 30, 2021</time>
+  <p>本文发表于WSDM10，处理近似最短路径，结果还不错。</p>
+<h1 id="算法">算法</h1>
+<p><strong>离线计算</strong>：sample $1,2,4,\cdots,2^{\lfloor logn\rfloor}$个点的点集$S_0,S_1,\cdots$，保留每个点到这$\lfloor logn\rfloor$个点集的最近点，称为sketch。重复这个过程k次，将k个sketch融合。</p>
+<p><strong>在线计算</strong>：跟hub label一样处理。</p>
+<h1 id="近似比">近似比</h1>
+<p>考虑点ab的最短距离d，定义$A_r$为距离点a不超过$rd$的点集。注意$\frac{|A_r \cap B_r|}{|A_r \cup B_r|}$有关键的性质：$|A_r \cup B_r|\le|A_{r+1} \cap B_{r+1}|$，则若$\frac{|A_r \cap B_r|}{|A_r \cup B_r|}&lt;1/2$恒成立，则$2|A_r \cap B_r|\le|A_{r+1} \cap B_{r+1}|$，所以成立的r不超过$\log n$。</p>
+<p>那么对于一个不成立的r，考虑以$\frac{1}{|A_r \cup B_r|}$的概率sample点的情况，则有$\frac{1}{e}$的概率使得恰好有一个点在$A_r \cup B_r$中，又有1/2的概率在$A_r \cap B_r$中，即有常数的概率使得sample出来一个点是某个$S_i$中（这就是S集合指数递增的效果）到ab都最近且在$A_r \cap B_r$中。</p>
+<p>进行k次sample使得这件事高概率发生。</p>
+<p>$\Box$</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

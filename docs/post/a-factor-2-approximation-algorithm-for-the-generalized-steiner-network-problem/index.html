@@ -1,62 +1,57 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
 <head>
-  <link href="//gmpg.org/xfn/11" rel="profile">
+  <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.84.2" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>A FACTOR 2 APPROXIMATION ALGORITHM FOR THE GENERALIZED STEINER NETWORK PROBLEM &middot; syx的日志</title>
+  <meta name="description" content="" />
 
   
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/hyde.css">  
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
-  <script type="text/javascript"
-        async
-        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[\[','\]\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
 
-MathJax.Hub.Queue(function() {
-    
-    
-    
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://cartershi.github.io/favicon.png">
+
+  
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
 </script>
-
-  
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="cartershi.github.io/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="cartershi.github.io/cai.jpg">
-
-  
-  
-  
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
 </head>
 
   <body class="theme-base-08 ">
   <aside class="sidebar">
-  <div class="container">
+  <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="cartershi.github.io/"><h1>syx的日志</h1></a>
+      <a href="https://cartershi.github.io"><h1>syx的日志</h1></a>
       <p class="lead">
        洗澡王 
       </p>
@@ -64,12 +59,12 @@ MathJax.Hub.Queue(function() {
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="cartershi.github.io/">Home</a> </li>
-        <li><a href="cartershi.github.io/post/"> Posts </a></li><li><a href="cartershi.github.io/about/"> About </a></li><li><a href="cartershi.github.io/tags/"> Tags </a></li>
+        <li><a href="https://cartershi.github.io">Home</a> </li>
+        <li><a href="https://cartershi.github.io/post/"> Posts </a></li><li><a href="https://cartershi.github.io/about/"> About </a></li><li><a href="https://cartershi.github.io/tags/"> Tags </a></li>
       </ul>
     </nav>
 
-    <p>&copy; 2020. All rights reserved. </p>
+    <p>&copy; 2021. All rights reserved. </p>
   </div>
 </aside>
 
@@ -77,63 +72,45 @@ MathJax.Hub.Queue(function() {
     <div class="post">
   <h1>A FACTOR 2 APPROXIMATION ALGORITHM FOR THE GENERALIZED STEINER NETWORK PROBLEM</h1>
   <time datetime=2019-07-22T16:45:33&#43;0800 class="post-date">Mon, Jul 22, 2019</time>
-  
-
-<p>作者：Kamal Jain</p>
-
+  <p>作者：Kamal Jain</p>
 <h2 id="introduction">Introduction</h2>
-
 <p>本文的目标是找到一个子图使得给定目标之间的割满足条件。</p>
-
-<p>f is weakly supermodular, i.e., it satisfies:
-1. f(V)=0
-2. For every A,B⊆V , at least one of the following holds
-   1. $f(A)+f(B)\le f(A-B)+f(B-A)$
-   2. $f(A)+f(B)\le f(A\cap B)+f(A\cup B)$</p>
-
+<p>f is weakly supermodular, i.e., it satisfies:</p>
+<ol>
+<li>f(V)=0</li>
+<li>For every A,B⊆V , at least one of the following holds
+<ol>
+<li>$f(A)+f(B)\le f(A-B)+f(B-A)$</li>
+<li>$f(A)+f(B)\le f(A\cap B)+f(A\cup B)$</li>
+</ol>
+</li>
+</ol>
 <h2 id="preliminaries">Preliminaries</h2>
-
 <p><strong>Definition 2.1</strong> function f : $2^V \rightarrow Z_+$is proper if f(V) = 0 and the following two conditions hold</p>
-
 <ol>
 <li>For every subset S of V , f(S)=f(V−S).</li>
 <li>For all disjoint subsets A and B of V , f(A∪B)≤max{f(A),f(B)}</li>
 </ol>
-
 <p>可证明proper函数是weakly supermodular的。</p>
-
 <p><strong>Definition 2.3</strong> A function f :  $2^V \rightarrow Z_+$is submodular if f(V) = 0 and for every two sets A,B⊆V , the following two conditions hold</p>
-
 <ol>
 <li>$f(A)+f(B)\ge f(A-B)+f(B-A)$</li>
 <li>$f(A)+f(B)\ge f(A\cap B)+f(A\cup B)$</li>
 </ol>
-
 <p>这里的submodular显然是与supermodular相反的，wearkly就是这两个条件只需要满足一个。</p>
-
 <p>可证明$|\delta_B(.)|$是sunmodular。</p>
-
 <p><strong>Theorem 2.5</strong> x为G的子图，f : $2^V \rightarrow Z_+$是weakly supermodular function，则$f(S)-\delta_x(S)$是weakly supermodular function。用上面的结论即可。</p>
-
 <h2 id="a-factor-of-2-approximation-algorithm">A factor of 2 approximation algorithm</h2>
-
 <p>在LP解出的所有$\ge\frac{1}{2}$的所有边形成的子图x中求$\delta_x(S)$，则由定理2.5，在去掉s后图中进行LP，限制1依然是weakly supermodular，所以形式完全一样，这样可以递归处理这个问题。于是由于原问题的最优解去除所有$\ge\frac{1}{2}$的所有边的贡献后的结果必然比子问题的最优解大，所以很自然可以推出定理3.2。这样就能得到一个2近似的算法， Iterative Rounding。</p>
-
-<h2 id="proof-of-theorem-3-1">Proof of Theorem 3.1</h2>
-
+<h2 id="proof-of-theorem-31">Proof of Theorem 3.1</h2>
 <p>首先可以找到一个maximal laminar family，L，它span tight set，并且大小为边数m，由于tight set 的span维度是m，则可以找到线性独立的L（常规做法，不介绍了）。</p>
-
 <p>接下来是一个counting argument：将每条边上的token分配给L的集合。</p>
-
 <p>Rule 1: If e = (u,v),e gives xe tokens to the smallest set containing u and xe to the smallest set
 containing v.
 Rule 2: e gives 1−2xe tokens to the smallest set containing both u,v. If no set contains both u,v
 tokens are unused.</p>
-
 <p>这样可以计算每个集合收到的token数，这样的token数恰好是正整数，即所有集合token和至少为m，但是极大集合里穿出的边不可能被包含，所以有些边的rule2里token未被赋予，所有总分配的token小于m，矛盾。</p>
-
 <h2 id="implementing-the-algorithm">Implementing the algorithm</h2>
-
 <p>谜一样，有空再看<del>坑</del></p>
 
 </div>
@@ -141,6 +118,8 @@ tokens are unused.</p>
 
     </main>
 
+    
+      
     
   </body>
 </html>

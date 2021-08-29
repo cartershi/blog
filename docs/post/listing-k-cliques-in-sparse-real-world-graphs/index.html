@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.84.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Listing k-cliques in Sparse Real-World Graphs &middot; syx的日志</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://cartershi.github.io/favicon.png">
+
+  
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+</head>
+
+  <body class="theme-base-08 ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://cartershi.github.io"><h1>syx的日志</h1></a>
+      <p class="lead">
+       洗澡王 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://cartershi.github.io">Home</a> </li>
+        <li><a href="https://cartershi.github.io/post/"> Posts </a></li><li><a href="https://cartershi.github.io/about/"> About </a></li><li><a href="https://cartershi.github.io/tags/"> Tags </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2021. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Listing k-cliques in Sparse Real-World Graphs</h1>
+  <time datetime=2020-10-27T15:24:56&#43;0800 class="post-date">Tue, Oct 27, 2020</time>
+  <p>本文列举真实稀疏图谱中的所有k-clique。这个问题比较常用，比如k-clique最密子图常将其作为一个subroutine。</p>
+<h2 id="definitions-and-notation">DEFINITIONS AND NOTATION</h2>
+<p><strong>arboricity</strong>定义为将图中的边分到树，需要的最小的树个数。</p>
+<p><strong>core value</strong>定义为最大整数c，使得G中有个子图，它每个点的度都不少于c。 图的<strong>core value</strong>可以不断删除度数最小的点得到。<strong>core ordering</strong>定义为这个过程中的点序。</p>
+<p>定义有向图$\vec{G}$induced by the ordering$\eta$为$\vec{G}$中边$v\rightarrow u$的方向为$\eta(v)&lt;\eta(u)$。这张图最大出度显然是core value，反证一下即可。</p>
+<p>core ordering的优势在于出度比较小。</p>
+<h2 id="algorithms">ALGORITHMS</h2>
+<h3 id="algorithm-of-chiba-and-nishizeki">Algorithm of Chiba and Nishizeki</h3>
+<p>按照度非递增顺序处理点，每次处理包含这个点的clique。递归处理它的邻居的导出子图中的k-1 clique。</p>
+<p>这个算法的优势在于稀疏图上跑的很快。时间复杂度就算了。</p>
+<p>问题在于</p>
+<ol>
+<li>并行</li>
+<li>度非递增顺序是否必要</li>
+<li>减少操作数</li>
+</ol>
+<h3 id="the-kclist-algorithm">The kClist Algorithm</h3>
+<p>算法稍微改了一下，$\vec{G}$induced by the ordering$\eta$作为输出图，不再对点排序，而是直接进行递归处理。</p>
+<p>这里给定了全序关系，</p>
+<p>高效实现，用标签标记每个点的版本号，版本号为$l-1$的节点将同样版本号的邻居排在邻接链表的前面。</p>
+<h3 id="efficient-parallel-algorithm">Efficient Parallel Algorithm</h3>
+<p>并行版本的做法是每次考虑一条边，将这两个点在一起作为clique的起点。这对并行，因为每个线程分配的任务数比每个点作为起点更均匀。</p>
+<h2 id="算法分析">算法分析</h2>
+<p>比较易懂的数学归纳法，略过。</p>
+<p>结论是Theorem 5.7，一个稍微比Chiba的bound稍微好一点的结果</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

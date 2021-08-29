@@ -1,252 +1,213 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</loc>
+    <loc>https://cartershi.github.io/post/a-sketch-based-distance-oracle-for-web-scale-graphs/</loc>
+    <lastmod>2021-05-30T16:22:10+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/</loc>
+    <lastmod>2021-05-30T16:22:10+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/</loc>
+    <lastmod>2021-05-30T16:22:10+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/local-lemma/</loc>
+    <lastmod>2021-04-22T16:06:32+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/</loc>
+    <lastmod>2021-04-22T16:06:32+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/tpm_chapter5/</loc>
+    <lastmod>2021-04-22T16:06:32+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/gele/</loc>
+    <lastmod>2021-03-30T20:24:27+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/tpm_chapter4/</loc>
+    <lastmod>2021-03-30T20:24:27+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/tpm_chapter3/</loc>
+    <lastmod>2021-03-29T20:59:39+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/tpm/</loc>
+    <lastmod>2021-01-03T21:24:15+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/tpm_chapter2/</loc>
+    <lastmod>2021-01-03T21:24:15+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/cohesive/</loc>
+    <lastmod>2020-12-27T18:50:17+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/influential-community-search-in-large-networks/</loc>
+    <lastmod>2020-12-27T18:50:17+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/efficiently-computing-k-edge-connected-components-via-graph-decomposition/</loc>
+    <lastmod>2020-12-27T17:06:33+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/tpm_chapter1/</loc>
+    <lastmod>2020-12-23T15:47:08+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/densest-subgraph/</loc>
+    <lastmod>2020-12-12T21:40:56+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/the-k-clique-densest-subgraph-problem/</loc>
+    <lastmod>2020-12-12T21:40:56+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/efficient-algorithms-for-densest-subgraph-discovery-on-large-directed-graphs/</loc>
+    <lastmod>2020-11-25T16:53:15+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/a-fast-and-provable-method-for-estimating-clique-counts-using-tur%C3%A1ns-theorem/</loc>
+    <lastmod>2020-11-20T16:38:14+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/chernoff-bound/</loc>
+    <lastmod>2020-11-20T16:38:14+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/clique-count/</loc>
+    <lastmod>2020-11-20T16:38:14+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/sample/</loc>
+    <lastmod>2020-11-20T16:38:14+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/main-memory-triangle-computations-for-very-large-sparse-power-law-graphs/</loc>
+    <lastmod>2020-11-08T22:43:00+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/power-law/</loc>
+    <lastmod>2020-11-08T22:43:00+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/efficient-algorithms-for-densest-subgraph-discovery/</loc>
+    <lastmod>2020-11-08T10:37:29+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/k-clique/</loc>
+    <lastmod>2020-10-27T15:24:56+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/listing-k-cliques-in-sparse-real-world-graphs/</loc>
+    <lastmod>2020-10-27T15:24:56+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/scalable-large-near-clique-detection-in-large-scale/</loc>
+    <lastmod>2020-10-07T16:27:23+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/post/approximation-algorithms-for-problems-combining-facility-location-and-network-design/</loc>
     <lastmod>2019-08-07T14:08:38+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2019-08-07T14:08:38+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/</loc>
-    <lastmod>2019-08-07T14:08:38+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/gele/</loc>
-    <lastmod>2019-08-07T14:08:38+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/</loc>
-    <lastmod>2019-08-07T14:08:38+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2019-08-07T14:08:38+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/on-the-intercluster-distance-of-a-tree-metric/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/on-the-intercluster-distance-of-a-tree-metric/</loc>
     <lastmod>2019-08-06T20:13:04+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/a-polynomial-time-approximation-scheme-for-minimum-routing-cost-spanning-trees/</loc>
     <lastmod>2019-07-26T21:13:20+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/approximation-algorithms-for-the-shortest-total-path-length-spanning-tree-problem/</loc>
     <lastmod>2019-07-25T14:51:38+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/haam_chapter59/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/approximation-algorithm/</loc>
     <lastmod>2019-07-24T14:53:16+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/approximation-algorithm/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/haam_chapter59/</loc>
     <lastmod>2019-07-24T14:53:16+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/a-factor-2-approximation-algorithm-for-the-generalized-steiner-network-problem/</loc>
     <lastmod>2019-07-22T16:45:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/an-improved-approximation-algorithm-for-the-0-extension-problem/</loc>
     <lastmod>2019-07-21T14:24:25+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/approximation-algorithms-for-geometric-median-problems/</loc>
     <lastmod>2019-07-20T16:32:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/haam_chapter7/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/haam_chapter7/</loc>
     <lastmod>2019-07-19T21:09:38+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/haam_chapter6/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/haam_chapter6/</loc>
     <lastmod>2019-07-15T20:11:12+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/haam_chapter4/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/haam_chapter4/</loc>
     <lastmod>2019-07-11T11:37:54+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/a-tight-bound-on-approximating-arbitrary-metrics-by-tree-metrics/</loc>
     <lastmod>2019-07-09T20:57:35+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/a-greedy-approximation-algorithm-for-the-group-steiner-problem/</loc>
     <lastmod>2019-07-08T09:39:22+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/haam_chapter5/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/haam_chapter5/</loc>
     <lastmod>2019-07-07T12:13:42+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E6%89%8B%E5%86%8C/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95%E6%89%8B%E5%86%8C/</loc>
     <lastmod>2019-07-07T12:08:25+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/hdsa_chapter20/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/hdsa_chapter20/</loc>
     <lastmod>2019-07-03T13:24:42+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/data-structure/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/data-structure/</loc>
     <lastmod>2019-07-03T13:24:42+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/octree/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/octree/</loc>
     <lastmod>2019-07-03T13:24:42+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/quadtree/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/quadtree/</loc>
     <lastmod>2019-07-03T13:24:42+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/hdsa_chapter19/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/hdsa_chapter19/</loc>
     <lastmod>2019-07-02T19:10:04+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/interval-tree/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/interval-tree/</loc>
     <lastmod>2019-07-02T19:10:04+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/priority-search-tree/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/priority-search-tree/</loc>
     <lastmod>2019-07-02T19:10:04+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/range-tree/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/range-tree/</loc>
     <lastmod>2019-07-02T19:10:04+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/segment-tree/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/segment-tree/</loc>
     <lastmod>2019-07-02T19:10:04+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/b-tree/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/b-tree/</loc>
     <lastmod>2019-06-24T22:21:33+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/b&#43;-tree/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/b&#43;-tree/</loc>
     <lastmod>2019-06-24T22:21:33+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/hdsa_chapter16/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/hdsa_chapter16/</loc>
     <lastmod>2019-06-24T22:21:33+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/rbst/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/hdsa_chapter14/</loc>
     <lastmod>2019-06-24T12:06:55+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/hdsa_chapter14/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/rbst/</loc>
     <lastmod>2019-06-24T12:06:55+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/skip-list/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/skip-list/</loc>
     <lastmod>2019-06-24T12:06:55+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/hdsa_chapter13/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/hdsa_chapter13/</loc>
     <lastmod>2019-06-24T00:15:52+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/lct/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/lct/</loc>
     <lastmod>2019-06-24T00:15:52+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/splay/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/splay/</loc>
     <lastmod>2019-06-24T00:15:52+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/working-set/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/working-set/</loc>
     <lastmod>2019-06-24T00:15:52+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/post/hdsa_chapter12/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/post/hdsa_chapter12/</loc>
     <lastmod>2019-06-22T19:23:11+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/finger-search/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/finger-search/</loc>
     <lastmod>2019-06-22T19:23:11+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/tags/treap/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/tags/treap/</loc>
     <lastmod>2019-06-22T19:23:11+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>cartershi.github.io/about/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/about/</loc>
     <lastmod>2019-06-22T15:34:51+08:00</lastmod>
+  </url><url>
+    <loc>https://cartershi.github.io/categories/</loc>
+  </url><url>
+    <loc>https://cartershi.github.io/series/</loc>
   </url>
-  
-  <url>
-    <loc>cartershi.github.io/topics/</loc>
-    <priority>0</priority>
-  </url>
-  
 </urlset>

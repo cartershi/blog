@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.84.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Efficiently computing k-edge connected components via graph decomposition &middot; syx的日志</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://cartershi.github.io/favicon.png">
+
+  
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+</head>
+
+  <body class="theme-base-08 ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://cartershi.github.io"><h1>syx的日志</h1></a>
+      <p class="lead">
+       洗澡王 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://cartershi.github.io">Home</a> </li>
+        <li><a href="https://cartershi.github.io/post/"> Posts </a></li><li><a href="https://cartershi.github.io/about/"> About </a></li><li><a href="https://cartershi.github.io/tags/"> Tags </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2021. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Efficiently computing k-edge connected components via graph decomposition</h1>
+  <time datetime=2020-12-27T17:06:33&#43;0800 class="post-date">Sun, Dec 27, 2020</time>
+  <p>本文处理k联通分支算法。</p>
+<p>论文比较简单，稍微写写</p>
+<h1 id="算法">算法</h1>
+<p>改造经典的stoer-wagner算法，在一轮mas后处理最后的两个点s与t，若它们是k联通，则合并，否则删边。</p>
+<h1 id="优化">优化</h1>
+<p>主要有4个优化</p>
+<h2 id="斐波那契堆">斐波那契堆</h2>
+<p>mas需要用斐波那契堆，这里是无权图，所以直接每个权值开一个链表数组，用po记录最大权值，extract-max时探查最大值，update时顺序更新po。时间复杂度考虑最大值变化的次数即可。</p>
+<h2 id="早期合并">早期合并</h2>
+<p>注意到mas过程中找到的所有不小于k必然是超越的k联通，所以直接缩点。</p>
+<h2 id="早期分离">早期分离</h2>
+<p>mas列表中倒序的连续小于k可直接分裂</p>
+<h2 id="提前删点">提前删点</h2>
+<p>度不到k的点可直接删除</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>

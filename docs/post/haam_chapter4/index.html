@@ -1,62 +1,57 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
 <head>
-  <link href="//gmpg.org/xfn/11" rel="profile">
+  <link href="https://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.84.2" />
 
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>HAAM_chapter4 &middot; syx的日志</title>
+  <meta name="description" content="" />
 
   
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/print.css" media="print">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/poole.css">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/syntax.css">
-  <link type="text/css" rel="stylesheet" href="cartershi.github.io/css/hyde.css">  
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/hyde.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
 
-  <script type="text/javascript"
-        async
-        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [['$','$'], ['\\(','\\)']],
-    displayMath: [['$$','$$'], ['\[\[','\]\]']],
-    processEscapes: true,
-    processEnvironments: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-    TeX: { equationNumbers: { autoNumber: "AMS" },
-         extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
 
-MathJax.Hub.Queue(function() {
-    
-    
-    
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-});
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://cartershi.github.io/favicon.png">
+
+  
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
 </script>
-
-  
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="cartershi.github.io/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="cartershi.github.io/cai.jpg">
-
-  
-  
-  
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
 </head>
 
   <body class="theme-base-08 ">
   <aside class="sidebar">
-  <div class="container">
+  <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <a href="cartershi.github.io/"><h1>syx的日志</h1></a>
+      <a href="https://cartershi.github.io"><h1>syx的日志</h1></a>
       <p class="lead">
        洗澡王 
       </p>
@@ -64,12 +59,12 @@ MathJax.Hub.Queue(function() {
 
     <nav>
       <ul class="sidebar-nav">
-        <li><a href="cartershi.github.io/">Home</a> </li>
-        <li><a href="cartershi.github.io/post/"> Posts </a></li><li><a href="cartershi.github.io/about/"> About </a></li><li><a href="cartershi.github.io/tags/"> Tags </a></li>
+        <li><a href="https://cartershi.github.io">Home</a> </li>
+        <li><a href="https://cartershi.github.io/post/"> Posts </a></li><li><a href="https://cartershi.github.io/about/"> About </a></li><li><a href="https://cartershi.github.io/tags/"> Tags </a></li>
       </ul>
     </nav>
 
-    <p>&copy; 2020. All rights reserved. </p>
+    <p>&copy; 2021. All rights reserved. </p>
   </div>
 </aside>
 
@@ -78,27 +73,16 @@ MathJax.Hub.Queue(function() {
   <h1>HAAM_chapter4</h1>
   <time datetime=2019-07-11T11:37:54&#43;0800 class="post-date">Thu, Jul 11, 2019</time>
   <p>Greedy Methods</p>
-
 <p>贪心方法大全</p>
-
 <p>Set Cover：常用分析，charge scheme。</p>
-
 <p>Shortest Superstring Problem：包含所有字符串的超串，这个问题可以常数近似。</p>
-
 <p>Steiner Trees：边权版不提了，点权版每次贪心的挑选一个spider，直至全覆盖。</p>
-
 <p>K-Centers：找k个中心，使得每个点到中心的最短距离都小。每次挑选一个距离当前中心最远的点加入中心。证明思路就是OPT的k个点的最优半径必然覆盖所有点，而贪心中第K+1次挑选的距离就是贪心的答案，这K+1个点必然有两个比OPT中某个点覆盖，这两点的距离两次放缩得不小于贪心的答案，再由三角不等式。</p>
-
 <p>Connected Dominating Sets：</p>
-
 <p>Scheduling：对于一种特殊的情况：一台机器且所有工作价值相同，一个贪心方法是挑选最早完成的工作。</p>
-
 <p>Minimum-Degree Spanning Trees：在度数不超过d的情况下的最小生成树，这个问题在度的限制不放宽的情况下不可近似，但在度$O(\log n)$近似下可以得到$O(\log n)$的树。算法是不断用匹配选择度不超过d的森林拼接成树。</p>
-
 <p>Maximum-Weight b-Matchings：最大权匹配，但每个点可被用b次。多项式可解但是可极快近似，对边排序，然后不断的加边。</p>
-
 <p>Primal-Dual Methods：点覆盖著名应用。</p>
-
 <p>Greedy Algorithms via the Probabilistic Method：组合数学利器，maxcut著名应用，独立集比较著名，接下来gele</p>
 
 </div>
@@ -106,6 +90,8 @@ MathJax.Hub.Queue(function() {
 
     </main>
 
+    
+      
     
   </body>
 </html>

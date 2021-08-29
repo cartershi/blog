@@ -1,32 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>B&#43; tree on syx的日志</title>
-    <link>cartershi.github.io/tags/b&#43;-tree/</link>
+    <link>https://cartershi.github.io/tags/b&#43;-tree/</link>
     <description>Recent content in B&#43; tree on syx的日志</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Jun 2019 22:21:33 +0800</lastBuildDate>
-    
-	<atom:link href="cartershi.github.io/tags/b+-tree/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 24 Jun 2019 22:21:33 +0800</lastBuildDate><atom:link href="https://cartershi.github.io/tags/b+-tree/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chapter16</title>
-      <link>cartershi.github.io/post/hdsa_chapter16/</link>
+      <link>https://cartershi.github.io/post/hdsa_chapter16/</link>
       <pubDate>Mon, 24 Jun 2019 22:21:33 +0800</pubDate>
       
-      <guid>cartershi.github.io/post/hdsa_chapter16/</guid>
+      <guid>https://cartershi.github.io/post/hdsa_chapter16/</guid>
       <description>B Trees B树是一种平衡树，每个节点存放一个磁盘block的内容，有多个孩子，所以是多叉树。它的要求是每个节点至少半满，而B*树要求每个节点至少2/3满。B树的思路导向了SOTA的spatial index结构：R树。
 disk-based环境主要考察的是读写磁盘block的次数。尽管真实系统中有内存作为磁盘的buffer，但是在通常的分析中，这并不在研究的范围中。
 B Tree B树的目的是在disk-based的环境下，给定一组key-value的object，进行高效的查询和更新（插入、删除）。这章依然假定不会有重复的key。B树的每个节点x有一个x.num记录x中保存的object数，第i个object用x.key[i],x.value[i]表示；叶子节点在同一层；非叶子节点x还保存x.num+1个孩子节点的地址，第i个子树是插在(x.key[i-1],x.key[i])之间的元素；非根节点是至少半满的，即若非叶子节点能存2B个孩子，则它至少存B个孩子；根节点至少存两个孩子。比如12章里的linked (2,4) Tree，不加link就是B树。下图是一个B=2的树。
+![fig16-1](/pic/data structure/16-1.jpg)
 查询：只需要扫面x.key数组找到待查询元素或者递归查询它所在的子树即可。
 插入：设插入(k,v)，若根x满，这时有x.num=2B-1，取x.key的中间点作为新的根，把剩下的key各分配到新建的左孩子和右孩子，则它们都有B-1个key，即有B个孩子，所以依然是B树。这样就可以保证当前节点不满，递归调用notFull函数：如果是叶子，由于已知它不满，则可以插入，如果不是叶子，那么可以通过key数组找到包含它的一个子树，若子节点已满，将第B个key挪到当前节点（由于已知它不满），右边B-1个key挪到新建的节点，原理和处理根满类似，这样可以进入对应的不满的子节点，递归notFull。
 删除：情况非常的复杂，需要在查询的过程中动态调整：
 对于下面来说，可以保证只要不是根，当前节点就是非半满的。
 1.若是叶子，直接删除。
 2.非叶子且不包含k，若对应的节点半满，若它的邻居不半满，则进行类似rotate的操作，若它的邻居半满，则将合并。这步保证下一个孩子必然非半满。另外若当前节点是根，且根只有两个孩子，则深度减1。
-3.非叶子且包含k，若这个key的左孩子或右孩子非半满，将k换成k‘并递归删除k’（k‘是最接近k的可删值，不妨设左孩子非半满，保证了下一步孩子非半满，则k’必然是从左孩子开始一直往右节点走的叶子的最右的key，所以不需要提前知道k&amp;rsquo;，显然删除过程只会发生1,2两种情况），否则两个孩子都半满，将k和左右孩子合并，在子树中继续删除k（若当前节点是根，且根只有两个孩子，则深度减1）。
+3.非叶子且包含k，若这个key的左孩子或右孩子非半满，将k换成k‘并递归删除k’（k‘是最接近k的可删值，不妨设左孩子非半满，保证了下一步孩子非半满，则k’必然是从左孩子开始一直往右节点走的叶子的最右的key，所以不需要提前知道k&#39;，显然删除过程只会发生1,2两种情况），否则两个孩子都半满，将k和左右孩子合并，在子树中继续删除k（若当前节点是根，且根只有两个孩子，则深度减1）。
 由于B是常数，所以以上过程在每个block上都是$O(1)$的操作，三个操作都最多访问$O(\log_B n)$个block。
 层数增加只会发生在根节点，这样所有的叶子层数都增加1，层数减少只会发生在根上，这样所有的叶子都减少1，所以所有叶子在同一层。因此插入删除都维护了B树的性质。
 B+ Tree B+树与B树主要不同在于只在叶子节点有object，而非叶子节点只存key，且所有的叶子节点都是用递增的双向链表连接。操作的维护比B树容易很多。这样会稍微违反BST的性质，但是可以保证只有右子树有与根相同的元素。

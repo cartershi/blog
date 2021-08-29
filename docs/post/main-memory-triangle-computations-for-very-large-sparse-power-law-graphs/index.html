@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <link href="https://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="Hugo 0.84.2" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Main-memory Triangle Computations for Very Large (Sparse (Power-Law)) Graphs &middot; syx的日志</title>
+  <meta name="description" content="" />
+
+  
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://cartershi.github.iocss/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://cartershi.github.io/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="https://cartershi.github.io/favicon.png">
+
+  
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+    },
+    displayMath: [
+      ["$$", "$$"],
+      ["\[\[", "\]\]"],
+    ],
+    svg: {
+      fontCache: "global",
+    },
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+</head>
+
+  <body class="theme-base-08 ">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://cartershi.github.io"><h1>syx的日志</h1></a>
+      <p class="lead">
+       洗澡王 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://cartershi.github.io">Home</a> </li>
+        <li><a href="https://cartershi.github.io/post/"> Posts </a></li><li><a href="https://cartershi.github.io/about/"> About </a></li><li><a href="https://cartershi.github.io/tags/"> Tags </a></li>
+      </ul>
+    </nav>
+
+    <p>&copy; 2021. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Main-memory Triangle Computations for Very Large (Sparse (Power-Law)) Graphs</h1>
+  <time datetime=2020-11-08T22:43:00&#43;0800 class="post-date">Sun, Nov 8, 2020</time>
+  <p>本文处理稀疏图上的三角形查找、计数、按点计数问题。</p>
+<h2 id="最快计数算法">最快计数算法</h2>
+<p>ayz-node-counting算法思路就是先计算有度小节点参与的所有三角形，把这些点剔除后剩下的部分进行矩阵乘法。</p>
+<p>Theorem 2的证明比较简单，不过要基于同时有邻接表和邻接矩阵。结论时复杂度为$O(m^{1.41})$，比著名的那个定向算法好一点。它的好处是即使最坏有$O(m^{1.5})$个三角形，算法也不需要$O(m^{1.5})$的时间。坏处在于最坏情况下需要处理n*n的矩阵。</p>
+<h2 id="时间最优列举算法">时间最优列举算法</h2>
+<p>这里由于需要列举，所以最好也只能$O(m^{1.5})$解决。</p>
+<ol start="2">
+<li>
+<p>vertex-listing算法，对于某个点，判断它的邻居是否相邻。</p>
+</li>
+<li>
+<p>edge-listing算法，对于某条边，查找他们的公共邻居。</p>
+</li>
+<li>
+<p>tree-listing算法，对于每个联通分支，判断剩余边是否能与覆盖树构成三角形。</p>
+</li>
+</ol>
+<p><strong>复杂度分析</strong>：考虑覆盖树最多多少个即可。</p>
+<ol start="5">
+<li>
+<p>ayz-listing算法先vertex-listing计算有度小节点参与的所有三角形，把这些点剔除后进行edge-listing。</p>
+</li>
+<li>
+<p>forward算法，acm里那个三角形计数算法。</p>
+</li>
+</ol>
+<p><strong>评注</strong>：本算法的主要优势在于只需要邻接表，空间复杂度低。</p>
+<ol start="7">
+<li>compact-forward算法，这个算法与forward算法的不同在于不再记录定向后的边，而是直接对已有的邻接表排序。</li>
+</ol>
+<h3 id="新算法">新算法</h3>
+<p>注意到vertex-listing算法需要复杂度为$O(d^2(v))$，所以对于度大的节点效果不佳。</p>
+<ol start="8">
+<li>new-vertex-listing算法，直接穷举每条边，$O(1)$判断它的端点是否都是v的邻居。复杂度为$O(m)$</li>
+<li>new-listing算法，大度点用new-vertex-listing，剩下的三角形用edge-listing。</li>
+</ol>
+<h2 id="power-law下的复杂度分析">power law下的复杂度分析</h2>
+<p>这里是本文的出发点。
+定义$p_k=k^{-\alpha+1}-(k+1)^{-\alpha+1}$为度数的分布</p>
+<h3 id="定理16">定理16</h3>
+<p>度数大于等于K的概率为$K^{-\alpha+1}$，则new-listing算法的复杂度为$O(nK^{-\alpha+1}m+mK)$，最小时$K=n^{\frac{1}{\alpha}}$。</p>
+<p>compact-forward算法的核心在于穷举的节点数，注意到这个值同时被当前节点的度以及比当前度更大的节点数限制住。这两个值恰好趋势相反，所以最大值在两个相等时达到，即$K=nK^{-\alpha+1}$，得$K=n^{\frac{1}{\alpha}}$。</p>
+
+</div>
+
+
+    </main>
+
+    
+      
+    
+  </body>
+</html>
